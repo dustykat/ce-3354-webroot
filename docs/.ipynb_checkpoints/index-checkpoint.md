@@ -28,4 +28,6 @@ During this course the student will
 - HEC-HMS (Download and install, or AWS Lightsail Instance)
 - Office Suite (MS Office 365 or LibreOffice)
 
+#### Builder Notes:
+- Set up SSH keys for GitHub
 
