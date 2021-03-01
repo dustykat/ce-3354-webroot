@@ -1,0 +1,90 @@
+site_name: CE 3354 Engineering Hydrology
+# navigation/site structure 
+nav:
+  - Home: index.md
+#  - About: about.md
+  - Syllabus: syllabus/syllabus.md
+  - Lessons & Workshops:
+      - Introduction:
+          - Lesson 0: untitled.md
+          - Workshop 0: untitled.md
+#          
+      - Watersheds :
+          - Lesson 1: untitled.md
+          - Workshop 1: untitled.md
+#  - Readings: readings.md
+  - Homework & Exams: 
+      - Exercise Set 1 :
+         - Deploy : untitled.md
+         - Solution : untitled.md
+      - Exercise Set 2 :
+         - Deploy : untitled.md
+         - Solution : untitled.md
+      - Exercise Set 3 :
+         - Deploy : untitled.md
+         - Solution : untitled.md
+      - Week 4 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 5 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 6 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 7 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 8 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 9 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 10 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 11 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 12 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 13 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 14 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md      
+      - Week 15 Topic:
+         - Deploy : untitled.md
+         - Solution : untitled.md
+      - Exam 1 :
+          - Exam 1 Deploy: untitled.md
+          - Exam 1 Solution: untitled.md
+      - Exam 2:
+          - Exam 2 Deploy: untitled.md
+          - Exam 2 Solution: untitled.md
+      - Exam 3:
+          - Exam 3 Deploy: untitled.md
+          - Exam 3 Solution: untitled.md
+
+# nesting as pulldown??
+
+# active theme (mkdocs/readthedocs are free, they work differently wrt code blocks)
+theme:
+    name: mkdocs
+    highlightjs: true
+    hljs_languages:
+        - python
+
+# extensions to enable nice typesets 
+markdown_extensions:
+  - extra
+  - tables
+  - mdx_math:
+      enable_dollar_delimiter: True
+  - fenced_code # easier than indenting
+extra_javascript:
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+  - mathjaxhelper.js  # this file needs to be in the docs directory for site build
