@@ -6,7 +6,7 @@ nav:
   - Syllabus: syllabus/syllabus.md
   - Lessons & Workshops:
       - Introduction:
-          - Lesson 0: untitled.md
+          - Lesson 0: ./lesson0/lesson0.md
           - Workshop 0: untitled.md
 #          
       - Watersheds :
