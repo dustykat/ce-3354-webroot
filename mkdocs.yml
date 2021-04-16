@@ -10,7 +10,11 @@ nav:
           - Workshop 0: untitled.md
 #          
       - Watersheds :
-          - Lesson 1: untitled.md
+          - Lesson 1: ./lesson1/lesson1.md
+          - Workshop 1: untitled.md
+#          
+      - Hydrologic Data :
+          - Lesson 2: ./lesson1/lesson2.md
           - Workshop 1: untitled.md
 #  - Readings: readings.md
   - Homework & Exams: 
