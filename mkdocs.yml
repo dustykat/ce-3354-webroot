@@ -4,12 +4,12 @@ nav:
   - Home: index.md
 #  - About: about.md
   - Syllabus: syllabus/syllabus.md
-  - Lessons & Workshops:
+  - Lessons & Exercises:
 ##########################################
       - 0 Introduction:
           - Lesson 0: ./lesson0/lesson0.md
-          - Workshop 0: untitled.md
-#          
+          - Exercise Set 0: ./lesson0/es0.md
+# Need to Link to Readings         
       - 1 Watersheds :
           - Lesson 1: ./lesson1/lesson1.md
           - Workshop 1: untitled.md
