@@ -12,7 +12,7 @@ nav:
 # Need to Link to Readings         
       - 1 Watersheds :
           - Lesson 1: ./lesson1/lesson1.md
-          - Workshop 1: untitled.md
+          - Exercise Set 1: ./lesson1/es1.md
 #          
       - 2 Hydrologic Data Modeling :
           - Lesson 2: ./lesson2/lesson2.md
