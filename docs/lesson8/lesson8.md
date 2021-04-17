@@ -1,0 +1,12 @@
+# Lesson 8. HEC-HMS Software
+- Purpose
+    - Background
+- Installing
+    - Personal Computer
+    - AWS Lightsail Instance
+- Example Models 
+    - a minimal model
+    - a precipitation gage
+    - evaporation processes
+    - infiltration processes (loss model)
+- Semester Project
