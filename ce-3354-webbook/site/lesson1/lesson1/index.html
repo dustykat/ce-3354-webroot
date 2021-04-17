@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Lesson 1 - CE 3354 Engineering Hydrology</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">CE 3354 Engineering Hydrology</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li >
+                                <a href="../../syllabus/syllabus/">Syllabus</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lessons & Exercises <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">0 Introduction</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson0/lesson0/">Lesson 0</a>
+</li>
+            
+<li >
+    <a href="../../lesson0/es0/">Exercise Set 0</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">1 Watersheds</a>
+    <ul class="dropdown-menu">
+            
+<li class="active">
+    <a href="./">Lesson 1</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">2 Hydrologic Data Modeling</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson2/lesson2/">Lesson 2</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">3 Design Project Workshop I; Watershed Delineation</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson3/lesson3/">Lesson 3</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">4 Streamflow Data Models</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson4/lesson4/">Lesson 4</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">5 Precipitation Data Models</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson5/lesson5/">Lesson 5</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">6 Hydrologic Process Modeling</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson6/lesson6/">Lesson 6</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">7 Process Models for Evaporation</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson7/lesson7/">Lesson 7</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">8 Design Project Workshop II; HEC-HMS Introduction</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson8/lesson8/">Lesson 8</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">9 Process Models for Infiltration</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson9/lesson9/">Lesson 9</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">10 Process Models for Storage</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson10/lesson10.md">Lesson 10</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">11 Unit Hydrographs</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson11/lesson11.md">Lesson 11</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">12 Synthetic Unit Hydrographs</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson12/lesson12.md">Lesson 12</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">13 Design Project Workshop II; HEC-HMS Pre-Development</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson13/lesson13.md">Lesson 13</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">14 Level-Pool Routing</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson14/lesson14.md">Lesson 14</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">15 Muskingum-Cunge Routing</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson15/lesson15.md">Lesson 15</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">16 Reservoir Storage</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson16/lesson16.md">Lesson 16</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">17 Reservoir Outlet Works</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson17/lesson17.md">Lesson 17</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">18 Design Project Workshop III; HEC-HMS Post-Development</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson18/lesson18.md">Lesson 18</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">19 Groundwater Hydrology - I</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson19/lesson19.md">Lesson 19</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">20 Groundwater Hydrology - II</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson20/lesson20.md">Lesson 20</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">21 Well Hydraulics - I</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson21/lesson21.md">Lesson 21</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">22 Well Hydraulics - II</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson22/lesson22.md">Lesson 22</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">23 Design Project Workshop IV; Project Presentation</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../lesson23/lesson23.md">Lesson 23</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Workshop 1</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Homework & Exams <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exercise Set 1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exercise Set 2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exercise Set 3</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 4 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 5 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 6 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 7 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 8 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 9 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 10 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 11 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 12 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 13 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 14 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Week 15 Topic</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exam 1</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Exam 1 Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Exam 1 Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exam 2</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Exam 2 Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Exam 2 Solution</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Exam 3</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../untitled/">Exam 3 Deploy</a>
+</li>
+            
+<li >
+    <a href="../../untitled/">Exam 3 Solution</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../../lesson0/es0/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../untitled/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#lesson-1-watersheds">Lesson 1 Watersheds</a></li>
+            <li><a href="#watershed-definitions">Watershed Definition(s)</a></li>
+            <li><a href="#water-budget-definition">Water Budget Definition</a></li>
+            <li><a href="#water-budget-example">Water Budget Example</a></li>
+        <li class="main "><a href="#watershed-delineation">Watershed Delineation</a></li>
+            <li><a href="#by-hand">By-hand</a></li>
+            <li><a href="#stream-stats-tool">Stream Stats Tool</a></li>
+        <li class="main "><a href="#watershed-metrics">Watershed Metrics</a></li>
+            <li><a href="#measuring-area">Measuring Area</a></li>
+            <li><a href="#measuring-lengths">Measuring Length(s)</a></li>
+            <li><a href="#measuring-slopes">Measuring Slope(s)</a></li>
+        <li class="main "><a href="#references">References</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="lesson-1-watersheds">Lesson 1 Watersheds</h1>
+<ul>
+<li>Water Budget Example</li>
+<li>Watershed Delineation</li>
+<li>By-hand </li>
+<li>Automated</li>
+<li>Watershed Metrics</li>
+<li>Drainage Area</li>
+<li>Main Channel Length</li>
+<li>Slope(s)</li>
+</ul>
+<h2 id="watershed-definitions">Watershed Definition(s)</h2>
+<p>Recall our definitions:</p>
+<ul>
+<li>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</li>
+<li>The area on the surface of the Earth that drains to a specific location</li>
+<li>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge </li>
+</ul>
+<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries. <br />
+It’s a big deal in urban areas.</p>
+<p>[insert some images]</p>
+<h2 id="water-budget-definition">Water Budget Definition</h2>
+<p>The water budget, or <strong>hydrologic balance</strong> is simply the expression of the conservation of mass in hydrologic terms for a hydrologic system.<br />
+Generally it is expressed as a rate (or volume) balance.
+The hydrologic equation is the fundamental tool in hydrology to describe amounts of water in storage in different compartments at different scales.  </p>
+<p>The equation expressed in “words” is</p>
+<p>Rate of inflow - Rate of outflow =  Rate of change of storage + Rate of internal mass generation.</p>
+<p>Symbolically it is exrepssed as:</p>
+<p>
+<script type="math/tex; mode=display"> \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}</script>
+</p>
+<p>where</p>
+<p>
+<script type="math/tex">I</script> is inflow volume, <script type="math/tex">O</script> is outflow volume, <script type="math/tex">S</script> is storage volume (i.e. within a watershed), and <script type="math/tex">G</script> is generated volume.
+<script type="math/tex">G</script> is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, <script type="math/tex">\dots</script>)</p>
+<h2 id="water-budget-example">Water Budget Example</h2>
+<p>Consider the following problem statement:</p>
+<p><img alt="" src="../BetswyCoedPrstate.png" /></p>
+<p>One way to answer the questions is to decompose the problem into a simpler construct, usually by sketching a diagram as shown below:</p>
+<p><img alt="" src="../BetswyCoedSketch.png" /></p>
+<p>Now we can simply assign the terms to the appropriate parts of the water balance equation and solve for unknown components such as:</p>
+<p><img alt="" src="../BetswyCoedSolve1.png" /></p>
+<p>For more utility we can use our Computational Thinking (ENGR-1330) skills and write a simple script to generalize the results and help with unit conversions</p>
+<pre><code class="python"># Water Budget Script - Example in WebBook
+P = 254 # millimeters of rainfall 
+ET = 85 # millimeters of evapotranspiration
+I = 20 # millimeters of infiltration
+DeltaS = 0 # millimeters of storage change
+
+R = P - ET - I + DeltaS
+
+print(&quot;Runoff = &quot;,round(R,3),' watershed millimeters')
+</code></pre>
+
+<pre><code>Runoff =  149  watershed millimeters
+</code></pre>
+<p>Now to convert to other units as requested, we simply apply conversions as:</p>
+<pre><code class="python">def mm2m(mm):
+    # convert mm into meters
+    mm2m = mm/1000.0 # mm should be a float
+    return(mm2m)
+
+def sqkm2sqm(sqkm):
+    # convert square kilometers into square meters
+    sqkm2sqm = sqkm * 1.0e06 # sqkm should be a float
+    return(sqkm2sqm)
+
+def cum2liter(cum):
+    # convert cubic meters into liters
+    cum2liter = cum*1000.0 # cum should be a float
+    return(cum2liter)
+
+# now express result in useful units
+area = 65 # area in sq. kilometers
+
+WholeWatershedRunoff = mm2m(R)*sqkm2sqm(area)
+
+print(&quot;Runoff = &quot;,round(WholeWatershedRunoff,3),' cubic meters')
+
+print(&quot;Runoff = &quot;,round(cum2liter(WholeWatershedRunoff),3),' liters')
+</code></pre>
+
+<pre><code>Runoff =  9685000.0  cubic meters
+Runoff =  9685000000.0  liters
+</code></pre>
+<p>Now estimate largest population this hydrology could support</p>
+<pre><code class="python"># Population supported at 160 L/day
+litersPerDayPerPerson = 160
+litersPer2months = litersPerDayPerPerson*2*30
+# Assume all Runoff is Run through kidneys and colons
+maxPeople = cum2liter(WholeWatershedRunoff)/litersPer2months
+print(&quot;Maximum Population = &quot;,maxPeople,&quot; if rainfall is firm&quot;)
+</code></pre>
+
+<pre><code>Maximum Population =  1008854.1666666666  if rainfall is firm
+</code></pre>
+<hr />
+<h1 id="watershed-delineation">Watershed Delineation</h1>
+<h2 id="by-hand">By-hand</h2>
+<h2 id="stream-stats-tool">Stream Stats Tool</h2>
+<h1 id="watershed-metrics">Watershed Metrics</h1>
+<h2 id="measuring-area">Measuring Area</h2>
+<h2 id="measuring-lengths">Measuring Length(s)</h2>
+<h2 id="measuring-slopes">Measuring Slope(s)</h2>
+<h1 id="references">References</h1>
+<p>cite pages of textbook</p>
+<p>links to other readings </p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" defer></script>
+        <script src="../../mathjaxhelper.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
