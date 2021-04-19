@@ -1,5 +1,6 @@
 # Lesson 1 Hydrologic Cycle
 
+### Outline
 1. Water Budget Example:
 2. Hydrologic Cycle:
 
