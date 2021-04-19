@@ -1,13 +1,14 @@
-# Lesson 1 Watersheds
+# Lesson 1 Hydrologic Cycle
 
-- Water Budget Example
-- Watershed Delineation
-   - By-hand 
-   - Automated
-- Watershed Metrics
-   - Drainage Area
-   - Main Channel Length
-   - Slope(s)
+1. Water Budget Example
+2.  Hydrologic Cycle
+3. Watershed Delineation
+ - By-hand 
+ - Automated
+4. Watershed Metrics
+ - Drainage Area
+ - Main Channel Length
+ - Slope(s)
 
 ## Watershed Definition(s)
 
