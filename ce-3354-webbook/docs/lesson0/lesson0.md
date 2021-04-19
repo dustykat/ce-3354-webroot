@@ -8,19 +8,27 @@
 
 ## Introduction
 
-[static link to my About Me page on a webserver]
+[Link to an **About Me** page on a webserver](http://theodore-odroid.ttu.edu/documents/about-me/)
 
-[link to syllabus, also in navigation bar]
+[link to course syllabus, also in navigation bar above](https://3.137.111.182/ce-3354-webbook/syllabus/syllabus/)
 
 ## Course Resources
-
-- Tour of the webbook.
+- Software
+   - JupyterLab (This type of document)
+   - PeakFQ 7+
+   - HEC-HMS
+   - AWS Lightsail (cloud compute servers; an option to keep your local machine clean - requires Internet connection)
+- Tour of the webbook:
+   - Lessons
+   - Exercises
+   - Readings
 - Tour of Blackboard:
-   - Quizzes
-   - Homework
-   - Exams
-   - Report
+   - Lesson Links
+   - Exercise Upload Links
+   - Weekly Quiz
+   - Project Upload Link
 
+---
 # Fundamental Concepts
 
 ## What is hydrology?
@@ -61,6 +69,7 @@ Expressed as a simple system diagram it would be depicted in the figure below
 
 ![](system_diagram.png)
 
+---
 # Hydrologic Balance 
 
 ## What is a water budget?
@@ -122,8 +131,38 @@ Communication is by the two shaded paths on the figure.
 Loss from the surface system becomes gain to the ground system.
 Loss from the ground system becomes gain to the surface system.
 
+---
+---
 # References
 
-cite pages of textbook
+Hydrology and Hydrologic Systems
 
-links to other readings 
+1. [Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. **pp. 1-12** ](https://3.137.111.182/ce-3354-webbook/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf) 
+
+2. Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork.
+
+3. [Dooge, J.C.I. 1973. Linear Theory of Hydrologic Systems. ARS Technical Bulletin No. 1468.US Department of Agriculture, Washington, D.C. **pp. 1-40**](https://3.137.111.182/ce-3354-webbook/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf) 
+
+4. [Richard H. McCuen, Peggy A. Johnson, Robert M. Ragan, 2002. Highway Hydrology; Hydraulic  Design  Series  Number  2,  Second  Edition.  Federal  Highway  Administration,  National Highway Institute, 4600 North Fairfax Drive, Suite 800, Arlington, Virginia 22203. **pp. 1-1 to 1-9**](https://3.137.111.182/ce-3354-webbook/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf) 
+---
+
+Hydrology "Definitions"
+
+5. [Excerpts from various sources](https://3.137.111.182/ce-3354-webbook/3-Readings/HydrologyDefinitions/hydrology-define.pdf)
+
+6. [Wisler, C.O, and Brater, E.F. 1949. "Hydrology" John Wiley and Sons, New York **pp. 1-14**](https://3.137.111.182/ce-3354-webbook/3-Readings/OlderHydrologyDescription/reading-definition-hydrology.pdf) 
+---
+
+Water Budget
+
+7. [McCuen XXXX. Hydrologic Analysis and Design ... **pp. 2-12** ](https://3.137.111.182/ce-3354-webbook/3-Readings/McCuen-WaterBudget/mccuen-reading-water-budget.pdf)
+--- 
+
+Groundwater
+
+8. [Heath, R.C., 1983. Basic ground-waterhydrology: U.S. Geological Survey Water-SupplyPaper 2220, **pp. 1-5**](https://3.137.111.182/ce-3354-webbook/3-Readings/USGS-WSP2020-GroundwaterHydrology/usgs-wsp-2020.pdf) 
+
+9. [Viessman,W., Knapp, J.W., Lewis, G. L., and Harbaugh, T.E. 1977. "Groundwater Hydrology – Chapter 8" in *Introduction to Hydrology* 2ed. IEP Publishers, New York, **pp. 291-342**](https://3.137.111.182/ce-3354-webbook/3-Readings/Groundwater-Viessman/GroundwaterHydrology.pdf) 
+
+10. [Wisler, C.O, and Brater, E.F. 1949. "Hydrology" John Wiley and Sons, New York **pp. 198-272**](https://3.137.111.182/ce-3354-webbook/3-Readings/Groundwater-Wisler&Brater/Groundwater-Wisler.pdf) 
+
