@@ -1,31 +1,15 @@
 # Lesson 1 Hydrologic Cycle
 
 1. Water Budget Example
-
 2. Hydrologic Cycle
-
 3. Watershed Delineation
-    1. By-hand 
-    2. Automated
-   
+   1. By-hand 
+   2. Automated
 4. Watershed Metrics
+   1. Drainage Area
+   2. Main Channel Length
+   3. Slope(s)
 
-    1. Drainage Area
-    2. Main Channel Length
-    3. Slope(s)
-
-## Watershed Definition(s)
-
-Recall our definitions:
-
-- Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)
-- The area on the surface of the Earth that drains to a specific location
-- In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge 
-
-The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   
-It’s a big deal in urban areas.
-
-[insert some images]
 
 ## Water Budget Definition
 The water budget, or <strong>hydrologic balance</strong> is simply the expression of the conservation of mass in hydrologic terms for a hydrologic system.  
@@ -125,18 +109,30 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 
 
 ---
+# Watersheds
 
-# Watershed Delineation
+Recall our definitions:
 
-## By-hand
+- Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)
+- The area on the surface of the Earth that drains to a specific location
+- In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge 
 
-## Stream Stats Tool
+The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   
+It’s a big deal in urban areas.
 
-# Watershed Metrics
+[insert some images]
 
-## Measuring Area
-## Measuring Length(s) 
-## Measuring Slope(s)
+## Watershed Delineation
+
+### By-hand
+
+### Stream Stats Tool
+
+## Watershed Metrics
+
+### Measuring Area
+### Measuring Length(s) 
+### Estimating Slope(s)
 
 
 
