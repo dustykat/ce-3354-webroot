@@ -10,13 +10,13 @@ nav:
           - Lesson 0: ./lesson0/lesson0.md
           - Exercise Set 0: ./lesson0/es0.md
 # Need to Link to Readings         
-      - 1 Watersheds :
+      - 1 Hydrologic Cycle :
           - Lesson 1: ./lesson1/lesson1.md
           - Exercise Set 1: ./lesson1/es1.md
 #          
-      - 2 Hydrologic Data Modeling :
+      - 2 Watersheds :
           - Lesson 2: ./lesson2/lesson2.md
-          - Workshop 1: untitled.md
+          - Exercise Set 2: ./lesson2/es2.md
 #          
       - 3 Design Project Workshop I; Watershed Delineation :
           - Lesson 3: ./lesson3/lesson3.md
