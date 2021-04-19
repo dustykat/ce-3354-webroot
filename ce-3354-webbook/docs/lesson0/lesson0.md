@@ -2,8 +2,8 @@
 
 - Introduction
 - Course Resources
-  - Blackboard
-  - This WebBook
+ - Blackboard
+ - This WebBook
 - Surface and Groundwater Hydrology Concepts
 
 ## Introduction
@@ -14,19 +14,19 @@
 
 ## Course Resources
 - Software
-   - JupyterLab (This type of document)
-   - PeakFQ 7+
-   - HEC-HMS
-   - AWS Lightsail (cloud compute servers; an option to keep your local machine clean - requires Internet connection)
+ - JupyterLab (This type of document)
+ - PeakFQ 7+
+ - HEC-HMS
+ - AWS Lightsail (cloud compute servers; an option to keep your local machine clean - requires Internet connection)
 - Tour of the webbook:
-   - Lessons
-   - Exercises
-   - Readings
+ - Lessons
+ - Exercises
+ - Readings
 - Tour of Blackboard:
-   - Lesson Links
-   - Exercise Upload Links
-   - Weekly Quiz
-   - Project Upload Link
+ - Lesson Links
+ - Exercise Upload Links
+ - Weekly Quiz
+ - Project Upload Link
 
 ---
 # Fundamental Concepts
@@ -133,6 +133,7 @@ Loss from the ground system becomes gain to the surface system.
 
 ---
 ---
+
 # References
 
 Hydrology and Hydrologic Systems
@@ -144,6 +145,7 @@ Hydrology and Hydrologic Systems
 3. [Dooge, J.C.I. 1973. Linear Theory of Hydrologic Systems. ARS Technical Bulletin No. 1468.US Department of Agriculture, Washington, D.C. **pp. 1-40**](https://3.137.111.182/ce-3354-webbook/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf) 
 
 4. [Richard H. McCuen, Peggy A. Johnson, Robert M. Ragan, 2002. Highway Hydrology; Hydraulic  Design  Series  Number  2,  Second  Edition.  Federal  Highway  Administration,  National Highway Institute, 4600 North Fairfax Drive, Suite 800, Arlington, Virginia 22203. **pp. 1-1 to 1-9**](https://3.137.111.182/ce-3354-webbook/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf) 
+
 ---
 
 Hydrology "Definitions"
@@ -151,11 +153,13 @@ Hydrology "Definitions"
 5. [Excerpts from various sources](https://3.137.111.182/ce-3354-webbook/3-Readings/HydrologyDefinitions/hydrology-define.pdf)
 
 6. [Wisler, C.O, and Brater, E.F. 1949. "Hydrology" John Wiley and Sons, New York **pp. 1-14**](https://3.137.111.182/ce-3354-webbook/3-Readings/OlderHydrologyDescription/reading-definition-hydrology.pdf) 
+
 ---
 
 Water Budget
 
 7. [McCuen XXXX. Hydrologic Analysis and Design ... **pp. 2-12** ](https://3.137.111.182/ce-3354-webbook/3-Readings/McCuen-WaterBudget/mccuen-reading-water-budget.pdf)
+
 --- 
 
 Groundwater
@@ -166,3 +170,8 @@ Groundwater
 
 10. [Wisler, C.O, and Brater, E.F. 1949. "Hydrology" John Wiley and Sons, New York **pp. 198-272**](https://3.137.111.182/ce-3354-webbook/3-Readings/Groundwater-Wisler&Brater/Groundwater-Wisler.pdf) 
 
+
+
+```python
+
+```
