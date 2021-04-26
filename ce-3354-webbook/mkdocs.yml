@@ -20,15 +20,15 @@ nav:
 #          
       - 3 Design Project Workshop I; Watershed Delineation :
           - Lesson 3: ./lesson3/lesson3.md
-          - Workshop 1: untitled.md
+          - Exercise Set 3: ./lesson3/es3.md
 #############################################
-      - 4 Streamflow Data Models :
+      - 4 Precipitation Data Models :
           - Lesson 4: ./lesson4/lesson4.md
           - Workshop 1: untitled.md
 #
-      - 5 Precipitation Data Models :
+      - 5 Streamflow Data Models :
           - Lesson 5: ./lesson5/lesson5.md
-          - Workshop 1: untitled.md
+          - Exercise Set 5: ./lesson5/es5.md
 #
       - 6 Hydrologic Process Modeling:
           - Lesson 6: ./lesson6/lesson6.md
@@ -36,11 +36,11 @@ nav:
 #
       - 7 Process Models for Evaporation :
           - Lesson 7: ./lesson7/lesson7.md
-          - Workshop 1: untitled.md
+          - Exercise Set 7: ./lesson7/es7.md
 #
       - 8 Design Project Workshop II; HEC-HMS Introduction:
           - Lesson 8: ./lesson8/lesson8.md
-          - Workshop 1: untitled.md
+          - Exercise Set 8: ./lesson8/es8.md
 #############################################
       - 9 Process Models for Infiltration :
           - Lesson 9: ./lesson9/lesson9.md
@@ -60,7 +60,7 @@ nav:
 #
       - 13 Design Project Workshop II; HEC-HMS Pre-Development :
           - Lesson 13: ./lesson13/lesson13.md
-          - Workshop 1: untitled.md
+          - Exercise Set 13: ./lesson13/es13.md
 #############################################
       - 14 Level-Pool Routing  :
           - Lesson 14: ./lesson14/lesson14.md
@@ -80,7 +80,7 @@ nav:
 #
       - 18 Design Project Workshop III; HEC-HMS Post-Development :
           - Lesson 18: ./lesson18/lesson18.md
-          - Workshop 1: untitled.md          
+          - Exercise Set 18:: ./lesson18/es18.md          
 #############################################
       - 19 Groundwater Hydrology - I:
           - Lesson 19: ./lesson19/lesson19.md

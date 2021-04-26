@@ -1,10 +1,21 @@
-# Lesson 4: Streamflow
-- Measuring Streamflow
- - Stage-Discharge 
-- Probability Estimation Tools
- - Estimation using Regional Regression Equations
- - Flood Frequency Analysis (B17C)
+# Lesson 4: Precipitation 
 
+
+1. Precipitation Types
+
+    - Rainfall
+    - Snow/Sleet ...
+    
+2. Measuring Precipitation
+
+    - Point measurements
+    - Areal (Radar)
+
+3. Probability Estimation Modeling (Generic)
+
+4. Probability Estimation Tools (Design Storms)
+
+    - NOAA Atlas 14
 
 ```python
 
