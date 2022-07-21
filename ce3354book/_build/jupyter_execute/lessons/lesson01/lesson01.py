@@ -7,7 +7,7 @@
 # - Surface and Groundwater Hydrology Concepts
 
 # ## Course Resources
-# - [Syllabus]()
+# - [Syllabus](http://54.243.252.9/ce-3354-webroot/0-Syllabus/)
 # 
 # - Software 
 # 

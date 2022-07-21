@@ -4,6 +4,10 @@
 format: jb-book
 root: intro
 chapters:
-- file: lessons/lesson01/lesson01
-- file: markdown
-- file: notebooks
+- file: lessons/lesson01/lesson01 # introduction
+
+- file: lessons/lesson02/lesson02 # water budget
+
+- file: lessons/lesson03/lesson03 # watershed delineation
+#- file: markdown
+#- file: notebooks

@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hydrologic Cycle &#8212; My sample book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Watersheds" href="../lesson03/lesson03.html" />
+    <link rel="prev" title="Introduction" href="../lesson01/lesson01.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson01/lesson01.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Hydrologic Cycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson03/lesson03.html">
+   Watersheds
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/lesson02/lesson02.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson02/lesson02.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson02/lesson02.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Hydrologic Cycle
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#water-budget-definition">
+     Water Budget Definition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#water-budget-example">
+     Water Budget Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#watersheds">
+   Watersheds
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#watershed-delineation">
+     Watershed Delineation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#by-hand">
+       By-hand
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#stream-stats-tool">
+       Stream Stats Tool
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#watershed-metrics">
+     Watershed Metrics
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-area">
+       Measuring Area
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-length-s">
+       Measuring Length(s)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estimating-slope-s">
+       Estimating Slope(s)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="hydrologic-cycle">
+<h1>Hydrologic Cycle<a class="headerlink" href="#hydrologic-cycle" title="Permalink to this headline">¶</a></h1>
+<p>The water, or hydrologic, cycle describes the journey of water as water molecules make their way from the Earth’s surface to the atmosphere and back again, in some cases to below the surface. This gigantic system, powered by energy from the Sun, is a continuous exchange of moisture between the oceans, the atmosphere, and the land.
+A typical diagram depicting the hydrologic cycle is shown below.</p>
+<p><img alt="" src="../../_images/hydrologic_cycle1.png" /></p>
+<p>The driving force for the cycle is solar energy that provides the energy to vaporize liquid water that then rises into clouds, moves onshore, and rains (or snow, sleet, <span class="math notranslate nohighlight">\(\dots\)</span>.  and other forms of <strong>precipitation</strong>)
+A portion of the rain becomes runoff, another portion returns to the atmosphere as evaporation, another portion infiltrates into the ground and becomes groundwater.</p>
+<div class="section" id="water-budget-definition">
+<h2>Water Budget Definition<a class="headerlink" href="#water-budget-definition" title="Permalink to this headline">¶</a></h2>
+<p>The water budget, or <strong>hydrologic balance</strong> is simply the expression of the conservation of mass in hydrologic terms for a hydrologic system.<br />
+Generally it is expressed as a rate (or volume) balance.
+The hydrologic equation is the fundamental tool in hydrology to describe amounts of water in storage in different compartments at different scales.</p>
+<p>The equation expressed in “words” is</p>
+<p>Rate of inflow - Rate of outflow =  Rate of change of storage + Rate of internal mass generation.</p>
+<p>Symbolically it is exrepssed as:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(I\)</span> is inflow volume, <span class="math notranslate nohighlight">\(O\)</span> is outflow volume, <span class="math notranslate nohighlight">\(S\)</span> is storage volume (i.e. within a watershed), and <span class="math notranslate nohighlight">\(G\)</span> is generated volume.
+<span class="math notranslate nohighlight">\(G\)</span> is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, <span class="math notranslate nohighlight">\(\dots\)</span>)</p>
+</div>
+<div class="section" id="water-budget-example">
+<h2>Water Budget Example<a class="headerlink" href="#water-budget-example" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following problem statement:</p>
+<p><img alt="" src="../../_images/BetswyCoedPrstate.png" /></p>
+<p>One way to answer the questions is to decompose the problem into a simpler construct, usually by sketching a diagram as shown below:</p>
+<p><img alt="" src="../../_images/BetswyCoedSketch.png" /></p>
+<p>Now we can simply assign the terms to the appropriate parts of the water balance equation and solve for unknown components such as:</p>
+<p><img alt="" src="../../_images/BetswyCoedSolve1.png" /></p>
+<p>For more utility we can use our Computational Thinking (ENGR-1330) skills and write a simple script to generalize the results and help with unit conversions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Water Budget Script - Example in WebBook</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mi">254</span> <span class="c1"># millimeters of rainfall </span>
+<span class="n">ET</span> <span class="o">=</span> <span class="mi">85</span> <span class="c1"># millimeters of evapotranspiration</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># millimeters of infiltration</span>
+<span class="n">DeltaS</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># millimeters of storage change</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">P</span> <span class="o">-</span> <span class="n">ET</span> <span class="o">-</span> <span class="n">I</span> <span class="o">+</span> <span class="n">DeltaS</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runoff = &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39; watershed millimeters&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Runoff =  149  watershed millimeters
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now to convert to other units as requested, we simply apply conversions as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mm2m</span><span class="p">(</span><span class="n">mm</span><span class="p">):</span>
+    <span class="c1"># convert mm into meters</span>
+    <span class="n">mm2m</span> <span class="o">=</span> <span class="n">mm</span><span class="o">/</span><span class="mf">1000.0</span> <span class="c1"># mm should be a float</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">mm2m</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sqkm2sqm</span><span class="p">(</span><span class="n">sqkm</span><span class="p">):</span>
+    <span class="c1"># convert square kilometers into square meters</span>
+    <span class="n">sqkm2sqm</span> <span class="o">=</span> <span class="n">sqkm</span> <span class="o">*</span> <span class="mf">1.0e06</span> <span class="c1"># sqkm should be a float</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">sqkm2sqm</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">cum2liter</span><span class="p">(</span><span class="n">cum</span><span class="p">):</span>
+    <span class="c1"># convert cubic meters into liters</span>
+    <span class="n">cum2liter</span> <span class="o">=</span> <span class="n">cum</span><span class="o">*</span><span class="mf">1000.0</span> <span class="c1"># cum should be a float</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">cum2liter</span><span class="p">)</span>
+
+<span class="c1"># now express result in useful units</span>
+<span class="n">area</span> <span class="o">=</span> <span class="mi">65</span> <span class="c1"># area in sq. kilometers</span>
+
+<span class="n">WholeWatershedRunoff</span> <span class="o">=</span> <span class="n">mm2m</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="n">sqkm2sqm</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runoff = &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">WholeWatershedRunoff</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39; cubic meters&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Runoff = &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">cum2liter</span><span class="p">(</span><span class="n">WholeWatershedRunoff</span><span class="p">),</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39; liters&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Runoff =  9685000.0  cubic meters
+Runoff =  9685000000.0  liters
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now estimate largest population this hydrology could support</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Population supported at 160 L/day</span>
+<span class="n">litersPerDayPerPerson</span> <span class="o">=</span> <span class="mi">160</span>
+<span class="n">litersPer2months</span> <span class="o">=</span> <span class="n">litersPerDayPerPerson</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="mi">30</span>
+<span class="c1"># Assume all Runoff is Run through kidneys and colons</span>
+<span class="n">maxPeople</span> <span class="o">=</span> <span class="n">cum2liter</span><span class="p">(</span><span class="n">WholeWatershedRunoff</span><span class="p">)</span><span class="o">/</span><span class="n">litersPer2months</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum Population = &quot;</span><span class="p">,</span><span class="n">maxPeople</span><span class="p">,</span><span class="s2">&quot; if rainfall is firm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Population =  1008854.1666666666  if rainfall is firm
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="tex2jax_ignore mathjax_ignore section" id="watersheds">
+<h1>Watersheds<a class="headerlink" href="#watersheds" title="Permalink to this headline">¶</a></h1>
+<p>Recall our definitions:</p>
+<ul class="simple">
+<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
+<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
+<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+</ul>
+<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
+It’s a big deal in urban areas.</p>
+<p>[insert some images]</p>
+<div class="section" id="watershed-delineation">
+<h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="by-hand">
+<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="stream-stats-tool">
+<h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="watershed-metrics">
+<h2>Watershed Metrics<a class="headerlink" href="#watershed-metrics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="measuring-area">
+<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="measuring-length-s">
+<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="estimating-slope-s">
+<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>cite pages of textbook</p>
+<p>links to other readings</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.usgs.gov/special-topics/water-science-school/science/fundamentals-water-cycle">Hydrologic cycle (USGS)</a>.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=al-do-HGuIk">Hydrologic Cycle (NSF) - YouTube Video</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/lesson02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../lesson01/lesson01.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Introduction</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../lesson03/lesson03.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Watersheds</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
