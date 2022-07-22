@@ -136,7 +136,9 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 # 
 # Now we substitute into the equation and solve for the storage rate of change
 # 
-# $$ 487.5 - 619 = \frac{dS}{dt} = -131.5~\text{cfs}$$  Observe this is a rate!  We will need to "integrate" to recover actual change
+# $$ 487.5 - 619 = \frac{dS}{dt} = -131.5~\text{cfs}$$  
+# 
+# Observe this is a rate!  We will need to "integrate" to recover actual change
 # 
 # Now recover the estimated change in storage, and new storage value from the rate
 # 
