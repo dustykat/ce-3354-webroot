@@ -431,6 +431,54 @@ Runoff =  9685000000.0  liters
 </tr>
 </tbody>
 </table>
+<p>If we wish an ability to repeat such computations a lot (maybe we own the reach and want to charge our customers for water use) we could apply ENGR-1330 methods as below to explore different inflow and outflow conditions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prototype function</span>
+<span class="k">def</span> <span class="nf">newS</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">I0</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span><span class="n">O0</span><span class="p">,</span><span class="n">O1</span><span class="p">,</span><span class="n">S0</span><span class="p">):</span>
+    <span class="n">Ibar</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">I0</span> <span class="o">+</span> <span class="n">I1</span><span class="p">)</span>
+    <span class="n">Obar</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">O0</span> <span class="o">+</span> <span class="n">O1</span><span class="p">)</span>
+    <span class="n">dsdt</span> <span class="o">=</span> <span class="n">Ibar</span> <span class="o">-</span> <span class="n">Obar</span>
+    <span class="n">dsdt</span> <span class="o">=</span> <span class="n">dsdt</span><span class="o">*</span><span class="mi">3600</span><span class="o">/</span><span class="mi">43560</span> <span class="c1"># convert to correct units</span>
+    <span class="n">deltat</span> <span class="o">=</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span>
+    <span class="n">DS</span>   <span class="o">=</span> <span class="n">dsdt</span><span class="o">*</span><span class="n">deltat</span>
+    <span class="n">newS</span>   <span class="o">=</span> <span class="n">S0</span><span class="o">+</span><span class="n">DS</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">newS</span><span class="p">)</span>
+<span class="c1"># input values</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># hrs</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># hrs</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="mi">375</span> <span class="c1"># cfs</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1"># cfs</span>
+<span class="n">O0</span> <span class="o">=</span> <span class="mi">563</span> <span class="c1"># cfs</span>
+<span class="n">O1</span> <span class="o">=</span> <span class="mi">675</span> <span class="c1"># cfs</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mf">55.3</span> <span class="c1"># acre-ft</span>
+<span class="c1"># echo inputs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Begin Time&quot;</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="s2">&quot; hours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;End Time&quot;</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="s2">&quot; hours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inflow at Begin Time&quot;</span><span class="p">,</span><span class="n">I0</span><span class="p">,</span><span class="s2">&quot; cfs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inflow at End Time&quot;</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span><span class="s2">&quot; cfs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outflow at Begin Time&quot;</span><span class="p">,</span><span class="n">O0</span><span class="p">,</span><span class="s2">&quot; cfs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outflow at End Time&quot;</span><span class="p">,</span><span class="n">O1</span><span class="p">,</span><span class="s2">&quot; cfs&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Storage at Begin Time&quot;</span><span class="p">,</span><span class="n">S0</span><span class="p">,</span><span class="s2">&quot; acre-feet&quot;</span><span class="p">)</span>
+<span class="n">S1</span>   <span class="o">=</span> <span class="n">newS</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">I0</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span><span class="n">O0</span><span class="p">,</span><span class="n">O1</span><span class="p">,</span><span class="n">S0</span><span class="p">)</span> <span class="c1"># get new storage</span>
+<span class="c1"># output results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Storage at End Time&quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">S1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="s2">&quot; acre-feet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Begin Time 0  hours
+End Time 2  hours
+Inflow at Begin Time 375  cfs
+Inflow at End Time 600  cfs
+Outflow at Begin Time 563  cfs
+Outflow at End Time 675  cfs
+Storage at Begin Time 55.3  acre-feet
+Storage at End Time 33.56  acre-feet
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="references">

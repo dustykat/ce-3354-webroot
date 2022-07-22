@@ -162,6 +162,42 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 # |:---|---:|:---|
 # |$\Delta S$|-263|cfs-hr|
 # |$S_2$|33.57|acre-ft|
+# 
+# If we wish an ability to repeat such computations a lot (maybe we own the reach and want to charge our customers for water use) we could apply ENGR-1330 methods as below to explore different inflow and outflow conditions
+
+# In[4]:
+
+
+# prototype function
+def newS(t0,t1,I0,I1,O0,O1,S0):
+    Ibar = 0.5*(I0 + I1)
+    Obar = 0.5*(O0 + O1)
+    dsdt = Ibar - Obar
+    dsdt = dsdt*3600/43560 # convert to correct units
+    deltat = t1-t0
+    DS   = dsdt*deltat
+    newS   = S0+DS
+    return(newS)
+# input values
+t0 = 0 # hrs
+t1 = 2 # hrs
+I0 = 375 # cfs
+I1 = 600 # cfs
+O0 = 563 # cfs
+O1 = 675 # cfs
+S0 = 55.3 # acre-ft
+# echo inputs
+print("Begin Time",t0," hours")
+print("End Time",t1," hours")
+print("Inflow at Begin Time",I0," cfs")
+print("Inflow at End Time",I1," cfs")
+print("Outflow at Begin Time",O0," cfs")
+print("Outflow at End Time",O1," cfs")
+print("Storage at Begin Time",S0," acre-feet")
+S1   = newS(t0,t1,I0,I1,O0,O1,S0) # get new storage
+# output results
+print("Storage at End Time",round(S1,2)," acre-feet")
+
 
 # ## References
 # 
