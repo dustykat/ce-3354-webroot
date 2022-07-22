@@ -142,7 +142,9 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 # 
 # Now recover the estimated change in storage, and new storage value from the rate
 # 
-# $$ \Delta S = \frac{dS}{dt} \Delta t = -131.5~\text{cfs} \cdot 2~\text{hrs} = -263~\text{cfs-hr}$$  A little unit conversion
+# $$ \Delta S = \frac{dS}{dt} \Delta t = -131.5~\text{cfs} \cdot 2~\text{hrs} = -263~\text{cfs-hr}$$  
+# 
+# A little unit conversion
 # 
 # $$ -263~\text{cfs-hr} \cdot \frac{3600~\text{sec}}{1~\text{hr}} \cdot \frac{1~\text{acre-ft}}{43,560~\text{ft}^3} = -21.73~\text{acre-ft}$$
 # 
