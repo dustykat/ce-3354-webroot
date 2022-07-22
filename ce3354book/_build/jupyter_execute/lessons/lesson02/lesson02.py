@@ -31,7 +31,7 @@
 # $I$ is inflow volume, $O$ is outflow volume, $S$ is storage volume (i.e. within a watershed), and $G$ is generated volume.
 # $G$ is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, $\dots$)
 
-# ## Water Budget Example
+# ## Water Budget Example 1
 # Consider the following problem statement:
 # 
 # ![](BetswyCoedPrstate.png)
@@ -104,36 +104,61 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 
 
 # ---
-# # Watersheds
+# ## Water Budget Example 2
 # 
-# Recall our definitions:
+# Consider the following problem statement:
 # 
-# - Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)
-# - The area on the surface of the Earth that drains to a specific location
-# - In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge 
+# At a particular time the storage in a river reach is 55.3 acre-ft.  At that instant, the inflow to the  reach is 375 cfs and the outflow is 563 cfs.  Two hours later, the inflow the inflow to the  reach is 600 cfs and the outflow is 675 cfs.
 # 
-# The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   
-# It’s a big deal in urban areas.
+# Estimate:
+# - The change in storage over 2 hours.
+# - The reach storage after 2 hours.
 # 
-# [insert some images]
+# Solution:
 # 
-# ## Watershed Delineation
+# ### Sketch the Situation
 # 
-# ### By-hand
+# ![](river-reaches.png)
 # 
-# ### Stream Stats Tool
+# ### Governing Principles
 # 
-# ## Watershed Metrics
+# Apply the water balance model:
 # 
-# ### Measuring Area
-# ### Measuring Length(s) 
-# ### Estimating Slope(s)
+# $$ \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}$$
 # 
+# ### Analysis/Solution
 # 
+# Observe that there is no internal mass generated, so that term will vanish.  Discharge is changing over time, so we will have to choose how to cope with that, typically one chooses arithmetic means
 # 
+# $$ \frac{dI}{dt} = \frac{375+600}{2} = 487.5~\text{cfs} $$
 # 
+# $$ \frac{dO}{dt} = \frac{563+675}{2} = 619~\text{cfs} $$
 # 
+# Now we substitute into the equation and solve for the storage rate of change
 # 
+# $$ 487.5 - 619 = \frac{dS}{dt} = -131.5~\text{cfs}$$  Observe this is a rate!  We will need to "integrate" to recover actual change
+# 
+# Now recover the estimated change in storage, and new storage value from the rate
+# 
+# $$ \Delta S = \frac{dS}{dt} \Delta t = -131.5~\text{cfs} \cdot 2~\text{hrs} = -263~\text{cfs-hr}$$  A little unit conversion
+# 
+# $$ -263~\text{cfs-hr} \cdot \frac{3600~\text{sec}}{1~\text{hr}} \cdot \frac{1~\text{acre-ft}}{43,560~\text{ft}^3} = -21.73~\text{acre-ft}$$
+# 
+# Then apply definition of $\frac{dS}{dt} $ as
+# 
+# $$\frac{dS}{dt}~\approx~\frac{S_2-S_0}{\Delta t}$$
+# 
+# So the new storage volume is
+# 
+# $$S_2=S_0+\frac{dS}{dt} \Delta t= S_0 + \Delta S= 55.30 - 21.73 = 33.57~\text{acre-ft}$$
+# 
+# Now we can summarize the results
+# 
+# |Value|Amount|Unit|
+# |:---|---:|:---|
+# |$\Delta S$|-263|cfs-hr|
+# |$S_2$|33.57|acre-ft|
+
 # ## References
 # 
 # cite pages of textbook
@@ -143,6 +168,8 @@ print("Maximum Population = ",maxPeople," if rainfall is firm")
 # 1. [Hydrologic cycle (USGS)](https://www.usgs.gov/special-topics/water-science-school/science/fundamentals-water-cycle).
 # 
 # 2. [Hydrologic Cycle (NSF) - YouTube Video](https://www.youtube.com/watch?v=al-do-HGuIk)
+
+# 
 
 # 
 

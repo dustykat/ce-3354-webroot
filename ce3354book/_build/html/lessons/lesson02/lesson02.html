@@ -215,73 +215,42 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Hydrologic Cycle
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water-budget-definition">
+   Water Budget Definition
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#water-budget-definition">
-     Water Budget Definition
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water-budget-example-1">
+   Water Budget Example 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#water-budget-example-2">
+   Water Budget Example 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sketch-the-situation">
+     Sketch the Situation
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#water-budget-example">
-     Water Budget Example
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#governing-principles">
+     Governing Principles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-solution">
+     Analysis/Solution
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watersheds">
-   Watersheds
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#watershed-delineation">
-     Watershed Delineation
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#by-hand">
-       By-hand
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#stream-stats-tool">
-       Stream Stats Tool
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#watershed-metrics">
-     Watershed Metrics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#measuring-area">
-       Measuring Area
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#measuring-length-s">
-       Measuring Length(s)
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#estimating-slope-s">
-       Estimating Slope(s)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -315,8 +284,8 @@ The hydrologic equation is the fundamental tool in hydrology to describe amounts
 <p><span class="math notranslate nohighlight">\(I\)</span> is inflow volume, <span class="math notranslate nohighlight">\(O\)</span> is outflow volume, <span class="math notranslate nohighlight">\(S\)</span> is storage volume (i.e. within a watershed), and <span class="math notranslate nohighlight">\(G\)</span> is generated volume.
 <span class="math notranslate nohighlight">\(G\)</span> is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, <span class="math notranslate nohighlight">\(\dots\)</span>)</p>
 </div>
-<div class="section" id="water-budget-example">
-<h2>Water Budget Example<a class="headerlink" href="#water-budget-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="water-budget-example-1">
+<h2>Water Budget Example 1<a class="headerlink" href="#water-budget-example-1" title="Permalink to this headline">¶</a></h2>
 <p>Consider the following problem statement:</p>
 <p><img alt="" src="../../_images/BetswyCoedPrstate.png" /></p>
 <p>One way to answer the questions is to decompose the problem into a simpler construct, usually by sketching a diagram as shown below:</p>
@@ -399,38 +368,62 @@ Runoff =  9685000000.0  liters
 </div>
 </div>
 </div>
-</div>
 <hr class="docutils" />
-<div class="tex2jax_ignore mathjax_ignore section" id="watersheds">
-<h1>Watersheds<a class="headerlink" href="#watersheds" title="Permalink to this headline">¶</a></h1>
-<p>Recall our definitions:</p>
+<div class="section" id="water-budget-example-2">
+<h2>Water Budget Example 2<a class="headerlink" href="#water-budget-example-2" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following problem statement:</p>
+<p>At a particular time the storage in a river reach is 55.3 acre-ft.  At that instant, the inflow to the  reach is 375 cfs and the outflow is 563 cfs.  Two hours later, the inflow the inflow to the  reach is 600 cfs and the outflow is 675 cfs.</p>
+<p>Estimate:</p>
 <ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+<li><p>The change in storage over 2 hours.</p></li>
+<li><p>The reach storage after 2 hours.</p></li>
 </ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
-It’s a big deal in urban areas.</p>
-<p>[insert some images]</p>
-<div class="section" id="watershed-delineation">
-<h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="by-hand">
-<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
+<p>Solution:</p>
+<div class="section" id="sketch-the-situation">
+<h3>Sketch the Situation<a class="headerlink" href="#sketch-the-situation" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/river-reaches.png" /></p>
 </div>
-<div class="section" id="stream-stats-tool">
-<h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="governing-principles">
+<h3>Governing Principles<a class="headerlink" href="#governing-principles" title="Permalink to this headline">¶</a></h3>
+<p>Apply the water balance model:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}\]</div>
 </div>
-</div>
-<div class="section" id="watershed-metrics">
-<h2>Watershed Metrics<a class="headerlink" href="#watershed-metrics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="measuring-area">
-<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="measuring-length-s">
-<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="estimating-slope-s">
-<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="analysis-solution">
+<h3>Analysis/Solution<a class="headerlink" href="#analysis-solution" title="Permalink to this headline">¶</a></h3>
+<p>Observe that there is no internal mass generated, so that term will vanish.  Discharge is changing over time, so we will have to choose how to cope with that, typically one chooses arithmetic means</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dI}{dt} = \frac{375+600}{2} = 487.5~\text{cfs} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dO}{dt} = \frac{563+675}{2} = 619~\text{cfs} \]</div>
+<p>Now we substitute into the equation and solve for the storage rate of change</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} 487.5 - 619 = \frac{dS}{dt} = -131.5~\text{cfs}$$  Observe this is a rate!  We will need to &quot;integrate&quot; to recover actual change\\Now recover the estimated change in storage, and new storage value from the rate\\$$ \Delta S = \frac{dS}{dt} \Delta t = -131.5~\text{cfs} \cdot 2~\text{hrs} = -263~\text{cfs-hr}$$  A little unit conversion\\$$ -263~\text{cfs-hr} \cdot \frac{3600~\text{sec}}{1~\text{hr}} \cdot \frac{1~\text{acre-ft}}{43,560~\text{ft}^3} = -21.73~\text{acre-ft}\end{aligned}\end{align} \]</div>
+<p>Then apply definition of <span class="math notranslate nohighlight">\(\frac{dS}{dt} \)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\frac{dS}{dt}~\approx~\frac{S_2-S_0}{\Delta t}\]</div>
+<p>So the new storage volume is</p>
+<div class="math notranslate nohighlight">
+\[S_2=S_0+\frac{dS}{dt} \Delta t= S_0 + \Delta S= 55.30 - 21.73 = 33.57~\text{acre-ft}\]</div>
+<p>Now we can summarize the results</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Value</p></th>
+<th class="text-align:right head"><p>Amount</p></th>
+<th class="text-align:left head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\Delta S\)</span></p></td>
+<td class="text-align:right"><p>-263</p></td>
+<td class="text-align:left"><p>cfs-hr</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(S_2\)</span></p></td>
+<td class="text-align:right"><p>33.57</p></td>
+<td class="text-align:left"><p>acre-ft</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="section" id="references">
