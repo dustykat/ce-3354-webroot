@@ -11,6 +11,22 @@
 # The driving force for the cycle is solar energy that provides the energy to vaporize liquid water that then rises into clouds, moves onshore, and rains (or snow, sleet, $\dots$.  and other forms of <strong>precipitation</strong>)
 # A portion of the rain becomes runoff, another portion returns to the atmosphere as evaporation, another portion infiltrates into the ground and becomes groundwater.
 # 
+# A more detailed accounting of the precipitation is as follows:
+# 
+# 1. A portion known as interception is retained on buildings, vegetation, and other surfaces that eventually evaporates - the remaining quantity is called **effective precipitation**
+# 
+# :::{note}
+# Excess precipitation is a similar concept.  When discussing rainfall-runoff processes using some model (i.e. unit hydrograph methods), the quantity that becomes runoff is called excess precipitation.  The terms are frequently used interchangeably.
+# :::
+# 
+# 2. Some of the effective precipitation also evaporates directly.
+# 3. Another portion of effective precipitation **infiltrates** into the ground - a portion of infiltrated water returns to the atmosphere via transpiration, the remainder either percolates deeper into the ground or is incorporated in the vegetative biomass.
+# 4. The water that percolates deeper into the ground becomes **recharge** to the groundwater system, and may appear at some point as **baseflow** in streams.
+# 5. If the precipitation exceeds the combined evaporation and infiltration puddles form in small depressions on the land surface - this is called depression storage.
+# 6. After the depressions are filled they join and a continuous film of water can begin to flow over the surface to a stream channel.  This portion that can flow is called the **excess precipitation** (see the note above), and the flow is called the **direct runoff**.
+# 7. Runoff occurs when the film of water begins to move - water in this film is said to be in **detention storage**, and evaporation occurs from this compartment too. When precipitation ceases, the water in detention storage eventually joins the stream channel.
+# 8. The destination of all streams is open bodies of water such as lakes, seas, and oceans which are subject to substantial evaporation.
+# 9. The evaporation and tanspiration from all these sources combine and carry moisture back into the atmosphere which condenses and repeats the cycle.
 # 
 
 # ## Water Budget Definition

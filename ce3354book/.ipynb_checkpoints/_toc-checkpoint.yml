@@ -9,5 +9,29 @@ chapters:
 - file: lessons/lesson02/lesson02 # water budget
 
 - file: lessons/lesson03/lesson03 # watershed delineation
+
+- file: lessons/lesson04/lesson04 # precipitation
+
+- file: lessons/lesson05/lesson05 # streamflow
+
+- file: lessons/lesson06/lesson06 # hydrologic process
+
+- file: lessons/lesson07/lesson07 # evaporation
+
+- file: lessons/lesson08/lesson08 # infiltration
+
+- file: lessons/lesson09/lesson09 # unit hydrographs - analysis
+
+- file: lessons/lesson10/lesson10 # unit hydrographs - synthesis
+
+- file: lessons/lesson11/lesson11 # hydrograph routing - 1
+
+- file: lessons/lesson12/lesson12 # hydrograph routing - 2
+
+- file: lessons/lesson13/lesson13 # level pool reservoir routing
+
+- file: lessons/lesson14/lesson14 # reservoir outlet works
+
+- file: lessons/lesson15/lesson15 # groundwater
 #- file: markdown
 #- file: notebooks
