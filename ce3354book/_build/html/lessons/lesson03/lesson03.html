@@ -51,6 +51,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Precipitation Data Modeling" href="../lesson04/lesson04.html" />
     <link rel="prev" title="Hydrologic Cycle" href="../lesson02/lesson02.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -106,6 +107,66 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Watersheds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson04/lesson04.html">
+   Precipitation Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson05/lesson05.html">
+   Streamflow Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson06/lesson06.html">
+   Hydrologic Process Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson07/lesson07.html">
+   Evaporation Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson08/lesson08.html">
+   Infiltration Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson09/lesson09.html">
+   Unit Hydrographs - I (Analysis)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson10/lesson10.html">
+   Unit Hydrographs - II (Synthesis)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson11/lesson11.html">
+   Hydrograph Routing - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson12/lesson12.html">
+   Hydrograph Routing - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson13/lesson13.html">
+   Reservoir-Storage Routing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson14/lesson14.html">
+   Reservoir Outlet Works
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson15/lesson15.html">
+   Groundwater Hydrology - I
   </a>
  </li>
 </ul>
@@ -218,9 +279,31 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#by-hand">
-     By-hand
+    <a class="reference internal nav-link" href="#by-hand-steps-to-delineate-a-watershed">
+     By-hand steps to delineate a watershed
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#locate-a-pour-point-point-of-interest">
+       Locate a pour point/point of interest
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#superimpose-a-grid-over-the-study-area">
+       Superimpose a grid over the study area
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#estimate-cell-elevations">
+       Estimate Cell Elevations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#draw-boundary">
+       Draw Boundary
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#automated">
@@ -285,17 +368,52 @@ It’s a big deal in urban areas.</p>
 <p>[insert some images]</p>
 <div class="section" id="watershed-delineation">
 <h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
-<p>Define</p>
-<div class="section" id="by-hand">
-<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
-<p>Example</p>
+<p>Identifies the boundaries of our hydrologic unit / area of study.</p>
+<ul class="simple">
+<li><p>Need to interpret topographic maps (or DEM/DTM) to construct the boundary</p></li>
+<li><p>Read “How to …” on server (check the reading list below!)</p></li>
+</ul>
+<div class="section" id="by-hand-steps-to-delineate-a-watershed">
+<h3>By-hand steps to delineate a watershed<a class="headerlink" href="#by-hand-steps-to-delineate-a-watershed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Locate a pour point/point of interest</p></li>
+<li><p>Superimpose a grid over the study area
+– used to assign average elevations for demarking the boundary</p></li>
+<li><p>Trace/outline the main path of the stream that you want to examine that flows to the pour point</p></li>
+<li><p>Trace all perennial or influential tributaries</p></li>
+<li><p>Locate the lowest point/outlet of the main stem and work uphill to identify the ridges and hill tops that divide the water from flowing into separate watersheds</p></li>
+<li><p>When in doubt, consider, where a drop of rain would go on different parts of study region</p></li>
+</ul>
+<div class="section" id="locate-a-pour-point-point-of-interest">
+<h4>Locate a pour point/point of interest<a class="headerlink" href="#locate-a-pour-point-point-of-interest" title="Permalink to this headline">¶</a></h4>
+<p><img alt="" src="../../_images/pourpoint.png" /></p>
+</div>
+<div class="section" id="superimpose-a-grid-over-the-study-area">
+<h4>Superimpose a grid over the study area<a class="headerlink" href="#superimpose-a-grid-over-the-study-area" title="Permalink to this headline">¶</a></h4>
+<p>Used to assign average elevations for demarking the boundary, so the grid needs to be small enough to capture meaningful elevation change, but big enough that you can complete the task in your lifetime.</p>
+<p><img alt="" src="../../_images/gridoverlay.png" /></p>
+</div>
+<div class="section" id="estimate-cell-elevations">
+<h4>Estimate Cell Elevations<a class="headerlink" href="#estimate-cell-elevations" title="Permalink to this headline">¶</a></h4>
+<p>Estimate the average elevations in each cell. Trace/outline the main path of the stream that you want to examine that flows to the pour point.  Trace all perennial or influential tributaries
+Locate the lowest point/outlet of the main stem and work uphill to identify the ridges and hill tops that divide the water from flowing into separate watersheds</p>
+<p><img alt="" src="../../_images/estimatecellelev.png" /></p>
+</div>
+<div class="section" id="draw-boundary">
+<h4>Draw Boundary<a class="headerlink" href="#draw-boundary" title="Permalink to this headline">¶</a></h4>
+<p>Once the high points are identified, connect them and draw the watershed boundary.  You can now make measurements to determine area, lengths, and slopes.</p>
+<p><img alt="" src="../../_images/drawboundary.png" /></p>
+</div>
 </div>
 <div class="section" id="automated">
 <h3>Automated<a class="headerlink" href="#automated" title="Permalink to this headline">¶</a></h3>
+<p>Automated delineation essentially replicates these steps in a computer program. ArcGIS, QGIS and similar tools can perform a raster-based cell-by-cell flow accumulation calculation and when the “upstream” cell count gets smaller than some threshold, the program declares that to be a high point.  And draws the boundary.</p>
+<p>The automated tools are pretty good; fast; and less prone to interpretation - but you have to have the software and know how to use it.</p>
+<p>Manual methods and automated methods produce comparable results, but for large areas the automated methods are much faster. <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/SW-Geographer-2006/SW-Geographer-2006.pdf">Heitmuller et. al. 2006</a></p>
 </div>
 <div class="section" id="stream-stats-tool">
 <h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
-<p>Pick somewhere in Oklahoma</p>
+<p>An on-line tool for use in many states is <a class="reference external" href="https://streamstats.usgs.gov/ss/">StreamStats</a>.  A good demonstration is to select a stream near Lawton Oklahoma and generate a watershed report.</p>
 </div>
 </div>
 <div class="section" id="watershed-metrics">
@@ -312,8 +430,18 @@ It’s a big deal in urban areas.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>cite pages of textbook</p>
-<p>links to other readings</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson04/Lesson04.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Watersheds) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture03.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Hydrologic Data; Watershed Delineation) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture04.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Watershed Metrics) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Florida-Training-Watershed.png">Florida Delineation Training Watershed (png)</a> Right-Click “Save As…”</p></li>
+<li><p><span class="xref myst">Texas Delineation Training Watershed (png)</span> Right-Click “Save As…”</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/McCuen-Watersheds/McCuen-Watersheds.pdf">Watersheds - McCuen</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/NewHampshire-Watersheds/Topowatershed.pdf">How to Delineate a Watershed</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/NumericalPlanimetry/">Numerical Planimetry</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HowToMeasurePath/HowToMeasurePath.pdf">How To Measure Path</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/UsingTopographicMaps/Pages%20from%20USAF-Survival-Manual-644.pdf">How to use Topographic Maps</a></p></li>
+</ol>
 </div>
 </div>
 
@@ -355,6 +483,15 @@ It’s a big deal in urban areas.</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="../lesson04/lesson04.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Precipitation Data Modeling</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
