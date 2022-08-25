@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -75,7 +77,7 @@
         
       
       
-      <img src="../../_static/logo.png" class="logo" alt="logo">
+      <img src="../../_static/hydrology.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">My sample book</h1>
@@ -274,6 +276,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-data-analysis">
+   Discrete Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#computational-thinking-engr-1330-accumulation">
+     Computational Thinking (ENGR-1330) - Accumulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -291,10 +305,223 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="precipitation-data-modeling">
 <h1>Precipitation Data Modeling<a class="headerlink" href="#precipitation-data-modeling" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Probability Estimation Modeling</p></li>
+<li><p>Design Storms</p></li>
+</ul>
+<div class="section" id="discrete-data-analysis">
+<h2>Discrete Data Analysis<a class="headerlink" href="#discrete-data-analysis" title="Permalink to this headline">¶</a></h2>
+<p>Figure XX below is a representation of some continuous process.  To extract values by measurements only occurs at discrete points in time. These samples are reconstructed in a variety of ways to restore the original representation.</p>
+<figure align="center">
+<img src="./data_repr.png" width="400" > 
+<img src="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson04/data_repr.png" width="400"> <figcaption>Figure XX. Data representations </figcaption>
+</figure>
+<p>Real data are always some kind of discrete sample</p>
+<ul class="simple">
+<li><p>The “pulse” type is typical – and is called incremental data.</p></li>
+<li><p>For instance, incremental rainfall would be the catch over some time interval (<span class="math notranslate nohighlight">\(\Delta t\)</span> in the figure)</p></li>
+<li><p>An alternative way to represent the data is with a cumulative representation (which is the running sum of the incremental data)</p></li>
+</ul>
+<p>Figure XX below depicts the relationship between incremental and cumulative representations. Each “block” represents the amount of rainfall for the time interval</p>
+<ul class="simple">
+<li><p>The collection of blocks is called “incremental” rainfall (red)</p></li>
+<li><p>The running sum of the blocks is the cumulative distribution (blue)</p></li>
+</ul>
+<p>A particular blocck is indicated with a height of about one, and time duration also one.  If for instance the block represents a depth the implication is that after one hour (from time 4 to 5 in the drawing) the depth added to some location is one unit.</p>
+<figure align="center">
+<img src="./incr-cum-repr.png" width="400" > 
+<img src="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson04/incr-cum-repr.png" width="400"> <figcaption>Figure XX. Data representations </figcaption>
+</figure>
+<p>If these are watershed inches, then the drawing sugests that from hour zero to one, zero inches of precipitation occur, from hour one to two, about 1/4 inch; from hour 2 to 3, about 0.4 inch; from hour 3 to 4, about 0.7 inch; and hour 4 to 5; 1 inch; and so on.  If we tabulated the information we would have</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Time</p></th>
+<th class="text-align:right head"><p>Incremental Depth (Red)</p></th>
+<th class="text-align:right head"><p>Accumulated Depth (Blue)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>0</p></td>
+<td class="text-align:right"><p>0.00</p></td>
+<td class="text-align:right"><p>0.00</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>0.25</p></td>
+<td class="text-align:right"><p>0.00</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2</p></td>
+<td class="text-align:right"><p>0.40</p></td>
+<td class="text-align:right"><p>0.25</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3</p></td>
+<td class="text-align:right"><p>0.70</p></td>
+<td class="text-align:right"><p>0.65</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4</p></td>
+<td class="text-align:right"><p>1.00</p></td>
+<td class="text-align:right"><p>1.35</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>5</p></td>
+<td class="text-align:right"><p>0.50</p></td>
+<td class="text-align:right"><p>2.35</p></td>
+</tr>
+</tbody>
+</table>
+<p>Accumulating (running sum) the incremental is called “aggregation” (or just plain numerical integration); Differencing the cumulative is called “disaggregation.” For practical application its often handy to zero pad the leading and trailing edges so don’t have to worry too about forward/backward differencing issues.</p>
+<div class="section" id="computational-thinking-engr-1330-accumulation">
+<h3>Computational Thinking (ENGR-1330) - Accumulation<a class="headerlink" href="#computational-thinking-engr-1330-accumulation" title="Permalink to this headline">¶</a></h3>
+<p>Consider the need to accumulate data such as:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Time (hours)</p></th>
+<th class="text-align:right head"><p>Incremental Depth (inches)</p></th>
+<th class="text-align:right head"><p>Accumulated Depth (inches)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>0</p></td>
+<td class="text-align:right"><p>0.121</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>0.121</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2</p></td>
+<td class="text-align:right"><p>0.132</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3</p></td>
+<td class="text-align:right"><p>0.154</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4</p></td>
+<td class="text-align:right"><p>0.165</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>5</p></td>
+<td class="text-align:right"><p>0.187</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>6</p></td>
+<td class="text-align:right"><p>0.198</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>7</p></td>
+<td class="text-align:right"><p>0.242</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>8</p></td>
+<td class="text-align:right"><p>0.297</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>9</p></td>
+<td class="text-align:right"><p>0.374</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10</p></td>
+<td class="text-align:right"><p>0.594</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>11</p></td>
+<td class="text-align:right"><p>4.708</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>12</p></td>
+<td class="text-align:right"><p>1.199</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>13</p></td>
+<td class="text-align:right"><p>0.528</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>14</p></td>
+<td class="text-align:right"><p>0.374</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>15</p></td>
+<td class="text-align:right"><p>0.286</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>16</p></td>
+<td class="text-align:right"><p>0.253</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>17</p></td>
+<td class="text-align:right"><p>0.209</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>18</p></td>
+<td class="text-align:right"><p>0.176</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>19</p></td>
+<td class="text-align:right"><p>0.154</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>20</p></td>
+<td class="text-align:right"><p>0.132</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>21</p></td>
+<td class="text-align:right"><p>0.132</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>22</p></td>
+<td class="text-align:right"><p>0.132</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>23</p></td>
+<td class="text-align:right"><p>0.132</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>24</p></td>
+<td class="text-align:right"><p>0.000</p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Our goal is to complete the last column, in this case its relatively straight forward because the time spacing is uniform.  The approach is to perform numerical integration using rectangular panels looking backward in time.</p>
+<div class="math notranslate nohighlight">
+\[acc_{i}=inc_{i-1}+acc_{i-1}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span>
+<span class="n">increment</span><span class="o">=</span><span class="p">[</span><span class="mf">0.121</span><span class="p">,</span><span class="mf">0.121</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.154</span><span class="p">,</span><span class="mf">0.165</span><span class="p">,</span><span class="mf">0.187</span><span class="p">,</span><span class="mf">0.198</span><span class="p">,</span><span class="mf">0.242</span><span class="p">,</span><span class="mf">0.297</span><span class="p">,</span><span class="mf">0.374</span><span class="p">,</span><span class="mf">0.594</span><span class="p">,</span><span class="mf">4.708</span><span class="p">,</span><span class="mf">1.199</span><span class="p">,</span><span class="mf">0.528</span><span class="p">,</span><span class="mf">0.374</span><span class="p">,</span><span class="mf">0.286</span><span class="p">,</span><span class="mf">0.253</span><span class="p">,</span><span class="mf">0.209</span><span class="p">,</span><span class="mf">0.176</span><span class="p">,</span><span class="mf">0.154</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">accumulate</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)):</span>
+    <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">increment</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># the python plotting library</span>
+<span class="n">plottitle</span> <span class="o">=</span><span class="s1">&#39;Precipitation for Somewhere USA &#39;</span> 
+<span class="n">mydata</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># build a square drawing canvass from figure class</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps&#39;</span><span class="p">)</span> <span class="c1"># step plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">accumulate</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps&#39;</span><span class="p">)</span> <span class="c1"># step plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (hours)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (inches)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Incremental Depth&#39;</span><span class="p">,</span><span class="s1">&#39;Accumulated Depth&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">plottitle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lesson04_3_0.png" src="../../_images/lesson04_3_0.png" />
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>cite pages of textbook</p>
-<p>links to other readings</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">McCuen, R.H., Johnson, P.A., and Ragan, R.M. (2002) Highway Hydrology. HDS-2 (2ed) FHWA-NHI-02-001 (Read pages 3-1 to 3-5; 4-86 to 4-89; 5-1 to 5-8; 5-16 to 5-17)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">Texas Hydraulic Design Manual (2014-1) Texas Department of Transportation. (2014) Hydraulic Design Manual (Read pages 4-1 to 4-5; 4-31 to 4-35)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">Linear Theory of Hydrologic Systems Dooge, J.C. I. (1973) Linear Theory of Hydrologic Systems. USDA ARS Technical Bulletin No. 1468. (Read pages 127 to 147)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture05.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (circa 2017)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
 </div>
 </div>
 
