@@ -274,6 +274,26 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#streamflow-measurement">
+   Streamflow Measurement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">
+   Flood Frequency Analysis (B17C)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flow-duration-curves">
+   Flow Duration Curves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regional-regression-equations">
+   Regional Regression Equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -291,10 +311,34 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="streamflow-data-modeling">
 <h1>Streamflow Data Modeling<a class="headerlink" href="#streamflow-data-modeling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="streamflow-measurement">
+<h2>Streamflow Measurement<a class="headerlink" href="#streamflow-measurement" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="flood-frequency-analysis-b17c">
+<h2>Flood Frequency Analysis (B17C)<a class="headerlink" href="#flood-frequency-analysis-b17c" title="Permalink to this headline">¶</a></h2>
+<p>Flood hydrology is typically studied using the annual peak streamflow data collected by the U.S. Geological Survey (USGS) at streamgages. Hydraulic design engineers need standard of practice guidance for various tasks involving the analysis and application peak streamflow information. Analyses of this information materially influences bridge design, operational safety of drainage infrastructure, flood-plain management, and other decisions affecting society.</p>
+<p>Bulletin 17B was the standard of practice for decades, recently superceded by Bulletin <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">17C</a>.  These and similar tools relate certain statistical metrics (mean, variance, and skew) to a prescribed probability distribution function (Log-Pearson Type III) to extrapolate (predict) the magnitude of rare (low probability) events to inform engineering design.</p>
+<p>Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.<br />
+Recent updates to B17B in terms of software improvements and different handling of gage statistics (in particular EMA) are incorporated into the current tool <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">B17C</a></p>
+<p><em>Summary</em></p>
+<ul class="simple">
+<li><p>B17C is a report containing methods for estimating magnitudes of rere events</p></li>
+<li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
+</ul>
+</div>
+<div class="section" id="flow-duration-curves">
+<h2>Flow Duration Curves<a class="headerlink" href="#flow-duration-curves" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="regional-regression-equations">
+<h2>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>cite pages of textbook</p>
-<p>links to other readings</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ">Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses</a></p></li>
+</ol>
 </div>
 </div>
 

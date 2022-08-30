@@ -217,13 +217,13 @@ print("Storage at End Time",round(S1,2)," acre-feet")
 
 # ## References
 # 
-# cite pages of textbook
+# 1. [Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp 39-46](https://www.waveland.com/browse.php?t=384)
 # 
-# links to other readings 
+# 2. [Hydrologic cycle (USGS)](https://www.usgs.gov/special-topics/water-science-school/science/fundamentals-water-cycle).
 # 
-# 1. [Hydrologic cycle (USGS)](https://www.usgs.gov/special-topics/water-science-school/science/fundamentals-water-cycle).
+# 3. [Hydrologic Cycle (NSF) - YouTube Video](https://www.youtube.com/watch?v=al-do-HGuIk)
 # 
-# 2. [Hydrologic Cycle (NSF) - YouTube Video](https://www.youtube.com/watch?v=al-do-HGuIk)
+# 4. [Cleveland, T.G. (2017) Engineering Hydrology *Lecture Notes from 2017*](http://54/243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture02.pdf)
 
 # 
 
