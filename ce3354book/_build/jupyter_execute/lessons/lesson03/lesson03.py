@@ -11,6 +11,15 @@
 # 
 # The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   
 # It’s a big deal in urban areas.
+# 
+# Consider the artist rendering of a watershed
+# 
+# ![](watershed.png)
+# 
+# Large watersheds are comprised of smaller interconnected watersheds.
+# 
+# [Watersheds - McCuen](http://54.243.252.9/ce-3354-webroot/3-Readings/McCuen-Watersheds/McCuen-Watersheds.pdf)
+# 
 
 # ## Example Delineation
 
@@ -127,7 +136,7 @@
 
 # ## Videos
 # 
-# 1. [Watershed Delineation and Metrics](hhttps://www.youtube.com/watch?v=qzKS8n8RrdE)
+# 1. [Watershed Delineation and Metrics](https://www.youtube.com/watch?v=qzKS8n8RrdE)
 # 2. [Measuring Area](https://www.youtube.com/watch?v=pDFystIDxn0)
 # 3. [Manual Delineation](https://www.youtube.com/watch?v=cZBKrc6_B-E)
 
