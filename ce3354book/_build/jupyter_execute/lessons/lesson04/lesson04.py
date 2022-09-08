@@ -107,6 +107,29 @@ plt.title(plottitle)
 plt.show()
 
 
+# ## Risk-Based Design Concepts
+# 
+# ### Probability Estimation Modeling
+# 
+# 1. [Probability Estimation Modeling - I](http://54.243.252.9/ce-3354-webroot/3-Readings/ProbabilityEstimationModeling/cive6361_week_006_A.pdf)
+# 2. [Probability Estimation Modeling - II](http://54.243.252.9/ce-3354-webroot/3-Readings/ProbabilityEstimationModeling/cive6361_week_006_B.pdf)
+# 3. [Design Rainfall](http://54.243.252.9/ce-3354-webroot/3-Readings/DesignRainfallEssay/DesignRainfall.pdf)
+# 4. [Rainfall Intensity for Design](http://54.243.252.9/ce-3354-webroot/3-Readings/TRB-2008-Paper/TRB_2008_IntensityDesign_Rev2.pdf)
+# 5. [Empirical Hyetographs](http://54.243.252.9/ce-3354-webroot/3-Readings/EmpiricalHyetographs/sir2004-5075.pdf)
+# 6. [DDF-Texas](http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-DDF-Theory/wri98-4044.pdf) 
+# 7. [Texas DDF Atlas](http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-DDF-Atlas/sir2004-5041.pdf)
+# 8. [Texas DDF Atlas on-line](http://54.243.252.9/toolbox/hydrology/TexasDDFAtlas/TexasDDFAtlas.html)
+# 9. [NOAA PFDS](https://hdsc.nws.noaa.gov/hdsc/pfds/)
+# 
+
+# ## Point Precipitation 
+# 
+# 
+
+# ## Design Storms
+
+# 
+
 # 
 
 # In[ ]:
