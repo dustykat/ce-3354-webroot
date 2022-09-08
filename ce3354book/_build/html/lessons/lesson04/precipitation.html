@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precipitation Data Modeling &#8212; Engineering Hydrology</title>
+    <title>Precipitation &#8212; Engineering Hydrology</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,8 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Precipitation" href="precipitation.html" />
-    <link rel="prev" title="Watersheds" href="../lesson03/lesson03.html" />
+    <link rel="next" title="Design Storms" href="designstorms.html" />
+    <link rel="prev" title="Precipitation Data Modeling" href="lesson04.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -110,7 +112,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="lesson04.html">
    Precipitation Data Modeling
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -118,9 +120,9 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="precipitation.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Precipitation
     </a>
    </li>
@@ -227,7 +229,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/lesson04/lesson04.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/lessons/lesson04/precipitation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -247,7 +249,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson04/lesson04.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson04/precipitation.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -268,7 +270,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson04/lesson04.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson04/precipitation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -291,16 +293,19 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#risk-based-design-concepts">
-   Risk-Based Design Concepts
+  <a class="reference internal nav-link" href="#engineering-variables-of-interest">
+   Engineering Variables of Interest
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probability-estimation-modeling">
-     Probability Estimation Modeling
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#depth-duration-frequency">
+   Depth-Duration-Frequency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intensity-duration-frequency">
+   Intensity-Duration-Frequency
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
@@ -318,43 +323,70 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="precipitation-data-modeling">
-<h1>Precipitation Data Modeling<a class="headerlink" href="#precipitation-data-modeling" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p>Risk Based Design Concepts</p></li>
-<li><p>Precipitation</p></li>
-<li><p>Design Storms</p></li>
-</ul>
-<div class="section" id="risk-based-design-concepts">
-<h2>Risk-Based Design Concepts<a class="headerlink" href="#risk-based-design-concepts" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="probability-estimation-modeling">
-<h3>Probability Estimation Modeling<a class="headerlink" href="#probability-estimation-modeling" title="Permalink to this headline">¶</a></h3>
+  <div class="tex2jax_ignore mathjax_ignore section" id="precipitation">
+<h1>Precipitation<a class="headerlink" href="#precipitation" title="Permalink to this headline">¶</a></h1>
+<p>Surface water hydrology really begins before the precipitate hits the ground.  The form of precipitate is important (rain, sleet, hail, or snow).  For example it takes about 10 inches of snow to produce the same water as 1 inch of rain.  Other factors of importance are the size of the area over which the precipitation falls, the intensity of the precipitation, and its duration.</p>
+<p><img alt="" src="../../_images/hc-precip.png" /></p>
+<p>Once the precipitation hits the ground several things can happen.  It can evaporate immediately, especially if the surface is hot, and relatively impervious.  If the surface is dry and/or porous, the precipitate may infiltrate into the ground or may just wet the surface.   The process of just wetting leaves and blades of grass is called interception.  Some of the infiltrated water is returned to the atmosphere by transpiration by plants.  Collectively the return to the atmosphere is called evapotranspiration.  The precipitate may be trapped in small depressions (puddles).  It may remain in these puddles until it evaporates or until the depressions fill and overflow.  Finally it may run off directly to the nearest stream or lake to become surface water.  The four “processes” (evapotranspiration, infiltration, interception, and depression storage) that reduce the amount of precipitation available for direct runoff are collectively called abstractions.  In drainage engineering, the loss model is how we account for these processes.</p>
+<div class="section" id="engineering-variables-of-interest">
+<h2>Engineering Variables of Interest<a class="headerlink" href="#engineering-variables-of-interest" title="Permalink to this headline">¶</a></h2>
+<p>There are four variables of engineering interest:</p>
 <ol class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/ProbabilityEstimationModeling/cive6361_week_006_A.pdf">Probability Estimation Modeling - I</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/ProbabilityEstimationModeling/cive6361_week_006_B.pdf">Probability Estimation Modeling - II</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/DesignRainfallEssay/DesignRainfall.pdf">Design Rainfall</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TRB-2008-Paper/TRB_2008_IntensityDesign_Rev2.pdf">Rainfall Intensity for Design</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/EmpiricalHyetographs/sir2004-5075.pdf">Empirical Hyetographs</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-DDF-Theory/wri98-4044.pdf">DDF-Texas</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-DDF-Atlas/sir2004-5041.pdf">Texas DDF Atlas</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/TexasDDFAtlas/TexasDDFAtlas.html">Texas DDF Atlas on-line</a></p></li>
-<li><p><a class="reference external" href="https://hdsc.nws.noaa.gov/hdsc/pfds/">NOAA PFDS</a></p></li>
+<li><p>Intensity: how hard it rains</p></li>
+<li><p>Duration: how long it rains at any given intensity</p></li>
+<li><p>Frequency: how often it rains at any given intensity and duration</p></li>
+<li><p>Spatial Distribution: the rainfall depth over an area</p></li>
 </ol>
+<p>Rainfall probabilities are expressed as a combination of frequency (probability), depth, and duration. The inclusion of depth and duration reflects that different “storms” can produce the same total depth, but deliver that depth over much different times</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A slow gentle rain for a long time versus a hard rain for a short time can have the same total depth, but vastly different hydrologic impact</p>
 </div>
+</div>
+<div class="section" id="depth-duration-frequency">
+<h2>Depth-Duration-Frequency<a class="headerlink" href="#depth-duration-frequency" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Depth of rainfall is the accumulated depth (in a gage) over some time interval.</p></li>
+<li><p>Duration is that time interval.</p></li>
+<li><p>Frequency is the probability (like AEP) of observing the depth over the given duration.</p></li>
+</ul>
+<p><img alt="" src="../../_images/DDFcurve.png" /></p>
+<p>An alternate to DDF is to present the magnitude as an intensity (a rate). The intensity is the ratio of an accumulated depth to some averaging time, usually the duration.</p>
+<div class="math notranslate nohighlight">
+\[ i_{avg}=\frac{D}{T_C}\]</div>
+<p>where <span class="math notranslate nohighlight">\(D\)</span> is the depth, and <span class="math notranslate nohighlight">\(T_C\)</span> is the averaging time</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intensity is NOT the instantaneous rainfall rate.</p>
+<blockquote>
+<div><p>The symbol <span class="math notranslate nohighlight">\(T_C\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Time_of_concentration">time of concentration</a> for a watershed, if the averaging time happens to coincide with the time needed for water to flow from the most remote point in a watershed to the watershed outlet.</p>
+</div></blockquote>
+</div>
+<p>Intensity is related to depth and duration.</p>
+<p><img alt="" src="../../_images/intensityExample.png" /></p>
+<p>The intensity is the ratio of depth to a particular duration.  For example, if the duration or averaging time is 12 hours and the accumulated depth for 12 hours is 70 mm (about 3 inches), then the average rate is 70mm/12hours = 5.8 mm/hour.  This average rate, if applied over 12 hours will produce the depth of 70mm.</p>
+<p>Conversion from Depth-Duration to Intensity-Duration is obtained by the ratio of depth to duration</p>
+<div class="math notranslate nohighlight">
+\[ i_{avg}=\frac{D}{T_C}\]</div>
+<p>Conversion from Intensity-Duration to Depth-Duration is obtained by multiplication</p>
+</div>
+<div class="section" id="intensity-duration-frequency">
+<h2>Intensity-Duration-Frequency<a class="headerlink" href="#intensity-duration-frequency" title="Permalink to this headline">¶</a></h2>
+<p>The family of curves that depicts the relationship between the intensity, duration, and frequency of precipitation at a point is a fundamental part of the rational equation method for storm water drainage design.</p>
+<p><img alt="" src="../../_images/IDFcurves.png" /></p>
+<p>Conversion from Depth-Duration to Intensity-Duration is obtained by the ratio of depth to duration</p>
+<div class="math notranslate nohighlight">
+\[ i_{avg}=\frac{D}{T_C}\]</div>
+<p>Conversion from Intensity-Duration to Depth-Duration is obtained by multiplication</p>
+<div class="math notranslate nohighlight">
+\[ D = i_{avg}*{T_C}\]</div>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">McCuen, R.H., Johnson, P.A., and Ragan, R.M. (2002) Highway Hydrology. HDS-2 (2ed) FHWA-NHI-02-001 (Read pages 3-1 to 3-5; 4-86 to 4-89; 5-1 to 5-8; 5-16 to 5-17)</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">Texas Hydraulic Design Manual (2014-1) Texas Department of Transportation. (2014) Hydraulic Design Manual (Read pages 4-1 to 4-5; 4-31 to 4-35)</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">Linear Theory of Hydrologic Systems Dooge, J.C. I. (1973) Linear Theory of Hydrologic Systems. USDA ARS Technical Bulletin No. 1468. (Read pages 127 to 147)</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture05.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Discrete Data Analysis; Risk Based Design; Regression Equations)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture06.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Point Precipitation; Design Storms)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson04/precipitation-notes.pdf">Cleveland, T. G. (2015) <em>Engineering Hydrology Notes to Accompany CE 3354 (Hand-written)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li></li>
 </ol>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -388,19 +420,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../lesson03/lesson03.html" title="previous page">
+        <a class="left-prev" href="lesson04.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Watersheds</p>
+                <p class="prevnext-title">Precipitation Data Modeling</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="precipitation.html" title="next page">
+        <a class="right-next" href="designstorms.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Precipitation</p>
+                <p class="prevnext-title">Design Storms</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

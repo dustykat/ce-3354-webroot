@@ -11,6 +11,11 @@ chapters:
 - file: lessons/lesson03/lesson03 # watershed delineation
 
 - file: lessons/lesson04/lesson04 # precipitation
+  sections:
+  - file: lessons/lesson04/precipitation # precipitation
+  - file: lessons/lesson04/designstorms 
+   
+
 
 - file: lessons/lesson05/lesson05 # streamflow
 
