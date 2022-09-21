@@ -10,7 +10,7 @@
 # A slightly more general rainfall-runoff model is the linear reservoir, but it also has limited applicability.
 # 
 # :::{note}
-# The limited appliciability is not problematic, and is intended to convey that you woukld use the model for situations where it is explicitly appropriate and recognize that outside its limits you are engaging in glorified guessing.
+# The limited appliciability is not problematic, and is intended to convey that you would use the model for situations where it is explicitly appropriate and recognize that outside its limits you are engaging in glorified guessing.
 # :::
 # 
 # The rainfall-runoff model with a non-linear reservoir is considered more universally applicable, but still it holds only for catchments whose surface area is limited by the condition that the rainfall can be considered more or less uniformly distributed over the area. 
@@ -19,7 +19,7 @@
 # 
 # Rainfall-runoff models need to be calibrated before they can be used.
 
-# ## Rational Equation (A simplistic method for small areas)
+# ## The Rational Equation -- A simplistic method for small areas
 # 
 # The rational method likely is the applied method used most often by hydraulic and drainage engineers to estimate design discharges for small watersheds. These design discharges are used to size a variety of drainage structures for small undeveloped and developed watersheds throughout the United States.
 # 

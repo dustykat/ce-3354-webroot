@@ -80,7 +80,7 @@ matplotlib.pyplot.legend(["Discharge","Precipitation","Delta Storage"])
 matplotlib.pyplot.show() 
 
 
-# A direct application of this kind of model is the source of the NRCS CN method (but in cumulative space)
+# A interpretation of this kind of model can serve as an explaination of the NRCS CN method (but in cumulative space)
 
 # ## References
 # 
@@ -93,3 +93,9 @@ matplotlib.pyplot.show()
 # 3. Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56.
 # 
 # 4. Gupta pp. 711-724
+
+# In[ ]:
+
+
+
+
