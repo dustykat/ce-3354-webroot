@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hydrologic Process Modeling &#8212; Engineering Hydrology</title>
+    <title>Rational Equation (Rainfall-Runoff) Model &#8212; Engineering Hydrology</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Rational Equation (Rainfall-Runoff) Model" href="rationalmethod.html" />
-    <link rel="prev" title="Streamflow Data Modeling" href="../lesson05/lesson05.html" />
+    <link rel="next" title="Linear Reservoir Model" href="linearreservoir.html" />
+    <link rel="prev" title="Hydrologic Process Modeling" href="lesson06.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -139,7 +139,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="lesson06.html">
    Hydrologic Process Modeling
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -147,9 +147,9 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="rationalmethod.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Rational Equation (Rainfall-Runoff) Model
     </a>
    </li>
@@ -256,7 +256,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/lesson06/lesson06.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/lessons/lesson06/rationalmethod.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -276,7 +276,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson06/lesson06.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson06/rationalmethod.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -297,7 +297,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson06/lesson06.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson06/rationalmethod.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -332,21 +332,6 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nrcs-cn-runoff-generation-model">
-   NRCS CN Runoff-Generation Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-reservoir-rainfall-runoff-model">
-   Linear Reservoir Rainfall-Runoff Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-linear-reservoir-rainfall-runoff-model">
-   Non-Linear Reservoir Rainfall-Runoff Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -362,11 +347,18 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="hydrologic-process-modeling">
-<h1>Hydrologic Process Modeling<a class="headerlink" href="#hydrologic-process-modeling" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="rational-equation-rainfall-runoff-model">
+<h1>Rational Equation (Rainfall-Runoff) Model<a class="headerlink" href="#rational-equation-rainfall-runoff-model" title="Permalink to this headline">¶</a></h1>
 <p>A rainfall-runoff model is a mathematical model describing the rainfall–runoff relations of a rainfall catchment area, drainage basin or watershed. It produces a runoff hydrograph in response to rainfall inputs, represented by a hyetograph. In other words, the model calculates the conversion of rainfall into runoff.</p>
-<p>In comparatively sophisticated modeling one considers the rainfall signal coming into the watershed, filtered by losses from evapotranspiration, infiltration, any water that is added to storage - what remains is the runoff.</p>
-<p>We will examine the losses in subsequent sections, here they will be presented as needed without much explaination.</p>
+<p>A well known rainfall-runoff model is the Rational Equation model but it has limited applicability.</p>
+<p>A slightly more general rainfall-runoff model is the linear reservoir, but it also has limited applicability.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The limited appliciability is not problematic, and is intended to convey that you woukld use the model for situations where it is explicitly appropriate and recognize that outside its limits you are engaging in glorified guessing.</p>
+</div>
+<p>The rainfall-runoff model with a non-linear reservoir is considered more universally applicable, but still it holds only for catchments whose surface area is limited by the condition that the rainfall can be considered more or less uniformly distributed over the area.</p>
+<p>The maximum size of the watershed then depends on the rainfall characteristics of the region. When the study area is too large, it can be divided into sub-catchments and the various runoff hydrographs may be combined using flood routing techniques.</p>
+<p>Rainfall-runoff models need to be calibrated before they can be used.</p>
 <div class="section" id="rational-equation-a-simplistic-method-for-small-areas">
 <h2>Rational Equation (A simplistic method for small areas)<a class="headerlink" href="#rational-equation-a-simplistic-method-for-small-areas" title="Permalink to this headline">¶</a></h2>
 <p>The rational method likely is the applied method used most often by hydraulic and drainage engineers to estimate design discharges for small watersheds. These design discharges are used to size a variety of drainage structures for small undeveloped and developed watersheds throughout the United States.</p>
@@ -414,15 +406,6 @@
 </ul>
 </div>
 </div>
-<div class="section" id="nrcs-cn-runoff-generation-model">
-<h2>NRCS CN Runoff-Generation Model<a class="headerlink" href="#nrcs-cn-runoff-generation-model" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="linear-reservoir-rainfall-runoff-model">
-<h2>Linear Reservoir Rainfall-Runoff Model<a class="headerlink" href="#linear-reservoir-rainfall-runoff-model" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="non-linear-reservoir-rainfall-runoff-model">
-<h2>Non-Linear Reservoir Rainfall-Runoff Model<a class="headerlink" href="#non-linear-reservoir-rainfall-runoff-model" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -432,8 +415,6 @@
 <li><p>Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56.</p></li>
 <li><p>Gupta pp. 711-724</p></li>
 </ol>
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -467,19 +448,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../lesson05/lesson05.html" title="previous page">
+        <a class="left-prev" href="lesson06.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Streamflow Data Modeling</p>
+                <p class="prevnext-title">Hydrologic Process Modeling</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="rationalmethod.html" title="next page">
+        <a class="right-next" href="linearreservoir.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Rational Equation (Rainfall-Runoff) Model</p>
+                <p class="prevnext-title">Linear Reservoir Model</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

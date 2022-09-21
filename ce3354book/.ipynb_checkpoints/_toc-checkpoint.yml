@@ -20,6 +20,11 @@ chapters:
 - file: lessons/lesson05/lesson05 # streamflow
 
 - file: lessons/lesson06/lesson06 # hydrologic process
+  sections:
+  - file: lessons/lesson06/rationalmethod # precipitation
+  - file: lessons/lesson06/linearreservoir 
+  - file: lessons/lesson06/CNmethod 
+  - file: lessons/lesson06/nonlinreservoir 
 
 - file: lessons/lesson07/lesson07 # evaporation
 

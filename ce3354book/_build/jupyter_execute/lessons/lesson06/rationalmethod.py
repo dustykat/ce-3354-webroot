@@ -1,13 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Hydrologic Process Modeling
+# # Rational Equation (Rainfall-Runoff) Model
 # 
 # A rainfall-runoff model is a mathematical model describing the rainfall–runoff relations of a rainfall catchment area, drainage basin or watershed. It produces a runoff hydrograph in response to rainfall inputs, represented by a hyetograph. In other words, the model calculates the conversion of rainfall into runoff.
 # 
-# In comparatively sophisticated modeling one considers the rainfall signal coming into the watershed, filtered by losses from evapotranspiration, infiltration, any water that is added to storage - what remains is the runoff. 
+# A well known rainfall-runoff model is the Rational Equation model but it has limited applicability.
 # 
-# We will examine the losses in subsequent sections, here they will be presented as needed without much explaination.
+# A slightly more general rainfall-runoff model is the linear reservoir, but it also has limited applicability.
+# 
+# :::{note}
+# The limited appliciability is not problematic, and is intended to convey that you woukld use the model for situations where it is explicitly appropriate and recognize that outside its limits you are engaging in glorified guessing.
+# :::
+# 
+# The rainfall-runoff model with a non-linear reservoir is considered more universally applicable, but still it holds only for catchments whose surface area is limited by the condition that the rainfall can be considered more or less uniformly distributed over the area. 
+# 
+# The maximum size of the watershed then depends on the rainfall characteristics of the region. When the study area is too large, it can be divided into sub-catchments and the various runoff hydrographs may be combined using flood routing techniques.
+# 
+# Rainfall-runoff models need to be calibrated before they can be used.
 
 # ## Rational Equation (A simplistic method for small areas)
 # 
@@ -61,12 +71,6 @@
 # - NRCS Velocity [TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx)
 # 
 # 
-
-# ## NRCS CN Runoff-Generation Model
-
-# ## Linear Reservoir Rainfall-Runoff Model
-
-# ## Non-Linear Reservoir Rainfall-Runoff Model
 
 # ## References
 # 
