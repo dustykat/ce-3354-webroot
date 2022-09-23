@@ -155,6 +155,8 @@
 # 7. [NRCS TP-149 CN estimation](http://54.243.252.9/ce-3354-webroot/3-Readings/NRCS-CN-TP149/methodforestimat149kent.pdf)
 # 
 # 8. [Cleveland, T. G. (2022) *Engineering Hydrology Notes to Accompany CE 3354 (Introduction to HEC-HMS)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06/Lesson09ug.pdf)
+# 
+# 9. [AshCreek Data (zip)](http://54.243.252ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip)
 
 # In[ ]:
 
