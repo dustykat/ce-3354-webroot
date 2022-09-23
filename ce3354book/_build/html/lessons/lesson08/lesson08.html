@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,7 +53,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Unit Hydrographs - I (Analysis)" href="../lesson09/lesson09.html" />
+    <link rel="next" title="On-Watershed Storage Models" href="../lesson08.1/lesson081.html" />
     <link rel="prev" title="Evaporation Models" href="../lesson07/lesson07.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -169,6 +171,11 @@
   </ul>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../lesson06.1/HMSintro.html">
+   HEC-HMS Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../lesson07/lesson07.html">
    Evaporation Models
   </a>
@@ -176,6 +183,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Infiltration Models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../lesson08.1/lesson081.html">
+   On-Watershed Storage Models
   </a>
  </li>
  <li class="toctree-l1">
@@ -318,6 +330,38 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#infiltration-process-description">
+   Infiltration Process Description
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proportional-loss-model">
+     Proportional Loss Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hortons-model">
+     Horton’s Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phi-index-model">
+     Phi-Index Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#green-ampt-model">
+     Green-Ampt Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initial-abstraction-constant-loss">
+     Initial Abstraction - Constant Loss
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hec-hms-loss-models">
    HEC-HMS Loss Models
   </a>
@@ -342,6 +386,178 @@
 <h1>Infiltration Models<a class="headerlink" href="#infiltration-models" title="Permalink to this headline">¶</a></h1>
 <p>Examination of various process models at</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
+<div class="section" id="infiltration-process-description">
+<h2>Infiltration Process Description<a class="headerlink" href="#infiltration-process-description" title="Permalink to this headline">¶</a></h2>
+<p>Water that soaks into the ground and thereby enters the soil structure is considered removed from the runoff process at the time it enters the soil. The process by which this occurs is called infiltration. This process is the first step in a lengthy and vital process, the interaction of soil, water, air, and plant life.</p>
+<p>The soil matrix in its simplest form consists of particles of soil (minerals) loosely packed together in such a way that there are void spaces (pores). The pores are filled by either air or by water. If the voids are completely filled with water, the soil is said to be saturated. If a volume of saturated soil overlies something that does not block flow, some of the water contained in it will drain away, and some will remain trapped in the pore spaces in the soil by capillary forces. The size of the pore spaces in natural soils is such that capillary forces are important in the movement of water through them. The amount of water that drains through is called gravitational water, and is particular to the soil, as is the amount retained. The water retained balances forces between gravity and capillarity, and maintains equilibrium.</p>
+<p>Plants have roots that penetrate the upper soil layers, and remove water held there by cap-illarity. The upper layers of soil are thereby unbalanced, having capillary potential available to take up water. When rain falls on such a soil, there are initially two forces driving water into the soil- gravity and capillarity. If sufficient rain is available, the upper layers of the soil will become saturated, and the water will proceed downward. Due to the dual forces of capillarity and gravity, the initial rate of uptake of water may be quite high. As the capillary force is satisfied, gravity becomes the only force and the rate of uptake reaches an equilibrium value, as gravitational water drains through the soil.</p>
+<p>The progress of this phenomenon can be shown graphically <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08/InfiltrationProcess.pdf">sketch on board</a>. Initially, the rate of infiltration is quite high, and it decays to a steady-state value as a first-order function of time.</p>
+<p>Mathematically, there have been a number of relationships proposed to represent this progress. Collectively these equations represent different loss models. They are all attempts to explain a complex phenomenon currently beyond our understanding at any but the smallest scales. What follows are the set of more common models in use.</p>
+<div class="section" id="proportional-loss-model">
+<h3>Proportional Loss Model<a class="headerlink" href="#proportional-loss-model" title="Permalink to this headline">¶</a></h3>
+<p>The loss is some proportion of the incoming rainfall.  Somewhat similar in mindset to the rational method, but every rainfall pulse produces runoff (albeit possibly quite small).  It does produce good mass balance with observations.</p>
+</div>
+<div class="section" id="hortons-model">
+<h3>Horton’s Model<a class="headerlink" href="#hortons-model" title="Permalink to this headline">¶</a></h3>
+<p>Hortons equation is one of the simpler, and is presented here:</p>
+<div class="math notranslate nohighlight">
+\[q(t)=f_c+(f_a-f_c)e^{-kt}\]</div>
+<p>where <span class="math notranslate nohighlight">\(q(t)\)</span> = the infiltration rate at time <span class="math notranslate nohighlight">\(t\)</span>, in length/time;<br> <span class="math notranslate nohighlight">\(f_c\)</span> = the equilibrium infiltration rate, in length/time; <br> <span class="math notranslate nohighlight">\(f_o\)</span> = the initial infiltration rate, in length/time; <br><span class="math notranslate nohighlight">\(k\)</span> = a decay constant, particular to the soil, in reciprical time;<br> <span class="math notranslate nohighlight">\(t\)</span> = time.</p>
+<p>The integral of Hortons equation with time is the volume of rainfall that infiltrates during
+an event.</p>
+<div class="math notranslate nohighlight">
+\[I(t)= \int_{0}^{t} q(\tau) d\tau \]</div>
+<p>where I(t) is cumulative infiltration at time t, a depth.
+The parameters in Hortons equation can be determined for any give soil by infiltrometer tests. The parameters in Hortons equation can be determined for any give soil by infiltrometer tests. A script to generate a graph of Hortons equation for <span class="math notranslate nohighlight">\(f_c = 0.53~in/hr\)</span>, <span class="math notranslate nohighlight">\(f_o = 3~in/hr\)</span>, and <span class="math notranslate nohighlight">\(k = 4.182~hr^{−1}\)</span> is listed below.</p>
+<p>In the script below the input precipitation is set to slightly exceed the initial rate so that runoff is generated immediately, its mostly to show a runoff plot but is ancillary to the example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Hortonian Infiltration Excess Model</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">howmany</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">4.182</span> <span class="c1"># watershed infiltration excess decay constant</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1"># initial infiltration rate</span>
+<span class="n">fC</span> <span class="o">=</span> <span class="mf">0.53</span> <span class="c1"># asymptotic infiltration rate</span>
+<span class="c1">#</span>
+<span class="n">pRate</span> <span class="o">=</span> <span class="mf">3.0001</span> <span class="c1"># some constant rate in excess of fC, for plotting only!</span>
+<span class="n">Tend</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="c1"># rainfall duration</span>
+
+<span class="k">def</span> <span class="nf">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">kay</span><span class="p">,</span><span class="n">time</span><span class="p">):</span>
+    <span class="n">qfunc</span> <span class="o">=</span> <span class="n">fC</span><span class="o">+</span><span class="p">(</span><span class="n">f0</span> <span class="o">-</span> <span class="n">fC</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="o">*</span><span class="n">kay</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">qfunc</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">peein</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">tend</span><span class="p">):</span> <span class="c1"># a simple hyetograph model</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="n">tend</span><span class="p">:</span>
+        <span class="n">peein</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">peein</span><span class="o">=</span><span class="n">rate</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">peein</span><span class="p">)</span>
+
+<span class="n">qnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">CumQnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">CumPnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">PXSnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.004</span> <span class="c1"># time step value</span>
+<span class="c1"># time zero values</span>
+<span class="n">qnow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">itime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">howmany</span><span class="p">):</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span> <span class="o">=</span> <span class="n">deltat</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">])</span>
+    <span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">*</span><span class="n">deltat</span> <span class="o">+</span> <span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+ <span class="c1">#   rnow[itime]=alpha*qfunc(peein,time[itime],alpha)</span>
+    <span class="n">PXSnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="p">(</span><span class="n">pRate</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">Tend</span><span class="p">)</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">-</span><span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+    <span class="n">CumPnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="p">(</span><span class="n">pRate</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">Tend</span><span class="p">)</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="c1">#matplotlib.pyplot.plot(pnow, pnow, color =&#39;blue&#39;) </span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">qnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">CumQnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">PXSnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">CumPnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">qnow</span><span class="p">)])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (hours)&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Infiltration Rate (inches/hour) or Depth (inches)&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hortonian Infiltration Excess Model </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;F_initial =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">f0</span><span class="p">)</span><span class="o">+</span>
+                        <span class="s2">&quot; F_equilibrium =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">fC</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; Decay Constant (1/hr) =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Infiltration Rate (in/hr)&quot;</span><span class="p">,</span><span class="s2">&quot;Infiltration Depth (inches)&quot;</span><span class="p">,</span><span class="s2">&quot;Runoff Depth (inches)&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation Depth (inches)&quot;</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lesson08_3_0.png" src="../../_images/lesson08_3_0.png" />
+</div>
+</div>
+<p>When rain begins, infiltration also begins, and is the initial value (denoted fo in Hortons equation) is quite high (in this case, <span class="math notranslate nohighlight">\(3.0~in/hr\)</span>). At that time, infiltration rate usually exceeds the intensity of rainfall. As the infiltration rate drops, it at some point intersects with the rate of rainfall. After that point, rainfall rate will exceed infiltration rate. With no runoff, water would begin to pond on the soil surface. The time from beginning of rain until that point is reached is called the time to ponding. After some time, the infiltration rate has dropped until it approaches an equilibrium value, represented by <span class="math notranslate nohighlight">\(f_c\)</span> (in this case, <span class="math notranslate nohighlight">\(0.53~in/hr\)</span>). After that time, gravity alone is the force driving the infiltration process.</p>
+<p>If the rainfall rate is less that the initial rate, and the storm duration is a bit shorter different results appear as below when the storm is shortened to 2 hours, and the rainfall rate is 2.0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Hortonian Infiltration Excess Model</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">howmany</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">4.182</span> <span class="c1"># watershed infiltration excess decay constant</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1"># initial infiltration rate</span>
+<span class="n">fC</span> <span class="o">=</span> <span class="mf">0.53</span> <span class="c1"># asymptotic infiltration rate</span>
+<span class="c1">#</span>
+<span class="n">pRate</span> <span class="o">=</span> <span class="mf">2.0001</span> <span class="c1"># some constant rate in excess of fC, for plotting only!</span>
+<span class="n">Tend</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># rainfall duration</span>
+
+<span class="k">def</span> <span class="nf">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">kay</span><span class="p">,</span><span class="n">time</span><span class="p">):</span>
+    <span class="n">qfunc</span> <span class="o">=</span> <span class="n">fC</span><span class="o">+</span><span class="p">(</span><span class="n">f0</span> <span class="o">-</span> <span class="n">fC</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="o">*</span><span class="n">kay</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">qfunc</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">peein</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">tend</span><span class="p">):</span> <span class="c1"># a simple hyetograph model</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="n">tend</span><span class="p">:</span>
+        <span class="n">peein</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">peein</span><span class="o">=</span><span class="n">rate</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">peein</span><span class="p">)</span>
+
+<span class="n">qnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">CumQnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">CumPnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">PXSnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.004</span> <span class="c1"># time step value</span>
+<span class="c1"># time zero values</span>
+<span class="n">qnow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">itime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">howmany</span><span class="p">):</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span> <span class="o">=</span> <span class="n">deltat</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">qfunc</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">fC</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">])</span>
+    <span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">*</span><span class="n">deltat</span> <span class="o">+</span> <span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+ <span class="c1">#   rnow[itime]=alpha*qfunc(peein,time[itime],alpha)</span>
+    <span class="n">PXSnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="p">(</span><span class="n">pRate</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">Tend</span><span class="p">)</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">-</span><span class="n">CumQnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+    <span class="n">CumPnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="p">(</span><span class="n">pRate</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">Tend</span><span class="p">)</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="c1">#matplotlib.pyplot.plot(pnow, pnow, color =&#39;blue&#39;) </span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">qnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">CumQnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">PXSnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">CumPnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">qnow</span><span class="p">)])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (hours)&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Infiltration Rate (inches/hour) or Depth (inches)&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hortonian Infiltration Excess Model </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;F_initial =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">f0</span><span class="p">)</span><span class="o">+</span>
+                        <span class="s2">&quot; F_equilibrium =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">fC</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; Decay Constant (1/hr) =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Infiltration Rate (in/hr)&quot;</span><span class="p">,</span><span class="s2">&quot;Infiltration Depth (inches)&quot;</span><span class="p">,</span><span class="s2">&quot;Runoff Depth (inches)&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation Depth (inches)&quot;</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/lesson08_5_0.png" src="../../_images/lesson08_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="phi-index-model">
+<h3>Phi-Index Model<a class="headerlink" href="#phi-index-model" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/PhiIndex.png" /></p>
+</div>
+<div class="section" id="green-ampt-model">
+<h3>Green-Ampt Model<a class="headerlink" href="#green-ampt-model" title="Permalink to this headline">¶</a></h3>
+<p>The Green-Ampt model is a simplified soil-physics model that is reasonably defendible in most hydrologic engineering situations.</p>
+<p><img alt="" src="../../_images/GApart1.png" /></p>
+<p><img alt="" src="../../_images/GApart2.png" /></p>
+<p><img alt="" src="../../_images/GApart3.png" /></p>
+<p><img alt="" src="../../_images/GApart4.png" /></p>
+<p><img alt="" src="../../_images/GApart5.png" /></p>
+<p>A detailed explaination with example calculations is located at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08/Green-Ampt.pdf">Cleveland, T. G. (2008) <em>Surface Water Hydrology Notes (Green-Ampt Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
+</div>
+<div class="section" id="initial-abstraction-constant-loss">
+<h3>Initial Abstraction - Constant Loss<a class="headerlink" href="#initial-abstraction-constant-loss" title="Permalink to this headline">¶</a></h3>
+<p>For this watershed-loss model, a watershed is conceptualized to have the capacity to store or abstract an absolute depth of rainfall at and near the beginning of a storm. Depths of total rainfall less than this initial abstraction do not produce runoff. The watershed also is conceptualized to have the capacity to remove rainfall at a constant rate (loss) after the initial abstraction is satisfied. Additional rainfall inputs after the initial abstraction is satisfied contribute to runoff if the rainfall rate (intensity) is larger than the constant loss.</p>
+<p>Examination of various process models at</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
+</div>
+</div>
 <div class="section" id="hec-hms-loss-models">
 <h2>HEC-HMS Loss Models<a class="headerlink" href="#hec-hms-loss-models" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -377,6 +593,13 @@ will depend on which method is currently selected</p>
 <ol class="simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/ce5361_green_ampt.xlsx">Green-Ampt Spreadsheet (Excel)</a> Right-Click “Save As…”</p></li>
+<li><p>Chow, V. T., 1964. Handbook of Applied Hydrology. McGraw Hill, New York. Sec. 14., 2pp.</p></li>
+<li><p>Fang, X., Asquith, W.H., Garcia , C.A., Cleveland, T.G., Thompson, D.B., Malla, R. 2004 Literature Review on Time Parameters for Hydrographs. Project Report 4696-1. Texas Department of Transportation.</p></li>
+<li><p>USDA National Engineering Handbook, Chapters 4,5, and 10.</p></li>
+<li><p>Wurbs and James, 2002. Water Resources Engineering. Prentice-Hall, New Jersey. Pp 462-483.</p></li>
+<li><p>Polubarinova-Kochina, 1962. Theory of Groundwater Movement, (Translated from Russian by R. De Wiest), Princeton University Press, New Jersey.</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-IaCl/sir2007-5243.pdf">An Initial-Abstraction, Constant-Loss Model for Unit Hydrograph Modeling for Applicable Watersheds in Texas</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 </ol>
 </div>
 </div>
@@ -420,10 +643,10 @@ will depend on which method is currently selected</p>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../lesson09/lesson09.html" title="next page">
+        <a class="right-next" href="../lesson08.1/lesson081.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Unit Hydrographs - I (Analysis)</p>
+                <p class="prevnext-title">On-Watershed Storage Models</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

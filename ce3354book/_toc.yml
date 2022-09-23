@@ -25,10 +25,14 @@ chapters:
   - file: lessons/lesson06/linearreservoir 
   - file: lessons/lesson06/CNmethod 
   - file: lessons/lesson06/nonlinreservoir 
+  
+- file: lessons/lesson06.1/HMSintro # intro to HMS
 
 - file: lessons/lesson07/lesson07 # evaporation
 
 - file: lessons/lesson08/lesson08 # infiltration
+
+- file: lessons/lesson08.1/lesson081 # canopy and depression storage
 
 - file: lessons/lesson09/lesson09 # unit hydrographs - analysis
 
