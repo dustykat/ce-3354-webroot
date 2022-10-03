@@ -328,48 +328,14 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-delineation">
-   Watershed Delineation
+  <a class="reference internal nav-link" href="#parametric-unit-hydrographs-in-hec-hms">
+   Parametric Unit Hydrographs (in HEC-HMS)
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#by-hand">
-     By-hand
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automated">
-     Automated
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stream-stats-tool">
-     Stream Stats Tool
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-metrics">
-   Watershed Metrics
+  <a class="reference internal nav-link" href="#example">
+   Example
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-area">
-     Measuring Area
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-length-s">
-     Measuring Length(s)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estimating-slope-s">
-     Estimating Slope(s)
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
@@ -389,46 +355,62 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="unit-hydrographs-ii-synthesis">
 <h1>Unit Hydrographs - II (Synthesis)<a class="headerlink" href="#unit-hydrographs-ii-synthesis" title="Permalink to this headline">¶</a></h1>
-<p>Some definitions of a watershed include:</p>
+<p>Synthesis does not use rainfall-runoff data.</p>
 <ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+<li><p>Uses measurements on the watershed to postulate parameters of a parametric unit hydrograph.</p></li>
 </ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
-It’s a big deal in urban areas.</p>
-<p>[insert some images]</p>
-<div class="section" id="watershed-delineation">
-<h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
-<p>Define</p>
-<div class="section" id="by-hand">
-<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
-<p>Example</p>
+<div class="section" id="parametric-unit-hydrographs-in-hec-hms">
+<h2>Parametric Unit Hydrographs (in HEC-HMS)<a class="headerlink" href="#parametric-unit-hydrographs-in-hec-hms" title="Permalink to this headline">¶</a></h2>
+<p>HEC-HMS has several different UH models available (eg. NRCS DUH, Clark, etc.).
+These models are described by “parameters”</p>
+<ul class="simple">
+<li><p>NRCS (Tp or Tc)</p></li>
+<li><p>Clark (Tc, R)
+Selection of the parameters selects the shape of the UH and the time base (or time to peak).
+The analyst can also enter an empirical (user specified) unit hydrograph.</p></li>
+</ul>
+<p>Useful parametric models along with their parameters include:</p>
+<ul class="simple">
+<li><p>NRCS DUH : Tlag (Timing only)</p></li>
+<li><p>Clark : Tc, and R (Timing and a storage-delay)</p></li>
+<li><p>Snyder : Tlag, Cp (Timing and a peak rate factor)</p></li>
+<li><p>Gamma : (User-Specified) Tc, K (Timing and a shape factor)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aalysis uses data (rainfall and runoff observations) to develop unit hydrograph models. Choices include:</p>
+<p>Follow FHWA methods</p>
+<ul class="simple">
+<li><p>Essentially back-substitution or OLS</p></li>
+</ul>
+<p>Use HEC-HMS and parametric UH, adjust values of parameters to fit observed runoff</p>
+<ul class="simple">
+<li><p>Less tedious than back-substitution or OLS</p></li>
+</ul>
+<p>Use HEC-HMS and a user supplied UH, adjust values of UH ordinates (and re-scale to maintain a unit response) to fit observed runoff</p>
+<ul class="simple">
+<li><p>Less tedious than back-substitution or OLS</p></li>
+</ul>
 </div>
-<div class="section" id="automated">
-<h3>Automated<a class="headerlink" href="#automated" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="stream-stats-tool">
-<h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
-<p>Pick somewhere in Oklahoma</p>
-</div>
-</div>
-<div class="section" id="watershed-metrics">
-<h2>Watershed Metrics<a class="headerlink" href="#watershed-metrics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="measuring-area">
-<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="measuring-length-s">
-<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="estimating-slope-s">
-<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Permalink to this headline">¶</a></h3>
-</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Work the example(s) below:</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture14.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs in HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering. Go to Slide 32</a></p>
+<p>A fully provisioned Windows Implementation of HEC-HMS is located at:</p>
+<ul class="simple">
+<li><p>server_name: <strong><a class="reference external" href="http://kittyinthewindow.ddns.net">kittyinthewindow.ddns.net</a></strong></p></li>
+<li><p>user_name: <strong>texas-skew</strong></p></li>
+<li><p>passwd: <strong>peakfq73$hare</strong></p></li>
+</ul>
+<p>Users must access using Remote Desktop Protocol (Built into Windows, Apple Store has a free Mac application).</p>
+<p>In this case use the DES606-EX6 directory</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>cite pages of textbook</p>
-<p>links to other readings</p>
+<ol class="simple">
+<li><p>Gupta pp 343-372</p></li>
+</ol>
 </div>
 </div>
 

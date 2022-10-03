@@ -330,15 +330,20 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constant-discharge-method">
-   Constant discharge method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constant-slope-method">
-   Constant slope method
+  <a class="reference internal nav-link" href="#baseflow-separation">
+   Baseflow Separation
   </a>
   <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constant-discharge-method">
+     Constant discharge method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constant-slope-method">
+     Constant slope method
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#concave-method">
      Concave method
@@ -370,12 +375,46 @@
     <a class="reference internal nav-link" href="#how-are-they-built-from-data-analysis">
      How are they built from data (analysis)?
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#back-substitution">
+       Back-Substitution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#least-squares">
+       Least-Squares
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+  <a class="reference internal nav-link" href="#what-are-unit-hydrographs-used-for">
+   What are Unit Hydrographs used for?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parametric-unit-hydrographs">
+     Parametric Unit Hydrographs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#value-of-parametric-unit-hydrographs">
+     VALUE OF PARAMETRIC UNIT HYDROGRAPHS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-base-extension">
+     Time-Base Extension
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-concepts">
+   Summary concepts
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -412,9 +451,11 @@
 The hydrograph pictured also has a baseflow component</p></li>
 <li><p>Flow in absence of a storm</p></li>
 </ul>
+<div class="section" id="baseflow-separation">
+<h2>Baseflow Separation<a class="headerlink" href="#baseflow-separation" title="Permalink to this headline">¶</a></h2>
 <p>Baseflow separation is a first step in analysis – several methods</p>
 <div class="section" id="constant-discharge-method">
-<h2>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Permalink to this headline">¶</a></h2>
+<h3>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../../_images/constantdischarge.png" /></p>
 <ul class="simple">
 <li><p>When rising limb starts – declare that value to constant rate during the event, rejoin as recession limb.</p></li>
@@ -422,7 +463,7 @@ The hydrograph pictured also has a baseflow component</p></li>
 </ul>
 </div>
 <div class="section" id="constant-slope-method">
-<h2>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Permalink to this headline">¶</a></h2>
+<h3>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../../_images/constantslope.png" /></p>
 <ul class="simple">
 <li><p>When rising limb starts – draw a segment from that value to the inflection point on the recession limb</p></li>
@@ -430,6 +471,7 @@ The hydrograph pictured also has a baseflow component</p></li>
 declared storm flow</p></li>
 <li><p>Hard to implement for multiple peak hydrographs (real hydrographs may exhibit many peaks)</p></li>
 </ul>
+</div>
 <div class="section" id="concave-method">
 <h3>Concave method<a class="headerlink" href="#concave-method" title="Permalink to this headline">¶</a></h3>
 <p><img alt="" src="../../_images/concave.png" /></p>
@@ -504,7 +546,9 @@ The time step size for aggregation must the same as the duration, and the time-t
 </div>
 <div class="section" id="how-are-they-built-from-data-analysis">
 <h3>How are they built from data (analysis)?<a class="headerlink" href="#how-are-they-built-from-data-analysis" title="Permalink to this headline">¶</a></h3>
-<p>Will demonstrate by example</p>
+<p>Will demonstrate several approaches by example (mostly using the same data and different methods)</p>
+<div class="section" id="back-substitution">
+<h4>Back-Substitution<a class="headerlink" href="#back-substitution" title="Permalink to this headline">¶</a></h4>
 <p><img alt="" src="../../_images/convolution2.png" /></p>
 <p><img alt="" src="../../_images/convolution3.png" /></p>
 <p><img alt="" src="../../_images/convolution4.png" /></p>
@@ -515,32 +559,89 @@ The time step size for aggregation must the same as the duration, and the time-t
 <li><p>Many instances the system is over-determined; more equations than unknowns and an optimization technique is usually applied</p></li>
 </ul>
 <p><img alt="" src="../../_images/convolution6.png" /></p>
+</div>
+<div class="section" id="least-squares">
+<h4>Least-Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">¶</a></h4>
+<p>This method is good for over-determined cases, although may produce negative weights - usually these are small in magnitude and late in time, so not a huge issue but do need addressing when they arise.</p>
+<p><img alt="" src="../../_images/leastsquares.png" /></p>
+<p>The least squares approach treats the problem as a regression problem, and fits the weights to the data.  A spreadsheet can implement the technique for smallish problems.</p>
+<p><img alt="" src="../../_images/leastsquaresSS.png" /></p>
+</div>
+</div>
+</div>
+<div class="section" id="what-are-unit-hydrographs-used-for">
+<h2>What are Unit Hydrographs used for?<a class="headerlink" href="#what-are-unit-hydrographs-used-for" title="Permalink to this headline">¶</a></h2>
+<p>They are useful to predict responses to future storms of correct duration.</p>
+<p><img alt="" src="../../_images/UHuse1.png" /></p>
+<p>A future storm of same duration but different magnitude (similar input sequence)</p>
+<p><img alt="" src="../../_images/UHuse2.png" /></p>
+<p>A future storm of same duration but different magnitude (different input sequence)</p>
+<p><img alt="" src="../../_images/UHuse3.png" /></p>
+<p>A future storm of same duration but different magnitude (different input sequence)</p>
+<p><img alt="" src="../../_images/UHuse4.png" /></p>
+<div class="section" id="parametric-unit-hydrographs">
+<h3>Parametric Unit Hydrographs<a class="headerlink" href="#parametric-unit-hydrographs" title="Permalink to this headline">¶</a></h3>
+<p>The unit weights can be replaced by a function whose shape is adjusted by one or more parameters, these are called parametric unit hydrographs.</p>
+<p><img alt="" src="../../_images/parametricUH1.png" /></p>
+<p><img alt="" src="../../_images/parametricUH2.png" /></p>
+<p><img alt="" src="../../_images/parametricUH3.png" /></p>
+</div>
+<div class="section" id="value-of-parametric-unit-hydrographs">
+<h3>VALUE OF PARAMETRIC UNIT HYDROGRAPHS<a class="headerlink" href="#value-of-parametric-unit-hydrographs" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>How are they built when data do not exist (synthesis)?</p></li>
+<li><p>Fewer values to keep track of</p></li>
+<li><p>Simple extension of time-base</p></li>
+<li><p>If the parameters can be associated with watershed metrics (Slope, MCL, soil properties, shape, etc.) the resulting model is called a synthetic unit hydrograph</p></li>
+<li><p>Called synthetic because response can be synthesized from the metrics rather than from analyzing observations (which we may not have in cases of practical interest)</p></li>
 </ul>
-<p>Pick somewhere in Oklahoma</p>
+<p><img alt="" src="../../_images/parametricUH4.png" /></p>
+</div>
+<div class="section" id="time-base-extension">
+<h3>Time-Base Extension<a class="headerlink" href="#time-base-extension" title="Permalink to this headline">¶</a></h3>
+<p>Extending the time base of a UH is needed to accomodate storms of much different length than used in the analysis.  Extension for parametric hydrographs is fairly easy, just extend the matrix as needed.  For classically obtained weights, the S-curve technique as as good as any.  Fortunately most software has parametric UH choices built-in, so this is a non-issue these days unless you are using historical UHs and need to bring them into the 21st century.</p>
+<p><img alt="" src="../../_images/timebase1.png" /></p>
+<p><img alt="" src="../../_images/timebase2.png" /></p>
 </div>
 </div>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="summary-concepts">
+<h2>Summary concepts<a class="headerlink" href="#summary-concepts" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Unit hydrographs map the excess precipitation signal to the outlet</p></li>
 <li><p>Base-flow separation isolates the total discharge from the storm-induced discharge</p></li>
 <li><p>Loss models are implicit; the unit hydrograph maps excess to the outlet</p></li>
-<li><p>Back-substitution (linear equation) method illustrated.</p></li>
+<li><p>Back-substitution (linear equation) and Least-Squares analysis method illustrated.</p></li>
+<li><p>Parametric UH described</p></li>
+<li><p>Hydrograph Analysis</p>
+<ul>
+<li><p>Measured rainfall and runoff to infer the transfer function.   Implies: Have <strong>DATA.</strong></p></li>
+</ul>
+</li>
+<li><p>Hydrograph Synthesis</p>
+<ul>
+<li><p>Physical properties of watershed used to postulate the transfer function. Actual measurements not required – Produces an <strong>ESTIMATE</strong></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>cite pages of textbook</p>
 <ol class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture13.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs Analysis) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture13.pdf">Cleveland, T. G. (2015) <em>Surface Water Hydrology Notes (Unit-Hydrographs Analysis) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture14.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs in HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">FHWA-NHI-02-001 Highway Hydrology Chapter 6, Section 6.1</a></p></li>
 </ol>
 </div>
 <div class="section" id="spreadsheets">
 <h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permalink to this headline">¶</a></h2>
+<p>Listed below are spreadsheets that implement simple UH examples.  They are Excel (circa 2009) spreadsheets, that work in current Excel, LibreOffice, and Numbers environments</p>
 <ol class="simple">
-<li></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub1.xls">ExampleUH_BackSub1.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub2.xls">ExampleUH_BackSub2.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_LeastSquares.xls">ExampleUH_LeastSquares.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_TransferFn.xls">ExampleUH_TransferFn.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase_DifferentStorm.xls">ExtendedBase_DifferentStorm.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase.xls">ExtendedBase.xls</a></p></li>
 </ol>
 </div>
 </div>
