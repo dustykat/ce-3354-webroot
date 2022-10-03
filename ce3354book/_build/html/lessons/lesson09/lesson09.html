@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -328,52 +330,62 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-delineation">
-   Watershed Delineation
+  <a class="reference internal nav-link" href="#constant-discharge-method">
+   Constant discharge method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constant-slope-method">
+   Constant slope method
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#by-hand">
-     By-hand
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automated">
-     Automated
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stream-stats-tool">
-     Stream Stats Tool
+    <a class="reference internal nav-link" href="#concave-method">
+     Concave method
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-metrics">
-   Watershed Metrics
+  <a class="reference internal nav-link" href="#what-is-a-unit-hydrograph">
+   What is a unit hydrograph?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-hydrograph-assumptions">
+   Unit Hydrograph Assumptions
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-area">
-     Measuring Area
+    <a class="reference internal nav-link" href="#timing">
+     Timing
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-length-s">
-     Measuring Length(s)
+    <a class="reference internal nav-link" href="#convolution">
+     Convolution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estimating-slope-s">
-     Estimating Slope(s)
+    <a class="reference internal nav-link" href="#how-are-they-built-from-data-analysis">
+     How are they built from data (analysis)?
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spreadsheets">
+   Spreadsheets
   </a>
  </li>
 </ul>
@@ -389,46 +401,147 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="unit-hydrographs-i-analysis">
 <h1>Unit Hydrographs - I (Analysis)<a class="headerlink" href="#unit-hydrographs-i-analysis" title="Permalink to this headline">¶</a></h1>
-<p>Some definitions of a watershed include:</p>
+<p>A hydrograph is a plot (or paired time-discharge values) of discharge versus time for a location (on a stream).</p>
+<p><img alt="" src="../../_images/hydrograph-1.png" /></p>
+<p>An idealized hydrograph has</p>
 <ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+<li><p>Rise portion</p></li>
+<li><p>Peak portion</p></li>
+<li><p>Recession portion</p></li>
+<li><p>Inflection point
+The hydrograph pictured also has a baseflow component</p></li>
+<li><p>Flow in absence of a storm</p></li>
 </ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
-It’s a big deal in urban areas.</p>
-<p>[insert some images]</p>
-<div class="section" id="watershed-delineation">
-<h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
-<p>Define</p>
-<div class="section" id="by-hand">
-<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
-<p>Example</p>
+<p>Baseflow separation is a first step in analysis – several methods</p>
+<div class="section" id="constant-discharge-method">
+<h2>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../../_images/constantdischarge.png" /></p>
+<ul class="simple">
+<li><p>When rising limb starts – declare that value to constant rate during the event, rejoin as recession limb.</p></li>
+<li><p>All flow above the value is declared storm flow</p></li>
+</ul>
 </div>
-<div class="section" id="automated">
-<h3>Automated<a class="headerlink" href="#automated" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="constant-slope-method">
+<h2>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../../_images/constantslope.png" /></p>
+<ul class="simple">
+<li><p>When rising limb starts – draw a segment from that value to the inflection point on the recession limb</p></li>
+<li><p>All flow above the value is
+declared storm flow</p></li>
+<li><p>Hard to implement for multiple peak hydrographs (real hydrographs may exhibit many peaks)</p></li>
+</ul>
+<div class="section" id="concave-method">
+<h3>Concave method<a class="headerlink" href="#concave-method" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/concave.png" /></p>
+<ul class="simple">
+<li><p>When rising limb starts – draw a segment from that value following the recession curve to a point beneath the peak flow.</p></li>
+<li><p>Then draw a segment from the point above to the inflection point</p></li>
+<li><p>All flow above the segments are declared storm flow</p></li>
+<li><p>Hard to implement for multiple peak hydrographs (real hydrographs exhibit many peaks)</p></li>
+</ul>
+<p>There are a few more ways to accomplish baseflow separation</p>
+<ul class="simple">
+<li><p>The master-depletion curve method is outlined in the readings</p></li>
+<li><p>For many practical cases with multiple peaked hydrographs the constant discharge method is probably the most straightforward to apply (or use continuous simulation techniques – outside scope this course)</p></li>
+</ul>
 </div>
-<div class="section" id="stream-stats-tool">
-<h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="what-is-a-unit-hydrograph">
+<h2>What is a unit hydrograph?<a class="headerlink" href="#what-is-a-unit-hydrograph" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to explain the time re-distribution of excess precipitation on a watershed</p></li>
+<li><p>Represents the response of the watershed at the outlet to a unit depth of EXCESS precipitation</p></li>
+<li><p>EXCESS implies some kind of loss model is applied to the raw precipitation</p></li>
+<li><p>Time re-distribution implies some kind of transfer behavior is applied</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/ShermanUH/Sherman_ENR_1932.pdf">L. K. Sherman 1932</a> is credited with seminal publication of the concept</p></li>
+</ul>
+<p>The unit hydrograph is a response function that transforms the distributed input to the outlet, accounting for transit time to get from remote parts of the watershed to the outlet.</p>
+<p><img alt="" src="../../_images/unithydrograph1.png" /></p>
+<p>Another way to picture it is the stack of pizza boxes model of the watershed</p>
+<p><img alt="" src="../../_images/unithydrograph2.png" /></p>
+<p>The time basis matters.  In the figure below a single input of time length D produces the outlet response shown.
+The unit hydrograph is the kernel function that makes the transformation.</p>
+<p><img alt="" src="../../_images/unithydrograph3.png" /></p>
+<p>Unit hydrograph models contain a few common themes, first input hyetograph, then a loss model which are combined to produce the excess precipitation signal</p>
+<p><img alt="" src="../../_images/unithydrograph4.png" /></p>
+<p>The excess precipitation signal has the same total volume as the direct ruoff</p>
+<p><img alt="" src="../../_images/unithydrograph5.png" /></p>
+<p>And the unit hydrograph as a transfer function maps the excess hyetograph to the outlet</p>
+<p><img alt="" src="../../_images/unithydrograph6.png" /></p>
+<p>The storm induced flow is added to any baseflow to produce the total hydrograph.</p>
+<p><img alt="" src="../../_images/unithydrograph7.png" /></p>
+</div>
+<div class="section" id="unit-hydrograph-assumptions">
+<h2>Unit Hydrograph Assumptions<a class="headerlink" href="#unit-hydrograph-assumptions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Direct runoff duration (time) is same for all uniform-intensity storms of same duration (time)</p></li>
+<li><p>Two excess hyetographs of the same duration (time) will produce direct runoff hydrographs of the same duration (time) but with runoff rates proportional to the volumes (depth) of the excess hyetographs</p></li>
+<li><p>The time distribution of direct runoff from a given storm duration is independent of concurrent runoff from prior storms (no memory)</p></li>
+</ul>
+<p><img alt="" src="../../_images/unitgraph1.png" /></p>
+<p><img alt="" src="../../_images/unitgraph2.png" /></p>
+<p><img alt="" src="../../_images/unitgraph3.png" /></p>
+<div class="section" id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h3>
+<p>Strictly speaking, each unit hydrograph has a particular duration associated with it, D in the diagram</p>
+<ul class="simple">
+<li><p>That duration must coincide with the time step size used in discrete aggregation</p></li>
+<li><p>Thus a D-hour unit hydrograph is a response to a D-hour “pulse” of excess precipitation.</p></li>
+</ul>
+<p>The flow associated with that response is reported every D-hours until there is no further response
+(<span class="math notranslate nohighlight">\(T_D\)</span> in the diagram)</p>
+<p>Each watershed has a characteristic response time, <span class="math notranslate nohighlight">\(T_{lag}\)</span> and <span class="math notranslate nohighlight">\(T_P\)</span> in the diagram.
+The characteristic time of the watershed is related to physical characteristics of the watershed contributing area, slope, etc.
+The time step size for aggregation must the same as the duration, and the time-to-peak for the watershed must be an integer multiple of that value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These requirements are coded into HEC-HMS which will issue warnings as these requirements are violated.  As a designer you need to decide whether to ignore the warnings and proceede or adjust inputs and parameters to satisfy the various rules of the signal processing.</p>
+</div>
+</div>
+<div class="section" id="convolution">
+<h3>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/convolution1.png" /></p>
+</div>
+<div class="section" id="how-are-they-built-from-data-analysis">
+<h3>How are they built from data (analysis)?<a class="headerlink" href="#how-are-they-built-from-data-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Will demonstrate by example</p>
+<p><img alt="" src="../../_images/convolution2.png" /></p>
+<p><img alt="" src="../../_images/convolution3.png" /></p>
+<p><img alt="" src="../../_images/convolution4.png" /></p>
+<p><img alt="" src="../../_images/convolution5.png" /></p>
+<p>Observe that if the linear system has full ranked matrix (rows=columns) and non-zero diagonal, one could just solve the resulting linear equation for the unitgraph weights</p>
+<ul class="simple">
+<li><p>Probably better than manual back-substitution which is error prone</p></li>
+<li><p>Many instances the system is over-determined; more equations than unknowns and an optimization technique is usually applied</p></li>
+</ul>
+<p><img alt="" src="../../_images/convolution6.png" /></p>
+<ul class="simple">
+<li><p>How are they built when data do not exist (synthesis)?</p></li>
+</ul>
 <p>Pick somewhere in Oklahoma</p>
 </div>
 </div>
-<div class="section" id="watershed-metrics">
-<h2>Watershed Metrics<a class="headerlink" href="#watershed-metrics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="measuring-area">
-<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="measuring-length-s">
-<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="estimating-slope-s">
-<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Permalink to this headline">¶</a></h3>
-</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Unit hydrographs map the excess precipitation signal to the outlet</p></li>
+<li><p>Base-flow separation isolates the total discharge from the storm-induced discharge</p></li>
+<li><p>Loss models are implicit; the unit hydrograph maps excess to the outlet</p></li>
+<li><p>Back-substitution (linear equation) method illustrated.</p></li>
+</ul>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>cite pages of textbook</p>
-<p>links to other readings</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture13.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs Analysis) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</div>
+<div class="section" id="spreadsheets">
+<h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li></li>
+</ol>
 </div>
 </div>
 
