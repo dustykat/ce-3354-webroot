@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -328,52 +330,25 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-delineation">
-   Watershed Delineation
+  <a class="reference internal nav-link" href="#routing-hydrologic-and-hydraulic">
+   Routing-Hydrologic and Hydraulic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrologic-routing">
+   Hydrologic Routing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#by-hand">
-     By-hand
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#automated">
-     Automated
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stream-stats-tool">
-     Stream Stats Tool
+    <a class="reference internal nav-link" href="#level-pool-routing">
+     Level Pool Routing
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-metrics">
-   Watershed Metrics
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-area">
-     Measuring Area
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#measuring-length-s">
-     Measuring Length(s)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#estimating-slope-s">
-     Estimating Slope(s)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#reservoir-concepts">
+   Reservoir Concepts
   </a>
  </li>
 </ul>
@@ -389,46 +364,140 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="hydrograph-routing-i">
 <h1>Hydrograph Routing - I<a class="headerlink" href="#hydrograph-routing-i" title="Permalink to this headline">¶</a></h1>
-<p>Some definitions of a watershed include:</p>
+<p>Routing simulates movement of a discharge signal (flood wave) through reaches</p>
 <ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+<li><p>Accounts for storage in the reach and flow resistance.</p></li>
+<li><p>Allows modeling of a basin comprised of interconnected sub-basins</p></li>
+<li><p>Hydraulic routing – uses continuity and momentum (St. Venant Equations)</p></li>
+<li><p>Hydrologic routing – uses continuity equation</p></li>
 </ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
-It’s a big deal in urban areas.</p>
 <p>[insert some images]</p>
-<div class="section" id="watershed-delineation">
-<h2>Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Permalink to this headline">¶</a></h2>
-<p>Define</p>
-<div class="section" id="by-hand">
-<h3>By-hand<a class="headerlink" href="#by-hand" title="Permalink to this headline">¶</a></h3>
-<p>Example</p>
+<div class="section" id="routing-hydrologic-and-hydraulic">
+<h2>Routing-Hydrologic and Hydraulic<a class="headerlink" href="#routing-hydrologic-and-hydraulic" title="Permalink to this headline">¶</a></h2>
+<p>Problem:</p>
+<ul class="simple">
+<li><p>you have a hydrograph at one location (I)</p></li>
+<li><p>you have reach characteristics (S = f(I,O))</p></li>
+</ul>
+<p>Need:</p>
+<ul class="simple">
+<li><p>a hydrograph at different location (O)</p></li>
+</ul>
+<p>This is a “routing” situation. The “reach” can be a stream, river, reservoir or some similar feature</p>
+<p><img alt="" src="../../_images/routingsketch.png" /></p>
+<p><img alt="" src="../../_images/barheights.png" /></p>
+<p>The bar heights (volumes in storage, entering, and leaving the hydrologic reach) are quantified in a routing table - like a bank account that relates revenue, expenses, and account balance.</p>
 </div>
-<div class="section" id="automated">
-<h3>Automated<a class="headerlink" href="#automated" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="hydrologic-routing">
+<h2>Hydrologic Routing<a class="headerlink" href="#hydrologic-routing" title="Permalink to this headline">¶</a></h2>
+<p>Hydrologic routing techniques use the equation of continuity and some linear or curvilinear relation between storage and discharge within the river.</p>
+<p>Methods include:</p>
+<ul class="simple">
+<li><p>Lag Routing (no attenuation). Useful to get connectivity correct</p></li>
+<li><p>Modified Puls (level pool routing). Useful for reservoirs</p></li>
+<li><p>Muskingum-Cunge (almost a hydraulic model). Useful to approximate stream/river behavior without true “hydraulics” considerations</p></li>
+</ul>
+<div class="section" id="level-pool-routing">
+<h3>Level Pool Routing<a class="headerlink" href="#level-pool-routing" title="Permalink to this headline">¶</a></h3>
+<p>Technique to approximate the outflow hydrograph passing through a reservoir with the pool (water surface) always level.</p>
+<ul class="simple">
+<li><p>Uses a reach (reservoir) mass balance equation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ Q_{in} − Q_{out} = \frac{\Delta S}{\Delta t}\]</div>
+<ul class="simple">
+<li><p>and a storage-outflow relationship.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ Q_{out} = f(S)\]</div>
+<p>Variable names are typically changed:</p>
+<p><span class="math notranslate nohighlight">\(Q_{in} =&gt; I_t\)</span> and <span class="math notranslate nohighlight">\(Q_{out} =&gt; O_t\)</span></p>
+<p>So the reach mass balance is
+$<span class="math notranslate nohighlight">\( \bar I − \bar O = \frac{\Delta S}{\Delta t}\)</span>$</p>
+<p>The time averaged values are taken at the beginning and end of the time interval, and the first-order difference quotient is used to approximate the rate of change in storage.</p>
+<p>The reach mass balance is then
+$<span class="math notranslate nohighlight">\(\frac{I_t - I_{t-\Delta t}}{2} - \frac{O_t - O_{t-\Delta t}}{2} = \frac{S_t - S_{t-\Delta t}}{\Delta t}  \)</span>$</p>
+<p><img alt="" src="../../_images/levelpool1.png" /></p>
+<p>Then some of that algebra stuff ….</p>
+<p><img alt="" src="../../_images/levelpool2.png" /></p>
+<p>More algebra stuff ….</p>
+<p><img alt="" src="../../_images/levelpool3.png" /></p>
+<p>Some more algebra still and recognize need to deal with two unknowns …</p>
+<p><img alt="" src="../../_images/levelpoolF.png" /></p>
+<p>The storage-outflow function leverages hydraulics where possible. For example flow through holes (orifice flow), over spillways and weirs, and simplified culvert flow situations.</p>
+<p><img alt="" src="../../_images/storageoutflow.png" /></p>
+<p><img alt="" src="../../_images/weirflow.png" /></p>
+<p><img alt="" src="../../_images/holyflow.png" /></p>
+<p>Use outlet-works hydraulics, and depth-area-storage to build a storage-outflow function</p>
+<div class="math notranslate nohighlight">
+\[O = f(S)\]</div>
+<p>Once we have that function, then build an auxiliary function (tabulation) called the storage-indication curve (function)</p>
+<div class="math notranslate nohighlight">
+\[ O = g(\frac{2S}{\Delta t} +O) \]</div>
+<p>here <span class="math notranslate nohighlight">\(g\)</span> is some function.</p>
+<p>Once have the storage-indication curve then can use the reach mass balance to estimate the numerical value of :</p>
+<div class="math notranslate nohighlight">
+\[\frac{2S_t}{\Delta t} +O_t\]</div>
+<p>Then use the storage-indication curve to find the value of outflow, subtract that from the result above, and now have both the end-of-interval outflow and storage.</p>
+<p>Example – Similar to CMM 8.2.1 pg 247-252; but</p>
+<ul class="simple">
+<li><p>Show how the storage-indication curve derived using hydraulics</p></li>
+<li><p>Illustrate use of spreadsheet programming needed to make the actual computations</p></li>
+</ul>
+<p><img alt="" src="../../_images/detentionbasin.png" /></p>
+<p>Tasks:</p>
+<ul class="simple">
+<li><p>Build a depth-storage table</p></li>
+<li><p>Build a depth-outflow table</p>
+<ul>
+<li><p>From 0 -5 feet deep use Manning’s equation in a circular conduit</p></li>
+<li><p>From 5+ to 12 feet deep use Orifice equation (neglecting frictional losses)</p></li>
+</ul>
+</li>
+<li><p>Save a depth-storage-outflow table for use in storage-indication curve</p></li>
+<li><p>Build the routing table (apply the reach mass balance)</p></li>
+</ul>
+<p>For depth-outflow here is a <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/CircularChannelMannings-US.xls">Manning’s calculator.</a></p>
+<p><img alt="" src="../../_images/mannings.png" /></p>
+<p>Here is an <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/OrificeDichargeCalculatorUSCustomary.xlsx">orifice calculator.</a></p>
+<p><img alt="" src="../../_images/orifice.png" /></p>
+<p>Use these and basin geometry to build depth-storage outflow table.</p>
+<p><img alt="" src="../../_images/depth-storage-outflow.png" /></p>
+<p>Copy the depth-storage-outflow to the routing table (we are going to build) – we need it as a tabulation so we can use INDEX and MATCH to get values from the table for interpolation (Eq. at bottom CMM pg 249)</p>
+<p><img alt="" src="../../_images/interpolation.png" /></p>
+<p><img alt="" src="../../_images/routingtable1.png" /></p>
+<p><img alt="" src="../../_images/routingtable2.png" /></p>
+<p><img alt="" src="../../_images/routingtable3.png" /></p>
+<p><img alt="" src="../../_images/routingtable4.png" /></p>
+<p><img alt="" src="../../_images/routingtable5.png" /></p>
+<p>The full spreadsheet, with the interpolation function as an Excel 94 macro sheet (you could code in place, will have a few more columns) is on server as <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/RoutingExample.xls">Routing Example.</a></p>
+<ul class="simple">
+<li><p>Such computations are a lot easier to perform in HEC-HMS because it handles (1) building the routing table and (2) selecting a decent time step</p></li>
+<li><p>Can also use level pool routing for a stream reach (next meeting).</p></li>
+</ul>
 </div>
-<div class="section" id="stream-stats-tool">
-<h3>Stream Stats Tool<a class="headerlink" href="#stream-stats-tool" title="Permalink to this headline">¶</a></h3>
-<p>Pick somewhere in Oklahoma</p>
 </div>
-</div>
-<div class="section" id="watershed-metrics">
-<h2>Watershed Metrics<a class="headerlink" href="#watershed-metrics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="measuring-area">
-<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="measuring-length-s">
-<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="estimating-slope-s">
-<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>cite pages of textbook</p>
-<p>links to other readings</p>
+<div class="section" id="reservoir-concepts">
+<h2>Reservoir Concepts<a class="headerlink" href="#reservoir-concepts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Reservoir</p>
+<ul>
+<li><p>A pond, lake, or basin, either natural or artificial, for the storage, regulation, and control of water.</p></li>
+</ul>
+</li>
+<li><p>Regulated reservoir</p>
+<ul>
+<li><p>Outflow controlled by moveable gates and valves.</p></li>
+<li><p>Head, and valve settings determine outflow.</p></li>
+</ul>
+</li>
+<li><p>Unregulated reservoir.</p>
+<ul>
+<li><p>Outflow controlled by fixed weirs and orifices.</p></li>
+<li><p>Head and constructed weir height determine outflow.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
