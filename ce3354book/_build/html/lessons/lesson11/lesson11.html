@@ -351,6 +351,31 @@
    Reservoir Concepts
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reservoir-storage">
+   Reservoir Storage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hec-hms-constructs">
+   HEC-HMS Constructs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#routing-channel-and-reservoir">
+   Routing-channel and reservoir
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hec-hms-files">
+   HEC-HMS Files
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -498,6 +523,62 @@ $<span class="math notranslate nohighlight">\(\frac{I_t - I_{t-\Delta t}}{2} - \
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="reservoir-storage">
+<h2>Reservoir Storage<a class="headerlink" href="#reservoir-storage" title="Permalink to this headline">¶</a></h2>
+<p>Storage Representations≈</p>
+<ul class="simple">
+<li><p>Storage vs. Discharge</p></li>
+<li><p>Storage vs. Elevation</p></li>
+<li><p>Surface Area vs. Elevation</p></li>
+</ul>
+<p><img alt="" src="../../_images/ReservoirConcepts.png" /></p>
+<p>Discharge Representations</p>
+<ul class="simple">
+<li><p>Spillways, Weirs</p></li>
+<li><p>Orifices, Sluice gates</p></li>
+<li><p>Pumps</p></li>
+<li><p>Dam Breach</p></li>
+</ul>
+</div>
+<div class="section" id="hec-hms-constructs">
+<h2>HEC-HMS Constructs<a class="headerlink" href="#hec-hms-constructs" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../../_images/hms-reservoir-element.png" /></p>
+<p><img alt="" src="../../_images/hec-res1.png" />
+<img alt="" src="../../_images/hec-res2.png" />
+<img alt="" src="../../_images/hec-res3.png" />
+<img alt="" src="../../_images/hec-res4.png" />
+<img alt="" src="../../_images/hec-res5.png" />
+<img alt="" src="../../_images/hec-res6.png" />
+<img alt="" src="../../_images/hec-res7.png" />
+<img alt="" src="../../_images/hec-res8.png" />
+<img alt="" src="../../_images/hec-res9.png" /></p>
+</div>
+<div class="section" id="routing-channel-and-reservoir">
+<h2>Routing-channel and reservoir<a class="headerlink" href="#routing-channel-and-reservoir" title="Permalink to this headline">¶</a></h2>
+<p>Reservoir routing</p>
+<ul class="simple">
+<li><p>Account for storage in a reservoir</p></li>
+<li><p>Unique storage-discharge relationship</p></li>
+</ul>
+<p>Channel routing</p>
+<ul class="simple">
+<li><p>Account for storage in channel as well as travel time</p></li>
+<li><p>Storage-discharge relation in channel is non-unique</p></li>
+<li><p>Can treat channel as a series of reservoirs to mitigate looped effect.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture17.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Hydrograph Routing) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</div>
+<div class="section" id="hec-hms-files">
+<h2>HEC-HMS Files<a class="headerlink" href="#hec-hms-files" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/MyReservoirModel.zip">MyReservoirModel.zip (zip file of en entire HMS project)</a></p></li>
+</ol>
 </div>
 </div>
 

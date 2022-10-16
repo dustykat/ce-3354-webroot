@@ -156,6 +156,56 @@
 #   - Outflow controlled by fixed weirs and orifices.
 #   - Head and constructed weir height determine outflow.
 
+# ## Reservoir Storage
+# 
+# Storage Representations≈
+# - Storage vs. Discharge
+# - Storage vs. Elevation
+# - Surface Area vs. Elevation
+# 
+# ![](ReservoirConcepts.png)
+# 
+# Discharge Representations 
+# - Spillways, Weirs
+# - Orifices, Sluice gates
+# - Pumps
+# - Dam Breach
+# 
+# 
+
+# ## HEC-HMS Constructs
+# 
+# ![](hms-reservoir-element.png)
+# 
+# ![](hec-res1.png)
+# ![](hec-res2.png)
+# ![](hec-res3.png)
+# ![](hec-res4.png)
+# ![](hec-res5.png)
+# ![](hec-res6.png)
+# ![](hec-res7.png)
+# ![](hec-res8.png)
+# ![](hec-res9.png)
+
+# ## Routing-channel and reservoir
+# 
+# Reservoir routing
+# - Account for storage in a reservoir
+# - Unique storage-discharge relationship
+# 
+# Channel routing
+# - Account for storage in channel as well as travel time 
+# - Storage-discharge relation in channel is non-unique
+# - Can treat channel as a series of reservoirs to mitigate looped effect.
+
+# ## References
+# 
+# 1. [Cleveland, T. G. (2017) *Surface Water Hydrology Notes (Hydrograph Routing) to accompany CE-3354*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture17.pdf)
+# 
+# ## HEC-HMS Files
+# 
+# 1. [MyReservoirModel.zip (zip file of en entire HMS project)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/MyReservoirModel.zip)
+
 # In[ ]:
 
 

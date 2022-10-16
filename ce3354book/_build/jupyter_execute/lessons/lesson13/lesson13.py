@@ -3,42 +3,9 @@
 
 # # Reservoir-Storage Routing
 # 
-# Some definitions of a watershed include:
+# Go through presentation below:
 # 
-# - Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)
-# - The area on the surface of the Earth that drains to a specific location
-# - In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge 
-# 
-# The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   
-# It’s a big deal in urban areas.
-# 
-# [insert some images]
-# 
-# ## Watershed Delineation
-# 
-# Define
-# 
-# ### By-hand
-# 
-# Example
-# 
-# ### Automated
-# 
-# 
-# ### Stream Stats Tool
-# 
-# Pick somewhere in Oklahoma
-# 
-# ## Watershed Metrics
-# 
-# ### Measuring Area
-# ### Measuring Length(s) 
-# ### Estimating Slope(s)
-# 
-# 
-# 
-# 
-# 
+# 1. [Cleveland, T. G. (2017) *Surface Water Hydrology Notes (Reservoir-Storage Tables) to accompany CE-3354*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture19.pdf)
 # 
 # ## References
 # 
