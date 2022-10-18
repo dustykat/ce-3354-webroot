@@ -53,11 +53,13 @@
 # $Q_{in} => I_t$ and $Q_{out} => O_t$
 # 
 # So the reach mass balance is
+# 
 # $$ \bar I − \bar O = \frac{\Delta S}{\Delta t}$$
 # 
 # The time averaged values are taken at the beginning and end of the time interval, and the first-order difference quotient is used to approximate the rate of change in storage.
 # 
 # The reach mass balance is then
+# 
 # $$\frac{I_t - I_{t-\Delta t}}{2} - \frac{O_t - O_{t-\Delta t}}{2} = \frac{S_t - S_{t-\Delta t}}{\Delta t}  $$
 
 # ![](levelpool1.png)
