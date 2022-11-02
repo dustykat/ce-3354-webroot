@@ -20,7 +20,7 @@
 # 
 # Go through slides 22-61 below:
 # 
-# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes (Groundwater - I) to accompany CE-3354*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture21.pdf)
+# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes (Groundwater Hydrology) to accompany CE-3354*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture22.pdf)
 # 
 # ## Scripts/Spreadsheets
 # 
