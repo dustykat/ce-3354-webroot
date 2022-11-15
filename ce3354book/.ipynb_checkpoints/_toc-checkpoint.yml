@@ -55,5 +55,7 @@ chapters:
 - file: lessons/groundwater/groundwater4 # groundwater
 
 - file: lessons/groundwater/groundwater5 # groundwater
+
+- file: lessons/workshops/workshop3 # groundwater
 #- file: markdown
 #- file: notebooks
