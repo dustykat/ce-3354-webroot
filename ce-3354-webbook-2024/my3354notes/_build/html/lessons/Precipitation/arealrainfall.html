@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Precipitation over an Area &#8212; My sample book</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Rational Equation (Rainfall-Runoff) Model" href="../RainfallRunoffMethods/RationalMethod.html" />
+    <link rel="prev" title="Historical Observations" href="HistoricalData.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to your Jupyter Book
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Introduction/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">
+   2. Specialized Software
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
+   Hydrologic Cycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Watersheds/watersheds.html">
+   X. Watersheds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="precipitation.html">
+   4. Precipitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MissingDataEstimation.html">
+   4. Precipitation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="DesignStorms.html">
+   Design Storms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="HistoricalData.html">
+   Historical Observations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Precipitation over an Area
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RainfallRunoffMethods/RationalMethod.html">
+   Rational Equation (Rainfall-Runoff) Model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../RainfallRunoffMethods/ModifiedRationalMethod.html">
+   Modified Rational Method
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/Precipitation/arealrainfall.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/Precipitation/arealrainfall.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/Precipitation/arealrainfall.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thiessens-polygons">
+   Thiessen’s polygons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypsometric-method">
+   Hypsometric method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#isohyetal-method">
+   Isohyetal method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#areal-reduction-factors">
+   Areal Reduction Factors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#related-references">
+     Related References
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#radar-precipitation-estimation">
+   Radar Precipitation Estimation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="precipitation-over-an-area">
+<h1>Precipitation over an Area<a class="headerlink" href="#precipitation-over-an-area" title="Permalink to this headline">¶</a></h1>
+<p>The measurement techniques described here have all concentrated on measuring rainfall at a precise location (or at least over an extremely small area).  In reality, the hydrologist needs to know how much
+precipitation has fallen over a far larger area, usually
+a catchment. To move from point measurements to
+a spatially distributed estimation it is necessary to
+employ some form of spatial averaging. The spatial
+averaging must attempt to account for an uneven
+spread of rain gauges in the catchment and the various factors that we know influence rainfall distribution
+(e.g. altitude, aspect and slope). A simple arithmetic
+mean will only work where a catchment is sampled
+by uniformly spaced rain gauges and where there is
+no diversity in topography. If these conditions were
+ever truly met then it is unlikely that there would be
+more than one rain gauge sampling the area. Hence
+it is very rare to use a simple averaging technique.
+There are different statistical techniques that
+address the spatial distribution issues, and with the
+growth in use of Geographic Information Systems (GIS) it is often a relatively trivial matter to
+do the calculation. As with any computational task
+it is important to have a good knowledge of how
+the technique works so that any shortcomings are
+fully understood. Three techniques are described
+here: Thiessen’s polygons, the hypsometric
+method and the isohyetal method. These methods are explored further in a Case Study on p. 40.</p>
+<div class="section" id="thiessens-polygons">
+<h2>Thiessen’s polygons<a class="headerlink" href="#thiessens-polygons" title="Permalink to this headline">¶</a></h2>
+<p>Thiessen was an American engineer working around
+the start of the twentieth century who devised a
+simple method of overcoming an uneven distribution of rain gauges within a catchment (very much
+the norm). Essentially Thiessen’s polygons (Thiessen
+1911) attach a representative area to each rain gauge.
+The size of the representative area (a polygon) is based
+on how close each gauge is to the others surrounding
+it, but all points within a polygon are closer to its rain
+gauge than any of the other rain gauges.
+Polygons are drawn by connecting the nearest rain
+gauges to each other by lightly drawn lines. The perpendicular bisector of each connecting line is then
+found, and these are extended to where they intersect
+with other perpendicular bisectors. The boundaries
+of the polygons are therefore equidistant from each
+gauge (see Figure 2.13). Once the polygons have
+been drawn, the area of each polygon surrounding a
+rain gauge is found. The spatially averaged rainfall
+(R) is calculated using Form</p>
+<p>HHHHHHHHHHHHH</p>
+<p>he polygon surrounding rain gauge i, and A is the
+total catchment area (ai
+/A is therefore the proportion of the catchment occupied by each polygon,
+and the set of these for a catchment are known as
+Thiessen coefficients).
+The areal rainfall value using Thiessen’s polygons is a weighted mean, with the weighting being
+based upon the size of each representative area
+(polygon). This technique is only truly valid where
+the topography is uniform within each polygon so
+that it can be safely assumed that the rainfall distribution is uniform within the polygon. This would
+suggest that it can only work where the rain gauges are located initially with this technique in mind</p>
+</div>
+<div class="section" id="hypsometric-method">
+<h2>Hypsometric method<a class="headerlink" href="#hypsometric-method" title="Permalink to this headline">¶</a></h2>
+<p>Since it is well known that rainfall is positively
+influenced by altitude (i.e. the higher the altitude
+the greater the rainfall) it is reasonable to assume
+that knowledge of the catchment elevation can be
+brought to bear on the spatially distributed rainfall estimation problem. The simplest indicator
+of the catchment elevation is the hypsometric (or
+hypsographic) curve. This is a graph showing the
+proportion of a catchment above or below a certain
+elevation. The values for the curve can be derived
+from maps using a planimeter or using a digital
+elevation model (DEM) in a GIS.
+The hypsometric method of calculating spatially
+distributed rainfall then calculates a weighted
+average based on the proportion of the catchment
+between two elevations and the measured rainfall
+between those elevations (Equation 2.2).</p>
+<p>(2.2)
+where rj
+is the average rainfall between two contour intervals, ai
+is the area between those contours
+(derived from the hypsometric curve), and A is the
+total catchment area. So ai
+/A is again the proportion
+of the catchment, but this time on the basis of the
+area between the contours rather than each polygon,
+as was the case in the previous method. The rj
+value
+may be an average of several rain gauges where there
+is more than one at a certain contour interval. This
+is illustrated in Figure 2.14 where the shaded area
+(a3) has two gauges within it. In this case the rj
+value
+will be an average of r4 and r5.
+Intuitively this is producing representative areas
+for one or more gauges based on contours and spacing, rather than just on the latter as for Thiessen’s
+polygons. There is an inherent assumption that
+elevation is the only topographic parameter affecting rainfall distribution (i.e. slope and aspect are ignored). It also assumes that the relationship
+between altitude and rainfall is linear, which is not
+always the case and warrants exploration before
+using this technique</p>
+</div>
+<div class="section" id="isohyetal-method">
+<h2>Isohyetal method<a class="headerlink" href="#isohyetal-method" title="Permalink to this headline">¶</a></h2>
+<p>Where there are a large number of gauges within
+a catchment the most obvious weighting to apply
+on a mean is based on measured rainfall distribution
+rather than on surrogate measures as described above.
+In this case a map of the catchment rainfall distribution can be drawn by interpolating between the
+rainfall values, creating a smoothed rainfall surface.
+The traditional isohyetal method involved drawing
+isohyets (lines of equal rainfall) on the map and calculating the area between each isohyet. The spatial
+average could then be calculated by Equation 2.3:
+R r a
+A i
+n
+j i = 
+
+
+
+
+
+
+
+
+ =
+∑1
+(2.3</p>
+<p>where ai
+is the area between each isohyet and ri
+is the
+average rainfall between the isohyets. This technique
+is analogous to Figure 2.14, except in this case the
+contours will be of rainfall rather than elevation.</p>
+</div>
+<div class="section" id="areal-reduction-factors">
+<h2>Areal Reduction Factors<a class="headerlink" href="#areal-reduction-factors" title="Permalink to this headline">¶</a></h2>
+<p>Areal reduction factors (ARFs) are used in precipitation modeling to account for the spatial variability of rainfall across a region. Precipitation is not uniformly distributed over an area, and ARFs help adjust point rainfall measurements to better represent the average precipitation for a larger region.</p>
+<p>In precipitation modeling, meteorologists often collect rainfall data from specific points, such as weather stations. However, this point data may not accurately reflect the variability of precipitation over a broader area. ARFs are applied to these point measurements to estimate the average precipitation over a larger spatial scale.</p>
+<p>The factors influencing areal reduction include topography, land use, and other geographical features that affect how rainfall is distributed across an area. By applying ARFs, modelers can better capture the spatial patterns of precipitation, improving the accuracy of rainfall estimates for hydrological and environmental studies. This consideration is crucial for various applications, such as flood risk assessment, water resource management, and climate modeling.</p>
+<div class="section" id="related-references">
+<h3>Related References<a class="headerlink" href="#related-references" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf">Areal-Reduction Factors for the Precipitation
+of the 1-Day Design Storm in Texas USGS WRI 99-4267</a></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="radar-precipitation-estimation">
+<h2>Radar Precipitation Estimation<a class="headerlink" href="#radar-precipitation-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Radar rainfall estimates involve using weather radar systems to measure precipitation over a given area. These estimates are valuable for various applications, including weather forecasting, hydrological modeling, and flood management. Unlike point measurements from rain gauges, radar provides spatially continuous information about precipitation distribution.</p>
+<p>Radar systems emit radio waves that interact with precipitation particles in the atmosphere. By analyzing the returned signals, meteorologists can estimate the intensity and location of rainfall across a region. However, radar data may still contain uncertainties and errors that need to be addressed.</p>
+<p>To improve the accuracy of radar rainfall estimates, meteorologists often employ various correction techniques. One common method is gauge adjustment, where radar data are calibrated using ground-based rain gauge measurements. Another approach involves applying quality control measures to filter out artifacts and errors in the radar signal.</p>
+<p>Additionally, radar-based estimates may be adjusted using gauge-to-radar ratios to better represent ground-level precipitation. These ratios help account for potential biases in the radar measurements, ensuring that the radar-derived rainfall values align more closely with <strong>ground truth</strong> observations.</p>
+<p>Radar rainfall estimates provide valuable information about precipitation patterns over a wide area, but correction and adjustment methods are required to maintain accuracy and reliability for applications in meteorology and hydrology.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/Precipitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="HistoricalData.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Historical Observations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../RainfallRunoffMethods/RationalMethod.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Rational Equation (Rainfall-Runoff) Model</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
