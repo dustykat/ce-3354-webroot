@@ -42,8 +42,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -108,7 +106,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
-   Hydrologic Cycle
+   3. Hydrologic Cycle
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,6 +147,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../RainfallRunoffMethods/ModifiedRationalMethod.html">
    Modified Rational Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater.html">
+   23. Groundwater Hydrology
   </a>
  </li>
 </ul>
@@ -280,70 +283,6 @@
    Essential Knowledge, Skills, and Abilities for Practical Engineering Hydrology
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#surface-and-groundwater-hydrology-concepts">
-   Surface and Groundwater Hydrology Concepts
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-hydrology">
-     What is hydrology?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-watershed-catchment">
-     What is a watershed (catchment)?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-a-hydrologic-system">
-     What is a hydrologic system?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-the-hydrologic-cycle">
-     What is the hydrologic cycle?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hydrologic-balance">
-   Hydrologic Balance
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#water-budget">
-     Water Budget
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surface-hydrologic-system">
-     Surface Hydrologic System
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#surface-water-budget">
-     Surface Water Budget
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sub-surface-hydrologic-system">
-     Sub-surface Hydrologic System
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sub-surface-water-budget">
-     Sub-surface Water Budget
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combined-hydrologic-system">
-     Combined Hydrologic System
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
             </nav>
@@ -386,15 +325,12 @@
 <ul class="simple">
 <li><p>Course Resources</p></li>
 <li><p>Essential Knowledge, Skills, and Abilities for Practical Engineering Hydrology</p></li>
-<li><p>Surface and Groundwater Hydrology Concepts</p></li>
 </ul>
 </div>
 <div class="section" id="course-resources">
 <h2>Course Resources<a class="headerlink" href="#course-resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/0-Syllabus/">Syllabus</a></p></li>
-<li><p>Software</p></li>
-<li><p>Tour of Blackboard:</p></li>
 </ul>
 </div>
 <hr class="docutils" />
@@ -450,105 +386,6 @@
 These 6 essential topics equip hydrologists to tackle the complex challenges of managing water resources in a sustainable and efficient manner.
 
 This course has a substantial emphasis on selected topics in categories 1-4; categories 5 and 6 are largely experience based; category 5 is also a moving target.   --></div>
-<hr class="docutils" />
-<div class="section" id="surface-and-groundwater-hydrology-concepts">
-<h2>Surface and Groundwater Hydrology Concepts<a class="headerlink" href="#surface-and-groundwater-hydrology-concepts" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="what-is-hydrology">
-<h3>What is hydrology?<a class="headerlink" href="#what-is-hydrology" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Study of the occurrence, circulation, storage, and distribution of surface and groundwater on the Earth.</p></li>
-<li><p>Engineering hydrology is the quantification of amounts of water at various locations (spatially) as a function of time (temporally) for surface water applications.</p></li>
-</ul>
-</div>
-<div class="section" id="what-is-a-watershed-catchment">
-<h3>What is a watershed (catchment)?<a class="headerlink" href="#what-is-a-watershed-catchment" title="Permalink to this headline">¶</a></h3>
-<p>Here are a couple of definitions of watersheds.</p>
-<ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
-</ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.   It’s a big deal in urban areas.</p>
-</div>
-<div class="section" id="what-is-a-hydrologic-system">
-<h3>What is a hydrologic system?<a class="headerlink" href="#what-is-a-hydrologic-system" title="Permalink to this headline">¶</a></h3>
-<p>A hydrologic system is just a collection of parts that interact.</p>
-<ul class="simple">
-<li><p>A hydrologic system is simply the collection of connected components that form the <strong>hydrologic cycle</strong></p></li>
-<li><p>These components can be grouped into subsystems, treated separately, and the results combined according to interactions between the subsystems (CMM pg 5)</p></li>
-</ul>
-<p>Like in fluid mechanics, the system has boundaries (the control volume) and fluxes into/out of the boundaries.<br />
-The entire planet is usually considered a closed system (hydrologically) and only the energy fluxes cross the boundary.<br />
-At more practical scales (parking lot) the mass fluxes matter a lot.</p>
-</div>
-<div class="section" id="what-is-the-hydrologic-cycle">
-<h3>What is the hydrologic cycle?<a class="headerlink" href="#what-is-the-hydrologic-cycle" title="Permalink to this headline">¶</a></h3>
-<p>Here is a typical diagram depicting the hydrologic cycle.</p>
-<p><img alt="" src="../../_images/hydrologic_cycle.png" /></p>
-<p>The driving force for the cycle (not shown) is solar energy that provides the energy to vaporize liquid water that then rises into clouds, moves onshore, and rains (or snow, sleet, <span class="math notranslate nohighlight">\(\dots\)</span>.  and other forms of <strong>precipitation</strong>)
-A portion of the rain becomes runoff, another portion returns to the atmosphere as evaporation, another portion infiltrates into the ground and becomes groundwater.</p>
-<p>The surface water system would be the part of the diagram that lies above the plane defined by the ocean and infiltration line.
-The subsurface system is the part that is below this plane.</p>
-<p>Expressed as a simple system diagram it would be depicted in the figure below</p>
-<p><img alt="" src="../../_images/system_diagram.png" /></p>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="hydrologic-balance">
-<h2>Hydrologic Balance<a class="headerlink" href="#hydrologic-balance" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="water-budget">
-<h3>Water Budget<a class="headerlink" href="#water-budget" title="Permalink to this headline">¶</a></h3>
-<p>The water budget, or <strong>hydrologic balance</strong> is simply the expression of the conservation of mass in hydrologic terms for a hydrologic system.<br />
-Generally it is expressed as a rate (or volume) balance.
-The hydrologic equation is the fundamental tool in hydrology to describe amounts of water in storage in different compartments at different scales.</p>
-<p>The equation expressed in “words” is</p>
-<p>Rate of inflow - Rate of outflow =  Rate of change of storage + Rate of internal mass generation.</p>
-<p>Symbolically it is exrepssed as:</p>
-<div class="math notranslate nohighlight">
-\[ \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}\]</div>
-<p>where</p>
-<p><span class="math notranslate nohighlight">\(I\)</span> is inflow volume, <span class="math notranslate nohighlight">\(O\)</span> is outflow volume, <span class="math notranslate nohighlight">\(S\)</span> is storage volume (i.e. within a watershed), and <span class="math notranslate nohighlight">\(G\)</span> is generated volume.
-<span class="math notranslate nohighlight">\(G\)</span> is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, <span class="math notranslate nohighlight">\(\dots\)</span>)</p>
-</div>
-<div class="section" id="surface-hydrologic-system">
-<h3>Surface Hydrologic System<a class="headerlink" href="#surface-hydrologic-system" title="Permalink to this headline">¶</a></h3>
-<p>Here is the surface water system broken into its own sub-system.</p>
-<p><img alt="" src="../../_images/surface_system_diagram.png" /></p>
-<p>Notice the dashed line is the boundary – exactly like a control volume in fluids.</p>
-</div>
-<div class="section" id="surface-water-budget">
-<h3>Surface Water Budget<a class="headerlink" href="#surface-water-budget" title="Permalink to this headline">¶</a></h3>
-<p>From the surface water system diagram, appropriate budget components are:</p>
-<ul class="simple">
-<li><p>Inflows:  Rainfall; Surface water from outside boundary, recharge from Groundwater.</p></li>
-<li><p>Outflows: Evapotranspiration; Surface water leaving boundary; Infiltration to groundwater.</p></li>
-<li><p>Storage:  Water levels in lakes, rivers, ponds within the boundary; water stored on leaves and other surfaces.</p></li>
-</ul>
-</div>
-<div class="section" id="sub-surface-hydrologic-system">
-<h3>Sub-surface Hydrologic System<a class="headerlink" href="#sub-surface-hydrologic-system" title="Permalink to this headline">¶</a></h3>
-<p>Here is the sub-surface water system broken into its own sub-system.</p>
-<p><img alt="" src="../../_images/subsurface_system_diagram.png" /></p>
-<p>Notice the dashed line is the boundary – exactly like a control volume in fluids.</p>
-</div>
-<div class="section" id="sub-surface-water-budget">
-<h3>Sub-surface Water Budget<a class="headerlink" href="#sub-surface-water-budget" title="Permalink to this headline">¶</a></h3>
-<p>From the sub-surface water system diagram, appropriate budget components are:</p>
-<ul class="simple">
-<li><p>Inflows:  Groundwater flow from outside boundary; Recharge from surface system (via infiltration)</p></li>
-<li><p>Outflows: Groundwater flow out of the boundary; Discharge (pumping; springs) to surface system</p></li>
-<li><p>Storage:  Water levels in aquifers within the boundary</p></li>
-</ul>
-</div>
-<div class="section" id="combined-hydrologic-system">
-<h3>Combined Hydrologic System<a class="headerlink" href="#combined-hydrologic-system" title="Permalink to this headline">¶</a></h3>
-<p>Here are the two systems “combined.”
-Communication is by the two shaded paths on the figure.</p>
-<p><img alt="" src="../../_images/combined_system_diagram.png" /></p>
-<p>Loss from the surface system becomes gain to the ground system.
-Loss from the ground system becomes gain to the surface system.</p>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
