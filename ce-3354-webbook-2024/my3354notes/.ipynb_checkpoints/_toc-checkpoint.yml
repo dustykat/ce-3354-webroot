@@ -9,15 +9,15 @@ chapters:
 - file: lessons/01-Introduction/introduction # Introduction
 - file: lessons/02-HydrologySoftware/HydrologySoftware # Software
 - file: lessons/03-HydrologicCycle/hydrologiccycle # Hydrologic Cycle
-
 - file: lessons/05-Watersheds/watersheds # introduction
 
-- file: lessons/Precipitation/precipitation # introduction
-- file: lessons/Precipitation/MissingDataEstimation # introduction
-- file: lessons/Precipitation/DesignStorms # introduction
-- file: lessons/Precipitation/HistoricalData # introduction
-- file: lessons/Precipitation/arealrainfall # introduction
+- file: lessons/09-Precipitation/precipitation # introduction
+- file: lessons/09-Precipitation/MissingDataEstimation # introduction
+- file: lessons/09-Precipitation/DesignStorms # introduction
+- file: lessons/09-Precipitation/HistoricalData # introduction
+- file: lessons/09-Precipitation/arealrainfall # introduction
 
+- file: lessons/12-RainfallRunoff/RainfallRunoff # introduction
 - file: lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod # rational and modified rational method
 - file: lessons/14-UnitHydrographs/UnitHydrographs # unit hydrographs
 - file: lessons/15-SyntheticUnitHydrographs/SyntheticUnitHydrographs # synthetic unit hydrographs
