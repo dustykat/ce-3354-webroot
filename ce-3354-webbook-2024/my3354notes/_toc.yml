@@ -18,8 +18,10 @@ chapters:
 - file: lessons/Precipitation/HistoricalData # introduction
 - file: lessons/Precipitation/arealrainfall # introduction
 
-- file: lessons/RainfallRunoffMethods/RationalMethod # water budget
-- file: lessons/RainfallRunoffMethods/ModifiedRationalMethod # water budget
+- file: lessons/12-RainfallRunoff/RainfallRunoff # introduction
+- file: lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod # rational and modified rational method
+- file: lessons/14-UnitHydrographs/UnitHydrographs # unit hydrographs
+- file: lessons/15-SyntheticUnitHydrographs/SyntheticUnitHydrographs # synthetic unit hydrographs
 
 
 

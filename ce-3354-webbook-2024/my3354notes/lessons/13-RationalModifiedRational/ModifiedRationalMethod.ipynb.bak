@@ -2,7 +2,11 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "jupyter": {
+     "source_hidden": true
+    }
+   },
    "source": [
     "# Modified Rational Method\n",
     "\n",
@@ -34,7 +38,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "jupyter": {
+     "source_hidden": true
+    }
+   },
    "source": [
     "## Modified Rational Method Hydrograph Generator\n",
     "\n",
