@@ -12,10 +12,7 @@ chapters:
 - file: lessons/05-Watersheds/watersheds # introduction
 
 - file: lessons/09-Precipitation/precipitation # introduction
-- file: lessons/09-Precipitation/MissingDataEstimation # introduction
-- file: lessons/09-Precipitation/DesignStorms # introduction
-- file: lessons/09-Precipitation/HistoricalData # introduction
-- file: lessons/09-Precipitation/arealrainfall # introduction
+
 
 - file: lessons/12-RainfallRunoff/RainfallRunoff # introduction
 - file: lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod # rational and modified rational method
