@@ -332,61 +332,9 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#florida-watershed">
-     Florida Watershed
+    <a class="reference internal nav-link" href="#florida-watershed-gis-workflow">
+     Florida Watershed GIS Workflow
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#get-dem">
-       Get DEM
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#contours-optional-but-useful">
-       Contours (Optional, but useful)
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extract-clip-dem-warp-to-a-utm-coordinate-system">
-       Extract (Clip) DEM - Warp to a UTM Coordinate System
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#warp-reproject-the-clipped-area-to-utm-zone">
-       Warp (reproject) the Clipped Area to UTM Zone
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sink-fill">
-       Sink Fill
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#channel-identification">
-       Channel Identification
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#channels-and-drainage-basins">
-       Channels and Drainage Basins
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#determine-catchment">
-       Determine Catchment
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#polygonize-the-watershed">
-       Polygonize the Watershed
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#completed-delineation">
-       Completed Delineation
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#watershed-metrics-general-concepts">
@@ -477,6 +425,7 @@
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=qzKS8n8RrdE">Watershed Delineation and Metrics</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=pDFystIDxn0">Measuring Area</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=cZBKrc6_B-E">Manual Delineation</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/e1AbKqlHaow">Delineate Hardin Branch Watershed in QGIS (ES-2 Solution)</a></p></li>
 </ol>
 </div>
 <div class="section" id="outline">
@@ -573,96 +522,10 @@ It’s a big deal in urban areas.</p>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf">Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide</a></p></li>
 </ol>
 <hr></div>
-<div class="section" id="florida-watershed">
-<h2>Florida Watershed<a class="headerlink" href="#florida-watershed" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="florida-watershed-gis-workflow">
+<h2>Florida Watershed GIS Workflow<a class="headerlink" href="#florida-watershed-gis-workflow" title="Permalink to this headline">¶</a></h2>
 <p>Here we do step-by-step example of the previous watershed(s).  The steps are those outlined in  <a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf">Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide</a></p>
-<p>The SAGANG package was manually installed using guidance from <a class="reference external" href="https://www.youtube.com/watch?v=VKdaripCups">How to manual install SAGA 9.1 (YouTube) </a>. Other plug-ins are installed using the Plug-in manager menu.</p>
-<p>First start with the Florida Topographic Map</p>
-<p><img alt="" src="../../_images/pourpoint.png" /></p>
-<p>Then we need to locate the area - it turns out that the Moore Pond feature is near Tallahassee Fl.  (Used Google to find that out!)</p>
-<p><img alt="" src="../../_images/moorepond1.png" /></p>
-<p>Then zoom out</p>
-<p><img alt="" src="../../_images/moorepond2.png" /></p>
-<p>The bridge we are interested is on the Miller’s Landing feature - with that in mind, we can start QGIS, load OSM tiles, and look for the study area.</p>
-<p><img alt="" src="../../_images/qgisMoorePond.png" /></p>
-<p>We will shift the window to the right a bit and scale about the same as the original Topographic map clip.  Once we have desired area, then save a bookmark to easily return to the view area.</p>
-<div class="section" id="get-dem">
-<h3>Get DEM<a class="headerlink" href="#get-dem" title="Permalink to this headline">¶</a></h3>
-<p>Now we will get a DEM coverage - we will use the SRTM from NASA (30 meter poixels) but one might need better resolution as project proceedes.</p>
-<p>Using the Canvass area, download SRTM tile:</p>
-<p><img alt="" src="../../_images/FloridaSRTM.png" /></p>
-<p>Next we can play with transparency so can background the street maps.</p>
-<p><img alt="" src="../../_images/FloridaSRTM+overlay.png" /></p>
-</div>
-<div class="section" id="contours-optional-but-useful">
-<h3>Contours (Optional, but useful)<a class="headerlink" href="#contours-optional-but-useful" title="Permalink to this headline">¶</a></h3>
-<p>We can make a elevation contour of the study area.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Menu/Raster/Extraction/Contour</span></code></p>
-<p>The result (using 3.048 meter intervals <span class="math notranslate nohighlight">\(\approx\)</span> 10 feet) is :</p>
-<p><img alt="" src="../../_images/FloridaContours.png" /></p>
-<p>It is probably more useful for fewer lines, so will repeat at 10 meter (32.8 foot) intervals - these will appear in later pictures.</p>
-</div>
-<div class="section" id="extract-clip-dem-warp-to-a-utm-coordinate-system">
-<h3>Extract (Clip) DEM - Warp to a UTM Coordinate System<a class="headerlink" href="#extract-clip-dem-warp-to-a-utm-coordinate-system" title="Permalink to this headline">¶</a></h3>
-<p>Here we will clip the viewing area, and then just process the clipped area - this will speed up our work a lot.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Menu/Raster/Extraction/Clip</span> <span class="pre">Raster</span> <span class="pre">by</span> <span class="pre">Extent</span></code></p>
-<p>Here is the clipped area (zoomed out to verify)</p>
-<p><img alt="" src="../../_images/FloridaClippedArea.png" /></p>
-</div>
-<div class="section" id="warp-reproject-the-clipped-area-to-utm-zone">
-<h3>Warp (reproject) the Clipped Area to UTM Zone<a class="headerlink" href="#warp-reproject-the-clipped-area-to-utm-zone" title="Permalink to this headline">¶</a></h3>
-<p>UTM gives a  nearly cartesian system, which is useful for other analyses, so lets do that now.</p>
-<p>First need to know the UTM panel.  Use Google</p>
-<p><img alt="" src="../../_images/UTMFL.png" /></p>
-<p>Now we know the zone, so use</p>
-<p><code class="docutils literal notranslate"><span class="pre">Menu/Raster/Projections/Warp</span> <span class="pre">(Reproject)</span></code></p>
-<p>Mostly used defaults, except chose Zone 16N (it was only CRS available in the software), and used cubic interpolation to smooth out the elevations a bit - we are after a watershed boundary, so the smoothing should help with goofy curvature.</p>
-<p><img alt="" src="../../_images/FloridaClippedUTM.png" /></p>
-</div>
-<div class="section" id="sink-fill">
-<h3>Sink Fill<a class="headerlink" href="#sink-fill" title="Permalink to this headline">¶</a></h3>
-<p>This step is to fill in low spots, so there is always a path to lowest point (I sort of disagree with this step, but it is accepted GIS analysis step).  Here some trial-and-error is needed using the <a class="reference external" href="http://www.saga-gis.org">System for Automated Geoscientific Analyses (SAGA)</a> tools.  The current SAGA version is 9.X while the only version I can access is 7.3 and there is no guidance on how to upgrade.  Based on internet search, most QGIS non-genius users are coimplaining that the SAGA project is failing to support the upgrades, and other techniques are offered.  If you are in Linux, you build from source anyway, so its not a problem.</p>
-<p>I found that <code class="docutils literal notranslate"><span class="pre">SAGA</span> <span class="pre">NextGen/Terrain</span> <span class="pre">Analysis/Hydrology/Sink</span> <span class="pre">Fill</span> <span class="pre">(Wang</span> <span class="pre">&amp;</span> <span class="pre">Liu)</span></code> indeed ran and produced non-empty output.</p>
-<p><img alt="" src="../../_images/SinkFill.png" /></p>
-</div>
-<div class="section" id="channel-identification">
-<h3>Channel Identification<a class="headerlink" href="#channel-identification" title="Permalink to this headline">¶</a></h3>
-<p>If needed (sometimes can skip to next step):</p>
-<ul class="simple">
-<li><p>SAGA terrain analysis package (to extract straler order)</p></li>
-<li><p>Visualize Straler Order</p></li>
-<li><p>Filter small streams using raster calculator</p></li>
-<li><p>Adjust Strahler order</p></li>
-</ul>
-</div>
-<div class="section" id="channels-and-drainage-basins">
-<h3>Channels and Drainage Basins<a class="headerlink" href="#channels-and-drainage-basins" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SAGA/TerrainAnalysis-Channels/Channel</span> <span class="pre">Network</span> <span class="pre">and</span> <span class="pre">Drainage</span> <span class="pre">Basins</span></code></p></li>
-<li><p>Input Filled DEM and choose threshold based on Straler order (I did trial and error without saving files until I had a workable looking catchment then proceede to next step/</p></li>
-<li><p>Adjust symbology as necessary to interpret the results (repeat as needed unless it fails then no point)</p></li>
-</ul>
-</div>
-<div class="section" id="determine-catchment">
-<h3>Determine Catchment<a class="headerlink" href="#determine-catchment" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Use coordinate capture plug-in to find coordinates of pour point.</p></li>
-<li><p>Use Upslope Area in SAGA with the coordinates.</p></li>
-</ul>
-</div>
-<div class="section" id="polygonize-the-watershed">
-<h3>Polygonize the Watershed<a class="headerlink" href="#polygonize-the-watershed" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">Raster/Polygonize(Raster</span> <span class="pre">to</span> <span class="pre">Vector)</span></code></p>
-<p>Choose delineated raster as the input.
-Specify the output vector as shapefile (SHP)</p>
-</div>
-<div class="section" id="completed-delineation">
-<h3>Completed Delineation<a class="headerlink" href="#completed-delineation" title="Permalink to this headline">¶</a></h3>
-<p>Here we render the delineation - the vector polygon, which has use later on (and is the whole point of synthetic hydrograph generation).</p>
-<p><img alt="" src="../../_images/FloridaGISDelineation.png" /></p>
-<p><strong>Compare to Manual Delineation</strong></p>
-<p><img alt="" src="../../_images/completed-delineation.png" /></p>
-</div>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/05-Watersheds/QGISWorkflowFlorida.pdf">Florida Watershed Workflow Notes (PDF)</a></p>
 </div>
 <div class="section" id="watershed-metrics-general-concepts">
 <h2>Watershed Metrics (General Concepts)<a class="headerlink" href="#watershed-metrics-general-concepts" title="Permalink to this headline">¶</a></h2>
@@ -682,49 +545,8 @@ Specify the output vector as shapefile (SHP)</p>
 <h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>If the grid cells used in delineation are all squares, one can count the squares contained in the watershed, multiply by the per-cell area and have a good estimate of the watershed area.</p></li>
+<li><p>If using GIS there is usually an area measurement tool; one can use it, or use the Ones raster mask information to count squares and convert into useful values</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count squares from by-hand</span>
-<span class="n">howmany</span> <span class="o">=</span> <span class="mi">270</span>
-<span class="c1"># size</span>
-<span class="n">howbig</span> <span class="o">=</span> <span class="n">howmany</span><span class="o">*</span><span class="mi">525</span><span class="o">*</span><span class="mi">525</span><span class="o">/</span><span class="mi">43560</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">howbig</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1708.4194214876034
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Or one can represent the outline as a polygon, and obtain the coordinates of each vertex and use numerical integration (like you learned in surveying) to estimate the plane area.</p></li>
-<li><p>Or use GIS tools directly:</p></li>
-</ul>
-<blockquote>
-<div><p>Export using <code class="docutils literal notranslate"><span class="pre">Raster/Extraction/Clip</span> <span class="pre">by</span> <span class="pre">Mask</span> <span class="pre">Layer</span></code> and results in a final product for later use.
-Here is the clip command (note the file type is .xyz to produce an ASCII grid)
-<img alt="" src="../../_images/FloridaXYZ.png" /><br>
-Here is the result after prettification.
-<img alt="" src="../../_images/FLxyzrender.png" /><br>
-Now determine area. If we have the vector outline then use the attribute table and compute the polygon area of the only polygon.
-<img alt="" src="../../_images/areabuild.png" /><br></p>
-</div></blockquote>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute area in acres</span>
-<span class="mf">7540147.046</span><span class="o">*</span><span class="p">(</span><span class="mf">3.28</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">3.28</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">43560</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1862.2570702407345
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="measuring-length-s">
 <h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Permalink to this headline">¶</a></h3>
