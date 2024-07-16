@@ -11,7 +11,7 @@ chapters:
 - file: lessons/03-HydrologicCycle/hydrologiccycle # Hydrologic Cycle
 #- file: lessons/04-HydrologicData/hydrologicdata # Hydrologic Data
 - file: lessons/05-Watersheds/watersheds # Watershed Delineation
-#- file: lessons/06-ProbabilityEstimation/probabilityestimationmodels # Probability Estimation Modeling
+- file: lessons/06-ProbabilityEstimation/ProbabilityEstimationModels # Probability Estimation Modeling
 - file: lessons/07-StreamflowDataModeling/streamflowdatamodeling # introduction
 - file: lessons/09-Precipitation/precipitation # introduction
 
