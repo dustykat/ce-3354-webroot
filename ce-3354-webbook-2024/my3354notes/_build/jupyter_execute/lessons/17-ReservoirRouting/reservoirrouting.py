@@ -26,6 +26,8 @@
 # 3. [Hydrologic Channel Routing (YouTube)](https://www.youtube.com/watch?v=HLSTZuEi5gg)
 # 4. [Channel Routing (NCEES Training Video)](https://www.youtube.com/watch?v=Eb0BoxlxcQw&list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d)
 # 5. [Reservoir Routing (NCEES Training Video)](https://www.youtube.com/watch?v=lkUEFtjQH6s&list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d)
+# 6. [Flash Flood Videos (YouTube)](https://www.youtube.com/watch?v=u0-FLuwWhf4)
+# 7. [Flash Flood near Sedona Az. (YouTube)](https://www.youtube.com/watch?v=Ipo0kwQQcgQ)
 
 # ## Outline
 # 
