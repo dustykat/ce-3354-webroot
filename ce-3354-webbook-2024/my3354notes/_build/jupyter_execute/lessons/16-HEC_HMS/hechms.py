@@ -264,9 +264,9 @@
 
 # ### HEC-HMS Multiple Elements 
 # 
-# This example uses data from [AshCreek Data (zip)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip).  The .ZIP file is an old homework problem, learners had to convert the provided data files into a format that HEC-HMS could process then analyze the watershed and interpret results and answer some questions.  
+# This example uses data from [AshCreek Data (zip)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip).  The .ZIP file is an old homework problem, learners had to convert the provided data files into a format that HEC-HMS could process then analyze the watershed and interpret results and answer some questions.  The original problem statement is shown below
 # 
-# :::{admonition}Problem_Statement
+# ```{admonition}Problem Statement
 # **HEC-HMS Exercises**
 # 
 # In this folder are rainfall-runofff data for three storms on Ash Creek watershed in Dallas, Texas.  
@@ -294,7 +294,7 @@
 # Prepare a brief report on the modeling effort, be sure to address each question above.  Due in 2 weeks.  
 # 
 # You will need to download the HEC-HMS user manual and do some reading in the manual as well as in the hydrology literature and textbook to complete this exercise.
-# :::
+# ```
 Linear Quasi-Distributed Runoff Transform (ModClark) Model
 
 The Linear Quasi-Distributed Runoff Transform, commonly referred to as the ModClark model, is an advanced method for simulating the transformation of rainfall into runoff within a watershed. It is an extension of the Clark Unit Hydrograph method, integrating the concepts of spatial variability and distributed hydrologic response.
