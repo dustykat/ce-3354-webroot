@@ -295,6 +295,10 @@
 # 
 # You will need to download the HEC-HMS user manual and do some reading in the manual as well as in the hydrology literature and textbook to complete this exercise.
 # :::
+# 
+# Here is a look at the watershed
+# 
+# ![](STA08057320_MAPS.png)
 Linear Quasi-Distributed Runoff Transform (ModClark) Model
 
 The Linear Quasi-Distributed Runoff Transform, commonly referred to as the ModClark model, is an advanced method for simulating the transformation of rainfall into runoff within a watershed. It is an extension of the Clark Unit Hydrograph method, integrating the concepts of spatial variability and distributed hydrologic response.
