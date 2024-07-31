@@ -13,8 +13,14 @@
 # 
 # 1. [Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/) 
 # 2. [Cleveland, T. G. (2017) *Engineering Hydrology Notes (Introduction to HEC-HMS) to accompany CE-3354*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf)
-# 
-# 
+# 3. [Cleveland, T. G. (2022) *Engineering Hydrology Notes to Accompany CE 3354 (Introduction to HEC-HMS; Ash Creek Dallas HEC-HMS Example)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/16-HEC_HMS/Lesson09ug.pdf)
+# 2. [HEC-HMS User Manual 3.5](http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Users_Manual_3.5.pdf)
+# 3. [HEC-HMS Applications Guide](http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Applications_Guide_March2008.pdf)
+# 4. [HEC_HMS Quick Start Guide 3.5](http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_QuickStart_Guide_3.5.pdf)
+# 5. [HEC-HMS Release Notes 3.5](http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Release_Notes_3.5.pdf)
+# 6. [HEC-HMS Technical Reference Manual](http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_TechnicalReferenceManual_(CPD-74B).pdf)
+# 7. [NRCS TP-149 CN estimation](http://54.243.252.9/ce-3354-webroot/3-Readings/NRCS-CN-TP149/methodforestimat149kent.pdf)
+# 9. [AshCreek Data (zip)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip)
 
 # ## Videos
 # 
@@ -156,11 +162,139 @@
 # Usually the above works, unless you try something fancy and are [clueless](https://www.imdb.com/title/tt0112697/).  If you cannot figure it out go [here](https://harri.com/mysubwaycareer)
 # :::
 
-# **Minimal model example**
-# - SCS Type Storm
-# - 640 acre watershed – no process models; completely converts rainfall into runoff
-# - Illustrate how to mimic rational method by adjusting drainage area
-# - Repeat with a 24-hour Texas Hyetograph same location
+# ### HEC-HMS Minimal Model
+# 
+# A minimal model consists of 
+# 
+# - Basin Model
+# - Meteorological Model
+# - Control Specifications
+# 
+# #### Basin Model Specification
+# 
+# For this example we will use the Hardin Creek basin which is about 17 square miles.  For the example we will neglect the reservoirs and model the whole thing as a single watershed.
+# 
+# To create a basin model, select Components from the menu then Basin Manager 
+# 
+# ![](hms-basinmanager.png)
+# 
+# As with most HMS creator dialogs, you next name the basin.
+# 
+# ![](hms-basinname.png)
+# 
+# #### Meterological Model Specification
+# 
+# To create a meterological model, select Components from the menu then Meterological Model Manager 
+# 
+# ![](hms-metmodel.png)
+# 
+# As with most HMS creator dialogs, you next name the model.
+# 
+# ![](hms-metmodelname.png)
+# 
+# #### Control Model Specification
+# 
+# The last component is the control specification model (with dates and times for the simulation period).  To create a control model, select Components from the menu then Control Model Manager 
+# 
+# ![](hms-controlspecs.png)
+# 
+# Then next name the model.
+# 
+# ![](hms-controlspecsname.png)
+# 
+# #### Parameterizing the models
+# 
+# Now that the pieces are built, we need to supply watershed and rainfall characteristics to the components for a useable model.  First we will simulate the entire watershed as a single basin, with CN=98, and all other watershed-based model components disabled (i.e. None)
+# 
+# First build the single **basin**
+# 
+# ![](hms-subbasinselect.png)
+# 
+# Then supply the inputs, first area and the CN model.  Disable all the remaining methods (choose --None--)
+# 
+# ![](hms-nwebasins1.png)
+# 
+# Then the CN parameters (same as in class)
+# 
+# ![](hms-nwebasins2.png)
+# 
+# Then supply the **meterological** model inputs, for the example we will use an SCS design storm, in HMS its called "hypothetical" storm.
+# 
+# ![](hms-hypothetical1.png)
+# 
+# Then be sure the correct basins are attached to the precipitation input signal
+# 
+# ![](hms-hypothetical2.png)
+# 
+# Next select the storm itself and supply model inputs
+# 
+# ![](hms-hypothetical3.png)
+# 
+# Now select the **control** specifications and provide needed time values (must be calendar/clock time, HMS does not easily handle elapsed times - you can use fake dates as needed)
+# 
+# ![](hms-control1.png)
+# 
+# Now one can select simulation run builder
+# 
+# ![](hms-sim1.png)
+# 
+# ![](hms-sim2.png)
+# 
+# ![](hms-sim3.png)
+# 
+# ![](hms-sim4.png)
+# 
+# Once these are complete select Finish and the run manager is loaded, next select the particular run to active the compute engine
+# 
+# ![](hms-sim5.png)
+# 
+# At this point it should be ready, this is a good time to save the project, then reload the saved project from the file menu. Now attempt to run the simulation by selecting the exploding raindrop!
+# 
+# ![](hms-sim6.png)
+# 
+# With some luck it works like
+# 
+# ![](hms-sim7.png)
+# 
+# With a suseccful run we can examine various output features - to complete this notebook section we will just use a default chart of runoff from the watershed.  Select the Results/Element_Graph to get:
+# 
+# ![](hms-sim8.png)
+# 
+# There are tutorials and examples in the User Manual for the software.
+
+# ### HEC-HMS Multiple Elements 
+# 
+# This example uses data from [AshCreek Data (zip)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip).  The .ZIP file is an old homework problem, learners had to convert the provided data files into a format that HEC-HMS could process then analyze the watershed and interpret results and answer some questions.  
+# 
+# :::{admonition}Problem_Statement
+# **HEC-HMS Exercises**
+# 
+# In this folder are rainfall-runofff data for three storms on Ash Creek watershed in Dallas, Texas.  
+# Included are some base maps to help locate the watershed.  
+# The maps are simply PDF files and are not georeferenced, so other than pretty pictures the maps are useless.
+# 
+# Using HEC HMS model the Ash Creek Watershed using a loss model of your choice and a transformation model of your choice.  Model the watershed as a lumped system (one sub-basin, no routing).
+# 
+# (1) Estimate parameter values in the model without using the time-series data (synthetic hydrology).  Document how you make the estimates.
+# 
+# (2) Test your estimated with the 1973_0603 storm, how well did your synthetic approach perform.
+# 
+# (3) Use the 1973_0603 storm to "calibrate" your model.  Trial-and-error is appropriate, or you chould choose the internal calibration tools in HMS, also your choice.  Demonstrate the calibrated model by capturing the model output for the storm (i.e. a time series of computed and observed discharge).   Use the weighted accumulated precipitation is the input (since we don't have the raingage locations).
+# 
+# (4) Test the calibrated model with the other two storms (DO NOT CHANGE PARAMETERS IN THE MODEL).   Assess model performance with thses other two real storms.  What do you conclude?
+# 
+# (5) Now try to adjust the parameters to obtain a best "average" performance.  What do you conclude?
+# 
+# (6-8) Repeat steps 3-5 with the watershed subdivided into multiple sub-basins, with routing.    Use any subdivision scheme you think is appropriate, but use at least 3 sub-basins.
+# 
+# Did subdivision confer any performance advantage?   At what cost?
+# 
+# (9)  Presumably you represented the current conditions with some variable that reflects the land coverage.  Estimate the watershed response to the historical storms if the entire watershed is impermeable, and very smooth (low friction).
+# 
+# Prepare a brief report on the modeling effort, be sure to address each question above.  Due in 2 weeks.  
+# 
+# You will need to download the HEC-HMS user manual and do some reading in the manual as well as in the hydrology literature and textbook to complete this exercise.
+# :::
 Linear Quasi-Distributed Runoff Transform (ModClark) Model
 
 The Linear Quasi-Distributed Runoff Transform, commonly referred to as the ModClark model, is an advanced method for simulating the transformation of rainfall into runoff within a watershed. It is an extension of the Clark Unit Hydrograph method, integrating the concepts of spatial variability and distributed hydrologic response.
