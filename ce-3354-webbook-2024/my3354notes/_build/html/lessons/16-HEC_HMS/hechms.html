@@ -610,6 +610,78 @@ The maps are simply PDF files and are not georeferenced, so other than pretty pi
 </div>
 <p>Here is a look at the watershed</p>
 <p><img alt="" src="../../_images/STA08057320_MAPS.png" /></p>
+<p>The study area is
+Highland Road and Ash Creek, Dallas, TX.
+Area is residential subdivisions, light industrial parks, and some open parkland.
+White Rock Lake is water body to the North-West</p>
+<p>Now if we make measurements we might arrive at</p>
+<p><img alt="" src="../../_images/ashcreekparameters.png" /></p>
+<p>So one can model as just this lumped basin or apply some subdivision like:</p>
+<p><img alt="" src="../../_images/subdivide.png" /></p>
+<p>If we use the subdivided case, we will need routing elements and parameters for each subbasin.</p>
+<ul class="simple">
+<li><p><strong>Red basin</strong> <img alt="" src="../../_images/redbasin.png" /></p></li>
+<li><p><strong>Green basin</strong> <img alt="" src="../../_images/greenbasin.png" /></p></li>
+<li><p><strong>Blue basin</strong> <img alt="" src="../../_images/bluebasin.png" /></p></li>
+<li><p><strong>Combined</strong> <img alt="" src="../../_images/combine.png" /></p></li>
+</ul>
+<p>Using measuring tools (GIS, Acrobat Pro, Paint, ….) determine area, and lengths, get CN using NRCS tools.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-Basin ID</p></th>
+<th class="text-align:left head"><p>Property</p></th>
+<th class="text-align:right head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Red</p></td>
+<td class="text-align:left"><p>AREA</p></td>
+<td class="text-align:right"><p>1.87 sq.mi.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Red</p></td>
+<td class="text-align:left"><p>CN</p></td>
+<td class="text-align:right"><p>86</p></td>
+</tr>
+<tr class="row-even"><td><p>Red</p></td>
+<td class="text-align:left"><p>Dist. To Outlet</p></td>
+<td class="text-align:right"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green</p></td>
+<td class="text-align:left"><p>AREA</p></td>
+<td class="text-align:right"><p>2.67sq.mi.</p></td>
+</tr>
+<tr class="row-even"><td><p>Green</p></td>
+<td class="text-align:left"><p>CN</p></td>
+<td class="text-align:right"><p>86</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green</p></td>
+<td class="text-align:left"><p>Dist. To Outlet</p></td>
+<td class="text-align:right"><p>4227ft</p></td>
+</tr>
+<tr class="row-even"><td><p>Blue</p></td>
+<td class="text-align:left"><p>AREA</p></td>
+<td class="text-align:right"><p>2.39sq.mi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blue</p></td>
+<td class="text-align:left"><p>CN</p></td>
+<td class="text-align:right"><p>86</p></td>
+</tr>
+<tr class="row-even"><td><p>Blue</p></td>
+<td class="text-align:left"><p>Dist. To Outlet</p></td>
+<td class="text-align:right"><p>2660 ft</p></td>
+</tr>
+</tbody>
+</table>
+<p>Then estimate travel times for the routing elements</p>
+<p><img alt="" src="../../_images/lagtime.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HEC-HMS requires a lot of external (to the program) thinking and preparation.</p>
+<ul class="simple">
+<li><p>Try to gather data reports before modeling if at all possible.</p></li>
+<li><p>Keep a notebook handy to write down intermediate values as needed.</p></li>
+</ul>
+</div>
 </div>
 </div>
 </div>

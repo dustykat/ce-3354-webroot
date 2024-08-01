@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,7 +53,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. Groundwater Hydrology" href="../23-Groundwater/groundwater.html" />
+    <link rel="next" title="16. HEC-HMS" href="../16-HEC_HMS/hechms.html" />
     <link rel="prev" title="14. Unit Hydrographs - I (Analysis)" href="../14-UnitHydrographs/UnitHydrographs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -115,6 +117,16 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">
+   6. Probability Estimation Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">
+   6. Streamflow Data Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../09-Precipitation/precipitation.html">
    9. Precipitation, Hyetographs, Design Storms
   </a>
@@ -137,6 +149,16 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    15. Unit Hydrographs - II (Synthesis)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16-HEC_HMS/hechms.html">
+   16. HEC-HMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">
+   17. Routing Hydrographs
   </a>
  </li>
  <li class="toctree-l1">
@@ -249,18 +271,33 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readings">
+   Readings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#videos">
+   Videos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spreadsheets">
+   Spreadsheets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parametric-unit-hydrographs-in-hec-hms">
    Parametric Unit Hydrographs (in HEC-HMS)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example">
-   Example
+  <a class="reference internal nav-link" href="#example-1">
+   Example 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#example-2">
+   Example 2
   </a>
  </li>
 </ul>
@@ -276,10 +313,73 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="unit-hydrographs-ii-synthesis">
 <h1>15. Unit Hydrographs - II (Synthesis)<a class="headerlink" href="#unit-hydrographs-ii-synthesis" title="Permalink to this headline">¶</a></h1>
-<p>Synthesis does not use rainfall-runoff data.</p>
+<div class="admonition-course-website admonition">
+<p class="admonition-title">Course Website</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">link to webster</a></p>
+</div>
+<div class="section" id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 362-378</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 221-242</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">McCuen, R.H., Johnson, P.A., and Ragan, R.M. (2002) Highway Hydrology. HDS-2 (2ed) FHWA-NHI-02-001 (Read Chapter 6)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">Texas Hydraulic Design Manual (2014-1) Texas Department of Transportation. (2014) Hydraulic Design Manual (Read pages XX-X to XX-X)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">Linear Theory of Hydrologic Systems Dooge, J.C. I. (1973) Linear Theory of Hydrologic Systems. USDA ARS Technical Bulletin No. 1468. (Read pages 75-98)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/ShermanUH/Sherman_ENR_1932.pdf">Sherman, L. (1932) “Stream Flow from Rainfall by the Unit Graph Method,” Engineering News Record, No. 108, pp. 501-505. </a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LeinhardDUH/1964-StatMechDimUnitHydrograph.pdf">Lienhard, J. H. (1964), A statistical mechanical prediction of the dimensionless unit hydrograph, J. Geophys. Res., 69(24), pp. 5231–5238</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LeinhardPredDUH/1972-PredDimUnitHydrograph.pdf">Lienhard, John. (1972). Prediction of the dimensionless unit hydrograph. Nordic Hydrology. 3. pp. 107-109 </a></p></li>
+<li><p><a class="reference external" href="https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282006%29132%3A5%28479%29">Cleveland, T.G. He, X., Asquith, W.H., Fang, X., and D.B. Thompson. (2006) “Instantaneous Unit Hydrograph Evaluation for Rainfall-Runoff Modeling of Small Watersheds in North and South Central Texas.” ASCE, Journal of Irrigation and Drainage, Vol. 132, No. 5, pp. 479-485.</a></p></li>
+<li><p><a class="reference external" href="https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29">Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf">Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/00HydrologyAnIntroduction/1096-1.pdf">Brutsaert, W. (2023) Hydrology: An Introduction: pp. 475-509 (Chapter 12 in Physical, Kindle, and linked versions)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture13.pdf">Cleveland, T. G. (2015) <em>Surface Water Hydrology Notes (Unit-Hydrographs Analysis) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture14.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs in HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</div>
+<div class="section" id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=XofeIB1v7s0">Unit Hydrograph and Proportionality</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Kr4jnIulaiU">Design Storm Excess Precipitation Method</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=wSvFrX48JOo">S-Hydrograph (for Time-Shifting)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=KA0yeTIoXuM">Synthetic Unit Hydrograph</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=5WJ2A7UVnrE">Unit Hydrographs and Snyder Synthetic Unit Hydrograph</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=ZuSj53-H8eY">Snyder Unit Hydrograph (HEC-HMS training video)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Pqj7FH-zJUM">Construction of CWC (regional synthetic hydrograph) and Dimensionless Hydrograph</a></p></li>
+</ol>
+</div>
+<div class="section" id="spreadsheets">
+<h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permalink to this headline">¶</a></h2>
+<p>Listed below are spreadsheets that implement simple UH examples.  They are Excel (circa 2009) spreadsheets, that work in current Excel, LibreOffice, and Numbers environments</p>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub1.xls">ExampleUH_BackSub1.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub2.xls">ExampleUH_BackSub2.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_LeastSquares.xls">ExampleUH_LeastSquares.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_TransferFn.xls">ExampleUH_TransferFn.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase_DifferentStorm.xls">ExtendedBase_DifferentStorm.xls</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase.xls">ExtendedBase.xls</a></p></li>
+</ol>
+<p>Synthetic unit hydrographs are theoretical models used in hydrology to estimate the response of a watershed to a unit of rainfall excess when direct measurements are not available. Unlike traditional unit hydrographs, which are derived from observed streamflow data, synthetic unit hydrographs are developed using empirical relationships and mathematical formulations based on the physical and climatic characteristics of a watershed.</p>
 <ul class="simple">
-<li><p>Uses measurements on the watershed to postulate parameters of a parametric unit hydrograph.</p></li>
+<li><p>Purpose and Application: <br> Synthetic unit hydrographs are employed when observed data is scarce or unavailable, particularly for ungauged basins. They provide a means to estimate peak discharge and flow characteristics for hydrological modeling, flood forecasting, and hydraulic design, such as the sizing of culverts, bridges, and other infrastructure.</p></li>
+<li><p>Development Methodologies: <br> Several methodologies can be used to create synthetic unit hydrographs, often based on regional studies, empirical formulas, and dimensionless unit hydrographs. Common methods include:</p></li>
 </ul>
+<ol class="simple">
+<li><p>Snyder’s Method (RSG pp. 363-366): Uses empirical formulas to relate the characteristics of the hydrograph to watershed properties like area, length of the main stream, and slope.</p></li>
+<li><p>SCS Dimensionless Unit Hydrograph (RSG pp.367-371): Developed by the Soil Conservation Service (now the NRCS), this method uses a dimensionless hydrograph shape that can be scaled based on watershed properties and peak flow calculations.</p></li>
+<li><p>Time-Area Methods (RSG pp. 257-258): Involves dividing the watershed into zones based on travel time to the outlet, which is then used to develop the shape of the unit hydrograph. <br> - <a class="reference external" href="https://help.innovyze.com/space/infoswmm/17598667/Clark+Unit+Hydrograph+Method">Clark UH</a><br> -  <a class="reference external" href="https://pubs.usgs.gov/wri/2000/4184/wrir00_4184.pdf">Equations for Estimating Clark Unit-Hydrograph Parameters for Small Rural Watersheds in Illinois</a>  <br>  - <a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf">Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.</a> <br> - <a class="reference external" href="https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29">Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>Parameters and Characteristics: <br> Synthetic unit hydrographs are characterized by parameters such as time-to-peak, peak flow rate, base time, and recession limb. These parameters are often estimated using relationships involving watershed characteristics such as area, slope, and land use.</p></li>
+<li><p>Advantages: <br> Simplicity and Accessibility: Synthetic methods provide a straightforward way to estimate hydrologic responses without requiring extensive field data.<br> Adaptability: They can be applied to a wide range of watersheds and can be adjusted to reflect local conditions.<br> Utility in Planning: Useful in the early stages of project planning and for preliminary design purposes.</p></li>
+<li><p>Limitations: <br> Generalization: Being based on empirical relationships, synthetic unit hydrographs may not accurately capture the unique hydrological responses of all watersheds, especially in complex or highly heterogeneous terrains. <br> Parameter Estimation: The accuracy of synthetic unit hydrographs depends on the correct estimation of parameters, which can be challenging without field data.</p></li>
+</ul>
+<p>Synthetic unit hydrographs are valuable tools in hydrology for estimating streamflow responses in ungauged or data-sparse regions. They offer a practical alternative for preliminary assessments and design applications. By combining synthetic hydrographs with local knowledge and regional studies, hydrologists can make informed decisions in water resource management and infrastructure development.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synthesis does require rainfall-runoff data. It uses measurements on the watershed to postulate parameters of a parametric unit hydrograph.  Consider the modified rational method as an overly simplified implementation.  The measurements used are time of concentration usually based on some slope, roughness and distance; these play the transfer function role, the product of area and runoff coeffient plays the role of a loss model.  The rainfall intensity is the input. <span class="math notranslate nohighlight">\(CAi\)</span> is the excess precipitation. The unit response is simply a rectangular pulse (square wave) that is <span class="math notranslate nohighlight">\(T_c\)</span> units in duration.</p>
+</div>
+</div>
 <div class="section" id="parametric-unit-hydrographs-in-hec-hms">
 <h2>Parametric Unit Hydrographs (in HEC-HMS)<a class="headerlink" href="#parametric-unit-hydrographs-in-hec-hms" title="Permalink to this headline">¶</a></h2>
 <p>HEC-HMS has several different UH models available (eg. NRCS DUH, Clark, etc.).
@@ -292,14 +392,14 @@ The analyst can also enter an empirical (user specified) unit hydrograph.</p></l
 </ul>
 <p>Useful parametric models along with their parameters include:</p>
 <ul class="simple">
-<li><p>NRCS DUH : Tlag (Timing only)</p></li>
+<li><p>NRCS DUH : Tlag (Timing only) (RSG pp. 367-370)</p></li>
 <li><p>Clark : Tc, and R (Timing and a storage-delay)</p></li>
-<li><p>Snyder : Tlag, Cp (Timing and a peak rate factor)</p></li>
+<li><p>Snyder : Tlag, Cp (Timing and a peak rate factor) (RSG pp. 363-367)</p></li>
 <li><p>Gamma : (User-Specified) Tc, K (Timing and a shape factor)</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Aalysis uses data (rainfall and runoff observations) to develop unit hydrograph models. Choices include:</p>
+<p>Analysis uses data (rainfall and runoff observations) to develop unit hydrograph models. Choices include:</p>
 <p>Follow FHWA methods</p>
 <ul class="simple">
 <li><p>Essentially back-substitution or OLS</p></li>
@@ -313,9 +413,38 @@ The analyst can also enter an empirical (user specified) unit hydrograph.</p></l
 <li><p>Less tedious than back-substitution or OLS</p></li>
 </ul>
 </div>
+<div class="admonition-linear-quasi-distributed-runoff-transform-modclark-model admonition">
+<p class="admonition-title">Linear Quasi-Distributed Runoff Transform (ModClark) Model</p>
+<p>The Linear Quasi-Distributed Runoff Transform, commonly referred to as the ModClark model, is an advanced method for simulating the transformation of rainfall into runoff within a watershed. It is an extension of the Clark Unit Hydrograph method, integrating the concepts of spatial variability and distributed hydrologic response.
+<strong>Key Features:</strong></p>
+<ul class="simple">
+<li><p>Spatial Variability: Unlike traditional lumped models that treat the watershed as a single unit, the ModClark model incorporates spatial variability by dividing the watershed into multiple grid cells. Each grid cell has unique hydrologic properties, allowing for a more detailed and realistic representation of the watershed’s response to rainfall.</p></li>
+<li><p>Grid-Based Approach: The watershed is discretized into a grid, where each cell’s excess rainfall is computed and routed to the watershed outlet. The routing is done using a combination of translation (movement of water from one cell to another) and storage (delays in flow due to channel and overland flow characteristics).</p></li>
+<li><p>Rainfall Distribution: The ModClark model can account for non-uniform rainfall distribution across the watershed. This is particularly useful for large or complex watersheds where precipitation may vary significantly in space.</p></li>
+<li><p>Time-Area Concept: The model employs a time-area histogram, similar to the Clark Unit Hydrograph method, to represent the travel time distribution of water from different parts of the watershed to the outlet. The time-area curve is derived from the grid structure and flow path characteristics.</p></li>
+<li><p>Linear Reservoir Concept: The model uses a linear reservoir approach to simulate storage and attenuation effects. The linear reservoir coefficient and time of concentration are key parameters that influence the shape and timing of the runoff hydrograph.</p></li>
+</ul>
+<p><strong>Applications:</strong></p>
+<p>The ModClark model is particularly useful in situations where spatial variability in rainfall and watershed characteristics play a significant role in the runoff response. It is often used for:</p>
+<ul class="simple">
+<li><p>Flood forecasting and floodplain management.</p></li>
+<li><p>Urban hydrology, where impervious surfaces and drainage networks create complex runoff patterns.</p></li>
+<li><p>Watershed management and planning, where detailed understanding of hydrologic processes is required.</p></li>
+</ul>
+<p><strong>Advantages:</strong></p>
+<ul class="simple">
+<li><p>Enhanced Accuracy: By accounting for spatial variability and detailed hydrologic response, the ModClark model provides a more accurate representation of runoff generation and routing compared to lumped models.</p></li>
+<li><p>Flexibility: The model can be adapted to various scales and complexities of watersheds, making it a versatile tool for hydrologists.</p></li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul class="simple">
+<li><p>Data Requirements: The model requires detailed spatial data for accurate representation, including grid-based rainfall, land cover, and topography.</p></li>
+<li><p>Computational Demand: The grid-based approach and detailed routing is <strong>computationally intensive</strong>, especially for large watersheds or long simulation periods.</p></li>
+</ul>
 </div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p>Work the example(s) below:</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture14.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Unit-Hydrographs in HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering. Go to Slide 32</a></p>
 <p>A fully provisioned Windows Implementation of HEC-HMS is located at:</p>
@@ -335,10 +464,11 @@ The analyst can also enter an empirical (user specified) unit hydrograph.</p></l
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson10/STA08057320_HECHMSFORMAT_1978-0521.xls">Ash Creek 1978 21 May Storm</a></p></li>
 </ol>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>Same as above, but using the Digital Terrain Runoff Model Approach 7. <a class="reference external" href="https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29">Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221</a></p>
 <ol class="simple">
-<li><p>Gupta pp 343-372</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf">Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.</a></p></li>
 </ol>
 </div>
 </div>
@@ -382,10 +512,10 @@ The analyst can also enter an empirical (user specified) unit hydrograph.</p></l
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../23-Groundwater/groundwater.html" title="next page">
+        <a class="right-next" href="../16-HEC_HMS/hechms.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">23. Groundwater Hydrology</p>
+                <p class="prevnext-title">16. HEC-HMS</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

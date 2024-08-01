@@ -299,6 +299,50 @@
 # Here is a look at the watershed
 # 
 # ![](STA08057320_MAPS.png)
+# 
+# The study area is 
+# Highland Road and Ash Creek, Dallas, TX.
+# Area is residential subdivisions, light industrial parks, and some open parkland.
+# White Rock Lake is water body to the North-West
+# 
+# Now if we make measurements we might arrive at
+# 
+# ![](ashcreekparameters.png)
+# 
+# So one can model as just this lumped basin or apply some subdivision like:
+# 
+# ![](subdivide.png)
+# 
+# If we use the subdivided case, we will need routing elements and parameters for each subbasin.
+# - **Red basin** ![](redbasin.png)
+# - **Green basin** ![](greenbasin.png)
+# - **Blue basin** ![](bluebasin.png)
+# - **Combined** ![](combine.png)
+
+# Using measuring tools (GIS, Acrobat Pro, Paint, ....) determine area, and lengths, get CN using NRCS tools.
+# 
+# |Sub-Basin ID|Property|Value|
+# |---|:---|---:|
+# |Red|AREA|1.87 sq.mi.|
+# |Red|CN|86|
+# |Red|Dist. To Outlet|0|
+# |Green|AREA|2.67sq.mi.|
+# |Green|CN|86|
+# |Green|Dist. To Outlet|4227ft|
+# |Blue|AREA|2.39sq.mi|
+# |Blue|CN|86|
+# |Blue|Dist. To Outlet|2660 ft|
+# 
+# Then estimate travel times for the routing elements
+# 
+# ![](lagtime.png)
+# 
+
+# :::{note}
+# HEC-HMS requires a lot of external (to the program) thinking and preparation. 
+# - Try to gather data reports before modeling if at all possible.
+# - Keep a notebook handy to write down intermediate values as needed.
+# :::
 Linear Quasi-Distributed Runoff Transform (ModClark) Model
 
 The Linear Quasi-Distributed Runoff Transform, commonly referred to as the ModClark model, is an advanced method for simulating the transformation of rainfall into runoff within a watershed. It is an extension of the Clark Unit Hydrograph method, integrating the concepts of spatial variability and distributed hydrologic response.

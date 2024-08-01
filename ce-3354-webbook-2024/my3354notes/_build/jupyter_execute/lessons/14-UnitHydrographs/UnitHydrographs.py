@@ -249,9 +249,11 @@
 # 
 
 # ### Parametric Unit Hydrographs
-# The unit weights frm above can be replaced by a function whose shape is adjusted by one or more parameters, these are called parametric unit hydrographs.
 # 
-# :::{note}A parametric unit hydrograph is a mathematical representation of a unit hydrograph that uses a set of parameters to describe its shape and characteristics. Unlike empirical unit hydrographs, which are derived directly from observed data, parametric unit hydrographs are defined by mathematical functions with specific parameters that can be adjusted to match the observed hydrological response of a watershed.
+# The unit weights from above can be replaced by a function whose shape is adjusted by one or more parameters, these are called parametric unit hydrographs.
+# 
+# :::{note} 
+# A parametric unit hydrograph is a mathematical representation of a unit hydrograph that uses a set of parameters to describe its shape and characteristics. Unlike empirical unit hydrographs, which are derived directly from observed data, parametric unit hydrographs are defined by mathematical functions with specific parameters that can be adjusted to match the observed hydrological response of a watershed.
 # 
 # Common types of parametric unit hydrographs include:
 # 
@@ -260,6 +262,7 @@
 # - Nash Cascade Model: This model assumes that the watershed can be represented as a series of linear reservoirs, each with a constant storage coefficient. The parameters include the number of reservoirs (N) and the storage coefficient (K), which together define the shape and timing of the hydrograph.
 # 
 # - Synthetic Unit Hydrographs: These are constructed using standard shapes like triangular or dimensionless unit hydrographs, with parameters such as time-to-peak, peak discharge, and recession constant used to describe the hydrograph's shape.
+# 
 # :::
 # 
 # Parametric unit hydrographs are useful because they provide a flexible and efficient way to model the hydrological response of watersheds, especially in situations where direct measurement data may be limited or unavailable. 
@@ -270,10 +273,9 @@
 # 
 # ![](parametricUH3.png)
 # 
-# 
-# 
 # ![](parametricUH4.png)
-# ### VALUE OF PARAMETRIC UNIT HYDROGRAPHS
+# 
+# ### Value of Parametric Unit Hydrographs
 # - Fewer values to keep track of
 # - Simple extension of time-base
 # - If the parameters can be associated with watershed metrics (Slope, MCL, soil properties, shape, etc.) the resulting model is called a synthetic unit hydrograph
