@@ -1,16 +1,15 @@
-# Welcome to your Jupyter Book
+# Welcome to Engineering Hydrology
 
-This is a small sample book to give you a feel for how book content is
-structured.
+This is a small book of course notes used by the instructor in CE 3354.
 
-:::{note}
-Here is a note!
-:::
+## Suggested Citation
 
-And here is a code block:
+Cleveland, T. G. (2024) Engineering Hydrology Notes to accompany CE-3354, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.
 
-```
-e = mc^2
-```
+## GitHub Repository
 
-Check out the content pages bundled with this sample book to see more.
+These notes are built using a JupyterLab server.  The entire repository is stored at [https://github.com/dustykat/ce-3354-webroot/tree/main](https://github.com/dustykat/ce-3354-webroot/tree/main)
+
+## TDL Archive
+
+These notes and supporting documents are archived at [https://dataverse.tdl.org/dataverse/tgc_container](https://dataverse.tdl.org/dataverse/tgc_container)

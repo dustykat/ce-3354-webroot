@@ -171,10 +171,9 @@
 # 
 # ## Example 2
 # 
-# Same as above, but using the Digital Terrain Runoff Model Approach 7. [Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221](https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29)
+# Same as above, but using the Digital Terrain Runoff Model Approach as described in <br> - [Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221](https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29) <br> - [Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.](http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf))
 # 
-# 8. [Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.](http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf)
-# 
+# The actual JupyterLab code is from [GitHub DTRM-P](https://github.com/dustykat/DTRM-P).  Because the run time is several hours, the code is not displayed in the notebook.
 # 
 
 # In[ ]:
