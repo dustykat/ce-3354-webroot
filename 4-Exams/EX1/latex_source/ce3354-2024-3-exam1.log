@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  8 SEP 2024 22:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  8 SEP 2024 23:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -296,7 +296,11 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count270
 \l__pdf_internal_box=\box53
 )
-No file ce3354-2024-3-exam1.aux.
+(./ce3354-2024-3-exam1.aux
+
+LaTeX Warning: Label `fig:topoMap.jpg' multiply defined.
+
+)
 \openout1 = `ce3354-2024-3-exam1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -313,6 +317,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -383,681 +388,601 @@ Make it at least 14.49998pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-
-LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 73.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-]
-
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 110.
-
-[2]
-
-LaTeX Warning: Reference `LastPage' on page 3 undefined on input line 129.
-
-[3]
-
-LaTeX Warning: Reference `fig:ddf-curve.jpg' on page 4 undefined on input line 
-131.
-
+] [2] [3]
 <ddf-curve.jpg, id=18, 499.8675pt x 412.54124pt>
 File: ddf-curve.jpg Graphic file (type jpg)
 <use ddf-curve.jpg>
 Package pdftex.def Info: ddf-curve.jpg  used on input line 135.
 (pdftex.def)             Requested size: 433.62pt x 357.88193pt.
-
-LaTeX Warning: Reference `LastPage' on page 4 undefined on input line 147.
-
-[4 <./ddf-curve.jpg>]
+ [4 <./ddf-curve.jpg>]
 <flood-frequency-curve.jpg, id=22, 973.6375pt x 653.44125pt>
 File: flood-frequency-curve.jpg Graphic file (type jpg)
 <use flood-frequency-curve.jpg>
 Package pdftex.def Info: flood-frequency-curve.jpg  used on input line 153.
 (pdftex.def)             Requested size: 433.62pt x 291.01476pt.
+ [5
 
-
-LaTeX Warning: Reference `fig:flood-frequency-curve.jpg' on page 5 undefined on
- input line 158.
-
-
-LaTeX Warning: Reference `fig:flood-frequency-curve.jpg' on page 5 undefined on
- input line 166.
-
-
-LaTeX Warning: Reference `LastPage' on page 5 undefined on input line 174.
-
-[5
-
- <./flood-frequency-curve.jpg>]
-
-LaTeX Warning: Reference `LastPage' on page 6 undefined on input line 186.
-
-[6
+ <./flood-frequency-curve.jpg>] [6
 
 ]
+<HydrographPlot001.png, id=29, 742.775pt x 494.84875pt>
+File: HydrographPlot001.png Graphic file (type png)
+<use HydrographPlot001.png>
+Package pdftex.def Info: HydrographPlot001.png  used on input line 203.
+(pdftex.def)             Requested size: 433.62pt x 288.89262pt.
 
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 7 undefined on input line 18
-9.
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
 
 
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 7 undefined on input line 18
-9.
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
 
 
-LaTeX Warning: Reference `fig:Pan1.JPG' on page 7 undefined on input line 189.
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
 
-<topoMap.jpg, id=29, 981.6675pt x 588.1975pt>
-File: topoMap.jpg Graphic file (type jpg)
-<use topoMap.jpg>
-Package pdftex.def Info: topoMap.jpg  used on input line 193.
-(pdftex.def)             Requested size: 469.75499pt x 281.46997pt.
-<Pan1.JPG, id=30, 2610.6333pt x 529.0164pt>
-File: Pan1.JPG Graphic file (type jpg)
-<use Pan1.JPG>
-Package pdftex.def Info: Pan1.JPG  used on input line 200.
-(pdftex.def)             Requested size: 433.62pt x 87.86513pt.
+ []
 
-LaTeX Warning: Reference `LastPage' on page 7 undefined on input line 204.
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--207
+
+ []
 
 [7
 
+ <./HydrographPlot001.png>]
+<topoMap.jpg, id=36, 981.6675pt x 588.1975pt>
+File: topoMap.jpg Graphic file (type jpg)
+<use topoMap.jpg>
+Package pdftex.def Info: topoMap.jpg  used on input line 214.
+(pdftex.def)             Requested size: 469.75499pt x 281.46997pt.
+<Pan1.JPG, id=37, 2610.6333pt x 529.0164pt>
+File: Pan1.JPG Graphic file (type jpg)
+<use Pan1.JPG>
+Package pdftex.def Info: Pan1.JPG  used on input line 221.
+(pdftex.def)             Requested size: 433.62pt x 87.86513pt.
+ [8
+
  <./topoMap.jpg> <./Pan1.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--212
+Underfull \hbox (badness 10000) in paragraph at lines 228--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
+Underfull \hbox (badness 10000) in paragraph at lines 233--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
+Underfull \hbox (badness 10000) in paragraph at lines 233--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
+Underfull \hbox (badness 10000) in paragraph at lines 233--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
+Underfull \hbox (badness 10000) in paragraph at lines 233--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--222
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--222
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--222
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--222
+Underfull \hbox (badness 10000) in paragraph at lines 238--243
 
  []
 
-
-LaTeX Warning: Reference `fig:CulvertSystemElevation' on page 8 undefined on in
-put line 222.
-
-<CulvertSystemElevation.jpg, id=35, 634.37pt x 286.06876pt>
+<CulvertSystemElevation.jpg, id=41, 634.37pt x 286.06876pt>
 File: CulvertSystemElevation.jpg Graphic file (type jpg)
 <use CulvertSystemElevation.jpg>
-Package pdftex.def Info: CulvertSystemElevation.jpg  used on input line 225.
+Package pdftex.def Info: CulvertSystemElevation.jpg  used on input line 246.
 (pdftex.def)             Requested size: 416.6818pt x 187.90244pt.
-
-LaTeX Warning: Reference `LastPage' on page 8 undefined on input line 229.
-
-[8
-
- <./CulvertSystemElevation.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--264
-
- []
-
-
-LaTeX Warning: Reference `LastPage' on page 9 undefined on input line 265.
-
 [9
 
-]
+ <./CulvertSystemElevation.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
 
-LaTeX Warning: Reference `fig:RARO-DATA.pdf' on page 10 undefined on input line
- 267.
-
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 10 undefined on input line 2
-67.
-
-<RARO-DATA.pdf, id=42, 196.735pt x 491.8375pt>
-File: RARO-DATA.pdf Graphic file (type pdf)
-<use RARO-DATA.pdf>
-Package pdftex.def Info: RARO-DATA.pdf  used on input line 272.
-(pdftex.def)             Requested size: 180.67499pt x 451.68546pt.
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 10 undefined on input line 2
-73.
+ []
 
 
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 10 undefined on input line 2
-73.
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
 
 
-LaTeX Warning: Reference `LastPage' on page 10 undefined on input line 276.
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--285
+
+ []
 
 [10
 
- <./RARO-DATA.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--295
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 295--301
-
- []
-
-
-LaTeX Warning: Reference `LastPage' on page 11 undefined on input line 303.
-
-[11
-
 ]
+<RARO-DATA.pdf, id=48, 196.735pt x 491.8375pt>
+File: RARO-DATA.pdf Graphic file (type pdf)
+<use RARO-DATA.pdf>
+Package pdftex.def Info: RARO-DATA.pdf  used on input line 293.
+(pdftex.def)             Requested size: 180.67499pt x 451.68546pt.
+ [11
 
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-04.
-
-
-LaTeX Warning: Reference `fig:countymap.pdf' on page 12 undefined on input line
- 304.
-
-
-LaTeX Warning: Reference `fig:DDF-Atlas-5yr' on page 12 undefined on input line
- 305.
-
-
-LaTeX Warning: Reference `fig:DDF-Atlas-10yr' on page 12 undefined on input lin
-e 305.
-
-
-LaTeX Warning: Reference `fig:countymap.pdf' on page 12 undefined on input line
- 307.
-
-
-LaTeX Warning: Reference `fig:DDF-Atlas-5yr' on page 12 undefined on input line
- 308.
-
-
-LaTeX Warning: Reference `fig:DDF-Atlas-10yr' on page 12 undefined on input lin
-e 309.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+ <./RARO-DATA.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--318
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 299--308
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 318--326
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 308--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
+Underfull \hbox (badness 10000) in paragraph at lines 316--322
 
  []
-
-<countymap.jpg, id=57, 1046.91125pt x 937.5025pt>
-File: countymap.jpg Graphic file (type jpg)
-<use countymap.jpg>
-Package pdftex.def Info: countymap.jpg  used on input line 338.
-(pdftex.def)             Requested size: 433.62pt x 388.29811pt.
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-39.
-
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-39.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<DDF-Atlas-5yr.jpg, id=58, 745.78625pt x 733.74126pt>
-File: DDF-Atlas-5yr.jpg Graphic file (type jpg)
-<use DDF-Atlas-5yr.jpg>
-Package pdftex.def Info: DDF-Atlas-5yr.jpg  used on input line 345.
-(pdftex.def)             Requested size: 433.62pt x 426.61145pt.
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-46.
-
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-46.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<DDF-Atlas-10yr.jpg, id=59, 805.0075pt x 735.74875pt>
-File: DDF-Atlas-10yr.jpg Graphic file (type jpg)
-<use DDF-Atlas-10yr.jpg>
-Package pdftex.def Info: DDF-Atlas-10yr.jpg  used on input line 352.
-(pdftex.def)             Requested size: 433.62pt x 396.31047pt.
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-53.
-
-
-LaTeX Warning: Reference `fig:topoMap.jpg' on page 12 undefined on input line 3
-53.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package lastpage Warning: Rerun to get the references right on input line 367.
-
-
-AED: lastpage setting LastPage
-
-LaTeX Warning: Reference `LastPage' on page 12 undefined on input line 367.
 
 [12
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
 
-LaTeX Warning: Reference `LastPage' on page 13 undefined on input line 367.
-
-[13 <./countymap.jpg>]
-
-LaTeX Warning: Reference `LastPage' on page 14 undefined on input line 367.
-
-[14 <./DDF-Atlas-5yr.jpg>]
-
-LaTeX Warning: Reference `LastPage' on page 15 undefined on input line 367.
-
-[15 <./DDF-Atlas-10yr.jpg>] (./ce3354-2024-3-exam1.aux)
-
-LaTeX Warning: There were undefined references.
+ []
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--339
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--347
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--355
+
+ []
+
+<countymap.jpg, id=63, 1046.91125pt x 937.5025pt>
+File: countymap.jpg Graphic file (type jpg)
+<use countymap.jpg>
+Package pdftex.def Info: countymap.jpg  used on input line 359.
+(pdftex.def)             Requested size: 433.62pt x 388.29811pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<DDF-Atlas-5yr.jpg, id=64, 745.78625pt x 733.74126pt>
+File: DDF-Atlas-5yr.jpg Graphic file (type jpg)
+<use DDF-Atlas-5yr.jpg>
+Package pdftex.def Info: DDF-Atlas-5yr.jpg  used on input line 366.
+(pdftex.def)             Requested size: 433.62pt x 426.61145pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<DDF-Atlas-10yr.jpg, id=65, 805.0075pt x 735.74875pt>
+File: DDF-Atlas-10yr.jpg Graphic file (type jpg)
+<use DDF-Atlas-10yr.jpg>
+Package pdftex.def Info: DDF-Atlas-10yr.jpg  used on input line 373.
+(pdftex.def)             Requested size: 433.62pt x 396.31047pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+AED: lastpage setting LastPage
+[13
+
+] [14 <./countymap.jpg>] [15 <./DDF-Atlas-5yr.jpg>] [16 <./DDF-Atlas-10yr.jpg>]
+ (./ce3354-2024-3-exam1.aux)
+
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5800 strings out of 483183
- 82560 string characters out of 5966292
+ 5809 strings out of 483183
+ 82757 string characters out of 5966292
  328236 words of memory out of 5000000
- 20719 multiletter control sequences out of 15000+600000
+ 20724 multiletter control sequences out of 15000+600000
  537290 words of font info for 43 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 41i,11n,45p,878b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,45p,878b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on ce3354-2024-3-exam1.pdf (15 pages, 24938535 bytes).
+Output written on ce3354-2024-3-exam1.pdf (16 pages, 24949323 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

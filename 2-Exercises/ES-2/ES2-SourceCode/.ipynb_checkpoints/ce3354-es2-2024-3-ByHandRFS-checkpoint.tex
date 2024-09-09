@@ -19,37 +19,27 @@
 
 \begin{document}
 \begin{center}
-{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exercise Set 2}}}
+{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exercise Set 2 : By-Hand Solution}}}
 \end{center}
 
+This solution is a by-hand approach; GIS based approach will be in a seperate document, there is considerable overlap - either way is fine, although in modern practice, its far more likely you will use GIS tools.  
+
+Some of the original figures are omitted to reduce the file size.
+
 \section*{\small{Exercises}}
-Figure \ref{fig:Texas-Training-Watershed-RFS} is a map of Harden Branch Creek area in Concho County, Texas. 
-The \textbf{Assessment Point} on the map, conicides with the red circle below on Figure \ref{fig:hardinbranch-RFS}, which is centered on the bridge on US 87 just west of Eden Texas.\footnote{This watershed is the subject of the semester design project, PR-1.}
-
-\begin{figure}[h!] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6in]{Texas-Training-Watershed-RFS.png} 
-   \caption{Texas Training Watershed Map (annotated)}
-   \label{fig:Texas-Training-Watershed-RFS}
-\end{figure}
-
-\begin{figure}[h!] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6in]{hardinbranch-RFS.png} 
-   \caption{Close-up of map West of Eden, Texas}
-   \label{fig:hardinbranch-RFS}
-\end{figure}
-
-\clearpage
 
 \begin{enumerate}
-\item Using a GIS (i.e. QGIS) load an OpenStreetMap layer and locate the ``Assessment Point'' in the GIS.  ... For a by-hand approach this is kind of meaningless, but a "free" approach is to find the location on Google Earth, then convert to UT< coordinates if later on going to employ a GIS.
+\item Using a GIS (i.e. QGIS) load an OpenStreetMap layer and locate the ``Assessment Point'' 
+
+\textbf{By-Hand Approach}
+
+For a by-hand approach this step coule be accompliehed by finding the location on Google Earth, then convert to UTM coordinates (for later GIS usage).
 
 Figure \ref{fig:GEProLocate} is a screen capture of using Google Earth to capture Lat-Lon location coordinates.
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=5in]{GEProLatLon.png} 
+   \includegraphics[width=4in]{GEProLatLon.png} 
    \caption{Assessment point coordinates (in DDDMMSS.SS)}
    \label{fig:GEProLocate}
 \end{figure}
@@ -58,7 +48,7 @@ Figure \ref{fig:DMS2UTM} is a screen capture showing conversion from DMS coordin
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=5in]{CoordinateTransform.png} 
+   \includegraphics[width=4in]{CoordinateTransform.png} 
    \caption{Assessment point coordinate transformation for GIS use (in UTM Zone 14) (Read the USAF excerpt on topographic maps to learn about UTM coordinate system)}
    \label{fig:DMS2UTM}
 \end{figure}
@@ -73,17 +63,10 @@ Figure \ref{fig:ES2-WatershedDelineated-2} shows the result of watershed delinea
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=6in]{ES2-WatershedDelineated-2.png} 
+   \includegraphics[width=5in]{ES2-WatershedDelineated-2.png} 
    \caption{Study Area -- with grid overlay, outlet (Blue Dot), and subcatchments identified.  Various flow paths are indicted in transparent blue.  Red arrows indicate downslope directions.}
    \label{fig:ES2-WatershedDelineated-2}
 \end{figure}
-
-\clearpage
-
-\textbf{GIS Analysis}
-
-sdlkdajdg;lkjgsa;lkjgaskldj
-a;gk;sdljg;jasg;sjg
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,25 +85,19 @@ Figure \ref{fig:ES2-WatershedArea-2} is a scanned image of the watershed with va
    \label{fig:ES2-WatershedArea-2}
 \end{figure}
 
-
-\textbf{GIS Analysis}
-
-sdlkdajdg;lkjgsa;lkjgaskldj
-a;gk;sdljg;jasg;sjg
-
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \item Find the coordinates of the two outlet risers for the two SCS impoundments in the area; GoogleEarth might be helpful; a proper USGS Topographic map would also be helpful.  You will need these coordinates for future homework/project.
 
-\textbf{GIS Analysis}
+\textbf{By-Hand Approach}
 This step can be accomplished using Google Earth (or similar tool) as illustrated
 
 For the West reservoir the location is found in Google Earth as shown in Figure \ref{fig:WestBasin}.  The elevations are taken from the USGS 7.5 minute Topographic Map (the supplied basemap) and confirmed in Google Earth - the Google Earth are within a foot or two of the paper map values.
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{WestReservoir.png} 
+   \includegraphics[width=3in]{WestReservoir.png} 
    \caption{West Reservoir riser pipe location, elevations from USGS 7.5 minute basemap, verfied on Google Earth as "close enough"}
    \label{fig:WestBasin}
 \end{figure}
@@ -129,7 +106,7 @@ Then a coordinate transformation as shown in Figure \ref{fig:WestCoordinates}
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{WestCoordinates.png} 
+   \includegraphics[width=3in]{WestCoordinates.png} 
    \caption{West Reservoir DMS to UTM conversion}
    \label{fig:WestCoordinates}
 \end{figure}
@@ -141,7 +118,7 @@ For the North reservoir the location is found in Google Earth as shown in Figure
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{NorthReservoir.png} 
+   \includegraphics[width=3in]{NorthReservoir.png} 
    \caption{North Reservoir riser pipe location, elevations from USGS 7.5 minute basemap, verfied on Google Earth as "close enough"}
    \label{fig:NorthBasin}
 \end{figure}
@@ -150,7 +127,7 @@ Then a coordinate transformation as shown in Figure \ref{fig:NorthCoordinates}
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{NorthCoordinates.png} 
+   \includegraphics[width=3in]{NorthCoordinates.png} 
    \caption{North Reservoir DMS to UTM conversion}
    \label{fig:NorthCoordinates}
 \end{figure}
@@ -158,7 +135,7 @@ Then a coordinate transformation as shown in Figure \ref{fig:NorthCoordinates}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Because much of the work is likely to be conducted using a GIS, Table \ref{tab:SummaryLocations} summarizes the information so far.
+Table \ref{tab:SummaryLocations} summarizes the information so far.
 
 % Requires the booktabs if the memoir class is not being used
 \begin{table}[htbp]
@@ -195,8 +172,6 @@ Figure \ref{fig:ES2-WatershedArea-3} is a scanned image of the watershed with tw
    \label{fig:ES2-WatershedArea-3}
 \end{figure}
 
-\textbf{GIS Analysis}
-
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -207,8 +182,6 @@ Figure \ref{fig:ES2-WatershedArea-3} is a scanned image of the watershed with tw
 
 For the North riser, the distance to the junction is about 9 cells, each cell has a diagonal of about 0.14 miles, so the distance is roughly 1.26 miles along the creek path.
 
-\textbf{GIS Analysis}
-
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -216,9 +189,6 @@ For the North riser, the distance to the junction is about 9 cells, each cell ha
 
 \textbf{By Hand Approach}
 Figure \ref{fig:ES2-WatershedArea-3} is a scanned image of the watershed with two possible main channel paths identified.  Measure the portion from the junction to the outlet, and report the result.  In this case about 18 cells from junction to outlet, each cell has a diagonal of about 0.14 miles, so the distance is roughly 2.52 miles along the creek path.
-
-
-\textbf{GIS Analysis}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,10 +198,6 @@ Figure \ref{fig:ES2-WatershedArea-3} is a scanned image of the watershed with tw
 \textbf{By Hand Approach}
 
 
-\textbf{GIS Analysis}
-
 \end{enumerate}
-
-Save the GIS project so you can use the tool(s) for additional terrain analysis.  If you do the exercise by-hand, save your original work; you will need it later on.
 
 \end{document}  
