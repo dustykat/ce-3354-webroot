@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 9. Precipitation, Hyetographs, Design Storms
+# # 8. Precipitation, Hyetographs, Design Storms
 
 # :::{admonition} Course Website
 # [link to webster](http://54.243.252.9/ce-3354-webroot/)
@@ -39,7 +39,11 @@
 # 
 # 8. [McCabe, K. (2022) "Rain, sleet or snow?" Royal Meterological Society](https://www.rmets.org/metmatters/rain-sleet-or-snow)
 # 
+# 13. [PAULHUS, J. L. H. , and M. A. KOHLER. "INTERPOLATION OF MISSING PRECIPITATION RECORDS". Monthly Weather Review 80.8 (1952): 129-133.](http://54.243.252.9/ce-5361-webroot/3-Readings/NormalRatioMethod/mwr-080-08-0129.pdf)
 # 
+# 14. [Missing Rainfall Data Replacement Techniques](http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf)
+# 
+# 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf)
 
 # ## Videos
 # 
@@ -188,7 +192,7 @@
 # 
 # $$ D = i_{avg}*{T_C}$$
 
-# ## References
+# <!-- ## References
 # 
 # 1. [Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/) 
 # 
@@ -218,7 +222,8 @@
 # 
 # 14. [Missing Rainfall Data Replacement Techniques](http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf)
 # 
-# 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf)
+# 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf) 
+# -->
 
 # ## Design Storms
 # 
