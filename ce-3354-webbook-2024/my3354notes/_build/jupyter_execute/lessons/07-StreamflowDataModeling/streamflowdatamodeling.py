@@ -14,13 +14,15 @@
 # 
 # 1. [Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. **pp. 1-12** ](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf) 
 # 
-# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf)
+# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 1 )*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf)
 # 
-# 2. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf)
+# 2. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 2)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf)
 # 
 # 3. [See pp. 33-39 CMM for explaination of Manning’s equation](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/)
 # 
 # 4. [See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method](http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf)
+# 
+# 44. [Develop a Generalized Skew Update and Regional Study of Other Measures of Distribution Shape for Texas Flood Frequency Analyses (Project Sumary Report)](https://library.ctr.utexas.edu/hostedpdfs/texastech/psr/0-6977-s.pdf)
 # 
 # 5. [Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses](https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ)
 # 
@@ -42,6 +44,36 @@
 
 # ## Videos
 # 
+# 1. [Collecting water data for the U.S.](https://www.youtube.com/watch?v=g_s_toqrYVM)
+# 2. [Hydroacoustics for Collecting Streamflow Data](https://www.youtube.com/watch?v=usCTuMnXGQE)
+# 3. [How to look at and download streamflow data from the USGS NWIS website](https://www.youtube.com/watch?v=FeRzzQA0I7k)
+# 4. [Surface Water Data of any location of the World for free ](https://www.youtube.com/watch?v=NKsE06fvF10)
+# 5. [Precipitation Runoff Modeling System (PRMS) Streamflow Modules ](https://www.youtube.com/watch?v=OAozlSQ_fIg)
+# 6. [Improved process based streamflow simulation through ensemble and stochastic data driven approaches](https://www.youtube.com/watch?v=aXq-QnYYc74)
+# 7. [Hydrology - Statistical Hydrology 2 (go to time stamp 47:00 to get to regionalization) ](https://www.youtube.com/watch?v=ERSBlzcbHjs&t=11s)
+# 8. [StreamStats: Determining Magnitude and Frequency of Floods in California (Specific to California, but nice discussion on regionalization)](https://www.youtube.com/watch?v=wG-F5fZFOhw&t=297s)
+# 9. [Watershed Delineation and TR-55 for runoff hydrograph](https://www.youtube.com/watch?v=pzpfCvNBXI0&list=PLQv9IPdrtoKgxLQih9UXNbFqXLeJvKEaz&index=29)
+# 19. [PeakFQ (Version 7.1) Flood-Frequency Analysis Demo](https://www.youtube.com/watch?v=w-j2S3APUgk)
+# 21.  [CE 3354 Demonstrate PeakFQ using Beargrass Creek Data](https://youtu.be/sm2-4AI6WU8 )
+# 10. [Bulletins 17B and 17C 1](https://www.youtube.com/watch?v=yfs3oaF2F-w)
+# 11. [Bulletins 17B and 17C 2](https://www.youtube.com/watch?v=yfs3oaF2F-w)
+# 11. [Bulletins 17B and 17C 3](https://www.youtube.com/watch?v=cfaVjfms9ss)
+# 11. [Regional Skew 1](https://www.youtube.com/watch?v=NI9Ui4x_HJk)
+# 12. [HEC-SSP Bulletin 17C Flood Frequency Analysis Tutorial](https://www.youtube.com/watch?v=Wc0qaDaBjFE)
+# 13. [Index Flood Regionalization Pt I](https://www.youtube.com/watch?v=7psZWEhm4Kw)
+# 13. [Index Flood Regionalization Pt II](https://www.youtube.com/watch?v=De4o8S2ohLA)
+# 14. [Index Flood Regionalization Pt III](https://www.youtube.com/watch?v=hjdnlbxrje8)
+# 15. [Index Flood Regionalization Pt IV](https://www.youtube.com/watch?v=8HkztqnptIA)
+# 16. [Uncertainty in Frequency Estimates 1](https://www.youtube.com/watch?v=3Qtep3SdzDw)
+# 17. [Uncertainty in Frequency Estimates 2](https://www.youtube.com/watch?v=qyJSiWXd5fc)
+# 18. [Uncertainty in Frequency Estimates 3](https://www.youtube.com/watch?v=86QY-5bH6sA)
+# 21. [0-6977 Training Video for Gage 08148500](https://youtu.be/R_nSTyMnlsE )
+# 22. [0-6977-Prototype-Remote-Tools-Intro](https://youtu.be/y_vK3sWqnHw )
+# 23. [0-6977 Training Video for Gage 08167000 using Fig 4.6](https://youtu.be/YQ1YJFUrwYE )
+# 24. [0-6977 Training Video for Gage 08080750](https://youtu.be/ZUztiBLWFVs )
+# 
+# 
+# 
 # 
 
 # ## Outline
@@ -50,9 +82,7 @@
 # - Estimation of Streamflow
 #  - Watershed Characteristics
 #  - Regional Regression Equations
-#  
-#  - TR 55
-# 
+#  - B17C
 # ---
 
 # ## Streamflow Measurement
@@ -88,6 +118,10 @@
 # 
 # - [See pp. 33-39 CMM for explaination of Manning’s equation](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/)
 # - [See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method](http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf)
+# - [MEASUREMENT OF PEAK DISCHARGE by the SLOPE AREA METHOD](https://pubs.usgs.gov/twri/twri3-a2/pdf/twri_3-A2_a.pdf)
+# - [Theory of the Slope-Area Method (Video)](https://www.youtube.com/watch?v=5Rqy8_ZOHZw)
+# - [Slope Area Calculator](http://54.243.252.9/toolbox/swhydraulics/SlopeAreaSI/SlopeAreaSI.html)
+# - [slopearea.sdsu.edu ](https://ponce.sdsu.edu/slope_area_method.php)
 
 # ## Streamflow Data
 # 

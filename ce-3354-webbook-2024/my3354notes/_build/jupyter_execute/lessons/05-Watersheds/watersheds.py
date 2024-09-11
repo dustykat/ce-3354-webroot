@@ -144,16 +144,19 @@
 # 
 # ![](completed-delineation.png)
 
-# # Delineation (by GIS)
+# ### Hardin Branch Watershed by-hand
+# Here we do step-by-step example of the Hardin Branch project watershed(s). [ce3354-es2-2024-3-ByHandRFS.pdf](ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/05-Watersheds/ce3354-es2-2024-3-ByHandRFS.pdf)
+
+# ## Delineation (by GIS)
 # 
 # <hr><hr>
 # 
-# ## Readings 
+# ### Readings 
 # 1. [Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide](http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf)
 # 
 # <hr>
 
-# ## Florida Watershed GIS Workflow
+# ### Florida Watershed GIS Workflow
 # Here we do step-by-step example of the previous watershed(s).  The steps are those outlined in  [Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide](http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf)
 # 
 # [Florida Watershed Workflow Notes (PDF)](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/05-Watersheds/QGISWorkflowFlorida.pdf)
@@ -189,6 +192,11 @@
 # 
 # The dimensionless slope is simply the ratio of the two $\frac{\Delta z}{S}$.  Percent slope is the dimensionless slope multiplied by 100.
 # Sometimes slope is expressed in units of $\frac{ft}{mi}$ or $\frac{m}{km}$, while meaningful these will have to be converted into dimensionless or \%-slope for most hydrologic computations.
+
+# ## Hardin Branch Watershed GIS Workflow
+# Here we do step-by-step example of the project watershed(s).  The steps are those outlined in  [Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide](http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf)
+# 
+# [GIS Hardin Branch Workflow Notes (PDF)](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/05-Watersheds/GISWorkflowHardinBranchNotes.pdf)
 
 # ### Estimating Soil Properties
 # 

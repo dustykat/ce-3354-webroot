@@ -580,9 +580,9 @@ print(newton(f, myguess))
 # 
 # This example we will dispense with tyring to build it in python primative, and just use a package - the density function is not all that hard, but the quantile function is elaborate.  
 # 
-# Learn more at http://54.243.252.9/engr-1330-psuedo-course/CECE-1330-PsuedoCourse/3-Readings/NumericalRecipesinF77.pdf (in particular around Page 276)
+# Learn more at [http://54.243.252.9/engr-1330-webroot/3-Readings/NumericalRecipesinF77.pdf](http://54.243.252.9/engr-1330-webroot/3-Readings/NumericalRecipesinF77.pdf) (in particular around Page 276)
 # 
-# As usual, lets let Google do some work for us, using the search term "gamma quantile function; scipy" we get to this nice blog entry https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html which is a good start. 
+# As usual, lets let Google do some work for us, using the search term "gamma quantile function; scipy" we get to this nice blog entry [https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html) which is a good start. 
 # 
 # A Pearson Type III data model has the following density function:
 # 
@@ -595,7 +595,7 @@ print(newton(f, myguess))
 # 
 # which is now a one parameter Gamma density function just like the example in the link.
 # 
-# Reading a little from http://54.243.252.9/ce-3354-webroot/3-Readings/Bulletin17C/Bulletin17C-tm4b5-draft-ACWI-17Jan2018.pdf we can relate the transformations to descriptive statistics (shown below without explaination) as:
+# Reading a little from [http://54.243.252.9/ce-3354-webroot/3-Readings/Bulletin17C/Bulletin17C-tm4b5-draft-ACWI-17Jan2018.pdf](http://54.243.252.9/ce-3354-webroot/3-Readings/Bulletin17C/Bulletin17C-tm4b5-draft-ACWI-17Jan2018.pdf) we can relate the transformations to descriptive statistics (shown below without explaination) as:
 # 
 # $\mu = \text{sample mean}$,
 # 
@@ -865,8 +865,67 @@ print(newton(f, myguess))
 # 
 # PeakFQ is specifically for flood frequency analysis while SSP is a generalized environment (so probably more general).  The underlying codes are not much different than the examples above, but are ble\$\$ed by the respective agencies.
 
-# In[ ]:
-
-
-
-
+# <!--
+# Question 1:
+# 
+# Which of the following best describes the Annual Maximum Series (AMS) in frequency analysis?
+# 
+# A) All precipitation events above a certain threshold during a given year
+# B) The maximum precipitation or streamflow event occurring each year
+# C) The top 10 highest precipitation events during a year
+# D) All streamflow events recorded during the wet season of the year
+# E) The sum of all streamflow events during the year
+# 
+# Correct Answer:
+# B) The maximum precipitation or streamflow event occurring each year
+# Question 2:
+# 
+# In the Partial Duration Series (PDS) approach, how are the events chosen for analysis?
+# 
+# A) Only the highest annual precipitation events are selected.
+# B) All streamflow events above a predefined threshold are included, regardless of the year they occurred.
+# C) Only the lowest streamflow events are selected over a 10-year period.
+# D) All streamflow events occurring in a dry season are included.
+# E) Only streamflow events recorded during extreme droughts are analyzed.
+# 
+# Correct Answer:
+# B) All streamflow events above a predefined threshold are included, regardless of the year they occurred.
+# Question 3:
+# 
+# Why is frequency analysis of precipitation or streamflow important in hydrology?
+# 
+# A) To predict daily variations in river flow
+# B) To understand the frequency of extreme weather events for flood risk management
+# C) To measure annual rainfall totals across different regions
+# D) To calculate the amount of evaporation from reservoirs
+# E) To analyze seasonal temperature trends in different climates
+# 
+# Correct Answer:
+# B) To understand the frequency of extreme weather events for flood risk management
+# Question 4:
+# 
+# Which statistical distribution is commonly used in frequency analysis of extreme events like floods?
+# 
+# A) Poisson Distribution
+# B) Normal Distribution
+# C) Exponential Distribution
+# D) Gumbel Distribution
+# E) Uniform Distribution
+# 
+# Correct Answer:
+# D) Gumbel Distribution
+# Question 5:
+# 
+# What is one advantage of using the Partial Duration Series (PDS) over the Annual Maximum Series (AMS)?
+# 
+# A) PDS includes more frequent low-flow events that occur each year.
+# B) PDS captures all events during dry seasons, making it useful for drought analysis.
+# C) PDS allows for a greater number of extreme events to be analyzed in any given period, not just the annual maximum.
+# D) PDS focuses only on the seasonal variability of precipitation.
+# E) PDS excludes all events that occur below the median streamflow threshold.
+# 
+# Correct Answer:
+# C) PDS allows for a greater number of extreme events to be analyzed in any given period, not just the annual maximum.
+# 
+# These questions cover key concepts of AMS and PDS and their significance in frequency analysis for precipitation and streamflow.
+# -->
