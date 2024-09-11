@@ -585,11 +585,15 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <p>Bulletin 17B was the standard of practice for decades, recently superceded by Bulletin <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">17C</a>.  These and similar tools relate certain statistical metrics (mean, variance, and skew) to a prescribed probability distribution function (Log-Pearson Type III) to extrapolate (predict) the magnitude of rare (low probability) events to inform engineering design.</p>
 <p>Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.<br />
 Recent updates to B17B in terms of software improvements and different handling of gage statistics (in particular EMA) are incorporated into the current tool <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">B17C</a></p>
-<p><em>Summary</em></p>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
 <ul class="simple">
 <li><p>B17C is a report containing methods for estimating magnitudes of rare events</p></li>
 <li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
 </ul>
+<p>Software is employed because the Pearson Type III distribution is  applied to model streamflow, precipitation extremes, and flood frequency because it can accommodate the <strong>skewness</strong> (3rd moment) observed in these datasets. For example, the Log-Pearson Type III distribution, where data is logarithmically transformed, is used by the U.S. Geological Survey (USGS) for flood frequency analysis, helping hydrologists estimate the probability of extreme flood events (e.g., 100-year floods).</p>
+<p>By adjusting parameters such as mean, variance, and skewness, Pearson distributions can fit a wide range of data types - but the fitting itself is complex and requires a lot of tedious computations - just the thing for a computer program to do the heavy lifting.  The programs above replace older tabular methods that were prone to calculation errors when done by hand, and interpretation errors from by-hand plotting of the results.</p>
+</div>
 <div class="section" id="illustrative-example-using-beargrass-creek">
 <h3>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Permalink to this headline">¶</a></h3>
 <p>Demonstrate using Bearcreek as an example.  Beargrass creek is not a real site, therefore is not in the NWIS database, so we have to modify the file to be readable in PeakFQ.</p>

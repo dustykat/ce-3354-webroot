@@ -273,10 +273,14 @@
 # Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.  
 # Recent updates to B17B in terms of software improvements and different handling of gage statistics (in particular EMA) are incorporated into the current tool [B17C](https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf)
 # 
-# *Summary*
-# 
+# :::{admonition} Summary
 # - B17C is a report containing methods for estimating magnitudes of rare events
 # - The methods are incorporated into software products such as [PeakFQ 7.3](https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf) and [HEC-SSP](https://www.hec.usace.army.mil/software/hec-ssp/)
+# 
+# Software is employed because the Pearson Type III distribution is  applied to model streamflow, precipitation extremes, and flood frequency because it can accommodate the **skewness** (3rd moment) observed in these datasets. For example, the Log-Pearson Type III distribution, where data is logarithmically transformed, is used by the U.S. Geological Survey (USGS) for flood frequency analysis, helping hydrologists estimate the probability of extreme flood events (e.g., 100-year floods).
+# 
+# By adjusting parameters such as mean, variance, and skewness, Pearson distributions can fit a wide range of data types - but the fitting itself is complex and requires a lot of tedious computations - just the thing for a computer program to do the heavy lifting.  The programs above replace older tabular methods that were prone to calculation errors when done by hand, and interpretation errors from by-hand plotting of the results.
+# :::
 # 
 # ### Illustrative Example using Beargrass creek
 # 
