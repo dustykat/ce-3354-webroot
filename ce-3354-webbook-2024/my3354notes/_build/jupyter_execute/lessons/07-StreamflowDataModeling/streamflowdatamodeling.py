@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 7. Streamflow Data Modeling
+# # 7. Streamflow Data Sources and Estimation
 
 # :::{admonition} Course Website
 # [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
