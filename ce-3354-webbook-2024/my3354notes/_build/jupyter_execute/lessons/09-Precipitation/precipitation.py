@@ -4,7 +4,7 @@
 # # 8. Precipitation, Hyetographs, Design Storms
 
 # :::{admonition} Course Website
-# [link to webster](http://54.243.252.9/ce-3354-webroot/)
+# [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
 # :::
 # 
 # 
@@ -352,9 +352,66 @@ plt.title(plottitle)
 plt.show()
 
 
-# Distributions created from historical storms are analyzed to generate statistical models of rainfall – these models are called **design storms**. Design storm distributions are typically represented as dimensionless hyetographs
+# When the time spacing is non-uniform, the numerical integration using rectangular panels looking backward in time is complicated by the various time increments.  The listing below is a FORTRAN script to process such situations it should be relatively easy to port the script to python, fix the file reading structure and then have a pretty general tool.  
 # 
-# Some examples include:
+# ```
+# c program to interpolate rain and runoff data into one minute increments 
+#       program interpolate 
+#       parameter(maxrow=10000)
+#       implicit real*8 (a-h,o-z)
+#       dimension etime(maxrow)
+#       dimension acc_wtd_value(maxrow)
+#       character*255 content
+# c
+# c read data file
+# c
+#         itdata=0
+#         do 2001 irain=1,maxrow,1
+#          read(unit=*,fmt='(a)',end=2002)content
+#          if(content(1:1) .eq. '#' .or.
+#      1      content(2:2) .eq. '#' .or.
+#      3      content(3:3) .eq. '#'      )then
+#           write(*,9001)content(1:80)
+#          else
+# c
+# c should be datastream here use a formatted read
+# c
+#           itdata=itdata+1
+#           read(content,*)etime(itdata),acc_wtd_value(itdata)
+#          end if
+#  2001   continue
+#         write(*,*)'end of file -- reset array sizes'
+#         go to 666
+#  2002   continue
+# c
+# c end of file read
+# c
+# c
+# c now interpolate, use real values loop indices
+# c
+#       do 3001 idx=2,itdata
+#        slope=acc_wtd_value(idx)-acc_wtd_value(idx-1)
+#        slope=slope/(etime(idx)-etime(idx-1))
+#        do 3002 rtime=etime(idx-1),etime(idx)-1.0,1.0
+#         value=acc_wtd_value(idx-1)+slope*(rtime-etime(idx-1))
+#         write(*,9002)rtime,value
+#  3002  continue
+#  3001 continue
+#   666 stop
+#  9001 format(a80)
+#  9002 format(2(g12.6,2x))
+#       end
+# ```
+# 
+# :::{admonition} To do:
+# Port above FORTRAN to python, modify file management for general use.  Recall python cannot use floats as indices, so the loop processing needs rewrite.  Include an example.
+# :::
+# 
+
+# ### Design Distributions
+# Distributions from historical storms are analyzed to generate statistical **models** of rainfall – these models are called **design storms**. Design storm distributions are typically represented as dimensionless hyetographs
+# 
+# Some often used models are:
 # 
 # - NRCS Type Storms (24 hour, 6 hour) 
 # - Empirical Texas Hyetographs (TxHYETO-2015)
@@ -467,6 +524,10 @@ plt.show()
 # 
 # This is the easiest, and may suffice in many situations.  The National Climatic Data Center maintains historical records of climate related data - in some locations over a century of data exist.  Using our study area, and current online tools one can find gages near the study site. 
 # 
+# :::{important}
+# The study area referred to above is Caprock Canyon SP, not the Hardin Branch area, methods are the same; I already had figures available so choose to go with them instead of recreate for Hardin Branch.
+# :::
+# 
 # [https://www.ncei.noaa.gov/maps/daily/](https://www.ncei.noaa.gov/maps/daily/) will navigate to the NCDC server where daily data are available.  The landing page will look something like:
 # 
 # ![](ncdc-landing-page.png)
@@ -508,6 +569,12 @@ plt.show()
 # many gaps exist in a record, it may be worthwhile to neglect that station than to have
 # a station record with too much of interpolated data. A WMO guideline states that not
 # more than 5 to 10% of a record should have interpolated data.
+# 
+# Some representative methods are discribed in:
+# 
+# 1. [PAULHUS, J. L. H. , and M. A. KOHLER. "INTERPOLATION OF MISSING PRECIPITATION RECORDS". Monthly Weather Review 80.8 (1952): 129-133.](http://54.243.252.9/ce-5361-webroot/3-Readings/NormalRatioMethod/mwr-080-08-0129.pdf)
+# 
+# 2. [Missing Rainfall Data Replacement Techniques](http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf)
 # 
 # 
 # **Missing Data Estimation Procedure**<br>
@@ -568,7 +635,7 @@ else:
     print("Missing Depth : ",round(missing_pee,2)," cm")
 
 
-# # Precipitation over an Area
+# ## Precipitation over an Area
 # 
 # The measurement techniques described here have all concentrated on measuring rainfall at a precise location (or at least over an extremely small area).  In reality, the hydrologist needs to know how much 
 # precipitation has fallen over a far larger area, usually 
@@ -593,8 +660,8 @@ else:
 # fully understood. Three techniques are described 
 # here: Thiessen’s polygons, the hypsometric 
 # method and the isohyetal method. These methods are explored further in a Case Study on p. 40.
-# 
-# ## Thiessen’s polygons
+
+# <!-- ## Thiessen’s polygons
 # Thiessen was an American engineer working around 
 # the start of the twentieth century who devised a 
 # simple method of overcoming an uneven distribution of rain gauges within a catchment (very much 
@@ -626,9 +693,61 @@ else:
 # (polygon). This technique is only truly valid where 
 # the topography is uniform within each polygon so 
 # that it can be safely assumed that the rainfall distribution is uniform within the polygon. This would 
-# suggest that it can only work where the rain gauges are located initially with this technique in mind 
+# suggest that it can only work where the rain gauges are located initially with this technique in mind -->
 # 
-# ## Hypsometric method
+# ### Approximation of Distributed Precipitation Data from Point Gage Data
+# A watershed is the area of land where all of the water that is under it or drains off of it goes into the same place. First consider a location where streamflow can be observed, call this location the outlet. Precipitation falls upstream of this location and is the source of runoff past the outlet. If a unit of precipitation falls upstream of the outlet and eventually drains past the outlet, the area defined by all such locations is called the drainage area to the outlet, and this area is the watershed. The concept also applies in groundwater with the area called a basin, or capture zone, depending on context.  In water budget studies and in unit hydrograph analysis the volume of precipitation is as important as the rate and spatial distribution. Missing data are often a problem and either kriging or simple arithmetic interpolation is used to supply estimates of rainfall at a gage location that has missing data. Kriging is probably a more defendable approach but is probably too complicated for manual or small project application.
+# The entire volume of rainfall applied to an entire basin is called the precipitation volume. If the basin area normalizes this volume the resulting value is called the effective uniform depth (EUD). There are several methods to compute EUD: arithmetic mean, theissen polygon network, iso-heyetal method. Mean area precipitation and effective uniform depth are for all practical purposes the same concept.
+# 
+# ![](arealfrompoint.png)
+# 
+# :::{note}
+# The figures above are from author's notes circa 2002; the original source files (MS Word) are unreadable with modern software, fortunately a PDF copy remains!  It's the source of the figures.
+# :::
+
+# ### Arithmetic Mean
+# The arithmetic mean method simply computes the mean value of all the rain gage catches (depths) and assigns this value as the average uniform depth over the watershed. To determine rainfall volume, multiply this depth by the area.
+# The formula for average depth (precipitation) is simply,
+# 
+# $$\bar P = \frac{1}{n} \sum_{i=1}^{n} {P_i}$$
+# 
+# In this example the result is 88.4 mm over the entire watershed.
+# 
+# The total volume in cubic meters is the product of the average depth and the watershed area converted into cubic meters. The watershed area is 16 $km^2$. Thus the total volume of precipitation over the watershed is $1.41 \times 10^6~m^3$. We will compare this volume to the other ways of estimated distributed rainfall depths.
+
+# ### Polygon weighted methods.
+# The polygon methods divide the watershed into subareas and assign depths at gages to each sub area, compute the total volume (sum of all sub-area volumes), then divide by the watershed area to determine an area-weighted average. Thiessen polygons (nearest neighbor approach) are the most common division scheme. Thiessen weights are reported in most USGS data.
+# 
+# :::{admonition} Thiessen’s polygons
+# Thiessen was an American engineer working around the start of the twentieth century who devised a 
+# simple method of overcoming an uneven distribution of rain gauges within a catchment (very much 
+# the norm). Essentially Thiessen’s polygons (Thiessen 1911) attach a representative area to each rain gauge. 
+# The size of the representative area (a polygon) is based on  how close each gauge is to the others surrounding it, but all points within a polygon are closer to its rain gauge than any of the other rain gauges.
+# Polygons are drawn by connecting the nearest rain gauges to each other by lightly drawn lines. The perpendicular bisector of each connecting line is then found, and these are extended to where they intersect 
+# with other perpendicular bisectors. The boundaries of the polygons are therefore equidistant from each gauge. Once the polygons have been drawn, the area of each polygon surrounding a 
+# rain gauge is found. The areal rainfall value using Thiessen’s polygons is a weighted mean, with the weighting being 
+# based upon the size of each representative area (polygon). This technique is reliable where the topography is uniform within each polygon so that it can be safely assumed that the rainfall distribution is uniform within the polygon. 
+# :::
+# 
+# To determine Thiessen polygons we first draw segments joining each gage.
+# 
+# ![](theissenpoly1.png)
+# 
+# Now locate bisectors along each segment.
+# 
+# ![](theissenpoly2.png)
+# 
+# Draw perpendicular bisectors at each location, mark each side with nearest gage name.
+# 
+# ![](theissenpoly3.png)
+# 
+# Locate intersections of nearest neighbor boundaries, and mark interfaces.  Measure areas within watershed assigned to each gage. The Theissen weight is the ratio of the gage assigned area and the watershed area. Once either the watershed areas are known, or the Theissen weights are known the uniform precipitation depth can be computed as
+# 
+# :::{note}
+# Section incomplete - example at [Link to Example](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/09-Precipitation/cive6361_week_002 _A.pdf)
+# :::
+
+# <!--## Hypsometric method
 # Since it is well known that rainfall is positively 
 # influenced by altitude (i.e. the higher the altitude 
 # the greater the rainfall) it is reasonable to assume 
@@ -669,9 +788,9 @@ else:
 # elevation is the only topographic parameter affecting rainfall distribution (i.e. slope and aspect are ignored). It also assumes that the relationship 
 # between altitude and rainfall is linear, which is not 
 # always the case and warrants exploration before 
-# using this technique
+# using this technique -->
 # 
-# ## Isohyetal method
+# <!--## Isohyetal method
 # 
 # Where there are a large number of gauges within 
 # a catchment the most obvious weighting to apply 
@@ -703,7 +822,7 @@ else:
 #  is the 
 # average rainfall between the isohyets. This technique 
 # is analogous to Figure 2.14, except in this case the 
-# contours will be of rainfall rather than elevation.
+# contours will be of rainfall rather than elevation.-->
 
 # ## Areal Reduction Factors
 # 
