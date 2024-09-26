@@ -10,7 +10,7 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \pagestyle{fancy}
 \lhead{Student Name: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ }
-\rhead{FALL 2015}
+\rhead{FALL 2024}
 \lfoot{CE 3354 Engineering Hydrology }
 \cfoot{EXAM 1}
 \rfoot{Page \thepage\ of \pageref{LastPage}}
@@ -33,11 +33,13 @@
 \begingroup
 \begin{centering}
 \textbf{CE 3354 Engineering Hydrology} \\
-\textbf{Exam 1, Fall 2015}\\
+\textbf{Exam 1, Fall 2024}\\
 \end{centering}
 ~\\
-Students should write their name on all sheets of paper.  
-Students are permitted to use Laptops, Tablets, and smart phones for \textbf{browsing} the internet to help answer questions.  Students are permitted to use their own notes and the textbook to help answer questions.
+Students should write their name on \textbf{all sheets of paper}.  \newline 
+Students are permitted to use the internet to help answer questions.  \newline 
+Students are permitted to use their own notes and the textbook.\newline 
+Students are \textbf{forbidden} to \textbf{communicate with other people} during the examination.
 \endgroup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{enumerate}
@@ -63,13 +65,7 @@ Students are permitted to use Laptops, Tablets, and smart phones for \textbf{bro
 \item	The AEP is a plot of probability and magnitude
 \item	The ARI is a plot of probability and magnitude
 \end{enumerate}
-\item How can one calculate the Annual Exceedance Probability (AEP) from the Annual Return Interval (ARI)?
-\begin{enumerate}[a)]
-\item	Cannot
-\item	$AEP = \frac{1~yr}{ARI}$
-\item	$ARI = \frac{1~yr}{AEP}$
-\item	$ARI = \frac{Rank_i}{N+1}$
-\end{enumerate}
+
 \item An annual recurrence interval of 100-years is equivalent to an AEP of what percent?
 \begin{enumerate}[a)]
 \item 1-percent.
@@ -112,20 +108,7 @@ Students are permitted to use Laptops, Tablets, and smart phones for \textbf{bro
 \item slope of the depth duration curve at a duration of one hour
 \item integral of the depth duration curve from 0 to 24 hours
 \end{enumerate}
-%\item In the rational equation, $Q = CIA$, 
-%\begin{enumerate}[a)]
-%\item the intensity, $I$, is the ratio of depth to the time of concentration
-%\item the intensity, $I$, is the ratio of depth to watershed area
-%\item the intensity, $I$, is the ratio of depth to watershed discharge
-%\item the intensity, $I$, is the ratio of depth to watershed impervious cover
-%\end{enumerate}
-%\item Regional analysis is used to
-%\begin{enumerate}[a)]
-%\item delineate watersheds
-%\item relate discharge to drainage area
-%\item construct regression equations from historical data on many streams within a region
-%\item establish a typical functional drainage area
-%\end{enumerate}
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Figure \ref{fig:ddf-curve.jpg} is a depth-duration-frequency plot for precipitation.
@@ -175,44 +158,47 @@ The approximate depth, in millimeters, for a 4 hour, 100-yr (1\% chance) storm i
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% From ES1-P4 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \item The equation $k\frac{dQ}{dt} + Q(t) = I(t)$ is used to describe the response of streamflow to a constant rate of precipitation applied indefinitely on some watershed.  
-
 Suppose that $Q(t)=0$ for $t=0$, the watershed characteristic time constant is $k=2~hrs$, and $I(t) =2$ for $t=[0,12)~hrs$ and then $I(t) =0$ for $t=[12,24]~hrs$. 
 
 Determine:
 \begin{enumerate}
 \item The necessary equation(s) to predict the response $Q(t)$ over the 24-hour period.
-\item Plot the values of $Q(t)$ over the 24-hour period (see next page for empty plot).
+\item Plot the values of $Q(t)$ over the 24-hour period (i.e. complete Figure \ref{fig:hydrograph} below, showing the discharge $Q(t)$).
 \end{enumerate}
-\clearpage
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
-~\newline
+
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=6.0in]{HydrographPlot001.png} 
    \caption{Plot of Runoff for Watershed described by $k\frac{dQ}{dt} + Q(t) = I(t)$, where $I(t)$ is as shown (in blue)}
-   \label{fig:topoMap.jpg}
+   \label{fig:hydrograph}
 \end{figure}
+Show your work below (and on next page)
+\clearpage
+Continued
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\item  Figure \ref{fig:topoMap.jpg} is a  topographic map of a small drainage basin.  The drawn contour interval is 20 feet.  Many of the contours are labeled.   A culvert structure is located on the Eastern portion of the basin, near the outlet shown on Figure \ref{fig:topoMap.jpg}.   The red line is a highway alignment, beneath which the culvert structure is placed.  Figure \ref{fig:Pan1.JPG} is a photograph of the culvert system that is comprised of 4-parallel , 4-foot diameter, 100-foot long culverts.  The lowest portion of the road near the culverts is at elevation 595 feet.  The culverts are laid on a dimensionless slope of $0.02$.
+%%%%%%%%%%%%%%%%%%%%% From ES-2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item  Figure \ref{fig:topoMap.jpg} is a  topographic map of a small drainage basin.  The contours show elevation in meters.  Many of the contours are labeled.   A culvert structure is located on the Eastern portion of the basin, near the outlet shown on Figure \ref{fig:topoMap.jpg}.   The red line is a proposed impoundment alignment, beneath which the culvert structure is placed.  
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=6.5in]{topoMap.jpg} 
-   \caption{Topographic Map of a portion of the Earth.  Elevations and linear distances are in $feet$. North (by convention) is up.}
+   \includegraphics[width=6.5in]{image_with_grid.png} 
+   \caption{Topographic Map of a portion of the Earth.  Elevations are in $meters$.  Each square is $150~meters$ on a side. North (by convention) is up.}
    \label{fig:topoMap.jpg}
 \end{figure}
 
@@ -222,15 +208,22 @@ Determine:
    \caption{Multiple-barrel outlet structure}
    \label{fig:Pan1.JPG}
 \end{figure}
-\clearpage
+
+Figure \ref{fig:Pan1.JPG} is a photograph of a representative culvert system comprised of 4-parallel , 4-foot diameter, 100-foot long culverts.  The lowest portion of the proposed impoundment structure directly above the culverts is at elevation 810 meters.  The culverts are to be laid on a dimensionless slope of $0.02$.
 
 \begin{enumerate}[a)]
-\item Estimate the drainage area in square feet of the drainage basin.   The boundary is already drawn on the map.
+\item Delineate the drainage area to the culverts using the 810 meter elevation as the pour point elevation (located at the blue marker in the drawing).
+\item Determine the area of each small square.
 ~\newline
 ~\newline
 ~\newline
 ~\newline
-\item Convert the drainage area from square feet into acres.   
+\item Estimate the drainage area in square meters of the drainage basin.  
+~\newline
+~\newline
+~\newline
+~\newline
+\item Convert the drainage area from square meters into acres.   
 ~\newline
 ~\newline
 ~\newline
@@ -240,7 +233,7 @@ Determine:
 ~\newline
 ~\newline
 ~\newline
-\item The water surface area when the culvert system (like a dam, with 4 holes in the wall) impounds water to a water surface elevation of $565~feet$ is essentially zero.  Complete the elevation (side) view sketch of the road embankment and culvert system in Figure \ref{fig:CulvertSystemElevation} by indicating the elevations on the sketch of the roadway crest, the culvert inlet elevation (also the upstream base of the embankment), and culvert outlet elevation.
+\item The water surface area when the culvert system (like a dam, with 4 holes in the wall) impounds water to a water surface elevation of $760~meters$ is essentially zero.  Complete the elevation (side) view sketch of the embankment and culvert system in Figure \ref{fig:CulvertSystemElevation} by indicating the elevations on the sketch of the roadway crest, the culvert inlet elevation (also the upstream base of the embankment), and culvert outlet elevation.
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[height=2.6in]{CulvertSystemElevation.jpg} 
@@ -249,7 +242,7 @@ Determine:
 \end{figure}
 \clearpage
 
-\item Estimate the water surface area (area of the pool on the upstream side of the road embankment) when the embankment impounds water to a water surface elevation of $570~feet$.  Describe how you made the estimate.
+\item Estimate the water surface area (area of the pool on the upstream side of the embankment) when the embankment impounds water to a water surface elevation of $780~meters$.  Describe how you made the estimate.
 ~\newline
 ~\newline
 ~\newline
@@ -260,7 +253,7 @@ Determine:
 ~\newline
 ~\newline
 ~\newline
-\item Estimate the water surface area when the embankment  impounds water to a water surface elevation of $580~feet$.  Describe how you made the estimate.
+\item Estimate the water surface area when the embankment impounds water to a water surface elevation of $790~meters$.  Describe how you made the estimate.
 ~\newline
 ~\newline
 ~\newline
@@ -271,7 +264,7 @@ Determine:
 ~\newline
 ~\newline
 ~\newline
-\item Estimate the water surface area when the embankment  impounds water to a water surface elevation of $590~feet$.  Describe how you made the estimate.
+\item Estimate the water surface area when the embankment impounds water to a water surface elevation of $810~meters$.  Describe how you made the estimate.
 ~\newline
 ~\newline
 ~\newline
@@ -322,6 +315,34 @@ Determine:
 \item What is the fraction of rainfall that becomes runoff?
 \end{enumerate}
 \clearpage
+
+\end{enumerate}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item How can one calculate the Annual Exceedance Probability (AEP) from the Annual Return Interval (ARI)?
+\begin{enumerate}[a)]
+\item	Cannot
+\item	$AEP = \frac{1~yr}{ARI}$
+\item	$ARI = \frac{1~yr}{AEP}$
+\item	$ARI = \frac{Rank_i}{N+1}$
+\end{enumerate}
+
+%\item In the rational equation, $Q = CIA$, 
+%\begin{enumerate}[a)]
+%\item the intensity, $I$, is the ratio of depth to the time of concentration
+%\item the intensity, $I$, is the ratio of depth to watershed area
+%\item the intensity, $I$, is the ratio of depth to watershed discharge
+%\item the intensity, $I$, is the ratio of depth to watershed impervious cover
+%\end{enumerate}
+%\item Regional analysis is used to
+%\begin{enumerate}[a)]
+%\item delineate watersheds
+%\item relate discharge to drainage area
+%\item construct regression equations from historical data on many streams within a region
+%\item establish a typical functional drainage area
+%\end{enumerate}
+
 \item  The watershed in Figure \ref{fig:topoMap.jpg} is located in Briscoe County, Texas. Figure \ref{fig:countymap.pdf} is a map of
 counties in Texas. Figures  \ref{fig:DDF-Atlas-5yr} and \ref{fig:DDF-Atlas-10yr} are excerpts from the Texas DDF Atlas.
 \begin{enumerate}[a)]
@@ -384,7 +405,3 @@ counties in Texas. Figures  \ref{fig:DDF-Atlas-5yr} and \ref{fig:DDF-Atlas-10yr}
 %
 %
 %~\\
-\end{enumerate}
-\end{document}
-
-
