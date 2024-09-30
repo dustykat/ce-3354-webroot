@@ -13,9 +13,9 @@ chapters:
 - file: lessons/05-Watersheds/watersheds # Watershed Delineation
 - file: lessons/06-ProbabilityEstimation/ProbabilityEstimationModels # Probability Estimation Modeling
 - file: lessons/07-StreamflowDataModeling/streamflowdatamodeling # introduction
+#- file: lessons/08-StreamflowDataModeling/streamflowdatamodeling # introduction
 - file: lessons/09-Precipitation/precipitation # introduction
-
-
+- file: lessons/10-EvaporationInfiltration/EvaporationInfiltration
 - file: lessons/12-RainfallRunoff/RainfallRunoff # introduction
 - file: lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod # rational and modified rational method
 - file: lessons/14-UnitHydrographs/UnitHydrographs # unit hydrographs
