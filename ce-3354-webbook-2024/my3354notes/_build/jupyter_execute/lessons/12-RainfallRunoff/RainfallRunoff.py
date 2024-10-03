@@ -24,7 +24,7 @@
 # 
 # 2. [Rate-Based Estimation of the Runoff Coefficients for Selected Watersheds in Texas](http://54.243.252.9/ce-3354-webroot/3-Readings/RateBasedC/Rate-Based-C-Texas.pdf)
 # 
-# 3. Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56.
+# 3. [Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56. ](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/kuichling89-c.pdf)
 # 
 # 4. [Small Watershed Hydrology (WinTR-55) (Software)](https://www.ars.usda.gov/research/software/download/?softwareid=8&modecode=80-42-05-10)
 # 
@@ -330,7 +330,7 @@ matplotlib.pyplot.show()
 # - [Texas HDM](http://onlinemanuals.txdot.gov/txdotmanuals/hyd/hydrograph_method.htm#JSGEGKGG) Similar to above, with some probability and geographic corrections.
 # 
 # :::{note}
-# The $CN$ method using composite curve numbers is one of the recomended methods to consider in the Hardin Creek design/analysis project.  While by no means the bestest, its not bad for this application and relatively easy to parameterize and is built-in to HEC-HMS the design/analysis tool you will use.
+# The $CN$ method using composite curve numbers is one of the suggested methods to consider in the Hardin Creek design/analysis project.  While by no means the bestest, its not bad for the application and relatively easy to parameterize and is built-in to HEC-HMS the design/analysis tool you will use.
 # :::
 
 # In[ ]:
