@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="13. Rational and Modified Rational (Rainfall-Runoff) Method" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html" />
-    <link rel="prev" title="13. Hydrologic Abstractions" href="../11-EvaporationInfiltration/EvaporationInfiltration.html" />
+    <link rel="prev" title="9. Hydrologic Abstractions" href="../10-EvaporationInfiltration/EvaporationInfiltration.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -130,8 +132,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../11-EvaporationInfiltration/EvaporationInfiltration.html">
-   13. Hydrologic Abstractions
+  <a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">
+   9. Hydrologic Abstractions
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -297,10 +299,22 @@
   <a class="reference internal nav-link" href="#rainfall-runoff-modeling">
    Rainfall-Runoff Modeling
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-reservoir-model">
+     Linear Reservoir Model
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nrcs-runoff-generation-models">
    NRCS Runoff Generation Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model">
+   Interpretation of NRCS CN as a linear reservoir model
   </a>
  </li>
 </ul>
@@ -324,8 +338,16 @@
 <div class="section" id="readings">
 <h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. <strong>pp. 1-12</strong> </a></p></li>
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 711-734</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. <strong>pp. xx-xxx</strong> </a></p></li>
 <li><p>Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork.</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Rational Equation, HEC-HMS)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/project_reports/0-5822-1/">Subdivision of Texas Watersheds for Hydrologic Modeling</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/RateBasedC/Rate-Based-C-Texas.pdf">Rate-Based Estimation of the Runoff Coefficients for Selected Watersheds in Texas</a></p></li>
+<li><p>Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56.</p></li>
+<li><p><a class="reference external" href="https://www.ars.usda.gov/research/software/download/?softwareid=8&amp;modecode=80-42-05-10">Small Watershed Hydrology (WinTR-55) (Software)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TR55Manual/TR55Manual.pdf">Small Watershed Hydrology (WinTR-55) (User Manual)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TR55Manual/Hydraulics-07-G-Urban-Hydrology-Small-Watersheds.pdf">Small Watershed Hydrology (Original Technical Report)</a></p></li>
 </ol>
 </div>
 <div class="section" id="videos">
@@ -335,9 +357,9 @@
 <h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Rainfall-Runoff Modeling</p></li>
+<li><p>Linear Reservoir Conceptualization</p></li>
 <li><p>NRCS Runoff Generation Models</p></li>
-<li><p>Curve Numbers</p></li>
-<li><p>TR 55</p></li>
+<li><p>TR-55 Model</p></li>
 </ul>
 </div>
 <div class="section" id="course-resources">
@@ -349,9 +371,262 @@
 <hr class="docutils" />
 <div class="section" id="rainfall-runoff-modeling">
 <h2>Rainfall-Runoff Modeling<a class="headerlink" href="#rainfall-runoff-modeling" title="Permalink to this headline">¶</a></h2>
+<p>A rainfall-runoff model is a mathematical model describing the rainfall–runoff relations of a rainfall catchment area, drainage basin or watershed. It produces a runoff hydrograph in response to rainfall inputs, represented by a hyetograph. In other words, the model calculates the conversion of rainfall into runoff.</p>
+<p>In comparatively sophisticated modeling one considers the rainfall signal coming into the watershed, filtered by losses from evapotranspiration, infiltration, any water that is added to storage - what remains is the runoff.</p>
+<div class="section" id="linear-reservoir-model">
+<h3>Linear Reservoir Model<a class="headerlink" href="#linear-reservoir-model" title="Permalink to this headline">¶</a></h3>
+<p>As a starting point, consider a linear-reservoir model of the watershed.  Conceptually the linear reservoir model employs the water budget for a watershed, and that discharge from the watershed is proportional to the current accumulated storage.</p>
+<p>Starting with something like the sketch below.</p>
+<p><img alt="" src="../../_images/linearReservoir.png" /></p>
+<p>One relates the discharge formula and the storage formula.  The discharge formula, is where the “linear” part arises (linear in accumulated watershed depth) the constant <span class="math notranslate nohighlight">\(\frac{1}{\alpha}\)</span> is just some property of the watershed; <span class="math notranslate nohighlight">\(\alpha\)</span> is non zero.</p>
+<div class="math notranslate nohighlight">
+\[Q(t) = \frac{1}{\alpha}~A~\bar h(t)\]</div>
+<p>And the storage formula is</p>
+<div class="math notranslate nohighlight">
+\[P(t)~A - Q(t) = \frac{dS}{dt}\]</div>
+<p>with a substitution</p>
+<div class="math notranslate nohighlight">
+\[P(t)~A - C~A~\bar h(t) = \frac{dS}{dt}\]</div>
+<p>Storage itself is simply the product of the accumulated watershed depth and area</p>
+<div class="math notranslate nohighlight">
+\[S = A~\bar h(t)\]</div>
+<p>Another substitution</p>
+<div class="math notranslate nohighlight">
+\[P(t)~A - \frac{1}{\alpha}~A~\bar h(t) = \frac{dA~\bar h(t)}{dt}\]</div>
+<p>Now we can factor out the obvious constants to obtain</p>
+<div class="math notranslate nohighlight">
+\[A[P(t) - \frac{1}{\alpha}~\bar h(t)] = A~\frac{d~\bar h(t)}{dt}\]</div>
+<p>Seperate, integrate, and simplify; we assume that <span class="math notranslate nohighlight">\(P\)</span> is some constant (otherwise the analysis is a bit more complex)</p>
+<div class="math notranslate nohighlight">
+\[Q = A~\frac{1}{\alpha}~\bar h(t) = A~P(1-e^{-\frac{t}{\alpha}})\]</div>
+<p>Now naturally we dont know <span class="math notranslate nohighlight">\(\alpha\)</span> for a watershed, hence the need for data analysis.  Suppose for the sake of demonstration it is 1.0, we can simulate the anticipated discharge for a watershed (in the absence of losses)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># structural simulation need units for practical applications</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#watershed discharge conversion constant</span>
+<span class="n">area</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1">#some area</span>
+<span class="n">pee</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#constant rain</span>
+<span class="n">qzero</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#zero initial discharge</span>
+<span class="n">hzero</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#zero initial storage</span>
+<span class="n">howmany</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">qnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">pnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">dsnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step value</span>
+<span class="n">dsnow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span> <span class="c1"># set first condition at infinty</span>
+<span class="k">for</span> <span class="n">itime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">howmany</span><span class="p">):</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span> <span class="o">=</span> <span class="n">deltat</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">area</span><span class="o">*</span><span class="n">pee</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">/</span><span class="n">alpha</span><span class="p">)))</span>
+    <span class="n">pnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">area</span><span class="o">*</span><span class="n">pee</span><span class="p">)</span>
+    <span class="n">average_in</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">pnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">pnow</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">average_out</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">dsnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="p">((</span><span class="n">average_in</span><span class="o">-</span><span class="n">average_out</span><span class="p">))</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">qnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">pnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">dsnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Elapsed Time&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Runoff or Rainfall in L^3/T&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Linear Reservoir Runoff Model </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;Area =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">area</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; alpha =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Discharge&quot;</span><span class="p">,</span><span class="s2">&quot;Precipitation&quot;</span><span class="p">,</span><span class="s2">&quot;Delta Storage&quot;</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RainfallRunoff_8_0.png" src="../../_images/RainfallRunoff_8_0.png" />
+</div>
+</div>
+<p>A interpretation of this kind of model can serve as an explaination of the NRCS CN method (but in cumulative space)</p>
+</div>
 </div>
 <div class="section" id="nrcs-runoff-generation-models">
 <h2>NRCS Runoff Generation Models<a class="headerlink" href="#nrcs-runoff-generation-models" title="Permalink to this headline">¶</a></h2>
+<p>The CN method is in common use and is examined here.
+The curve number approach is based on a volume balance.
+The derivation is in the National Engineering Handbook Chapter 10.</p>
+<p>The curve number is a solution to:</p>
+<div class="math notranslate nohighlight">
+\[ 
+Q = \frac{(P-0.2S)^2}{P+0.8S}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> is the cumulative runoff (integral of the hydrograph) in watershed depth (i.e. Discharge/Area), P is the cumulative rainfall (integral of the hyetograph). Drainage area is used to make units consistent; either divide Q by area to get a depth, or multiply P by area to get volume). S is the retention (like a storage term).</p>
+<p>The curve number, <span class="math notranslate nohighlight">\(CN\)</span>, is simply a transformation of <span class="math notranslate nohighlight">\(S\)</span></p>
+<div class="math notranslate nohighlight">
+\[CN = \frac{1000}{S+10}\]</div>
+<p>The <span class="math notranslate nohighlight">\(CN\)</span> values for a large number of land coverages (hydrologic soil complex coverage number; or runoff curve number) were tabulated by the NRCS many years ago.
+It is of note that the method was intended for agricultural use.</p>
+<p>Equations similar in structure to the NRCS equations above can be constructed by assuming the watershed operates as a linear reservoir and such an analysis provides some understanding of <span class="math notranslate nohighlight">\(CN\)</span> (as other than just a tabulation). When viewed in such a fashion the <span class="math notranslate nohighlight">\(CN\)</span> is like a response or residence time parameter (<span class="math notranslate nohighlight">\(\alpha\)</span> in our linear reservoir model above) and represents how long in dimensionless time it takes the watershed to reach an equilibrium storage condition where the precipitation that enters leaves.
+Large values (90+) are “fast” responding watersheds, small values (50-ish) are “slow” responding watersheds.</p>
+<p>The figure below is the typical graphical representation from NRCS sources.</p>
+<p><img alt="" src="../../_images/CNchart.png" /></p>
+<p>Now lets demonstrate that structurally the <span class="math notranslate nohighlight">\(CN\)</span> model is explainable as a particular interpretation of a linear reservoir model.</p>
+<p>Start with linear reservoir model, but include some abstractions.  Show in cumulative space to get CN-type model.</p>
+</div>
+<div class="section" id="interpretation-of-nrcs-cn-as-a-linear-reservoir-model">
+<h2>Interpretation of NRCS CN as a linear reservoir model<a class="headerlink" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model" title="Permalink to this headline">¶</a></h2>
+<p>Assume a watershed can be represented as a linear reservoir, where the discharge is proportional to accumulated storage.
+Using the <span class="math notranslate nohighlight">\(CN\)</span> variable names and definitions it is possible to construct a discharge function that is a decaying exponential.
+The decay rate conveys similar information as the curve number, that is it relates how much cumulative precipitation must occur before the retention is satisfied and the ratio of actual to potential retention becomes one.</p>
+<p>First the variable names associated with the Figure below and their definitions from chapter 10, NEH.</p>
+<p><img alt="" src="../../_images/CNReservoir.png" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I_a\)</span> is the initial abstraction - it represents input rainfall that never appears as runoff and is removed at the beginning of an event.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_a\)</span> is the watershed retention - it represents the depth of water retained on the watershed after runoff begins.  In our previous model it plays the same role as <span class="math notranslate nohighlight">\(\bar h\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span> is the potential watershed retention after runoff begins - it represents the maximum possible depth of of water retained on the watershed if the rain goes on forever.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q\)</span> is the actual runoff depth.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span> is the actual rainfall depth.</p></li>
+</ul>
+<p>The figure above is a sketch of a watershed as a reservoir.
+The area is <span class="math notranslate nohighlight">\(A\)</span>, precipitation rate is <span class="math notranslate nohighlight">\(i\)</span>, the initial abstraction is <span class="math notranslate nohighlight">\(I_a\)</span> and the actual retention (accumulated depth on the watershed in excess of <span class="math notranslate nohighlight">\(I_a\)</span>) is <span class="math notranslate nohighlight">\(F_a\)</span>.
+The discharge in volume units is <span class="math notranslate nohighlight">\(qA\)</span>.
+If one writes a mass balance on the watershed in terms of <span class="math notranslate nohighlight">\(F_a\)</span>, <strong>ASSUMING</strong> the initial abstraction is already satisfied (as in the NRCS definition of <span class="math notranslate nohighlight">\(F_a\)</span> above), then the resulting equation is</p>
+<div class="math notranslate nohighlight">
+\[A~\frac{d F_a}{dt} = A(i -q) \]</div>
+<p>Normalizing by the constant watershed area</p>
+<div class="math notranslate nohighlight">
+\[~\frac{d F_a}{dt} = (i -q) \]</div>
+<p>The units of precipitation and discharge are now <span class="math notranslate nohighlight">\(\frac{L}{T}\)</span> (depth per unit time).
+The units of <strong>accumulated</strong> depth are length (thus the time derivative is L/T). If we <strong>ASSUME</strong> a linear response, that is the specific discharge is proportional to accumulated depth (<span class="math notranslate nohighlight">\(F_a\)</span>) we can postulate a model for the discharge as</p>
+<div class="math notranslate nohighlight">
+\[q = \frac{1}{\alpha}F_a \]</div>
+<p>The term <span class="math notranslate nohighlight">\(\alpha\)</span> is some non-zero constant that reflects the discharge from the watershed as some proportion of accumulated depth.</p>
+<p>Now substitute into the mass balance and solve for <span class="math notranslate nohighlight">\(F_a\)</span> and <strong>ASSUME</strong> that precipitation rate is a constant value one can arrive at:</p>
+<div class="math notranslate nohighlight">
+\[q = \frac{1}{\alpha}F_a = i(1-e^{-\frac{t}{\alpha}})\]</div>
+<p>In this formula time begins when <span class="math notranslate nohighlight">\(I_a\)</span> is satisfied.</p>
+<p>Now examine the definitions of <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> (or <span class="math notranslate nohighlight">\(P_e\)</span>) in the NRCS documents. By defintion:</p>
+<div class="math notranslate nohighlight">
+\[Q = \int_{lb}^{ub}q(\tau)d\tau = it+i \alpha  e^{-\frac{t}{\alpha}} -i \alpha\]</div>
+<div class="math notranslate nohighlight">
+\[P = it + I_a + F_a\]</div>
+<p>Now construct a plot (simulation) that plots <span class="math notranslate nohighlight">\(Q\)</span> versus <span class="math notranslate nohighlight">\(P\)</span> for different values of alpha (plus an equal value line) we have</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># structural simulation need units for practical applications</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">howmany</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#watershed discharge conversion constant</span>
+<span class="n">peein</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">abstraction</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">retention</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">maxretention</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="k">def</span> <span class="nf">qfunc</span><span class="p">(</span><span class="n">inflow</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">qfunc</span> <span class="o">=</span> <span class="n">inflow</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="o">/</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">qfunc</span><span class="p">)</span>
+
+<span class="n">qnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">pnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">rnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step value</span>
+<span class="c1"># time zero values</span>
+<span class="n">qnow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span>
+<span class="k">for</span> <span class="n">itime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">howmany</span><span class="p">):</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span> <span class="o">=</span> <span class="n">deltat</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span>
+    <span class="n">rnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">alpha</span><span class="o">*</span><span class="n">qfunc</span><span class="p">(</span><span class="n">peein</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">pnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">abstraction</span><span class="o">+</span><span class="n">rnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pnow</span><span class="p">,</span> <span class="n">pnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pnow</span><span class="p">,</span> <span class="n">qnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="c1">#matplotlib.pyplot.plot(time, dsnow, color =&#39;green&#39;) </span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cumulative Precipitation L&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulative Runoff L&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Linear Reservoir Runoff Model </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;Max Retention =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">maxretention</span><span class="p">)</span><span class="o">+</span>
+                        <span class="s2">&quot; Initial Abstraction =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">abstraction</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;Precipitation Rate =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">peein</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; alpha =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;alpha &lt; 0.001&quot;</span><span class="p">,</span><span class="s2">&quot;alpha = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="s2">&quot;Delta Storage&quot;</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RainfallRunoff_12_0.png" src="../../_images/RainfallRunoff_12_0.png" />
+</div>
+</div>
+<p>Now if we compare the appearance of the simulation figure to the NRCS chart we can observe that the charts convey the same kinds of curves, specifically the amount of precipitation accumulation required to produce constant runoff, as well as the conversion ratio between observed cumulative precipitation and observed cumulative runoff. In the case of the linear-reservoir model, the information is conveyed by the parameter <span class="math notranslate nohighlight">\(\alpha\)</span> which dimensionally is a residence time, while the curve number <span class="math notranslate nohighlight">\(CN\)</span> plays a similar role in the NRCS methodology.</p>
+<p>A bit more examination and we can conjecture:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha = \frac{100-CN}{10}\)</span> will generate identical looking curves to the NRCS charts</p></li>
+<li><p><span class="math notranslate nohighlight">\(i\alpha = S\)</span> thus the product of the residence time and intensity is the maximum potential retention.</p></li>
+<li><p>Runoff starts (in the time domain) at <span class="math notranslate nohighlight">\(t_r = I_a = \frac{\alpha}{5}\)</span></p></li>
+</ol>
+<p>So lets modify the script to reflect this conjecture</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># structural simulation need units for practical applications</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">howmany</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">CN</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="o">-</span><span class="n">CN</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span> <span class="c1">#watershed discharge conversion constant</span>
+<span class="n">peein</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">abstraction</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">retention</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">maxretention</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="k">def</span> <span class="nf">qfunc</span><span class="p">(</span><span class="n">inflow</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">qfunc</span> <span class="o">=</span> <span class="n">inflow</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="o">/</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">qfunc</span><span class="p">)</span>
+
+<span class="n">qnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">pnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">rnow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">howmany</span><span class="p">)]</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># time step value</span>
+<span class="c1"># time zero values</span>
+<span class="n">qnow</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span>
+<span class="k">for</span> <span class="n">itime</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">howmany</span><span class="p">):</span>
+    <span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span> <span class="o">=</span> <span class="n">deltat</span><span class="o">+</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">/</span><span class="n">alpha</span><span class="p">)</span><span class="o">-</span><span class="n">peein</span><span class="o">*</span><span class="n">alpha</span>
+    <span class="n">rnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">alpha</span><span class="o">*</span><span class="n">qfunc</span><span class="p">(</span><span class="n">peein</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">pnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">+</span><span class="n">abstraction</span><span class="o">+</span><span class="n">rnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
+
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pnow</span><span class="p">,</span> <span class="n">pnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pnow</span><span class="p">,</span> <span class="n">qnow</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="c1">#matplotlib.pyplot.plot(time, dsnow, color =&#39;green&#39;) </span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cumulative Precipitation L&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulative Runoff L&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Linear Reservoir Runoff Model </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;Max Retention =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">maxretention</span><span class="p">)</span><span class="o">+</span>
+                        <span class="s2">&quot; Initial Abstraction =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">abstraction</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;Precipitation Rate =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">peein</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; alpha =&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;CN = 100&quot;</span><span class="p">,</span><span class="s2">&quot;CN = &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">CN</span><span class="p">),</span><span class="s2">&quot;Delta Storage&quot;</span><span class="p">])</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RainfallRunoff_14_0.png" src="../../_images/RainfallRunoff_14_0.png" />
+</div>
+</div>
+<p>so in practice we don’t use the <span class="math notranslate nohighlight">\(CN\)</span> model as a linear reservoir. It is strictly treated as a runoff generation procedure - its useful and practical, but is built on limited assumptions.</p>
+<p>The <span class="math notranslate nohighlight">\(CN\)</span> values are tabulated in many locations including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm">WSS</a>  After an AOI is delineated, the soils property tab will return CN values associated with each soil texture.</p></li>
+<li><p><a class="reference external" href="https://directives.sc.egov.usda.gov/OpenNonWebContent.aspx?content=17758.wba">NEH Chapter 9</a> Tables of CN for different soil textures</p></li>
+<li><p><a class="reference external" href="http://onlinemanuals.txdot.gov/txdotmanuals/hyd/hydrograph_method.htm#JSGEGKGG">Texas HDM</a> Similar to above, with some probability and geographic corrections.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <span class="math notranslate nohighlight">\(CN\)</span> method using composite curve numbers is one of the recomended methods to consider in the Hardin Creek design/analysis project.  While by no means the bestest, its not bad for this application and relatively easy to parameterize and is built-in to HEC-HMS the design/analysis tool you will use.</p>
+</div>
 </div>
 </div>
 
@@ -385,11 +660,11 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../11-EvaporationInfiltration/EvaporationInfiltration.html" title="previous page">
+        <a class="left-prev" href="../10-EvaporationInfiltration/EvaporationInfiltration.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">13. Hydrologic Abstractions</p>
+                <p class="prevnext-title">9. Hydrologic Abstractions</p>
             </div>
         </a>
     </div>
