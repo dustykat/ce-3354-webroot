@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Steady Groundwater Flow to Wells
+# # 23.2 Steady Flow to Wells
 # 
 # ## Topics
 # 
@@ -31,6 +31,8 @@
 # 2. [Basic Groundwater Hydrology - USGS WSP 2020](http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-WSP2020-GroundwaterHydrology/usgs-wsp-2020.pdf)
 # 
 # 
+
+# ## Section End
 
 # 
 

@@ -53,12 +53,12 @@
 # ## Spreadsheets
 # 
 # Listed below are spreadsheets that implement simple UH examples.  They are Excel (circa 2009) spreadsheets, that work in current Excel, LibreOffice, and Numbers environments
-# 1. [ExampleUH_BackSub1.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub1.xls)
-# 2. [ExampleUH_BackSub2.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_BackSub2.xls)
-# 3. [ExampleUH_LeastSquares.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_LeastSquares.xls)
-# 4. [ExampleUH_TransferFn.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExampleUH_TransferFn.xls)
-# 5. [ExtendedBase_DifferentStorm.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase_DifferentStorm.xls)
-# 6. [ExtendedBase.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/ExtendedBase.xls)
+# 1. [ExampleUH_BackSub1.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExampleUH_BackSub1.xls)
+# 2. [ExampleUH_BackSub2.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExampleUH_BackSub2.xls)
+# 3. [ExampleUH_LeastSquares.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExampleUH_LeastSquares.xls)
+# 4. [ExampleUH_TransferFn.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExampleUH_TransferFn.xls)
+# 5. [ExtendedBase_DifferentStorm.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExtendedBase_DifferentStorm.xls)
+# 6. [ExtendedBase.xls](http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/UnitHydrographs/ExtendedBase.xls)
 # 
 
 # Synthetic unit hydrographs are theoretical models used in hydrology to estimate the response of a watershed to a unit of rainfall excess when direct measurements are not available. Unlike traditional unit hydrographs, which are derived from observed streamflow data, synthetic unit hydrographs are developed using empirical relationships and mathematical formulations based on the physical and climatic characteristics of a watershed.
@@ -80,7 +80,7 @@
 # Synthetic unit hydrographs are valuable tools in hydrology for estimating streamflow responses in ungauged or data-sparse regions. They offer a practical alternative for preliminary assessments and design applications. By combining synthetic hydrographs with local knowledge and regional studies, hydrologists can make informed decisions in water resource management and infrastructure development.
 
 # :::{note}
-# Synthesis does require rainfall-runoff data. It uses measurements on the watershed to postulate parameters of a parametric unit hydrograph.  Consider the modified rational method as an overly simplified implementation.  The measurements used are time of concentration usually based on some slope, roughness and distance; these play the transfer function role, the product of area and runoff coeffient plays the role of a loss model.  The rainfall intensity is the input. $CAi$ is the excess precipitation. The unit response is simply a rectangular pulse (square wave) that is $T_c$ units in duration.     
+# Synthesis does not require rainfall-runoff data. It uses measurements on the watershed to postulate parameters of a parametric unit hydrograph.  Consider the [modified rational method](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/_build/html/lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.html#modified-rational-method) as an overly simplified implementation.  The measurements used are time of concentration usually based on some slope, roughness and distance; these play the transfer function role, the product of area and runoff coeffient plays the role of a loss model.  The rainfall intensity is the input. $CAi$ is the excess precipitation. The unit response is simply a rectangular pulse (square wave) that is $T_c$ units in duration.     
 # :::
 
 # ## Parametric Unit Hydrographs (in HEC-HMS)
@@ -171,10 +171,20 @@
 # 
 # ## Example 2
 # 
-# Same as above, but using the Digital Terrain Runoff Model Approach as described in <br> - [Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221](https://ascelibrary.org/doi/epdf/10.1061/%28ASCE%290733-9437%282008%29134%3A2%28212%29) <br> - [Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.](http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf))
+# Same as above, but using the Digital Terrain Runoff Model (DTRM) Approach as described in 
 # 
-# The actual JupyterLab code is from [GitHub DTRM-P](https://github.com/dustykat/DTRM-P).  Because the run time is several hours, the code is not displayed in the notebook.
+# - [Cleveland, T.G., Thompson, D.B., Fang, X., and He, X. (2008) Synthesis of Unit Hydrographs from a Digital Elevation Model ASCE, Journal of Irrigation and Drainage Engineering, Vol. 134, No. 2, pp 212-221](https://ascelibrary.org/doi/epdf/10.1061/\%28ASCE%290733-9437\%282008\%29134\%3A2\%28212\%29) 
 # 
+# - [Cleveland T. G., X. Fang, and Thompson D. B., (2006).  “Timing Parameter Estimation Using a Particle Tracking Method.”  Research Report 0-4696-3, Department of Civil Engineering, University of Houston, Houston, Texas 77204.](http://54.243.252.9/ce-5361-webroot/3-Readings/0-4696-3.pdf))
+# 
+# The original FORTRAN and recently ported JupyterLab code is stored at [GitHub DTRM-P](https://github.com/dustykat/DTRM-P).  Because the run time is several hours, the code is not displayed in this book.
+# 
+# :::{note}
+# DTRM-P is an experimental tool, similar in intent as [Geo-HMS](https://www.hec.usace.army.mil/software/hec-geohms/).  It was orginally created in response to being denied access to source code to [GSSHA](https://www.erdc.usace.army.mil/Media/Fact-Sheets/Fact-Sheet-Article-View/Article/476714/gridded-surface-subsurface-hydrologic-analysis/) another tool with same end goals in mind.  Professional tools that work the same are [Geo-HMS](https://www.hec.usace.army.mil/software/hec-geohms/) and [TOPMODEL](https://pubs.usgs.gov/publication/wri934124)
+# :::
+# 
+
+# ## Section End
 
 # In[ ]:
 

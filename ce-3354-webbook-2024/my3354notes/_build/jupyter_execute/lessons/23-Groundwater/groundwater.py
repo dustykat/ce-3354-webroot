@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 23. Groundwater Hydrology 
+# # 23. Groundwater Hydrology - I
 
 # :::{admonition} Course Website
 # [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
@@ -213,8 +213,4 @@
 # 
 # $K = \frac{k \rho g}{\mu}$
 
-# In[ ]:
-
-
-
-
+# ## Section End

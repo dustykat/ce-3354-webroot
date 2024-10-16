@@ -53,7 +53,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. Groundwater Hydrology" href="../23-Groundwater/groundwater.html" />
+    <link rel="next" title="23. Groundwater Hydrology - I" href="../23-Groundwater/groundwater.html" />
     <link rel="prev" title="16. HEC-HMS" href="../16-HEC_HMS/hechms.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -132,8 +132,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../11-EvaporationInfiltration/EvaporationInfiltration.html">
-   13. Hydrologic Abstractions
+  <a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">
+   9. Hydrologic Abstractions
   </a>
  </li>
  <li class="toctree-l1">
@@ -149,6 +149,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">
    14. Unit Hydrographs - I (Analysis)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">
+   14.1 Unit Hydrograph Applications Exercise(s)
   </a>
  </li>
  <li class="toctree-l1">
@@ -168,7 +173,27 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../23-Groundwater/groundwater.html">
-   23. Groundwater Hydrology
+   23. Groundwater Hydrology - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater2.html">
+   23.1 Groundwater Hydrology - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater3.html">
+   23.2 Steady Flow to Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater4.html">
+   23.3 Transient Flow to Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater5.html">
+   23.4 Constituient Transport
   </a>
  </li>
 </ul>
@@ -342,6 +367,11 @@
    HEC-HMS Files
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-of-file">
+   End of File
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -357,7 +387,7 @@
 <h1>17. Routing Hydrographs<a class="headerlink" href="#routing-hydrographs" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-course-website admonition">
 <p class="admonition-title">Course Website</p>
-<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">link to webster</a></p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
 </div>
 <div class="section" id="readings">
 <h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
@@ -395,11 +425,11 @@
 </div>
 <div class="section" id="hydrograph-routing">
 <h2>Hydrograph routing<a class="headerlink" href="#hydrograph-routing" title="Permalink to this headline">¶</a></h2>
-<p>Hydrograph routing is a technique used in computational hydrology to predict the temporal distribution of water flow in rivers, channels, and reservoirs in response to a precipitation event. It involves calculating the downstream movement of water through a channel or watershed, accounting for the storage and movement of water within the system. The primary objective is to determine the changes in flow characteristics, such as discharge, over time and space as water travels from upstream to downstream points.</p>
+<p>Hydrograph routing is a technique used in computational hydrology to predict the temporal distribution of water flow in rivers, channels, and reservoirs in response to inflow events. It involves calculating the downstream movement of water through a channel or watershed, accounting for the storage and movement of water within the system. The primary objective is to determine the changes in flow characteristics, such as discharge, over time and space as water travels from upstream to downstream points.</p>
 <p>In practical applications, hydrograph routing is used for flood forecasting, design of hydraulic structures, and water resource management. There are two main types of routing:</p>
 <ol class="simple">
 <li><p>Hydrologic Routing: This approach uses simplified methods based on the conservation of mass and empirical relationships. Techniques such as the Muskingum method, kinematic wave model, and unit hydrograph are common. Hydrologic routing is often used for its simplicity and efficiency, particularly in cases where detailed data is not available.</p></li>
-<li><p>Hydraulic Routing: This method uses the principles of fluid mechanics, typically the continuity equation and the momentum equation (Saint-Venant equations), to model the movement of water through a channel. It provides detailed information about flow depth and velocity but requires comprehensive data and computational effort.  (These techniques are introdeuced and applied in CE 3372 and are the subject of the entire course CE 4353)</p></li>
+<li><p>Hydraulic Routing: This method uses the principles of fluid mechanics, typically the continuity equation and the momentum equation (Saint-Venant equations), to model the movement of water through a channel. It provides detailed information about flow depth and velocity but requires comprehensive data and computational effort.  (These techniques are introduced and applied in CE 3372 and are the subject of the entire course CE 4353)</p></li>
 </ol>
 <p>Hydrograph routing informs how different factors, such as channel shape, roughness, and basin characteristics, influence the timing and magnitude of peak flows. The results are critical for designing effective flood control measures, optimizing reservoir operations, and designing suitable drainage systems.</p>
 <div class="admonition note">
@@ -689,6 +719,9 @@ Depth above centerline  :      9.500 ft.
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/MyReservoirModel.zip">MyReservoirModel.zip (zip file of en entire HMS project)</a></p></li>
 </ol>
 </div>
+<div class="section" id="end-of-file">
+<h2>End of File<a class="headerlink" href="#end-of-file" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -733,7 +766,7 @@ Depth above centerline  :      9.500 ft.
         <a class="right-next" href="../23-Groundwater/groundwater.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">23. Groundwater Hydrology</p>
+                <p class="prevnext-title">23. Groundwater Hydrology - I</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

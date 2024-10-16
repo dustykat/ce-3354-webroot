@@ -4,7 +4,7 @@
 # # 17. Routing Hydrographs
 # 
 # :::{admonition} Course Website
-# [link to webster](http://54.243.252.9/ce-3354-webroot/)
+# [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
 # :::
 
 # ## Readings
@@ -41,13 +41,13 @@
 
 # ## Hydrograph routing
 # 
-# Hydrograph routing is a technique used in computational hydrology to predict the temporal distribution of water flow in rivers, channels, and reservoirs in response to a precipitation event. It involves calculating the downstream movement of water through a channel or watershed, accounting for the storage and movement of water within the system. The primary objective is to determine the changes in flow characteristics, such as discharge, over time and space as water travels from upstream to downstream points.
+# Hydrograph routing is a technique used in computational hydrology to predict the temporal distribution of water flow in rivers, channels, and reservoirs in response to inflow events. It involves calculating the downstream movement of water through a channel or watershed, accounting for the storage and movement of water within the system. The primary objective is to determine the changes in flow characteristics, such as discharge, over time and space as water travels from upstream to downstream points.
 # 
 # In practical applications, hydrograph routing is used for flood forecasting, design of hydraulic structures, and water resource management. There are two main types of routing:
 # 
 # 1. Hydrologic Routing: This approach uses simplified methods based on the conservation of mass and empirical relationships. Techniques such as the Muskingum method, kinematic wave model, and unit hydrograph are common. Hydrologic routing is often used for its simplicity and efficiency, particularly in cases where detailed data is not available.
 # 
-# 2. Hydraulic Routing: This method uses the principles of fluid mechanics, typically the continuity equation and the momentum equation (Saint-Venant equations), to model the movement of water through a channel. It provides detailed information about flow depth and velocity but requires comprehensive data and computational effort.  (These techniques are introdeuced and applied in CE 3372 and are the subject of the entire course CE 4353)
+# 2. Hydraulic Routing: This method uses the principles of fluid mechanics, typically the continuity equation and the momentum equation (Saint-Venant equations), to model the movement of water through a channel. It provides detailed information about flow depth and velocity but requires comprehensive data and computational effort.  (These techniques are introduced and applied in CE 3372 and are the subject of the entire course CE 4353)
 # 
 # Hydrograph routing informs how different factors, such as channel shape, roughness, and basin characteristics, influence the timing and magnitude of peak flows. The results are critical for designing effective flood control measures, optimizing reservoir operations, and designing suitable drainage systems.
 # 
@@ -321,6 +321,8 @@ print("               Velocity : %10.3f ft/sec" %(velocity))
 # ## HEC-HMS Files
 # 
 # 1. [MyReservoirModel.zip (zip file of en entire HMS project)](http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson11/MyReservoirModel.zip)
+
+# ## End of File
 
 # In[ ]:
 

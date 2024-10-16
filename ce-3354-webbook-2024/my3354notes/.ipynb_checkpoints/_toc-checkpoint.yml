@@ -19,6 +19,7 @@ chapters:
 - file: lessons/12-RainfallRunoff/RainfallRunoff # introduction
 - file: lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod # rational and modified rational method
 - file: lessons/14-UnitHydrographs/UnitHydrographs # unit hydrographs
+- file: lessons/14.1-UnitHydrographPractice/UnitHydrographsPractice # unit hydrographs
 - file: lessons/15-SyntheticUnitHydrographs/SyntheticUnitHydrographs # synthetic unit hydrographs
 - file: lessons/16-HEC_HMS/hechms # HEC-HMS software
 - file: lessons/17-ReservoirRouting/reservoirrouting # synthetic unit hydrographs
@@ -26,3 +27,7 @@ chapters:
 
 
 - file: lessons/23-Groundwater/groundwater
+- file: lessons/23-Groundwater/groundwater2
+- file: lessons/23-Groundwater/groundwater3
+- file: lessons/23-Groundwater/groundwater4
+- file: lessons/23-Groundwater/groundwater5
