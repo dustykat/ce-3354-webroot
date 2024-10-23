@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 14.1 Unit Hydrograph Applications Exercise(s)
+# # 14.1 Unit Hydrograph Workshop Exercise(s)
 # 
 # :::{admonition} Course Website
 # [http://54.243.252.9/ce-3354-webroot/](http://54.243.252.9/ce-3354-webroot/)

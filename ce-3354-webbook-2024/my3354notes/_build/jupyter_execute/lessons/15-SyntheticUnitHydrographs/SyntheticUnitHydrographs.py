@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 15. Unit Hydrographs - II (Synthesis)
+# # 15. Unit Hydrograph Synthesis
 
 # :::{admonition} Course Website
 # [link to webster](http://54.243.252.9/ce-3354-webroot/)
