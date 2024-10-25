@@ -30,6 +30,7 @@ chapters:
 
 - file: lessons/18-CatchmentRouting/streamrouting # synthetic unit hydrographs
 
+- file: lessons/21-StormSewerSizing/stormsewerhydrology
 
 - file: lessons/23-Groundwater/groundwater
 - file: lessons/23-Groundwater/groundwater2

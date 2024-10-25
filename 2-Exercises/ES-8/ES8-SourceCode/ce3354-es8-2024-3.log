@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  29 JUL 2024 21:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  25 OCT 2024 19:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -384,7 +384,7 @@ AED: lastpage setting LastPage
 Here is how much of TeX's memory you used:
  4470 strings out of 483183
  58954 string characters out of 5966292
- 302103 words of memory out of 5000000
+ 302100 words of memory out of 5000000
  19408 multiletter control sequences out of 15000+600000
  538204 words of font info for 46 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
@@ -395,7 +395,7 @@ ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr12.pfb>
-Output written on ce3354-es8-2024-3.pdf (3 pages, 2930938 bytes).
+Output written on ce3354-es8-2024-3.pdf (3 pages, 2931178 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream

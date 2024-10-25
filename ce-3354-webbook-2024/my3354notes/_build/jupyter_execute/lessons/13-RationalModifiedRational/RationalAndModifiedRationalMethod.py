@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 13. Rational and Modified Rational (Rainfall-Runoff) Method
+# # 13. Small Area Rainfall-Runoff 
 
 # :::{admonition} Course Website
 # [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
@@ -192,7 +192,7 @@
 PT = 6.96 # Total storm depth in inches         #####INPUT VALUE
 area= 181 # Drainage area in acres           #####INPUT VALUE
 C = 0.65 # Runoff coefficient                  #####INPUT VALUE
-Tc = 6.0 # Time of concentration in minutes   #####INPUT VALUE
+Tc = 66.0 # Time of concentration in minutes   #####INPUT VALUE
 hyetType = 'type2'                              #####INPUT VALUE
 # Design storm options are: 'type1','type1A','type2','type3','user'
 # need to manually insert user hyetograph in the Hydrograph Engine section
@@ -339,4 +339,10 @@ plt.xlim([xlow,xhigh])
 plt.grid(b=True, which='major', axis='y')
 plt.title(plottitle)
 plt.show()
+
+
+# In[ ]:
+
+
+
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 12. Rainfall-Runoff Modeling, NRCS Runoff Generation
+# # 12. Large Area Rainfall-Runoff Modeling
 
 # :::{admonition} Course Website
 # [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)

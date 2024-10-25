@@ -21,12 +21,16 @@ chapters:
 - file: lessons/14-UnitHydrographs/UnitHydrographs # unit hydrographs
   sections:
   - file: lessons/14.1-UnitHydrographPractice/UnitHydrographsPractice # unit hydrographs
-  
+
 - file: lessons/15-SyntheticUnitHydrographs/SyntheticUnitHydrographs # synthetic unit hydrographs
+
 - file: lessons/16-HEC_HMS/hechms # HEC-HMS software
+
 - file: lessons/17-ReservoirRouting/reservoirrouting # synthetic unit hydrographs
 
+- file: lessons/18-CatchmentRouting/streamrouting # synthetic unit hydrographs
 
+- file: lessons/21-StormSewerSizing/stormsewerhydrology
 
 - file: lessons/23-Groundwater/groundwater
 - file: lessons/23-Groundwater/groundwater2
