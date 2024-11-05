@@ -1,9 +1,58 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Streamflow Data Modeling
+# # 06. Streamflow Data Modeling
+
+# :::{admonition} Course Website
+# [Link to Course Website](http://54.243.252.9/ce-3354-webroot/)
+# :::
 # 
 # 
+
+# ---
+# ## Readings
+# 
+# 1. [Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. **pp. 1-12** ](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf) 
+# 
+# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf)
+# 
+# 2. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf)
+# 
+# 3. [See pp. 33-39 CMM for explaination of Manning’s equation](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/)
+# 
+# 4. [See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method](http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf)
+# 
+# 5. [Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses](https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ)
+# 
+# 6. [England, J.F. Jr., Cohn, T.A., Faber, B.A., Stedinger, J.R., Thomas Jr., W.O., Veilleux, A.G., Kiang, J.E., and Mason, R.R.Jr., 2018, Guidelines for Determining Flood Flow Frequency—Bulletin 17C: U.S. Geological Survey Techniques andMethods, book 4, chap. B5, 146 p.,](https://doi.org/10.3133/tm4B5)
+# 
+# 4. [Jamie Chan (2014) Learn Python in One Day and Learn It Well. LCF Publishing. Kindle Edition. ](http://www.learncodingfast.com/python)
+# 
+# 5. [Grus, Joel. Data Science from Scratch: First Principles with Python. O'Reilly Media. Kindle Edition. ](http://safaribooksonline.com)
+# 
+# 6. [Christian, B, and Griffiths Tom (2016) Algorithms to live by: The computer science of human decisions. Henry Holt and Company, ISBN 9781627790369 (hardcover)|ISBN 9781627790376 (electronic book)](https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365)
+# 
+# 7. https://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417
+#     
+# 9. https://www.astroml.org/book_figures/chapter3/fig_gamma_distribution.html
+# 
+# 10. https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html
+# 
+# 11. https://www.inferentialthinking.com/chapters/15/Prediction.html
+
+# ## Videos
+# 
+# 
+
+# ## Outline
+# - Streamflow Measurement
+# - Streamflow (gage) Data
+# - Estimation of Streamflow
+#  - Watershed Characteristics
+#  - Regional Regression Equations
+#  - Gage Transposition
+# 
+# ---
 
 # ## Streamflow Measurement
 # 
@@ -150,6 +199,37 @@
 # 
 # and the on-line results
 # ![](texasregionalonline2.png)
+
+# ## Gage Transposition Approach
+# 
+# A related (to regression methods) method that is often quite useful is a [Gage Transposition Approach](https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/statistical_analysis_of_stream_gauge_data.htm#i1106111).
+# 
+# If gauge data are not available at the design location, discharge values can be estimated by transposition if a peak flow-frequency curve is available at a nearby gauged location. This method is appropriate for hydrologically similar watersheds that differ in area by less than 50 percent, with outlet locations less than 100 miles apart.
+# 
+# An estimate of the desired AEP peak flow at the ungauged site is provided by <br>
+# 
+# $Q_1 = Q_2(\frac{A_1}{A_2})^{0.5}  $<br>
+# 
+# Where:<br>
+# 
+# - $Q_1$ = Estimated AEP discharge at ungauged watershed 1
+# - $Q_2$ = Known AEP discharge at gauged watershed 2
+# - $A_1$ = Area of watershed 1
+# - $A_2$ = Area of watershed 2
+# 
+# Transposition of peak flow is demonstrated with the following example. A designer requires an estimate of the 1% AEP streamflow at an ungauged location with drainage area of 200 square miles. A nearby (within 100 miles) stream gauge has a hydrologically similar drainage area of 450 square miles. The 1% AEP peak streamflow at the gauged location is 420 cfs based on the peak flow-frequency curve developed for that location. Substituting into Equation 4-10 results in 280 cfs as an estimate of the 1% AEP peak discharge at the ungauged location:
+# 
+# If flow-frequency curves are available at multiple gauged sites, Equation 4-10 can be used to estimate the desired peak AEP flow from each site. Then, with judgment and knowledge of the watersheds, those estimates could be weighted to provide an estimate of the desired AEP flow at the ungauged location. This process should be well documented.
+# 
+# Design of a storage facility, such as a detention pond, may require estimates of AEP flows for longer durations. If a flow-frequency curve for longer flow duration is available at a nearby gauged location, then the following equation, based on an analysis of mean-daily flows , may be used for transposition:
+# 
+# $Q_1 = Q_2(\frac{A_1}{A_2})^{0.9}  $<br>
+# 
+# :::{note} 
+# This section is largely based upon [Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006, Statewide analysis of the drainage-area ratio method for 34 streamflow percentile ranges in Texas: U.S. Geological Survey Scientific Investigations Report 2006–5286, 34 p.,1 appendix.](https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf).  A key observation is that the transposition is a power-law model to relate known to unknown locations, and the power ranges from 1/2 to nearly 1. 
+# :::
+
+# 
 
 # ## Frequency Analysis (Background)
 # 
@@ -914,27 +994,7 @@ print(newton(f, myguess))
 
 # ## References
 # 
-# 1. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf)
 # 
-# 2. [Cleveland, T. G. (2017) *Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf)
-# 
-# 3. [Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses](https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ)
-# 
-# 4. Jamie Chan (2014) Learn Python in One Day and Learn It Well. LCF Publishing. Kindle Edition. http://www.learncodingfast.com/python
-# 
-# 5. Grus, Joel. Data Science from Scratch: First Principles with Python. O'Reilly Media. Kindle Edition. (http://safaribooksonline.com)
-# 
-# 6. Christian, B, and Griffiths Tom (2016) Algorithms to live by: The computer science of human decisions. Henry Holt and Company, ISBN 9781627790369 (hardcover)|ISBN 9781627790376 (electronic book)
-# 
-# 7. https://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417
-#     
-# 8. England, J.F. Jr., Cohn, T.A., Faber, B.A., Stedinger, J.R., Thomas Jr., W.O., Veilleux, A.G., Kiang, J.E., and Mason, R.R.Jr., 2018, Guidelines for Determining Flood Flow Frequency—Bulletin 17C: U.S. Geological Survey Techniques andMethods, book 4, chap. B5, 146 p., https://doi.org/10.3133/tm4B5
-# 
-# 9. https://www.astroml.org/book_figures/chapter3/fig_gamma_distribution.html
-# 
-# 10. https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html
-# 
-# 11. https://www.inferentialthinking.com/chapters/15/Prediction.html
 
 # In[ ]:
 

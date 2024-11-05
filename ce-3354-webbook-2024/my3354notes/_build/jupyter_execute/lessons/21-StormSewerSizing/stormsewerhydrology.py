@@ -15,7 +15,7 @@
 # 
 # 2. [Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 499-507](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/) 
 # 
-# 3. [Mays, L. W. 2001. Water-Resources Engineering. 1st Edition Wiley, pp. 613-635](ce-3354-webroot/ce-3354-webbook-2024/3-Readings/RationalMethodStormSewerDesign.PDF)
+# 3. [Mays, L. W. 2001. Water-Resources Engineering. 1st Edition Wiley, pp. 613-635](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/RationalMethodStormSewerDesign.PDF)
 # 
 # 3. [Cleveland, T.G. 2016 "Rational Method Pipe Design"](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/RationalMethodPipeDesign.pdf)
 
