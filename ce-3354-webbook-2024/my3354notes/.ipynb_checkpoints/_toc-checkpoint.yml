@@ -29,7 +29,7 @@ chapters:
 - file: lessons/17-ReservoirRouting/reservoirrouting # synthetic unit hydrographs
 
 - file: lessons/18-CatchmentRouting/streamrouting # synthetic unit hydrographs
-
+- file: lessons/20-CulvertSizing/culverthydrology
 - file: lessons/21-StormSewerSizing/stormsewerhydrology
 
 - file: lessons/23-Groundwater/groundwater

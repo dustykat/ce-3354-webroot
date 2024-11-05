@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="23. Groundwater Hydrology - I" href="../23-Groundwater/groundwater.html" />
-    <link rel="prev" title="18. Stream Routing" href="../18-CatchmentRouting/streamrouting.html" />
+    <link rel="prev" title="21. Culvert Hydrology" href="../20-CulvertSizing/culverthydrology.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -181,6 +181,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">
    18. Stream Routing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../20-CulvertSizing/culverthydrology.html">
+   21. Culvert Hydrology
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -333,6 +338,18 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#storm-sewers">
+   Storm Sewers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hydrological-considerations-in-storm-sewer-design">
+     Hydrological Considerations in Storm Sewer Design
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-rational-method-for-storm-sewer-conduit-sizing">
    A Rational Method for Storm Sewer Conduit Sizing
   </a>
@@ -389,18 +406,17 @@
 <div class="section" id="readings">
 <h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 46-59</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 444-493</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture18.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Channel Routing) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Routing_(hydrology)">Routing (Hydrology) Wikipedia </a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Routing_Information_Protocol">Routing (Information) Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 711-735</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 499-507</a></p></li>
+<li><p><span class="xref myst">Mays, L. W. 2001. Water-Resources Engineering. 1st Edition Wiley, pp. 613-635</span></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/RationalMethodPipeDesign.pdf">Cleveland, T.G. 2016 “Rational Method Pipe Design”</a></p></li>
 </ol>
 </div>
 <div class="section" id="videos">
 <h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=nzRG2uIMaTY">Hydrograph Routing (YouTube)</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=1mdtq7iJ_74&amp;t=248s">Reservoir Routing (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=acAD7m5CMMk">Rational Method Pipe Sizing with Spreadsheets (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=PCUgxrWiBKg">Stormwater Drain Design Procedure (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=HLSTZuEi5gg">Hydrologic Channel Routing (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Eb0BoxlxcQw&amp;list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d">Channel Routing (NCEES Training Video)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=lkUEFtjQH6s&amp;list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d">Reservoir Routing (NCEES Training Video)</a></p></li>
@@ -411,8 +427,41 @@
 <div class="section" id="outline">
 <h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li></li>
+<li><p>Storm Sewers introduction</p></li>
+<li><p>nono</p></li>
+<li><p>nini</p></li>
 </ol>
+</div>
+<div class="section" id="storm-sewers">
+<h2>Storm Sewers<a class="headerlink" href="#storm-sewers" title="Permalink to this headline">¶</a></h2>
+<p>Storm sewers are an essential component of urban drainage systems, designed to manage the runoff generated by rainfall events. Unlike sanitary sewers, which carry wastewater, storm sewers convey rainwater and surface runoff away from streets, parking lots, and other impervious surfaces to prevent flooding and waterlogging in urban areas. These systems typically consist of a <strong>network of inlets, underground pipes, manholes, and outfalls</strong> that discharge water into nearby water bodies such as rivers, lakes, or retention basins. Properly designed storm sewer systems help reduce flood risks, protect infrastructure, and improve safety by minimizing surface water accumulation during storms.</p>
+<p><img alt="" src="../../_images/stormsewer.png" /></p>
+<div class="admonition-storm-sewer-components admonition">
+<p class="admonition-title">Storm Sewer Components</p>
+<p><strong>Inlets</strong> to capture runoff<br>
+<strong>Conduits</strong> to convey to outfall<br></p>
+<ul class="simple">
+<li><p>Lift Stations if cannot gravity flow to outfall</p></li>
+<li><p>Detention and diversions</p></li>
+</ul>
+<p><strong>Outfalls</strong> release water back into environment<br></p>
+</div>
+<div class="section" id="hydrological-considerations-in-storm-sewer-design">
+<h3>Hydrological Considerations in Storm Sewer Design<a class="headerlink" href="#hydrological-considerations-in-storm-sewer-design" title="Permalink to this headline">¶</a></h3>
+<p>Storm sewer design requires careful consideration of various hydrological factors to ensure the system can handle anticipated runoff volumes and flow rates. Some of the key hydrological aspects include:</p>
+<ul class="simple">
+<li><p>Rainfall Intensity and Duration: The design process begins with an analysis of rainfall data, often based on intensity-duration-frequency (IDF) curves. These curves help determine the intensity and duration of rainfall events that the storm sewer system should be able to manage. Engineers typically design for specific return periods, such as a 10-year or 100-year storm event, depending on local regulations and the level of protection required. (<strong>We have already examined these topics!</strong>)</p></li>
+<li><p>Runoff Coefficients: Runoff coefficients represent the fraction of rainfall that becomes surface runoff. These coefficients vary based on the type of land cover (e.g., impervious surfaces like roads and rooftops, or pervious areas like parks and gardens). The more impervious the area, the higher the runoff coefficient, which results in greater volumes of stormwater entering the system. (<strong>We have examined runoff generation via Unit Hydrographs as well as rational method</strong>)</p></li>
+<li><p>Watershed Characteristics: The size, slope, and shape of the drainage area (watershed) contribute to how quickly and how much water will enter the storm sewer system. Steeper slopes typically lead to faster runoff, while larger watersheds generate greater volumes of water. These characteristics influence the required capacity of storm sewers. (<strong>The whole point of delineation, and path identification</strong>)</p></li>
+<li><p>Time of Concentration: This is the time it takes for runoff to travel from the furthest point in the watershed to the storm sewer inlet. The time of concentration affects the peak flow rate that the system must handle. Shorter times of concentration generally lead to higher peak flows. (<strong>Synthetic unit hydrographs</strong>)</p></li>
+<li><p>Peak Flow Estimation: Hydrologists use methods such as the Rational Method or more complex hydrological models to estimate the peak flow rate that storm sewers will need to convey. Peak flow is critical in determining the diameter of pipes and the placement of inlets to avoid overloading the system.</p></li>
+<li><p>Infiltration and Storage: In some cases, designers incorporate infiltration or storage solutions (such as detention basins or permeable pavements) to reduce the volume and speed of water entering the storm sewer. This mitigates the risk of overwhelming the system during heavy rainfall events. (<strong>Why we model things!</strong>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a whole set of hydraulic concerns, these are generally handled contemporanously (at the same time) in design and analysis.</p>
+</div>
+</div>
 </div>
 <div class="section" id="a-rational-method-for-storm-sewer-conduit-sizing">
 <h2>A Rational Method for Storm Sewer Conduit Sizing<a class="headerlink" href="#a-rational-method-for-storm-sewer-conduit-sizing" title="Permalink to this headline">¶</a></h2>
@@ -502,6 +551,77 @@ The Hydraulic Grade Line (HGL) represents the level to which water would rise in
 <li><p>DONE WITHOUT REGARD TO DOWNSTREAM BOUNDARY CONDITIONS</p></li>
 <li><p>NEEDS TO BE CHECKED USING A HYDRAULIC MODEL (LIKE SWMM)</p></li>
 </ul>
+<p>Determine discharge in each pipe, then size using Manning’s equation</p>
+<p>In US Customary: <span class="math notranslate nohighlight">\(D=1.333\times(\frac{Q}{S_)^{1/2}})^{3/8}\)</span></p>
+<p>The size assumes full, but pipe will have free surface and probably be at 80% full as per typical hydraulic elements chart.</p>
+<p><img alt="" src="../../_images/hydraulic_elements.png" /></p>
+<p>Layout of system with:</p>
+<ul class="simple">
+<li><p>Drainage areas and inlet locations</p></li>
+<li><p>Pipes</p></li>
+<li><p>Outfall</p></li>
+<li><p>Elevations</p></li>
+</ul>
+<p><img alt="" src="../../_images/layout001.png" /></p>
+<p>Start with most upstream area:</p>
+<ul class="simple">
+<li><p>Determine inlet time of concentration</p></li>
+<li><p>Determine drainage area runoff coefficient</p></li>
+</ul>
+<p><img alt="" src="../../_images/inlet001.png" /></p>
+<ul class="simple">
+<li><p>Pipe size (start upstream)</p></li>
+<li><p>Select pipe size</p>
+<ul>
+<li><p>Design Guidelines</p></li>
+<li><p>Discharge selects diameter
+<span class="math notranslate nohighlight">\(D=1.333\times(\frac{Q}{S_)^{1/2}})^{3/8}\)</span></p></li>
+<li><p>Use velocity criteria to adjust slope, iterate on diameter
+<span class="math notranslate nohighlight">\(V=\frac{1.49}{n}(\frac{D}{4})^{2/3} \sqrt{S_0}\)</span></p></li>
+</ul>
+</li>
+<li><p>Record pipe travel time for next stage
+<span class="math notranslate nohighlight">\(t_{travel} = \frac{L}{V}\)</span></p></li>
+</ul>
+<p>At most upstream inlet</p>
+<ul class="simple">
+<li><p>Compute <span class="math notranslate nohighlight">\(Q_p = CIA\)</span> using inlet time for intensity, and draingae area to the inlet as area.</p></li>
+<li><p>Size pipe from this inlet to hold <span class="math notranslate nohighlight">\(Q_p\)</span></p></li>
+<li><p>Add pipe travel time to inlet time to route to next downstream junction</p></li>
+</ul>
+<p>At next upstream inlet</p>
+<ul class="simple">
+<li><p>Determine inlet time of concentration</p></li>
+<li><p>Determine drainage area runoff coefficient</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(Q_p = CIA\)</span> using inlet time for intensity, and draingae area to the inlet as area.</p></li>
+<li><p>Size pipe from this inlet to hold <span class="math notranslate nohighlight">\(Q_p\)</span></p></li>
+<li><p>Add pipe travel time to inlet time to route to next downstream junction</p></li>
+</ul>
+<p><img alt="" src="../../_images/inlet002.png" /></p>
+<p>At junction and inlet</p>
+<ul class="simple">
+<li><p>Determine inlet time of concentration</p></li>
+<li><p>Determine drainage area runoff coefficient</p></li>
+<li><p>Choose largest of local inlet time (above) or upstream node + travel time</p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\(Q_p\)</span> leaving the junction from:
+<br><br><span class="math notranslate nohighlight">\(Q_p = (CA_{local} + \sum{CA_{upstream}}) I_{T_C}\)</span></p></li>
+</ul>
+<p><img alt="" src="../../_images/inlet003.png" /></p>
+<p>Continue downstream in same fashion (from upstream to junction) until reach the outfall.</p>
+<ul class="simple">
+<li><p>Accumulate <span class="math notranslate nohighlight">\(CA\)</span> values and <span class="math notranslate nohighlight">\(T_C\)</span> as move downstream</p></li>
+<li><p>Check that all areas add to total area</p></li>
+<li><p>Check that <span class="math notranslate nohighlight">\(T_C\)</span> increases in value as move downstream.</p></li>
+</ul>
+<p><img alt="" src="../../_images/inlet004.png" /></p>
+<p>At the outfall should have:</p>
+<ul class="simple">
+<li><p>Pipe sizes</p></li>
+<li><p>Pipe discharges</p></li>
+<li><p>Pipe slopes, then construct flowline (invert elevations) to ensure sewer fits between land surface and outfall invert elevation.</p></li>
+</ul>
+<p>The next step is to actually check hydraulics using a hydraulic model.</p>
+<p>A spreadsheet that illustrates the method  CMM pp 499-507, is linked at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/21-StormSewerSizing/GoodwinStormSewer.xlsx">Goodwin Storm Sewer Example</a></p>
 </div>
 <div class="section" id="end-of-file">
 <h2>End of File<a class="headerlink" href="#end-of-file" title="Permalink to this headline">¶</a></h2>
@@ -538,11 +658,11 @@ The Hydraulic Grade Line (HGL) represents the level to which water would rise in
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../18-CatchmentRouting/streamrouting.html" title="previous page">
+        <a class="left-prev" href="../20-CulvertSizing/culverthydrology.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">18. Stream Routing</p>
+                <p class="prevnext-title">21. Culvert Hydrology</p>
             </div>
         </a>
     </div>

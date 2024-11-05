@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. Culvert Hydrology &#8212; Engineering Hydrology</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="21. Storm Sewer Hydrology" href="../21-StormSewerSizing/stormsewerhydrology.html" />
+    <link rel="prev" title="18. Stream Routing" href="../18-CatchmentRouting/streamrouting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/hydrology.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Engineering Hydrology</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Engineering Hydrology
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-Introduction/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">
+   2. Specialized Software
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
+   3. Hydrologic Cycle
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-Watersheds/watersheds.html">
+   5. Watersheds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">
+   6. Probability Estimation Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">
+   7. Streamflow Data Sources and Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-Precipitation/precipitation.html">
+   8. Precipitation, Hyetographs, Design Storms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">
+   9. Hydrologic Abstractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">
+   12. Large Area Rainfall-Runoff Modeling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html">
+   13. Small Area Rainfall-Runoff
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">
+   14. Unit Hydrograph Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">
+     14.1 Unit Hydrograph Workshop Exercise(s)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">
+   15. Unit Hydrograph Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16-HEC_HMS/hechms.html">
+   16. HEC-HMS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">
+   17. Reservoir Routing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">
+   18. Stream Routing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   21. Culvert Hydrology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../21-StormSewerSizing/stormsewerhydrology.html">
+   21. Storm Sewer Hydrology
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater.html">
+   23. Groundwater Hydrology - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater2.html">
+   23.1 Groundwater Hydrology - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater3.html">
+   23.2 Steady Flow to Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater4.html">
+   23.3 Transient Flow to Wells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23-Groundwater/groundwater5.html">
+   23.4 Constituient Transport
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/20-CulvertSizing/culverthydrology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/20-CulvertSizing/culverthydrology.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/20-CulvertSizing/culverthydrology.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readings">
+   Readings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#videos">
+   Videos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outline">
+   Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-culverts">
+   Introduction to Culverts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology">
+   Terminology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrologic-considerations-in-culvert-design">
+   Hydrologic Considerations in Culvert Design
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#design-process">
+   Design Process
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-of-file">
+   End of File
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="culvert-hydrology">
+<h1>21. Culvert Hydrology<a class="headerlink" href="#culvert-hydrology" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-course-website admonition">
+<p class="admonition-title">Course Website</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
+</div>
+<div class="section" id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 711-735</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 499-507</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-4353-webroot/3-Readings/MaysCh16.pdf">Mays, L. W. 2001. Water-Resources Engineering. 1st Edition Wiley, pp. 651-669</a></p></li>
+<li><p><a class="reference external" href="https://www.fhwa.dot.gov/engineering/hydraulics/pubs/12026/hif12026.pdf">Hydraulic Design of Highway Culverts</a></p></li>
+</ol>
+</div>
+<div class="section" id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=15XJDmawbYU&amp;t=375s">What is a Culvert? (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=vnXmGyb_hKQ">Culvert Hydraulics (FHWA Training Video) (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=xh2aTHpg3VI">Culvert Hydraulic Design (YouTube) (FHWA Training)</a>  Go to time stamp 29:50 for design process demonstration.</p></li>
+</ol>
+</div>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Culverts</p></li>
+<li><p>Nomenclature</p></li>
+<li><p>Hydrologic Considerations</p></li>
+<li><p>Design Process</p></li>
+</ol>
+</div>
+<div class="section" id="introduction-to-culverts">
+<h2>Introduction to Culverts<a class="headerlink" href="#introduction-to-culverts" title="Permalink to this headline">¶</a></h2>
+<p>Culverts are structures that allow water to pass beneath roads, railways, embankments, or other <strong>obstacles</strong>. They are typically made from concrete, steel, or plastic and can take various shapes, including circular, rectangular, or elliptical. Culverts are crucial for maintaining natural drainage patterns and preventing the accumulation of water on roads and other infrastructure, which can lead to flooding, erosion, or structural damage. By channeling water safely through or around man-made structures, culverts play a key role in managing both small streams and significant runoff during storms.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Culverts are comparatively short as compared to storm sewers.  Storm sewers can run miles (kilometers), culverts are usually only a few hundred feet (meters) long.</p>
+</div>
+</div>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<p>Certain terms are common to all culvert systems.</p>
+<p><img alt="" src="../../_images/culvert-elevation1.png" /></p>
+<ul class="simple">
+<li><p>Headwater</p></li>
+<li><p>Tailwater</p></li>
+<li><p>Control-Type</p></li>
+<li><p>Control-Section</p></li>
+</ul>
+<p><img alt="" src="../../_images/culvert-elevation2.png" /></p>
+<ul class="simple">
+<li><p>Surcharged (submerged)</p></li>
+<li><p>Unsubmerged</p></li>
+<li><p>Hydraulic jump in culvert (not pictured)</p></li>
+</ul>
+<p><img alt="" src="../../_images/culvert-layout.png" /></p>
+<ul class="simple">
+<li><p>Invert elevation</p></li>
+<li><p>Soffit elevation</p></li>
+<li><p>Crest elevation</p></li>
+</ul>
+</div>
+<div class="section" id="hydrologic-considerations-in-culvert-design">
+<h2>Hydrologic Considerations in Culvert Design<a class="headerlink" href="#hydrologic-considerations-in-culvert-design" title="Permalink to this headline">¶</a></h2>
+<p>Designing culverts requires a detailed understanding of hydrological factors to ensure they provide adequate capacity for expected flows while preventing negative impacts on the environment and infrastructure. Some important hydrological aspects include:</p>
+<ul class="simple">
+<li><p>Design Flow and Return Period: The primary hydrological consideration for culverts is the design flow, or the maximum flow rate the culvert must handle. Engineers determine this flow based on historical rainfall data and the return period (e.g., a 25-year or 50-year storm event) that the culvert should be designed to withstand. The return period is chosen based on the risk tolerance and the importance of the infrastructure being protected.</p></li>
+<li><p>Watershed Characteristics: The size, shape, and slope of the watershed upstream of the culvert affect the volume and speed of water reaching it. Larger watersheds or those with steep slopes can generate more runoff, requiring a larger or more robust culvert to handle the peak flow without causing backups or flooding.</p></li>
+<li><p>Runoff Coefficients: Similar to storm sewer design, runoff coefficients are used to estimate the amount of rainfall that becomes surface runoff in the watershed. Urban areas with many impervious surfaces (such as roads, parking lots, and rooftops) will have higher runoff coefficients than rural or vegetated areas, influencing the sizing of the culvert.</p></li>
+<li><p>Peak Flow Estimation: Hydrologists use methods such as the Rational Method or unit hydrograph analysis to estimate the peak flow that the culvert must accommodate. Accurately predicting peak flow is critical to ensure that the culvert does not become a bottleneck during heavy rainfall or snowmelt events.</p></li>
+<li><p>Hydraulic Considerations: Engineers must consider both inlet and outlet control conditions when designing culverts. The capacity of the culvert is influenced by factors such as the shape, slope, roughness, and the headwater depth (the depth of water upstream). Inlet-controlled culverts are limited by the size of the opening, while outlet-controlled culverts are constrained by the downstream flow conditions.</p></li>
+<li><p>Time of Concentration: This is the time it takes for water to travel from the furthest point in the watershed to the culvert inlet. A short time of concentration can lead to rapid increases in flow, which can affect the peak discharge that the culvert needs to handle. Understanding the time of concentration helps in sizing the culvert appropriately to prevent flooding.</p></li>
+<li><p>Debris and Sediment Transport: Culverts must also be designed with consideration for potential blockages from debris (such as leaves, branches, or sediment). A blocked culvert can significantly reduce its capacity and lead to overtopping of the road or embankment. Some culverts are designed with features like debris racks or larger openings to minimize the risk of clogging.</p></li>
+<li><p>Environmental Impact: Culverts can impact the natural flow of water and aquatic ecosystems. Proper design should minimize disruption to fish migration and stream habitats by ensuring the culvert allows for natural water flow conditions. Techniques like stream simulation culverts, which mimic natural streambeds, are sometimes used to address these concerns.</p></li>
+</ul>
+</div>
+<div class="section" id="design-process">
+<h2>Design Process<a class="headerlink" href="#design-process" title="Permalink to this headline">¶</a></h2>
+<p>Explained in <a class="reference external" href="http://54.243.252.9/ce-4353-webroot/3-Readings/MaysCh16.pdf">Mays, L. W. 2001. Water-Resources Engineering. 1st Edition Wiley, pp. 651-669</a></p>
+</div>
+<div class="section" id="end-of-file">
+<h2>End of File<a class="headerlink" href="#end-of-file" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/20-CulvertSizing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../18-CatchmentRouting/streamrouting.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">18. Stream Routing</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../21-StormSewerSizing/stormsewerhydrology.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">21. Storm Sewer Hydrology</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
+        
+            &copy; Copyright 2024.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
