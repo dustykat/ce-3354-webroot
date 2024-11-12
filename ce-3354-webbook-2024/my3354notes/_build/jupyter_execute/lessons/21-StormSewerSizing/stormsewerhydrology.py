@@ -23,17 +23,11 @@
 # 
 # 1. [Rational Method Pipe Sizing with Spreadsheets (YouTube)](https://www.youtube.com/watch?v=acAD7m5CMMk)
 # 2. [Stormwater Drain Design Procedure (YouTube)](https://www.youtube.com/watch?v=PCUgxrWiBKg)
-# 3. [Hydrologic Channel Routing (YouTube)](https://www.youtube.com/watch?v=HLSTZuEi5gg)
-# 4. [Channel Routing (NCEES Training Video)](https://www.youtube.com/watch?v=Eb0BoxlxcQw&list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d)
-# 5. [Reservoir Routing (NCEES Training Video)](https://www.youtube.com/watch?v=lkUEFtjQH6s&list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d)
-# 6. [Flash Flood Videos (YouTube)](https://www.youtube.com/watch?v=u0-FLuwWhf4)
-# 7. [Flash Flood near Sedona Az. (YouTube)](https://www.youtube.com/watch?v=Ipo0kwQQcgQ)
 
 # ## Outline
 # 
 # 1. Storm Sewers introduction
-# 2. nono
-# 3. nini
+# 2. Goodwin Street Example (and Spreadsheet)
 
 # ## Storm Sewers
 # 
@@ -98,10 +92,10 @@
 #     The time of concentration ($T_C$) is the time it takes for runoff to travel from the most distant point of the catchment to the outlet or point of interest. Several empirical methods (e.g., Kirpich’s equation) can be used to calculate this value.
 # 
 # 3. Select the Runoff Coefficient (C):
-#     The runoff coefficient is chosen based on the land cover within the drainage area. For example, impervious surfaces (like pavement) will have a higher CC value (around 0.9), while pervious surfaces (like grassland) will have a lower value (around 0.2). Mixed land uses are weighted to determine an appropriate CC value for the entire catchment.
+#     The runoff coefficient is chosen based on the land cover within the drainage area. For example, impervious surfaces (like pavement) will have a higher C value (around 0.9), while pervious surfaces (like grassland) will have a lower value (around 0.2). Mixed land uses are weighted to determine an appropriate CC value for the entire catchment.
 # 
-# 4. Calculate Peak Runoff (Q):
-#     Using the Rational Method equation, the peak runoff QQ is calculated by multiplying the runoff coefficient CC, the rainfall intensity II, and the drainage area AA.
+# 4. Calculate Peak Runoff ($Q_P$):
+#     Using the Rational Method equation, the peak runoff $Q_P$ is calculated by multiplying the runoff coefficient CC, the rainfall intensity $I$, and the drainage area AA.
 # 
 # 5. Conduit Sizing:
 #     Once the peak runoff $Q_P$ is determined, the required diameter of the storm sewer conduit can be estimated using Manning’s equation for open channel flow, assuming the conduit is flowing full or partially full. Manning’s equation is:<br><br>
@@ -227,16 +221,4 @@
 # 
 # A spreadsheet that illustrates the method  CMM pp 499-507, is linked at [Goodwin Storm Sewer Example](http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/21-StormSewerSizing/GoodwinStormSewer.xlsx)
 
-# 
-
-# 
-
-# 
-
 # ## End of File
-
-# In[ ]:
-
-
-
-
