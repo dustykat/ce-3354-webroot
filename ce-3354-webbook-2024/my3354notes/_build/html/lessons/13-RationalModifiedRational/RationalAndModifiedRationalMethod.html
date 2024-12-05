@@ -1,374 +1,442 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>13. Small Area Rainfall-Runoff &#8212; Engineering Hydrology</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="14. Unit Hydrograph Analysis" href="../14-UnitHydrographs/UnitHydrographs.html" />
     <link rel="prev" title="12. Large Area Rainfall-Runoff Modeling" href="../12-RainfallRunoff/RainfallRunoff.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/hydrology.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Engineering Hydrology</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome to Engineering Hydrology
-  </a>
- </li>
+    
+    
+    <img src="../../_static/hydrology.png" class="logo__image only-light" alt="Engineering Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/hydrology.png" class="logo__image only-dark" alt="Engineering Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Engineering Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">2. Specialized Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">3. Hydrologic Cycle</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../05-Watersheds/watersheds.html">5. Watersheds</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">6. Probability Estimation Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">7. Streamflow Data Sources and Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Precipitation/precipitation.html">8. Precipitation, Hyetographs, Design Storms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">9. Hydrologic Abstractions</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">12. Large Area Rainfall-Runoff Modeling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Small Area Rainfall-Runoff</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">14. Unit Hydrograph Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">14.1 Unit Hydrograph Workshop Exercise(s)</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Introduction/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">
-   2. Specialized Software
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
-   3. Hydrologic Cycle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-Watersheds/watersheds.html">
-   5. Watersheds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">
-   6. Probability Estimation Modeling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">
-   7. Streamflow Data Sources and Estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../09-Precipitation/precipitation.html">
-   8. Precipitation, Hyetographs, Design Storms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">
-   9. Hydrologic Abstractions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">
-   12. Large Area Rainfall-Runoff Modeling
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   13. Small Area Rainfall-Runoff
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">
-   14. Unit Hydrograph Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">
-     14.1 Unit Hydrograph Workshop Exercise(s)
-    </a>
-   </li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">15. Unit Hydrograph Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-HEC_HMS/hechms.html">16. HEC-HMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">17. Reservoir Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">18. Stream Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-CulvertSizing/culverthydrology.html">21. Culvert Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21-StormSewerSizing/stormsewerhydrology.html">21. Storm Sewer Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater.html">23. Groundwater Hydrology - I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater2.html">23.1 Groundwater Hydrology - II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater3.html">23.2 Steady Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater4.html">23.3 Transient Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater5.html">23.4 Constituient Transport</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">
-   15. Unit Hydrograph Synthesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../16-HEC_HMS/hechms.html">
-   16. HEC-HMS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">
-   17. Reservoir Routing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">
-   18. Stream Routing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater.html">
-   23. Groundwater Hydrology - I
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater2.html">
-   23.1 Groundwater Hydrology - II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater3.html">
-   23.2 Steady Flow to Wells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater4.html">
-   23.3 Transient Flow to Wells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater5.html">
-   23.4 Constituient Transport
-  </a>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>13. Small Area Rainfall-Runoff</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/13-RationalModifiedRational/RationalAndModifiedRationalMethod.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#readings">
-   Readings
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#videos">
-   Videos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rational-method">
-   Rational Method
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-of-concentration">
-     Time of Concentration
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modified-rational-method">
-   Modified Rational Method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modified-rational-method-hydrograph-generator">
-   Modified Rational Method Hydrograph Generator
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method">Rational Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method">Modified Rational Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method-hydrograph-generator">Modified Rational Method Hydrograph Generator</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="small-area-rainfall-runoff">
-<h1>13. Small Area Rainfall-Runoff<a class="headerlink" href="#small-area-rainfall-runoff" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="small-area-rainfall-runoff">
+<h1>13. Small Area Rainfall-Runoff<a class="headerlink" href="#small-area-rainfall-runoff" title="Link to this heading">#</a></h1>
 <div class="admonition-course-website admonition">
 <p class="admonition-title">Course Website</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
 </div>
-<div class="section" id="readings">
-<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 711-734</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. pp. 496-507</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/kuichling89-c.pdf">Kuichling, E. (1889). “The relation between the rainfall and the discharge of sewers in populous areas.” Trans. ASCE, 20(1), 1–56. </a></p></li>
@@ -383,31 +451,31 @@
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Rational Equation, HEC-HMS)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 </ol>
 <!--1. [Subdivision of Texas Watersheds for Hydrologic Modeling](http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/project_reports/0-5822-1/)-->
-</div>
-<div class="section" id="videos">
-<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=itaESIKKDcs">Basics of the Rational Method (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=ttTceCBinj4">The Rational Method (YouTube)</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i7lZWDVJGvI&amp;list=PLQv9IPdrtoKgxLQih9UXNbFqXLeJvKEaz&amp;index=5">Time of Concentration (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i7lZWDVJGvI&amp;amp;list=PLQv9IPdrtoKgxLQih9UXNbFqXLeJvKEaz&amp;amp;index=5">Time of Concentration (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=ypvXXe5AO-0">Time of Concentration (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Pw5BWkyl9dI">Time of Concentration (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=MbTNTqG4d6M">Time of Concentration (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=7SWqkf404o8">Modified Rational Method (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=qL6mNN5iELY">Stormwater Hydrology - Runoff (YouTube) at about 12:00 discusses Modified Rational Method but best to watch whole video</a></p></li>
 </ol>
-</div>
-<div class="section" id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Rational Method Background</p></li>
 <li><p>Time of Concentration</p></li>
 <li><p>Modified Rational Method Background</p></li>
 <li><p>Modified Rational Method Hydrograph Generator</p></li>
 </ul>
-</div>
-<div class="section" id="rational-method">
-<h2>Rational Method<a class="headerlink" href="#rational-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rational-method">
+<h2>Rational Method<a class="headerlink" href="#rational-method" title="Link to this heading">#</a></h2>
 <p>The rational method is probably applied the most often by hydraulic and drainage engineers to estimate design discharges for small drainage areas. These design discharges are used to size a variety of drainage structures for small undeveloped and developed watersheds throughout the United States.</p>
 <p>The rational method (Kuichling 1889) is expressed as,</p>
 <p><span class="math notranslate nohighlight">\(Q_p = m_0 C_{std} iA \)</span></p>
@@ -422,7 +490,7 @@
 <p>In the U.S., the customary units for the rational method are cubic feet per second (cfs) for <span class="math notranslate nohighlight">\(Q\)</span>, inches per hour (in/hr) for <span class="math notranslate nohighlight">\(i\)</span>, and acres for <span class="math notranslate nohighlight">\(A\)</span>. To be dimensionally consistent, a conversion factor of 1.0083 should be included to <em>convert</em> acre-inches per hour into cubic feet per second; however, this factor is generally neglected.</p>
 <p>In this document, <span class="math notranslate nohighlight">\(C_{std}\)</span> is the standard rational runoff coefficient that relates the ratio of input volume rate <span class="math notranslate nohighlight">\(iA\)</span> to the output volume rate <span class="math notranslate nohighlight">\(Q_p\)</span>.</p>
 <p>For development of the rational method, it is assumed that:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><font color="red">The discharge concentrates/collects at the point of interest </font></p></li>
 <li><p>The rainfall is uniform over the drainage area,</p></li>
 <li><p>The peak rate of runoff can be reflected by the rainfall intensity averaged over a time period equal to the characteristic time3 of the drainage area,</p></li>
@@ -445,8 +513,8 @@
 <li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/RationalSI/RationalSI.html">Rational Equation Model SI</a></p></li>
 </ul>
 <p>The <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/rational_method.htm#i1108707">Texas Hydraulic Design Manual</a> contains a useful discussion on appliciability and use of the Rational Method in drainage design.</p>
-<div class="section" id="time-of-concentration">
-<h3>Time of Concentration<a class="headerlink" href="#time-of-concentration" title="Permalink to this headline">¶</a></h3>
+<section id="time-of-concentration">
+<h3>Time of Concentration<a class="headerlink" href="#time-of-concentration" title="Link to this heading">#</a></h3>
 <p>The time of concentration is the crucial element of the Rational Equation (notably actually absent in an explicit sense from the equation).</p>
 <ul class="simple">
 <li><p>The value of <span class="math notranslate nohighlight">\(T_C\)</span> is important in rational method for estimating rainfall intensity.</p></li>
@@ -475,16 +543,16 @@
 <li><p>Kerby-Kirpich <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xls">Kerby-Kirpich.xls</a>;<a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xlsx">Kerby-Kirpich.xlsx</a></p></li>
 <li><p>NRCS Velocity <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx">TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="modified-rational-method">
-<h2>Modified Rational Method<a class="headerlink" href="#modified-rational-method" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="modified-rational-method">
+<h2>Modified Rational Method<a class="headerlink" href="#modified-rational-method" title="Link to this heading">#</a></h2>
 <p>The rational method is used to estimate peak discharges for sizing drainage structures, such as storm drains and culverts. The modified rational method (MRM) is an extension of the rational method to produce simple runoff hydrographs. The MRM is often called the rational hydrograph method. Application of the MRM produces a runoff hydrograph and runoff volume in contrast to application of the rational method, which produces only a peak design discharge (Qp).</p>
 <p>The hydrograph developed from application of the MRM is a special case of the unit hydrograph method and is sometimes termed the modified rational unit hydrograph (MRUH); as a unit hydrograph, the MRUH can be applied to nonuniform rainfall distributions. Furthermore, the MRUH can be used on watersheds with drainage areas in excess of the typical limit for application of the rational method. Application of the MRUH method involves two steps: (1) determination of rainfall loss using rational method concept, that is, use of the runoff coefficient, and (2) determination of the MRUH using drainage area (A) and time of concentration (Tc) as input parameters, in addition to applying the procedure of unit hydrograph convolution.</p>
 <p>Tc and runoff coefficients, C, can be estimated by a variety of methods.</p>
-</div>
-<div class="section" id="modified-rational-method-hydrograph-generator">
-<h2>Modified Rational Method Hydrograph Generator<a class="headerlink" href="#modified-rational-method-hydrograph-generator" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="modified-rational-method-hydrograph-generator">
+<h2>Modified Rational Method Hydrograph Generator<a class="headerlink" href="#modified-rational-method-hydrograph-generator" title="Link to this heading">#</a></h2>
 <p>This script performs discrete convolution to generate a direct runoff hydrograph from a hyetograph for a drainage area using the modified rational method unit-hydrograph approach (cite).</p>
 <p>The direct runoff hydrograph is computed using a convolution integral:</p>
 <div class="math notranslate nohighlight">
@@ -677,11 +745,11 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/RationalAndModifiedRationalMethod_9_0.png" src="../../_images/RationalAndModifiedRationalMethod_9_0.png" />
+<img alt="../../_images/17dcd2547cc48ed23ebf938f819d2c6ac6f2cdcd8b6710cd5ac0f5ba09a2db51.png" src="../../_images/17dcd2547cc48ed23ebf938f819d2c6ac6f2cdcd8b6710cd5ac0f5ba09a2db51.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -695,7 +763,7 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons/13-RationalModifiedRational"
         },
         predefinedOutput: true
@@ -703,56 +771,111 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../12-RainfallRunoff/RainfallRunoff.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">12. Large Area Rainfall-Runoff Modeling</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../14-UnitHydrographs/UnitHydrographs.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">14. Unit Hydrograph Analysis</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
-        
-            &copy; Copyright 2024.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../12-RainfallRunoff/RainfallRunoff.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">12. Large Area Rainfall-Runoff Modeling</p>
       </div>
-    </div>
-  
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="../14-UnitHydrographs/UnitHydrographs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">14. Unit Hydrograph Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method">Rational Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method">Modified Rational Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method-hydrograph-generator">Modified Rational Method Hydrograph Generator</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,420 +1,466 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>9. Hydrologic Abstractions &#8212; Engineering Hydrology</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/10-EvaporationInfiltration/EvaporationInfiltration';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12. Rainfall-Runoff Modeling, NRCS Runoff Generation" href="../12-RainfallRunoff/RainfallRunoff.html" />
+    <link rel="next" title="12. Large Area Rainfall-Runoff Modeling" href="../12-RainfallRunoff/RainfallRunoff.html" />
     <link rel="prev" title="8. Precipitation, Hyetographs, Design Storms" href="../09-Precipitation/precipitation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/hydrology.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Engineering Hydrology</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome to Engineering Hydrology
-  </a>
- </li>
+    
+    
+    <img src="../../_static/hydrology.png" class="logo__image only-light" alt="Engineering Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/hydrology.png" class="logo__image only-dark" alt="Engineering Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Engineering Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">2. Specialized Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">3. Hydrologic Cycle</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../05-Watersheds/watersheds.html">5. Watersheds</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">6. Probability Estimation Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">7. Streamflow Data Sources and Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-Precipitation/precipitation.html">8. Precipitation, Hyetographs, Design Storms</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Hydrologic Abstractions</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">12. Large Area Rainfall-Runoff Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html">13. Small Area Rainfall-Runoff</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">14. Unit Hydrograph Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">14.1 Unit Hydrograph Workshop Exercise(s)</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Introduction/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">
-   2. Specialized Software
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
-   3. Hydrologic Cycle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-Watersheds/watersheds.html">
-   5. Watersheds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">
-   6. Probability Estimation Modeling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">
-   7. Streamflow Data Sources and Estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../09-Precipitation/precipitation.html">
-   8. Precipitation, Hyetographs, Design Storms
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   9. Hydrologic Abstractions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">
-   12. Rainfall-Runoff Modeling, NRCS Runoff Generation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html">
-   13. Rational and Modified Rational (Rainfall-Runoff) Method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">
-   14. Unit Hydrographs - I (Analysis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">
-   15. Unit Hydrographs - II (Synthesis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../16-HEC_HMS/hechms.html">
-   16. HEC-HMS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">
-   17. Routing Hydrographs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater.html">
-   23. Groundwater Hydrology
-  </a>
- </li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">15. Unit Hydrograph Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-HEC_HMS/hechms.html">16. HEC-HMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">17. Reservoir Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">18. Stream Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-CulvertSizing/culverthydrology.html">21. Culvert Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21-StormSewerSizing/stormsewerhydrology.html">21. Storm Sewer Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater.html">23. Groundwater Hydrology - I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater2.html">23.1 Groundwater Hydrology - II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater3.html">23.2 Steady Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater4.html">23.3 Transient Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater5.html">23.4 Constituient Transport</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/10-EvaporationInfiltration/EvaporationInfiltration.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/10-EvaporationInfiltration/EvaporationInfiltration.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/10-EvaporationInfiltration/EvaporationInfiltration.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/10-EvaporationInfiltration/EvaporationInfiltration.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/10-EvaporationInfiltration/EvaporationInfiltration.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>9. Hydrologic Abstractions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   9. Hydrologic Abstractions
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#readings">
-     Readings
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#spreadsheets">
-     Spreadsheets
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#videos">
-     Videos
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#outline">
-     Outline
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#abstractions">
-     Abstractions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#evaporation-and-transpiration">
-   Evaporation and Transpiration
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#infiltration">
-   Infiltration
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importance-and-roles">
-     Importance and Roles:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">
-     Factors Affecting Infiltration Processes:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#engineering-enhancement-strategies">
-     Engineering Enhancement Strategies:
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#infiltration-models">
-     Infiltration Models
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#infiltration-process-description">
-       Infiltration Process Description
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#proportional-loss-model">
-       Proportional Loss Model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#hortons-model">
-       Horton’s Model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#phi-index-model">
-       Phi-Index Model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#green-ampt-model">
-       Green-Ampt Model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#initial-abstraction-constant-loss">
-       Initial Abstraction - Constant Loss
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gis-soils-properties">
-   GIS Soils Properties
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#paper-based-maps">
-     Paper-Based Maps
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gis-data">
-     GIS Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interception-depression-storage">
-   Interception/Depression Storage
-  </a>
- </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Hydrologic Abstractions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractions">Abstractions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaporation-and-transpiration">Evaporation and Transpiration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration">Infiltration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-and-roles">Importance and Roles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-description">Infiltration Process Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proportional-loss-model">Proportional Loss Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hortons-model">Horton’s Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-model">Phi-Index Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-model">Green-Ampt Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-abstraction-constant-loss">Initial Abstraction - Constant Loss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-soils-properties">GIS Soils Properties</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-based-maps">Paper-Based Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-data">GIS Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interception-depression-storage">Interception/Depression Storage</a></li>
 </ul>
 
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="hydrologic-abstractions">
-<h1>9. Hydrologic Abstractions<a class="headerlink" href="#hydrologic-abstractions" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hydrologic-abstractions">
+<h1>9. Hydrologic Abstractions<a class="headerlink" href="#hydrologic-abstractions" title="Link to this heading">#</a></h1>
 <p>Hydrologic abstractions refer to the various processes through which water is removed from the precipitation signal (or land surface) and eventually returning to the atmosphere compartment. The difference between input and abstraction, is the runoff.</p>
 <div class="admonition-course-website admonition">
 <p class="admonition-title">Course Website</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
 </div>
 <hr class="docutils" />
-<div class="section" id="readings">
-<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. <strong>pp. 80-91</strong> </a></p></li>
 <li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 65-88; pp. 93-111</a></p></li>
 <li><p>Chow, V. T., 1964. Handbook of Applied Hydrology. McGraw Hill, New York. Sec. 14., 2pp.</p></li>
@@ -429,17 +475,17 @@
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/00HydrologyAnIntroduction/1096-1.pdf">Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork. pp. 130-170 (Evaporation)</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/00HydrologyAnIntroduction/1096-1.pdf">Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork. pp. 106-112 (Interception)</a></p></li>
 </ol>
-</div>
-<div class="section" id="spreadsheets">
-<h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="spreadsheets">
+<h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/ce5361_green_ampt.xlsx">Green-Ampt Spreadsheet (Excel)</a> Right-Click “Save As…”</p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson06/BlaneyCriddle.xlsx">Blaney-Criddle Spreadsheet (Excel)</a> Right-Click “Save As…”</p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson06/Thornwaithe.xls">Thornwaithe Spreadsheet (Excel)</a> Right-Click “Save As…”</p></li>
 </ol>
-</div>
-<div class="section" id="videos">
-<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=alEEY5rr2Kk">Introduction to Infiltration</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=GMTWEqz-Osg">Horton’s Infiltration Equation</a></p></li>
@@ -450,17 +496,17 @@
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=QVhid4qHw38">Estimating Evaporation</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=2rDt-fJvaNA">Evaporation (Aerodynamic Method)</a></p></li>
 </ul>
-</div>
-<div class="section" id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Infiltration</p></li>
 <li><p>Evapotranspiration</p></li>
 <li><p>Interception</p></li>
 </ul>
-</div>
-<div class="section" id="abstractions">
-<h2>Abstractions<a class="headerlink" href="#abstractions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="abstractions">
+<h2>Abstractions<a class="headerlink" href="#abstractions" title="Link to this heading">#</a></h2>
 <p>Hydrologic abstractions refer to the various processes through which water is removed from the precipitation signal (or land surface) and eventually returning to the atmosphere compartment. These abstractions play a crucial role in the water cycle. Three major categories of abstraction are listed below:</p>
 <ul class="simple">
 <li><p>Loss to the soil column comprised of:</p>
@@ -484,60 +530,60 @@
 </li>
 </ul>
 <p>The remainder in the water balance between precipitation (the input) and abstractions (the losses) is watershed runoff (the output).  It typically represents the flow of water over the land surface when the rate of precipitation exceeds the rate of abstraction. It includes surface water runoff and subsurface flow.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="evaporation-and-transpiration">
-<h1>Evaporation and Transpiration<a class="headerlink" href="#evaporation-and-transpiration" title="Permalink to this headline">¶</a></h1>
-<ol class="simple">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="evaporation-and-transpiration">
+<h1>Evaporation and Transpiration<a class="headerlink" href="#evaporation-and-transpiration" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson06/Lesson06.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Evaporation) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 </ol>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="infiltration">
-<h1>Infiltration<a class="headerlink" href="#infiltration" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="infiltration">
+<h1>Infiltration<a class="headerlink" href="#infiltration" title="Link to this heading">#</a></h1>
 <p>Infiltration is a complex process influenced by multiple factors such as soil characteristics, land use, slope, vegetation cover, precipitation intensity, and human activities. The soil’s permeability, texture, structure, and moisture content significantly impact infiltration rates. Coarse soils with higher permeability tend to have higher infiltration rates compared to fine-textured soils like clay.</p>
-<div class="section" id="importance-and-roles">
-<h2>Importance and Roles:<a class="headerlink" href="#importance-and-roles" title="Permalink to this headline">¶</a></h2>
+<section id="importance-and-roles">
+<h2>Importance and Roles:<a class="headerlink" href="#importance-and-roles" title="Link to this heading">#</a></h2>
 <p>Infiltration plays important roles in:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Water Availability: Infiltration governs the replenishment of groundwater resources, contributing to the sustained flow of streams and rivers during dry periods. A high infiltration rate allows water to percolate deeper into the soil, recharging aquifers and maintaining base flow in rivers.</p></li>
 <li><p>Flood Mitigation: Adequate infiltration helps prevent surface runoff, reducing the risk of flooding by allowing water to infiltrate into the soil, thus delaying the onset of overland flow.</p></li>
 <li><p>Water Quality: Infiltration acts as a natural filter, removing pollutants and impurities as water percolates through the soil. However, excessive or improper land use can compromise this filtration capacity, leading to contamination of surface water resources.</p></li>
 </ol>
-</div>
-<div class="section" id="factors-affecting-infiltration-processes">
-<h2>Factors Affecting Infiltration Processes:<a class="headerlink" href="#factors-affecting-infiltration-processes" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="factors-affecting-infiltration-processes">
+<h2>Factors Affecting Infiltration Processes:<a class="headerlink" href="#factors-affecting-infiltration-processes" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Land Use: Urbanization and deforestation can reduce natural infiltration rates due to increased impervious surfaces, resulting in enhanced surface runoff and decreased groundwater recharge.</p></li>
 <li><p>Climate Change: Alterations in precipitation patterns and intensities due to climate change can affect infiltration rates, potentially leading to soil erosion and reduced water infiltration capacities.</p></li>
 <li><p>Soil Management Practices: Techniques such as cover cropping, no-till agriculture, and contour plowing can help enhance soil structure and organic matter, promoting better infiltration.</p></li>
 </ol>
-</div>
-<div class="section" id="engineering-enhancement-strategies">
-<h2>Engineering Enhancement Strategies:<a class="headerlink" href="#engineering-enhancement-strategies" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="engineering-enhancement-strategies">
+<h2>Engineering Enhancement Strategies:<a class="headerlink" href="#engineering-enhancement-strategies" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Green Infrastructure: Implementing green spaces, permeable pavements, and rain gardens in urban areas can enhance infiltration rates and decrease surface runoff.</p></li>
 <li><p>Soil Conservation: Practices like terracing, contour farming, and agroforestry aid in reducing soil erosion, enhancing soil structure, and preserving natural infiltration capacities.</p></li>
 <li><p>Education and Regulation: Public awareness campaigns and policies regarding responsible land use and water management can aid in preserving natural infiltration processes.</p></li>
 </ol>
-</div>
-<div class="section" id="infiltration-models">
-<h2>Infiltration Models<a class="headerlink" href="#infiltration-models" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="infiltration-models">
+<h2>Infiltration Models<a class="headerlink" href="#infiltration-models" title="Link to this heading">#</a></h2>
 <p>Examination of various process models at</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
-<div class="section" id="infiltration-process-description">
-<h3>Infiltration Process Description<a class="headerlink" href="#infiltration-process-description" title="Permalink to this headline">¶</a></h3>
+<section id="infiltration-process-description">
+<h3>Infiltration Process Description<a class="headerlink" href="#infiltration-process-description" title="Link to this heading">#</a></h3>
 <p>Water that soaks into the ground and thereby enters the soil structure is considered removed from the runoff process at the time it enters the soil. The process by which this occurs is called infiltration. This process is the first step in a lengthy and vital process, the interaction of soil, water, air, and plant life.</p>
 <p>The soil matrix in its simplest form consists of particles of soil (minerals) loosely packed together in such a way that there are void spaces (pores). The pores are filled by either air or by water. If the voids are completely filled with water, the soil is said to be saturated. If a volume of saturated soil overlies something that does not block flow, some of the water contained in it will drain away, and some will remain trapped in the pore spaces in the soil by capillary forces. The size of the pore spaces in natural soils is such that capillary forces are important in the movement of water through them. The amount of water that drains through is called gravitational water, and is particular to the soil, as is the amount retained. The water retained balances forces between gravity and capillarity, and maintains equilibrium.</p>
 <p>Plants have roots that penetrate the upper soil layers, and remove water held there by cap-illarity. The upper layers of soil are thereby unbalanced, having capillary potential available to take up water. When rain falls on such a soil, there are initially two forces driving water into the soil- gravity and capillarity. If sufficient rain is available, the upper layers of the soil will become saturated, and the water will proceed downward. Due to the dual forces of capillarity and gravity, the initial rate of uptake of water may be quite high. As the capillary force is satisfied, gravity becomes the only force and the rate of uptake reaches an equilibrium value, as gravitational water drains through the soil.</p>
 <p>The progress of this phenomenon can be shown graphically <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08/InfiltrationProcess.pdf">sketch on board</a>. Initially, the rate of infiltration is quite high, and it decays to a steady-state value as a first-order function of time.</p>
 <p>Mathematically, there have been a number of relationships proposed to represent this progress. Collectively these equations represent different loss models. They are all attempts to explain a complex phenomenon currently beyond our understanding at any but the smallest scales. What follows are the set of more common models in use.</p>
-</div>
-<div class="section" id="proportional-loss-model">
-<h3>Proportional Loss Model<a class="headerlink" href="#proportional-loss-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="proportional-loss-model">
+<h3>Proportional Loss Model<a class="headerlink" href="#proportional-loss-model" title="Link to this heading">#</a></h3>
 <p>The loss is some proportion of the incoming rainfall.  Somewhat similar in mindset to the rational method, but every rainfall pulse produces runoff (albeit possibly quite small).  It does produce good mass balance with observations.</p>
-</div>
-<div class="section" id="hortons-model">
-<h3>Horton’s Model<a class="headerlink" href="#hortons-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="hortons-model">
+<h3>Horton’s Model<a class="headerlink" href="#hortons-model" title="Link to this heading">#</a></h3>
 <p>Hortons equation is one of the simpler, and is presented here:</p>
 <div class="math notranslate nohighlight">
 \[q(t)=f_c+(f_a-f_c)e^{-kt}\]</div>
@@ -608,7 +654,7 @@ The parameters in Hortons equation can be determined for any give soil by infilt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/EvaporationInfiltration_11_0.png" src="../../_images/EvaporationInfiltration_11_0.png" />
+<img alt="../../_images/77f74e0b41ce3665b87d576472c9b126ba822d0869e73c18f73143f6b9a498b3.png" src="../../_images/77f74e0b41ce3665b87d576472c9b126ba822d0869e73c18f73143f6b9a498b3.png" />
 </div>
 </div>
 <p>When rain begins, infiltration also begins, and is the initial value (denoted fo in Hortons equation) is quite high (in this case, <span class="math notranslate nohighlight">\(3.0~in/hr\)</span>). At that time, infiltration rate usually exceeds the intensity of rainfall. As the infiltration rate drops, it at some point intersects with the rate of rainfall. After that point, rainfall rate will exceed infiltration rate. With no runoff, water would begin to pond on the soil surface. The time from beginning of rain until that point is reached is called the time to ponding. After some time, the infiltration rate has dropped until it approaches an equilibrium value, represented by <span class="math notranslate nohighlight">\(f_c\)</span> (in this case, <span class="math notranslate nohighlight">\(0.53~in/hr\)</span>). After that time, gravity alone is the force driving the infiltration process.</p>
@@ -672,16 +718,16 @@ The parameters in Hortons equation can be determined for any give soil by infilt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/EvaporationInfiltration_13_0.png" src="../../_images/EvaporationInfiltration_13_0.png" />
+<img alt="../../_images/7c1b90da45f927d8481b0ee3da6a6c1537ea0c9e92da2a6813fb9fc1f25c8cda.png" src="../../_images/7c1b90da45f927d8481b0ee3da6a6c1537ea0c9e92da2a6813fb9fc1f25c8cda.png" />
 </div>
 </div>
-</div>
-<div class="section" id="phi-index-model">
-<h3>Phi-Index Model<a class="headerlink" href="#phi-index-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="phi-index-model">
+<h3>Phi-Index Model<a class="headerlink" href="#phi-index-model" title="Link to this heading">#</a></h3>
 <p><img alt="" src="../../_images/PhiIndex.png" /></p>
-</div>
-<div class="section" id="green-ampt-model">
-<h3>Green-Ampt Model<a class="headerlink" href="#green-ampt-model" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="green-ampt-model">
+<h3>Green-Ampt Model<a class="headerlink" href="#green-ampt-model" title="Link to this heading">#</a></h3>
 <p>The Green-Ampt model is a simplified soil-physics model that is reasonably defendible in most hydrologic engineering situations.</p>
 <p><img alt="" src="../../_images/GApart1.png" /></p>
 <p><img alt="" src="../../_images/GApart2.png" /></p>
@@ -689,26 +735,26 @@ The parameters in Hortons equation can be determined for any give soil by infilt
 <p><img alt="" src="../../_images/GApart4.png" /></p>
 <p><img alt="" src="../../_images/GApart5.png" /></p>
 <p>A detailed explaination with example calculations is located at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08/Green-Ampt.pdf">Cleveland, T. G. (2008) <em>Surface Water Hydrology Notes (Green-Ampt Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
-</div>
-<div class="section" id="initial-abstraction-constant-loss">
-<h3>Initial Abstraction - Constant Loss<a class="headerlink" href="#initial-abstraction-constant-loss" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="initial-abstraction-constant-loss">
+<h3>Initial Abstraction - Constant Loss<a class="headerlink" href="#initial-abstraction-constant-loss" title="Link to this heading">#</a></h3>
 <p>For this watershed-loss model, a watershed is conceptualized to have the capacity to store or abstract an absolute depth of rainfall at and near the beginning of a storm. Depths of total rainfall less than this initial abstraction do not produce runoff. The watershed also is conceptualized to have the capacity to remove rainfall at a constant rate (loss) after the initial abstraction is satisfied. Additional rainfall inputs after the initial abstraction is satisfied contribute to runoff if the rainfall rate (intensity) is larger than the constant loss.</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-IaCl/sir2007-5243.pdf">An Initial-Abstraction, Constant-Loss Model for Unit Hydrograph Modeling for Applicable Watersheds in Texas</a></p>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="gis-soils-properties">
-<h1>GIS Soils Properties<a class="headerlink" href="#gis-soils-properties" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="gis-soils-properties">
+<h1>GIS Soils Properties<a class="headerlink" href="#gis-soils-properties" title="Link to this heading">#</a></h1>
 <p>From the discussion regarding infiltration, it should be apparent that soil properties are important.  There</p>
-<div class="section" id="paper-based-maps">
-<h2>Paper-Based Maps<a class="headerlink" href="#paper-based-maps" title="Permalink to this headline">¶</a></h2>
+<section id="paper-based-maps">
+<h2>Paper-Based Maps<a class="headerlink" href="#paper-based-maps" title="Link to this heading">#</a></h2>
 <p>Well just kidding, the old soils maps (of my generation) are archived at <a class="reference external" href="https://archive.org/details/usda-soil-surveys">USDA Soil Surveys</a></p>
 <p>An example watershed at Caprock Canyon (called the Lake Theo watershed in my notes) is in Briscoe Co. Texas</p>
 <p>Here is the soils map <a class="reference external" href="http://54.243.252.9/ce-5361-webroot/ce5361book/lessons/05.1infiltration/briscoeTX1977.pdf">Briscoe Co. Tx Soils Maps (with text)</a></p>
 <p>The study location is Map sheet 51 in the document.</p>
 <p>The main mapped soils are QBG,BeB, and BeC.  In the same document are tables that reference these codes back to soil descriptions.</p>
 <p>From the tables we obtain various estimates as:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Soil</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(K_{sat}\)</span>(in/hr)</p></th>
@@ -734,6 +780,7 @@ The parameters in Hortons equation can be determined for any give soil by infilt
 </tr>
 </tbody>
 </table>
+</div>
 <p>As you will see in the in-class demonstration; the process to find these values is a bit slow - one can imagine the difficulties over larger areas, however it does provide meaningful values to parameterize one of the various infiltration models.  We still need some way to approximate soil suction (or mean pore size) we can certainly use a guess of <span class="math notranslate nohighlight">\(D_{50}\)</span> we can estimate from the soils map as a surogate for pore size to estimate a suction value.</p>
 <p>Now we recall from our Fluids class something like:</p>
 <p><img alt="" src="../../_images/CE5361-capillary.png" /></p>
@@ -765,9 +812,9 @@ Capillary Rise  0.402  m
 <p>This capillary rise is a useful surrogate for the suction pressure in the infiltration models.  For instance a Green-Ampt model for these soils would be something like:</p>
 <p><span class="math notranslate nohighlight">\(I(t)=K_{sat}t + (H+h_c)ln(1+\frac{I(t)}{(H+h_c)n})\)</span></p>
 <p>In our case <span class="math notranslate nohighlight">\(h_c\approx 15~in.\)</span>; <span class="math notranslate nohighlight">\(K_{sat} \approx 2.0~\frac{in.}{hr}\)</span>; and <span class="math notranslate nohighlight">\(n \approx 0.20\)</span> or something to this effect.  So later on we can use this to estimate loss (and potential runoff).</p>
-</div>
-<div class="section" id="gis-data">
-<h2>GIS Data<a class="headerlink" href="#gis-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="gis-data">
+<h2>GIS Data<a class="headerlink" href="#gis-data" title="Link to this heading">#</a></h2>
 <p>There is a soil survey geographic database at <a class="reference external" href="https://gdg.sc.egov.usda.gov/">USDA Soils Data Gateway</a></p>
 <p>You can also access from WSS in the navigation column <a class="reference external" href="https://websoilsurvey.nrcs.usda.gov/app/">USDA Web Soil Survey</a></p>
 <p>An alternative is to use CN Generator Plug-In</p>
@@ -775,10 +822,10 @@ Capillary Rise  0.402  m
 <p><img alt="" src="../../_images/SA-002.png" /></p>
 <p><img alt="" src="../../_images/SA-003.png" /></p>
 <p><img alt="" src="../../_images/SA-004.png" /></p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="interception-depression-storage">
-<h1>Interception/Depression Storage<a class="headerlink" href="#interception-depression-storage" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interception-depression-storage">
+<h1>Interception/Depression Storage<a class="headerlink" href="#interception-depression-storage" title="Link to this heading">#</a></h1>
 <p>Storage on the watershed is distributed among depression and canopy storage, and explicit storage in things large enough to be treated as reservoirs.  In this section we are considering just the first two components.</p>
 <p>Examination of various process models at</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08.1/Lesson08ug.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Depression and Canopy Storage) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
@@ -807,7 +854,7 @@ will depend on which method is currently selected --><!-- ## References
 7. Polubarinova-Kochina, 1962. Theory of Groundwater Movement, (Translated from Russian by R. De Wiest), Princeton University Press, New Jersey.
 8. [An Initial-Abstraction, Constant-Loss Model for Unit Hydrograph Modeling for Applicable Watersheds in Texas](http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-IaCl/sir2007-5243.pdf)
 
---></div>
+--></section>
 
     <script type="text/x-thebe-config">
     {
@@ -821,7 +868,7 @@ will depend on which method is currently selected --><!-- ## References
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons/10-EvaporationInfiltration"
         },
         predefinedOutput: true
@@ -829,56 +876,133 @@ will depend on which method is currently selected --><!-- ## References
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../09-Precipitation/precipitation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">8. Precipitation, Hyetographs, Design Storms</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../12-RainfallRunoff/RainfallRunoff.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">12. Rainfall-Runoff Modeling, NRCS Runoff Generation</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
-        
-            &copy; Copyright 2024.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../09-Precipitation/precipitation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">8. Precipitation, Hyetographs, Design Storms</p>
       </div>
-    </div>
-  
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="../12-RainfallRunoff/RainfallRunoff.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">12. Large Area Rainfall-Runoff Modeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Hydrologic Abstractions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractions">Abstractions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaporation-and-transpiration">Evaporation and Transpiration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration">Infiltration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-and-roles">Importance and Roles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-description">Infiltration Process Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proportional-loss-model">Proportional Loss Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hortons-model">Horton’s Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-model">Phi-Index Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-model">Green-Ampt Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-abstraction-constant-loss">Initial Abstraction - Constant Loss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-soils-properties">GIS Soils Properties</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-based-maps">Paper-Based Maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-data">GIS Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interception-depression-storage">Interception/Depression Storage</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

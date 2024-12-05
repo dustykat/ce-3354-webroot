@@ -1,448 +1,469 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>8. Precipitation, Hyetographs, Design Storms &#8212; Engineering Hydrology</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/09-Precipitation/precipitation';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9. Hydrologic Abstractions" href="../10-EvaporationInfiltration/EvaporationInfiltration.html" />
     <link rel="prev" title="7. Streamflow Data Sources and Estimation" href="../07-StreamflowDataModeling/streamflowdatamodeling.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/hydrology.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Engineering Hydrology</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome to Engineering Hydrology
-  </a>
- </li>
+    
+    
+    <img src="../../_static/hydrology.png" class="logo__image only-light" alt="Engineering Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/hydrology.png" class="logo__image only-dark" alt="Engineering Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to Engineering Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01-Introduction/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">2. Specialized Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">3. Hydrologic Cycle</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../05-Watersheds/watersheds.html">5. Watersheds</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">6. Probability Estimation Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">7. Streamflow Data Sources and Estimation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Precipitation, Hyetographs, Design Storms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">9. Hydrologic Abstractions</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">12. Large Area Rainfall-Runoff Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html">13. Small Area Rainfall-Runoff</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">14. Unit Hydrograph Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../14.1-UnitHydrographPractice/UnitHydrographsPractice.html">14.1 Unit Hydrograph Workshop Exercise(s)</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-Introduction/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../02-HydrologySoftware/HydrologySoftware.html">
-   2. Specialized Software
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../03-HydrologicCycle/hydrologiccycle.html">
-   3. Hydrologic Cycle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../05-Watersheds/watersheds.html">
-   5. Watersheds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../06-ProbabilityEstimation/ProbabilityEstimationModels.html">
-   6. Probability Estimation Modeling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../07-StreamflowDataModeling/streamflowdatamodeling.html">
-   7. Streamflow Data Sources and Estimation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   8. Precipitation, Hyetographs, Design Storms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../10-EvaporationInfiltration/EvaporationInfiltration.html">
-   9. Hydrologic Abstractions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../12-RainfallRunoff/RainfallRunoff.html">
-   12. Rainfall-Runoff Modeling, NRCS Runoff Generation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../13-RationalModifiedRational/RationalAndModifiedRationalMethod.html">
-   13. Rational and Modified Rational (Rainfall-Runoff) Method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../14-UnitHydrographs/UnitHydrographs.html">
-   14. Unit Hydrographs - I (Analysis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">
-   15. Unit Hydrographs - II (Synthesis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../16-HEC_HMS/hechms.html">
-   16. HEC-HMS
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">
-   17. Routing Hydrographs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../23-Groundwater/groundwater.html">
-   23. Groundwater Hydrology
-  </a>
- </li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-SyntheticUnitHydrographs/SyntheticUnitHydrographs.html">15. Unit Hydrograph Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16-HEC_HMS/hechms.html">16. HEC-HMS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17-ReservoirRouting/reservoirrouting.html">17. Reservoir Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18-CatchmentRouting/streamrouting.html">18. Stream Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-CulvertSizing/culverthydrology.html">21. Culvert Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21-StormSewerSizing/stormsewerhydrology.html">21. Storm Sewer Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater.html">23. Groundwater Hydrology - I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater2.html">23.1 Groundwater Hydrology - II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater3.html">23.2 Steady Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater4.html">23.3 Transient Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23-Groundwater/groundwater5.html">23.4 Constituient Transport</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/09-Precipitation/precipitation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/09-Precipitation/precipitation.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/09-Precipitation/precipitation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/09-Precipitation/precipitation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/09-Precipitation/precipitation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>8. Precipitation, Hyetographs, Design Storms</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#readings">
-   Readings
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#videos">
-   Videos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outline">
-   Outline
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description">
-   Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#forms-of-precipitation">
-   Forms of Precipitation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-precipitation-by-origin">
-     Types of Precipitation (by Origin)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#convective-storms">
-     Convective Storms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#orographic-storms">
-     Orographic Storms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cyclonic-storms">
-     Cyclonic Storms
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#precipitation-variables-of-interest">
-   Precipitation Variables of Interest
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#depth-duration-frequency">
-   Depth-Duration-Frequency
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intensity-duration-frequency">
-   Intensity-Duration-Frequency
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#design-storms">
-   Design Storms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#design-storm-characteristics">
-   Design Storm Characteristics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rainfall-distributions">
-   Rainfall Distributions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#design-distributions">
-     Design Distributions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nrcs-scs-rainfall-type-curves">
-   NRCS (SCS) Rainfall Type Curves
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#texas-empirical-hyetograph-based-design-storms">
-   Texas Empirical Hyetograph-Based Design Storms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#historical-observations">
-   Historical Observations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ncdc">
-     NCDC
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#missing-data-replacement-techniques">
-   Missing Data Replacement Techniques
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example">
-   Example
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#precipitation-over-an-area">
-   Precipitation over an Area
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">
-     Approximation of Distributed Precipitation Data from Point Gage Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arithmetic-mean">
-     Arithmetic Mean
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#polygon-weighted-methods">
-     Polygon weighted methods.
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#areal-reduction-factors">
-   Areal Reduction Factors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#radar-precipitation-estimation">
-   Radar Precipitation Estimation
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forms-of-precipitation">Forms of Precipitation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-precipitation-by-origin">Types of Precipitation (by Origin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-storms">Convective Storms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orographic-storms">Orographic Storms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclonic-storms">Cyclonic Storms</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-variables-of-interest">Precipitation Variables of Interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-scs-rainfall-type-curves">NRCS (SCS) Rainfall Type Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texas-empirical-hyetograph-based-design-storms">Texas Empirical Hyetograph-Based Design Storms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-observations">Historical Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncdc">NCDC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data-replacement-techniques">Missing Data Replacement Techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area">Precipitation over an Area</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-mean">Arithmetic Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon weighted methods.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors">Areal Reduction Factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-precipitation-estimation">Radar Precipitation Estimation</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="precipitation-hyetographs-design-storms">
-<h1>8. Precipitation, Hyetographs, Design Storms<a class="headerlink" href="#precipitation-hyetographs-design-storms" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="precipitation-hyetographs-design-storms">
+<h1>8. Precipitation, Hyetographs, Design Storms<a class="headerlink" href="#precipitation-hyetographs-design-storms" title="Link to this heading">#</a></h1>
 <div class="admonition-course-website admonition">
 <p class="admonition-title">Course Website</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
 </div>
-<div class="section" id="readings">
-<h2>Readings<a class="headerlink" href="#readings" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 46-59</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 444-493</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">McCuen, R.H., Johnson, P.A., and Ragan, R.M. (2002) Highway Hydrology. HDS-2 (2ed) FHWA-NHI-02-001 (Read pages 3-1 to 3-5; 4-86 to 4-89; 5-1 to 5-8; 5-16 to 5-17)</a></p></li>
@@ -461,10 +482,10 @@
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf">Missing Rainfall Data Replacement Techniques</a></p></li>
 <li><p><a class="reference external" href="https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf">Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267</a></p></li>
 </ol>
-</div>
-<div class="section" id="videos">
-<h2>Videos<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=BB7g_uK-zsg">Engineering Hydrology-Precipitation</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=1wreQRWF1FM">How do we get Rain, Hail, Freezing Rain, Sleet &amp; Snow? (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Lw6AWVCdEtM">Types of precipitation explained (YouTube)</a></p></li>
@@ -474,14 +495,14 @@
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=VV00CaM48f8">IDF Curves (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=wdb13pFhp-0">NRCS 24-h Rainfall Distribution (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=BbvOmP3lQio">Dimensionless Hyetograph for Design Storm Modeling (YouTube Animation)</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RFWtqkUZjRg&amp;t=2601s">NRCS/SCS Design Storms (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RFWtqkUZjRg&amp;amp;t=2601s">NRCS/SCS Design Storms (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Smg_c93luwQ">Areal extent of rainfall/how to measure rainfall/rainfall radar/rainfall measurement </a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=qhXj3s9qwTE">Weather Radar 101</a></p></li>
 </ol>
-</div>
-<div class="section" id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>What is precipitation</p></li>
 <li><p>Point precipitation</p></li>
 <li><p>Probability estimation Modeling</p></li>
@@ -490,62 +511,62 @@
 <li><p>ARF approach</p></li>
 <li><p>Radar rainfall</p></li>
 </ol>
-</div>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
 <p>Precipitation is the water which falls from the atmosphere in either liquid or solid form. It results from the condensation of moisture in the atmosphere due to cooling of a parcel of air. The most common cause of cooling is dynamic or adiabatic lifting of the air. Adiabatic lifting means that a
 given parcel of air is caused to rise with resultant cooling and possible condensation into very small cloud droplets. If these droplets coalesce and be-
 come of sufficient size to overcome the air resistance, precipitation in some form results.</p>
 <p>Surface water hydrology really begins before the precipitate hits the ground.  The form of precipitate is important (rain, sleet, hail, or snow).  For example it takes about 10 inches of snow to produce the same water as 1 inch of rain.  Other factors of importance are the size of the area over which the precipitation falls, the intensity of the precipitation, and its duration.</p>
 <p><img alt="" src="../../_images/hc-precip.png" /></p>
 <p>Once the precipitation hits the ground several things can happen.  It can evaporate immediately, especially if the surface is hot, and relatively impervious.  If the surface is dry and/or porous, the precipitate may infiltrate into the ground or may just wet the surface.   The process of just wetting leaves and blades of grass is called interception.  Some of the infiltrated water is returned to the atmosphere by transpiration by plants.  Collectively the return to the atmosphere is called evapotranspiration.  The precipitate may be trapped in small depressions (puddles).  It may remain in these puddles until it evaporates or until the depressions fill and overflow.  Finally it may run off directly to the nearest stream or lake to become surface water.  The four “processes” (evapotranspiration, infiltration, interception, and depression storage) that reduce the amount of precipitation available for direct runoff are collectively called abstractions.  In drainage engineering, the loss model is how we account for these processes.</p>
-</div>
-<div class="section" id="forms-of-precipitation">
-<h2>Forms of Precipitation<a class="headerlink" href="#forms-of-precipitation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="forms-of-precipitation">
+<h2>Forms of Precipitation<a class="headerlink" href="#forms-of-precipitation" title="Link to this heading">#</a></h2>
 <p>Precipitation occurs in various forms. Rain is precipitation that is in the liquid state when it reaches the earth.
 <img alt="" src="../../_images/rainfall.png" /><br>
 Snow is frozen water in a crystalline state, while hail is frozen water in a ‘massive’ state. <br>
 <img alt="" src="../../_images/snowfall.png" /><br>
 Sleet is melted snow which is an intermixture of rain and snow. Of course, precipitation that falls to earth in the frozen state cannot become part of the runoff process until thawing and melting occur. Much of the precipitation that falls in mountainous areas and in the northerly latitudes falls in frozen form and is stored as snowpack or ice until warmer temperatures prevail.</p>
 <p><a class="reference external" href="https://youtu.be/cYjOEQhA_RI">Rain, Sleet, or Snow (YouTube Video)</a></p>
-<div class="section" id="types-of-precipitation-by-origin">
-<h3>Types of Precipitation (by Origin)<a class="headerlink" href="#types-of-precipitation-by-origin" title="Permalink to this headline">¶</a></h3>
+<section id="types-of-precipitation-by-origin">
+<h3>Types of Precipitation (by Origin)<a class="headerlink" href="#types-of-precipitation-by-origin" title="Link to this heading">#</a></h3>
 <p>Precipitation can be classified by the origin of the lifting motion which
 causes the preci pi ta ti on. Each type is characterized by different spatial
 and temporal rainfall regimens. There are three major types of storms which
 can be classified as follows:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Convective Storms.</strong>  Convective storms are atmospheric disturbances characterized by strong upward movement of air. They occur when warm, moist air rises, cools, and condenses, forming clouds and often leading to precipitation. <!--The two primary types of convective storms are thunderstorms and tornadoes. Thunderstorms are typically composed of cumulonimbus clouds and are accompanied by lightning, thunder, heavy rain, and sometimes hail. They form when warm, moist air rises rapidly, creating instability in the atmosphere. Tornadoes, on the other hand, are rapidly rotating columns of air that extend from a thunderstorm to the ground. They form within severe thunderstorms and can cause significant damage due to their strong winds.--></p></li>
 <li><p><strong>Orographic Storms.</strong>  Orographic storms, also known as orographic precipitation or orographic lifting, occur when air is forced to rise over elevated terrain, such as mountains or hills. As the air moves upward, it cools and condenses, leading to cloud formation and precipitation. <!-- This process happens on the windward side of the mountain, where moist air is lifted and cooled, often resulting in increased rainfall or snowfall.The lifting of air over the terrain causes the moisture in the air to condense and form clouds. As the air continues to rise, it cools further, leading to more significant precipitation on the windward side of the mountain. The leeward side, or the "rain shadow" side, tends to experience drier conditions as the air descends and warms, having already released much of its moisture on the windward side.--></p></li>
 <li><p><strong>Cyclonic Storms.</strong>  Cyclonic storms, also known as cyclones or hurricanes (depending on the region), are powerful low-pressure systems characterized by rotating winds and organized thunderstorms. These storms typically form over warm ocean waters, where moist air rises and creates an area of low pressure.  As the warm air rises, it cools and condenses, forming clouds and releasing heat energy that fuels the storm’s development. <!--The Earth's rotation causes the system to spin, creating a circular pattern of winds. In the Northern Hemisphere, cyclonic storms rotate counterclockwise, while in the Southern Hemisphere, they rotate clockwise.  Cyclonic storms go through various stages of development, starting as tropical disturbances and progressing into tropical depressions, tropical storms, and finally, reaching hurricane or typhoon status, depending on their location. They are categorized by their sustained wind speeds, with hurricanes or typhoons reaching higher wind velocities.  These storms can cause extensive damage due to their strong winds, heavy rainfall, storm surges, and potential for flooding. Proper forecasting and preparedness are crucial in regions prone to cyclonic storms to mitigate their impact on communities and infrastructure.--></p></li>
 </ol>
-</div>
-<div class="section" id="convective-storms">
-<h3>Convective Storms<a class="headerlink" href="#convective-storms" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="convective-storms">
+<h3>Convective Storms<a class="headerlink" href="#convective-storms" title="Link to this heading">#</a></h3>
 <p>Precipitation from convective storms results as warm moist air rises from
 lower elevations into cooler overlying air as shown below.</p>
 <p><img alt="" src="../../_images/convectivestorm.png" /></p>
 <p>The characteristic form of convective precipitation is the summer thunderstorm. The surface of the earth is warmed considerably by mid-to late afternoon of a summer day, the surface imparting its heat to the adjacent air. The warmed air begins rising through the overlying air, and if proper moisture content conditions are met (condensation level), large quantities of moisture will be condensed from the rapidly rising, rapidly cooling air. The rapid condensation may often result in huge quantities of rain from a single thunderstorm spawned by convective action, and very large rainfall rates are quite common beneath slowly moving thunderstorms.</p>
-</div>
-<div class="section" id="orographic-storms">
-<h3>Orographic Storms<a class="headerlink" href="#orographic-storms" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="orographic-storms">
+<h3>Orographic Storms<a class="headerlink" href="#orographic-storms" title="Link to this heading">#</a></h3>
 <p>Orographic precipitation results as air is forced to rise over a fixed position geographic feature such as a range of mountains. The characteristic precipitation patterns of the Pacific coastal states are the result of significant orographic influences. Mountain slopes that face the wind (windward) are much wetter than the opposite (leeward) slopes. In the Cascade Range in Washington and Oregon, the west-facing slopes may receive upwards of 100 inches (254 cm) of precipitation annually, while the east facing slopes, only a few miles away over the crest of the mountains, receive on the order of 20 inches (51 an) of precipitation annually.</p>
 <p><img alt="" src="../../_images/orographicstorm.png" /></p>
-</div>
-<div class="section" id="cyclonic-storms">
-<h3>Cyclonic Storms<a class="headerlink" href="#cyclonic-storms" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="cyclonic-storms">
+<h3>Cyclonic Storms<a class="headerlink" href="#cyclonic-storms" title="Link to this heading">#</a></h3>
 <p>Cyclonic precipitation is caused by the rising or lifting of air as it converges on an area of low pressure. Air moves from areas of higher pressure
 toward areas of lower pressure. In the middle latitudes, cyclonic storms generally move from west to east and have both cold and warm air associated with them. These mid-latitude cyclones are sometimes called extra-tropical cyclones or continental storms. Continental storms occur at the boundaries of air of significantly different temperatures. A disturbance in the boundary between the two air parcels can grow, appearing as a wave as it travels from west to east along the boundary. Generally, on a weather map, the cyclonic storm will appear as shown in below with two boundaries or fronts developed.</p>
 <p><img alt="" src="../../_images/frontalstorm.png" /></p>
 <p>One has warm air being pushed into an area of cool air, while the other has cool air pushed into an area of warmer air. This type of air movement is called a front; where warm air is the aggressor it is a warm front, and where cold air is the aggressor it is a cold front. The precipitation associated with a cold front is usually heavy and covers a relatively small area, whereas the precipitation associated with a warm front is more passive, smaller in quantity, but covers a much larger area, as pictured below.</p>
 <p><img alt="" src="../../_images/midlatstorm.png" /></p>
 <p>Tornadoes and other <strong>violent</strong> weather phenomena are associated with cold fronts.</p>
-</div>
-</div>
-<div class="section" id="precipitation-variables-of-interest">
-<h2>Precipitation Variables of Interest<a class="headerlink" href="#precipitation-variables-of-interest" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="precipitation-variables-of-interest">
+<h2>Precipitation Variables of Interest<a class="headerlink" href="#precipitation-variables-of-interest" title="Link to this heading">#</a></h2>
 <p>There are several variables of interest:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Intensity: how hard it rains (a rate)</p></li>
 <li><p>Duration: how long it rains at any given intensity (a time)</p></li>
 <li><p>Frequency: how often it rains at any given intensity and duration (a probability)</p></li>
@@ -557,9 +578,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p class="admonition-title">Note</p>
 <p>A slow gentle rain for a long time versus a hard rain for a short time can have the same total depth, but vastly different hydrologic impact</p>
 </div>
-</div>
-<div class="section" id="depth-duration-frequency">
-<h2>Depth-Duration-Frequency<a class="headerlink" href="#depth-duration-frequency" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="depth-duration-frequency">
+<h2>Depth-Duration-Frequency<a class="headerlink" href="#depth-duration-frequency" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Depth of rainfall is the accumulated depth (in a gage) over some time interval.</p></li>
 <li><p>Duration is that time interval.</p></li>
@@ -584,9 +605,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <div class="math notranslate nohighlight">
 \[ i_{avg}=\frac{D}{T_C}\]</div>
 <p>Conversion from Intensity-Duration to Depth-Duration is obtained by multiplication</p>
-</div>
-<div class="section" id="intensity-duration-frequency">
-<h2>Intensity-Duration-Frequency<a class="headerlink" href="#intensity-duration-frequency" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="intensity-duration-frequency">
+<h2>Intensity-Duration-Frequency<a class="headerlink" href="#intensity-duration-frequency" title="Link to this heading">#</a></h2>
 <p>The family of curves that depicts the relationship between the intensity, duration, and frequency of precipitation at a point is a fundamental part of the rational equation method for storm water drainage design.</p>
 <p><img alt="" src="../../_images/IDFcurves.png" /></p>
 <p>Conversion from Depth-Duration to Intensity-Duration is obtained by the ratio of depth to duration</p>
@@ -626,13 +647,13 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 14. [Missing Rainfall Data Replacement Techniques](http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf)
 
 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf) 
---></div>
-<div class="section" id="design-storms">
-<h2>Design Storms<a class="headerlink" href="#design-storms" title="Permalink to this headline">¶</a></h2>
+--></section>
+<section id="design-storms">
+<h2>Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h2>
 <p>A design storm is a theoretical or hypothetical weather event used by engineers, urban planners, and hydrologists as a standard to simulate and predict the potential impact of extreme weather conditions on a particular area. It is employed in the design and planning of various structures and systems to ensure they can withstand or manage the expected stresses caused by intense rainfall or other weather-related factors.</p>
-</div>
-<div class="section" id="design-storm-characteristics">
-<h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="design-storm-characteristics">
+<h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Link to this heading">#</a></h2>
 <p>The characteristics of a design storm typically include:</p>
 <ul class="simple">
 <li><p>Intensity: The rate of rainfall or snowfall during the storm, often measured in inches per hour or millimeters per hour.</p></li>
@@ -648,9 +669,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 </ul>
 <p>These storms are not exact events that have occurred in the past; rather, they’re created based on statistical analyses of historical weather data to provide a standard for planning and design purposes. They assist in creating structures and systems that can manage the potential stress of extreme weather events, ensuring safety and functionality within the built environment.</p>
 <p>Design storms are statistical models of such temporal behavior and are used in hydrologic models when hydrographs need to be generated</p>
-</div>
-<div class="section" id="rainfall-distributions">
-<h2>Rainfall Distributions<a class="headerlink" href="#rainfall-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rainfall-distributions">
+<h2>Rainfall Distributions<a class="headerlink" href="#rainfall-distributions" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Rainfall distributions represent temporal patterns of a storm.</p></li>
 <li><p>A rainfall distribution is also called a hyetograph.</p></li>
@@ -674,153 +695,155 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p>A particular block is indicated with a height of about one, and time duration also one.  If for instance the block represents a depth the implication is that after one hour (from time 4 to 5 in the drawing) the depth added to some location is one unit.</p>
 <p><img alt="width=&quot;400&quot;" src="../../_images/incr-cum-repr.png" /></p>
 <p>If these are watershed inches, then the drawing sugests that from hour zero to one, zero inches of precipitation occur, from hour one to two, about 1/4 inch; from hour 2 to 3, about 0.4 inch; from hour 3 to 4, about 0.7 inch; and hour 4 to 5; 1 inch; and so on.  If we tabulated the information we would have</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:right head"><p>Time</p></th>
-<th class="text-align:right head"><p>Incremental Depth (Red)</p></th>
-<th class="text-align:right head"><p>Accumulated Depth (Blue)</p></th>
+<tr class="row-odd"><th class="head text-right"><p>Time</p></th>
+<th class="head text-right"><p>Incremental Depth (Red)</p></th>
+<th class="head text-right"><p>Accumulated Depth (Blue)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:right"><p>0</p></td>
-<td class="text-align:right"><p>0.00</p></td>
-<td class="text-align:right"><p>0.00</p></td>
+<tr class="row-even"><td class="text-right"><p>0</p></td>
+<td class="text-right"><p>0.00</p></td>
+<td class="text-right"><p>0.00</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
-<td class="text-align:right"><p>0.25</p></td>
-<td class="text-align:right"><p>0.00</p></td>
+<tr class="row-odd"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>0.25</p></td>
+<td class="text-right"><p>0.00</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>2</p></td>
-<td class="text-align:right"><p>0.40</p></td>
-<td class="text-align:right"><p>0.25</p></td>
+<tr class="row-even"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>0.40</p></td>
+<td class="text-right"><p>0.25</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>3</p></td>
-<td class="text-align:right"><p>0.70</p></td>
-<td class="text-align:right"><p>0.65</p></td>
+<tr class="row-odd"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>0.70</p></td>
+<td class="text-right"><p>0.65</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>4</p></td>
-<td class="text-align:right"><p>1.00</p></td>
-<td class="text-align:right"><p>1.35</p></td>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>1.00</p></td>
+<td class="text-right"><p>1.35</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>5</p></td>
-<td class="text-align:right"><p>0.50</p></td>
-<td class="text-align:right"><p>2.35</p></td>
+<tr class="row-odd"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p>0.50</p></td>
+<td class="text-right"><p>2.35</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Accumulating (running sum) the incremental is called “aggregation” (or just plain numerical integration); Differencing the cumulative is called “disaggregation.” For practical application its often handy to zero pad the leading and trailing edges so don’t have to worry about forward/backward differencing issues.</p>
 <p><strong>Computational Thinking (ENGR-1330) - Accumulation</strong></p>
 <p>Consider the need to accumulate data such as:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:right head"><p>Time (hours)</p></th>
-<th class="text-align:right head"><p>Incremental Depth (inches)</p></th>
-<th class="text-align:right head"><p>Accumulated Depth (inches)</p></th>
+<tr class="row-odd"><th class="head text-right"><p>Time (hours)</p></th>
+<th class="head text-right"><p>Incremental Depth (inches)</p></th>
+<th class="head text-right"><p>Accumulated Depth (inches)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:right"><p>0</p></td>
-<td class="text-align:right"><p>0.121</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>0</p></td>
+<td class="text-right"><p>0.121</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
-<td class="text-align:right"><p>0.121</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>1</p></td>
+<td class="text-right"><p>0.121</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>2</p></td>
-<td class="text-align:right"><p>0.132</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p>0.132</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>3</p></td>
-<td class="text-align:right"><p>0.154</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>0.154</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>4</p></td>
-<td class="text-align:right"><p>0.165</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>0.165</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>5</p></td>
-<td class="text-align:right"><p>0.187</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p>0.187</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>6</p></td>
-<td class="text-align:right"><p>0.198</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>6</p></td>
+<td class="text-right"><p>0.198</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>7</p></td>
-<td class="text-align:right"><p>0.242</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>7</p></td>
+<td class="text-right"><p>0.242</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>8</p></td>
-<td class="text-align:right"><p>0.297</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>8</p></td>
+<td class="text-right"><p>0.297</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>9</p></td>
-<td class="text-align:right"><p>0.374</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>9</p></td>
+<td class="text-right"><p>0.374</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>10</p></td>
-<td class="text-align:right"><p>0.594</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>10</p></td>
+<td class="text-right"><p>0.594</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>11</p></td>
-<td class="text-align:right"><p>4.708</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>11</p></td>
+<td class="text-right"><p>4.708</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>12</p></td>
-<td class="text-align:right"><p>1.199</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>12</p></td>
+<td class="text-right"><p>1.199</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>13</p></td>
-<td class="text-align:right"><p>0.528</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>13</p></td>
+<td class="text-right"><p>0.528</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>14</p></td>
-<td class="text-align:right"><p>0.374</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>14</p></td>
+<td class="text-right"><p>0.374</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>15</p></td>
-<td class="text-align:right"><p>0.286</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>15</p></td>
+<td class="text-right"><p>0.286</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>16</p></td>
-<td class="text-align:right"><p>0.253</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>16</p></td>
+<td class="text-right"><p>0.253</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>17</p></td>
-<td class="text-align:right"><p>0.209</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>17</p></td>
+<td class="text-right"><p>0.209</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>18</p></td>
-<td class="text-align:right"><p>0.176</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>18</p></td>
+<td class="text-right"><p>0.176</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>19</p></td>
-<td class="text-align:right"><p>0.154</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>19</p></td>
+<td class="text-right"><p>0.154</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>20</p></td>
-<td class="text-align:right"><p>0.132</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>20</p></td>
+<td class="text-right"><p>0.132</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>21</p></td>
-<td class="text-align:right"><p>0.132</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>21</p></td>
+<td class="text-right"><p>0.132</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>22</p></td>
-<td class="text-align:right"><p>0.132</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>22</p></td>
+<td class="text-right"><p>0.132</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>23</p></td>
-<td class="text-align:right"><p>0.132</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-odd"><td class="text-right"><p>23</p></td>
+<td class="text-right"><p>0.132</p></td>
+<td class="text-right"><p></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>24</p></td>
-<td class="text-align:right"><p>0.000</p></td>
-<td class="text-align:right"><p></p></td>
+<tr class="row-even"><td class="text-right"><p>24</p></td>
+<td class="text-right"><p>0.000</p></td>
+<td class="text-right"><p></p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Our goal is to complete the last column, in this case its relatively straight forward because the time spacing is uniform.  The approach is to perform numerical integration using rectangular panels looking backward in time.</p>
 <div class="math notranslate nohighlight">
 \[acc_{i}=inc_{i-1}+acc_{i-1}\]</div>
@@ -849,7 +872,7 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/precipitation_17_0.png" src="../../_images/precipitation_17_0.png" />
+<img alt="../../_images/1e9a909ad266cd16e9d924164dab833a9340c3ea0647ad6df548ab805b8c77e7.png" src="../../_images/1e9a909ad266cd16e9d924164dab833a9340c3ea0647ad6df548ab805b8c77e7.png" />
 </div>
 </div>
 <p>When the time spacing is non-uniform, the numerical integration using rectangular panels looking backward in time is complicated by the various time increments.  The listing below is a FORTRAN script to process such situations it should be relatively easy to port the script to python, fix the file reading structure and then have a pretty general tool.</p>
@@ -897,7 +920,7 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
  <span class="mi">3001</span> <span class="k">continue</span>
   <span class="mi">666</span> <span class="n">stop</span>
  <span class="mi">9001</span> <span class="nb">format</span><span class="p">(</span><span class="n">a80</span><span class="p">)</span>
- <span class="mi">9002</span> <span class="nb">format</span><span class="p">(</span><span class="mi">2</span><span class="p">(</span><span class="n">g12</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="n">x</span><span class="p">))</span>
+ <span class="mi">9002</span> <span class="nb">format</span><span class="p">(</span><span class="mi">2</span><span class="p">(</span><span class="n">g12</span><span class="mf">.6</span><span class="p">,</span><span class="mi">2</span><span class="n">x</span><span class="p">))</span>
       <span class="n">end</span>
 </pre></div>
 </div>
@@ -905,18 +928,18 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p class="admonition-title">To do:</p>
 <p>Port above FORTRAN to python, modify file management for general use.  Recall python cannot use floats as indices, so the loop processing needs rewrite.  Include an example.</p>
 </div>
-<div class="section" id="design-distributions">
-<h3>Design Distributions<a class="headerlink" href="#design-distributions" title="Permalink to this headline">¶</a></h3>
+<section id="design-distributions">
+<h3>Design Distributions<a class="headerlink" href="#design-distributions" title="Link to this heading">#</a></h3>
 <p>Distributions from historical storms are analyzed to generate statistical <strong>models</strong> of rainfall – these models are called <strong>design storms</strong>. Design storm distributions are typically represented as dimensionless hyetographs</p>
 <p>Some often used models are:</p>
 <ul class="simple">
 <li><p>NRCS Type Storms (24 hour, 6 hour)</p></li>
 <li><p>Empirical Texas Hyetographs (TxHYETO-2015)</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="nrcs-scs-rainfall-type-curves">
-<h2>NRCS (SCS) Rainfall Type Curves<a class="headerlink" href="#nrcs-scs-rainfall-type-curves" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="nrcs-scs-rainfall-type-curves">
+<h2>NRCS (SCS) Rainfall Type Curves<a class="headerlink" href="#nrcs-scs-rainfall-type-curves" title="Link to this heading">#</a></h2>
 <p>SCS(1973) analyzed DDF curves to develop dimensionless rainfall temporal patterns called type curves for four different regions in the US. SCS type curves are in the form of percentage mass (cumulative) curves based on 24-hr rainfall of the desired frequency. Intended for use with the SCS Curve Number runoff generation model!</p>
 <p>Location selects the type curve</p>
 <p><img alt="" src="../../_images/scsLocation.png" /></p>
@@ -970,22 +993,22 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/precipitation_21_0.png" src="../../_images/precipitation_21_0.png" />
+<img alt="../../_images/258e4aade2308f0b4479d44909553ad74690dd5fd8ee8dff63f0aed895c5f352.png" src="../../_images/258e4aade2308f0b4479d44909553ad74690dd5fd8ee8dff63f0aed895c5f352.png" />
 </div>
 </div>
 <p>A variant for 6-hour durations is</p>
 <p><img alt="" src="../../_images/SCS6hr.png" /></p>
 <p>Using the type curves is straightforward</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use NOAA Atlas 14, TP-40, or other defendable source to set total depth, P for the 24 hour storm (or 6 hour storm)</p></li>
 <li><p>Pick appropriate SCS type curve (location).</p></li>
 <li><p>Multiply (rescale) the type curve with P to get the design mass curve.</p></li>
 </ol>
 <p>If you need incremental values, differencing the rescaled mass curve can be used to develop the design hyetograph.</p>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="texas-empirical-hyetograph-based-design-storms">
-<h2>Texas Empirical Hyetograph-Based Design Storms<a class="headerlink" href="#texas-empirical-hyetograph-based-design-storms" title="Permalink to this headline">¶</a></h2>
+<section id="texas-empirical-hyetograph-based-design-storms">
+<h2>Texas Empirical Hyetograph-Based Design Storms<a class="headerlink" href="#texas-empirical-hyetograph-based-design-storms" title="Link to this heading">#</a></h2>
 <p>Alternative to SCS Type Curves for use in <strong>Texas</strong> are the <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/EmpiricalHyetographs/sir2004-5075.pdf">Texas Empirical Hyetographs</a></p>
 <ul class="simple">
 <li><p>Based on Texas data.</p></li>
@@ -996,20 +1019,21 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p>The authors suggest use of the 50th percentile curve (median storm).</p>
 <p>::{note}
 The 90th percentile is appropriate for high consequence of failure targets (hospitals, sewage treatment plants, water treatment plants, nuclear power plants, thermal power plants, airports,…)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="o">-</span> <span class="n">Multiply</span> <span class="n">the</span> <span class="n">time</span> <span class="n">axis</span> <span class="n">by</span> <span class="n">the</span> <span class="n">storm</span> <span class="n">duration</span><span class="o">.</span>
-<span class="o">-</span> <span class="n">Multiply</span> <span class="n">the</span> <span class="n">depth</span> <span class="n">axis</span> <span class="n">by</span> <span class="n">the</span> <span class="n">storm</span> <span class="n">depth</span><span class="o">.</span>
-<span class="o">-</span> <span class="n">Result</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">design</span> <span class="n">storm</span> <span class="k">for</span> <span class="n">given</span> <span class="n">duration</span> <span class="ow">and</span> <span class="n">AEP</span><span class="o">.</span>
-</pre></div>
+<div class="docutils">
+<ul class="simple">
+<li><p>Multiply the time axis by the storm duration.</p></li>
+<li><p>Multiply the depth axis by the storm depth.</p></li>
+<li><p>Result is a design storm for given duration and AEP.</p></li>
+</ul>
 </div>
-</div>
-<div class="section" id="historical-observations">
-<h2>Historical Observations<a class="headerlink" href="#historical-observations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="historical-observations">
+<h2>Historical Observations<a class="headerlink" href="#historical-observations" title="Link to this heading">#</a></h2>
 <p>The design storms are created from statistical models of observations.</p>
 <p>Incorporating observed precipitation data offers a faithful representation of actual weather patterns and variability, capturing nuances that statistical design storm models may overlook. By using observed data, engineers can better assess real-world risks, enhancing the reliability and precision of infrastructure designs and flood mitigation strategies. Additionally, observed precipitation data provide valuable insights into localized climatic trends and extreme weather events, enabling proactive adaptation measures to address changing environmental conditions effectively.</p>
 <p>At times, there might be motivation to study the source observations - so how to obtain data is important.  There are likely multiple sources of data - here we will examine just a few.</p>
-<div class="section" id="ncdc">
-<h3>NCDC<a class="headerlink" href="#ncdc" title="Permalink to this headline">¶</a></h3>
+<section id="ncdc">
+<h3>NCDC<a class="headerlink" href="#ncdc" title="Link to this heading">#</a></h3>
 <p>This is the easiest, and may suffice in many situations.  The National Climatic Data Center maintains historical records of climate related data - in some locations over a century of data exist.  Using our study area, and current online tools one can find gages near the study site.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -1033,10 +1057,10 @@ The 90th percentile is appropriate for high consequence of failure targets (hosp
 <p>Once the request is built the NCDC will send a link to a file for you to download.  In secure systems, you have to edit the link by-hand to defeat the anti-Soviet intrusion software - again will demonstrate as needed.</p>
 <p>The data file itself looks like (click on the link in class):</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/ce5361book/lessons/04precipitation/3594221.csv">3594221.csv</a></p>
-</div>
-</div>
-<div class="section" id="missing-data-replacement-techniques">
-<h2>Missing Data Replacement Techniques<a class="headerlink" href="#missing-data-replacement-techniques" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="missing-data-replacement-techniques">
+<h2>Missing Data Replacement Techniques<a class="headerlink" href="#missing-data-replacement-techniques" title="Link to this heading">#</a></h2>
 <p>In the estimation of missing data from a raingauge station, performance of a group of
 neighbouring stations including the one with missing data are considered. A comparison
 of the recordings of these stations are made by using their normal rainfall as standard
@@ -1049,7 +1073,7 @@ many gaps exist in a record, it may be worthwhile to neglect that station than t
 a station record with too much of interpolated data. A WMO guideline states that not
 more than 5 to 10% of a record should have interpolated data.</p>
 <p>Some representative methods are discribed in:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/NormalRatioMethod/mwr-080-08-0129.pdf">PAULHUS, J. L. H. , and M. A. KOHLER. “INTERPOLATION OF MISSING PRECIPITATION RECORDS”. Monthly Weather Review 80.8 (1952): 129-133.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/MissingRainfallData/MissingRainfallData.pdf">Missing Rainfall Data Replacement Techniques</a></p></li>
 </ol>
@@ -1063,9 +1087,9 @@ Given the annual precipitation values <span class="math notranslate nohighlight"
 <li><p>If the normal annual precipitations vary considerably then <span class="math notranslate nohighlight">\(P_x\)</span> is estimated by weighing the precipitation at various stations by the ratios of normal annual precipitations. This method, known as the normal ratio method, gives <span class="math notranslate nohighlight">\(P_x\)</span> as
 <span class="math notranslate nohighlight">\(P_x = \frac{N_x}{M}(\frac{P_1}{N_1} + \frac{P_2}{N_2} + \dots + \frac{P_M}{N_M})\)</span></p></li>
 </ul>
-</div>
-<div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
 <p>The <strong>normal</strong> annual rainfall at stations A, B, C and D in a basin are 80.97, 67.59, 76.28 and 92.01 cm respectively. In 1985, the station D was inoperative and the stations A, B and C recorded annual precipitation of 91.11, 72.23 and 79.89 cm respectively. Estimate
 the rainfall at station D in that year</p>
 <blockquote>
@@ -1075,12 +1099,12 @@ the rainfall at station D in that year</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Missing Precipitation Estimation</span>
 <span class="k">def</span> <span class="nf">station_average</span><span class="p">(</span><span class="n">precip_known</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; precip_known is known stations data as a list&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; precip_known is known stations data as a list&#39;&#39;&#39;</span>
     <span class="n">how_many</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">precip_known</span><span class="p">)</span>
     <span class="n">station_average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">precip_known</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">how_many</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">station_average</span>
 <span class="k">def</span> <span class="nf">normal_ratio</span><span class="p">(</span><span class="n">precip_known</span><span class="p">,</span><span class="n">normal_all</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; precip_known is known stations data as a list</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; precip_known is known stations data as a list</span>
 <span class="sd">        normal_all is all stations normal rainfall depths</span>
 <span class="sd">        missing station is assumed last element in normal_all list&#39;&#39;&#39;</span>
     <span class="n">how_many</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">precip_known</span><span class="p">)</span>  
@@ -1121,9 +1145,9 @@ Missing Depth :  99.41  cm
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="precipitation-over-an-area">
-<h2>Precipitation over an Area<a class="headerlink" href="#precipitation-over-an-area" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="precipitation-over-an-area">
+<h2>Precipitation over an Area<a class="headerlink" href="#precipitation-over-an-area" title="Link to this heading">#</a></h2>
 <p>The measurement techniques described here have all concentrated on measuring rainfall at a precise location (or at least over an extremely small area).  In reality, the hydrologist needs to know how much
 precipitation has fallen over a far larger area, usually
 a catchment. To move from point measurements to
@@ -1180,8 +1204,8 @@ based upon the size of each representative area
 the topography is uniform within each polygon so 
 that it can be safely assumed that the rainfall distribution is uniform within the polygon. This would 
 suggest that it can only work where the rain gauges are located initially with this technique in mind -->
-<div class="section" id="approximation-of-distributed-precipitation-data-from-point-gage-data">
-<h3>Approximation of Distributed Precipitation Data from Point Gage Data<a class="headerlink" href="#approximation-of-distributed-precipitation-data-from-point-gage-data" title="Permalink to this headline">¶</a></h3>
+<section id="approximation-of-distributed-precipitation-data-from-point-gage-data">
+<h3>Approximation of Distributed Precipitation Data from Point Gage Data<a class="headerlink" href="#approximation-of-distributed-precipitation-data-from-point-gage-data" title="Link to this heading">#</a></h3>
 <p>A watershed is the area of land where all of the water that is under it or drains off of it goes into the same place. First consider a location where streamflow can be observed, call this location the outlet. Precipitation falls upstream of this location and is the source of runoff past the outlet. If a unit of precipitation falls upstream of the outlet and eventually drains past the outlet, the area defined by all such locations is called the drainage area to the outlet, and this area is the watershed. The concept also applies in groundwater with the area called a basin, or capture zone, depending on context.  In water budget studies and in unit hydrograph analysis the volume of precipitation is as important as the rate and spatial distribution. Missing data are often a problem and either kriging or simple arithmetic interpolation is used to supply estimates of rainfall at a gage location that has missing data. Kriging is probably a more defendable approach but is probably too complicated for manual or small project application.
 The entire volume of rainfall applied to an entire basin is called the precipitation volume. If the basin area normalizes this volume the resulting value is called the effective uniform depth (EUD). There are several methods to compute EUD: arithmetic mean, theissen polygon network, iso-heyetal method. Mean area precipitation and effective uniform depth are for all practical purposes the same concept.</p>
 <p><img alt="" src="../../_images/arealfrompoint.png" /></p>
@@ -1189,18 +1213,18 @@ The entire volume of rainfall applied to an entire basin is called the precipita
 <p class="admonition-title">Note</p>
 <p>The figures above are from author’s notes circa 2002; the original source files (MS Word) are unreadable with modern software, fortunately a PDF copy remains!  It’s the source of the figures.</p>
 </div>
-</div>
-<div class="section" id="arithmetic-mean">
-<h3>Arithmetic Mean<a class="headerlink" href="#arithmetic-mean" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="arithmetic-mean">
+<h3>Arithmetic Mean<a class="headerlink" href="#arithmetic-mean" title="Link to this heading">#</a></h3>
 <p>The arithmetic mean method simply computes the mean value of all the rain gage catches (depths) and assigns this value as the average uniform depth over the watershed. To determine rainfall volume, multiply this depth by the area.
 The formula for average depth (precipitation) is simply,</p>
 <div class="math notranslate nohighlight">
 \[\bar P = \frac{1}{n} \sum_{i=1}^{n} {P_i}\]</div>
 <p>In this example the result is 88.4 mm over the entire watershed.</p>
 <p>The total volume in cubic meters is the product of the average depth and the watershed area converted into cubic meters. The watershed area is 16 <span class="math notranslate nohighlight">\(km^2\)</span>. Thus the total volume of precipitation over the watershed is <span class="math notranslate nohighlight">\(1.41 \times 10^6~m^3\)</span>. We will compare this volume to the other ways of estimated distributed rainfall depths.</p>
-</div>
-<div class="section" id="polygon-weighted-methods">
-<h3>Polygon weighted methods.<a class="headerlink" href="#polygon-weighted-methods" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="polygon-weighted-methods">
+<h3>Polygon weighted methods.<a class="headerlink" href="#polygon-weighted-methods" title="Link to this heading">#</a></h3>
 <p>The polygon methods divide the watershed into subareas and assign depths at gages to each sub area, compute the total volume (sum of all sub-area volumes), then divide by the watershed area to determine an area-weighted average. Thiessen polygons (nearest neighbor approach) are the most common division scheme. Thiessen weights are reported in most USGS data.</p>
 <div class="admonition-thiessens-polygons admonition">
 <p class="admonition-title">Thiessen’s polygons</p>
@@ -1298,23 +1322,23 @@ where ai
  is the 
 average rainfall between the isohyets. This technique 
 is analogous to Figure 2.14, except in this case the 
-contours will be of rainfall rather than elevation.--></div>
-</div>
-<div class="section" id="areal-reduction-factors">
-<h2>Areal Reduction Factors<a class="headerlink" href="#areal-reduction-factors" title="Permalink to this headline">¶</a></h2>
+contours will be of rainfall rather than elevation.--></section>
+</section>
+<section id="areal-reduction-factors">
+<h2>Areal Reduction Factors<a class="headerlink" href="#areal-reduction-factors" title="Link to this heading">#</a></h2>
 <p>Areal reduction factors (ARFs) are used in precipitation modeling to account for the spatial variability of rainfall across a region. Precipitation is not uniformly distributed over an area, and ARFs help adjust point rainfall measurements to better represent the average precipitation for a larger region.</p>
 <p>In precipitation modeling, meteorologists often collect rainfall data from specific points, such as weather stations. However, this point data may not accurately reflect the variability of precipitation over a broader area. ARFs are applied to these point measurements to estimate the average precipitation over a larger spatial scale.</p>
 <p>The factors influencing areal reduction include topography, land use, and other geographical features that affect how rainfall is distributed across an area. By applying ARFs, modelers can better capture the spatial patterns of precipitation, improving the accuracy of rainfall estimates for hydrological and environmental studies. This consideration is crucial for various applications, such as flood risk assessment, water resource management, and climate modeling.</p>
-</div>
-<div class="section" id="radar-precipitation-estimation">
-<h2>Radar Precipitation Estimation<a class="headerlink" href="#radar-precipitation-estimation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="radar-precipitation-estimation">
+<h2>Radar Precipitation Estimation<a class="headerlink" href="#radar-precipitation-estimation" title="Link to this heading">#</a></h2>
 <p>Radar rainfall estimates involve using weather radar systems to measure precipitation over a given area. These estimates are valuable for various applications, including weather forecasting, hydrological modeling, and flood management. Unlike point measurements from rain gauges, radar provides spatially continuous information about precipitation distribution.</p>
 <p>Radar systems emit radio waves that interact with precipitation particles in the atmosphere. By analyzing the returned signals, meteorologists can estimate the intensity and location of rainfall across a region. However, radar data may still contain uncertainties and errors that need to be addressed.</p>
 <p>To improve the accuracy of radar rainfall estimates, meteorologists often employ various correction techniques. One common method is gauge adjustment, where radar data are calibrated using ground-based rain gauge measurements. Another approach involves applying quality control measures to filter out artifacts and errors in the radar signal.</p>
 <p>Additionally, radar-based estimates may be adjusted using gauge-to-radar ratios to better represent ground-level precipitation. These ratios help account for potential biases in the radar measurements, ensuring that the radar-derived rainfall values align more closely with <strong>ground truth</strong> observations.</p>
 <p>Radar rainfall estimates provide valuable information about precipitation patterns over a wide area, but correction and adjustment methods are required to maintain accuracy and reliability for applications in meteorology and hydrology.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1328,7 +1352,7 @@ contours will be of rainfall rather than elevation.--></div>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons/09-Precipitation"
         },
         predefinedOutput: true
@@ -1336,56 +1360,138 @@ contours will be of rainfall rather than elevation.--></div>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../07-StreamflowDataModeling/streamflowdatamodeling.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">7. Streamflow Data Sources and Estimation</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="../10-EvaporationInfiltration/EvaporationInfiltration.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">9. Hydrologic Abstractions</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
-        
-            &copy; Copyright 2024.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../07-StreamflowDataModeling/streamflowdatamodeling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7. Streamflow Data Sources and Estimation</p>
       </div>
-    </div>
-  
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="../10-EvaporationInfiltration/EvaporationInfiltration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">9. Hydrologic Abstractions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forms-of-precipitation">Forms of Precipitation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-precipitation-by-origin">Types of Precipitation (by Origin)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-storms">Convective Storms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orographic-storms">Orographic Storms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclonic-storms">Cyclonic Storms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-variables-of-interest">Precipitation Variables of Interest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-scs-rainfall-type-curves">NRCS (SCS) Rainfall Type Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texas-empirical-hyetograph-based-design-storms">Texas Empirical Hyetograph-Based Design Storms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-observations">Historical Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncdc">NCDC</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data-replacement-techniques">Missing Data Replacement Techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area">Precipitation over an Area</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-mean">Arithmetic Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon weighted methods.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors">Areal Reduction Factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-precipitation-estimation">Radar Precipitation Estimation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
