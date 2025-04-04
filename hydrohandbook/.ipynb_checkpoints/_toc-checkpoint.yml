@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: chapters/01-introduction/01-introduction
+- file: chapters/02-precipitation/02-precipitation
+- file: chapters/03-infiltration/03-infiltration
+- file: chapters/04-runoffgeneration/04-runoffgeneration
+- file: chapters/05-rainfallrunoff/05-rainfallrunoff
+- file: chapters/06-streamflow/06-streamflow
+- file: chapters/07-floodhydrology/07-floodhydrology
+- file: chapters/08-hydrologicmodels/08-hydrologicmodels
+- file: chapters/09-groundwater/09-groundwater
+- file: chapters/10-wellhydraulics/10-wellhydraulics
+#- file: notebooks
+#- file: markdown-notebooks

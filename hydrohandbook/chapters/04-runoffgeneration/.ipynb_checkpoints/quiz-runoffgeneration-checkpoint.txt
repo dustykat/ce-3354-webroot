@@ -1,0 +1,21 @@
+Multiple Choice Quiz: Overland Flow Mechanisms
+
+What is the primary trigger for Hortonian overland flow?A) Soil saturationB) High evaporation ratesC) Rainfall exceeding infiltration capacityD) Groundwater riseAnswer: C
+
+Which condition is necessary for Dunne overland flow to occur?A) High rainfall intensityB) Low soil moistureC) Complete soil saturationD) Frozen groundAnswer: C
+
+Where is Hortonian flow most commonly observed?A) Forested wetlandsB) Urban areas with impervious surfacesC) Alpine tundraD) MarshlandsAnswer: B
+
+In Dunne flow, what typically contributes to soil saturation from below?A) Surface evaporationB) Subsurface lateral flowC) Capillary riseD) Root uptakeAnswer: B
+
+Which flow type can occur even when the soil is initially dry?A) Dunne flowB) Saturation return flowC) Hortonian flowD) InterflowAnswer: C
+
+Who formalized the concept of infiltration-excess overland flow in 1933?A) Thomas DunneB) Robert HortonC) John HewlettD) Victor ChowAnswer: B
+
+Which flow type is typically associated with humid, vegetated environments?A) Hortonian flowB) Dunne flowC) Macropore flowD) BaseflowAnswer: B
+
+In the Horton model, infiltration capacity decreases over time and approaches:A) ZeroB) Rainfall intensityC) A constant minimum valueD) Soil porosityAnswer: C
+
+Which of the following is NOT a correct characteristic of Dunne flow?A) It requires saturated soilsB) It can occur immediately upon rainfall startC) It is influenced by subsurface flowD) It is common in humid climatesAnswer: B
+
+Which flow type is most likely during short, intense summer storms in dry regions?A) Dunne flowB) BaseflowC) Hortonian flowD) Capillary riseAnswer: C

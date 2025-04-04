@@ -1,0 +1,164 @@
+Multiple Choice Quiz: Overland Flow Mechanisms
+
+What is the primary trigger for Hortonian overland flow?A) Soil saturationB) High evaporation ratesC) Rainfall exceeding infiltration capacityD) Groundwater riseAnswer: C
+
+Which condition is necessary for Dunne overland flow to occur?A) High rainfall intensityB) Low soil moistureC) Complete soil saturationD) Frozen groundAnswer: C
+
+Where is Hortonian flow most commonly observed?A) Forested wetlandsB) Urban areas with impervious surfacesC) Alpine tundraD) MarshlandsAnswer: B
+
+In Dunne flow, what typically contributes to soil saturation from below?A) Surface evaporationB) Subsurface lateral flowC) Capillary riseD) Root uptakeAnswer: B
+
+Which flow type can occur even when the soil is initially dry?A) Dunne flowB) Saturation return flowC) Hortonian flowD) InterflowAnswer: C
+
+Who formalized the concept of infiltration-excess overland flow in 1933?A) Thomas DunneB) Robert HortonC) John HewlettD) Victor ChowAnswer: B
+
+Which flow type is typically associated with humid, vegetated environments?A) Hortonian flowB) Dunne flowC) Macropore flowD) BaseflowAnswer: B
+
+In the Horton model, infiltration capacity decreases over time and approaches:A) ZeroB) Rainfall intensityC) A constant minimum valueD) Soil porosityAnswer: C
+
+Which of the following is NOT a correct characteristic of Dunne flow?A) It requires saturated soilsB) It can occur immediately upon rainfall startC) It is influenced by subsurface flowD) It is common in humid climatesAnswer: B
+
+Which flow type is most likely during short, intense summer storms in dry regions?A) Dunne flowB) BaseflowC) Hortonian flowD) Capillary riseAnswer: C
+
+Multiple Choice Quiz: Flow Mechanisms
+
+What is the primary trigger for Hortonian overland flow?
+A) Soil saturation
+B) High evaporation rates
+C) Rainfall exceeding infiltration capacity
+D) Groundwater rise
+Answer: C
+
+Which condition is necessary for Dunne overland flow to occur?
+A) High rainfall intensity
+B) Low soil moisture
+C) Complete soil saturation
+D) Frozen ground
+Answer: C
+
+Where is Hortonian flow most commonly observed?
+A) Forested wetlands
+B) Urban areas with impervious surfaces
+C) Alpine tundra
+D) Marshlands
+Answer: B
+
+In Dunne flow, what typically contributes to soil saturation from below?
+A) Surface evaporation
+B) Subsurface lateral flow
+C) Capillary rise
+D) Root uptake
+Answer: B
+
+Which flow type can occur even when the soil is initially dry?
+A) Dunne flow
+B) Saturation return flow
+C) Hortonian flow
+D) Interflow
+Answer: C
+
+Who formalized the concept of infiltration-excess overland flow in 1933?
+A) Thomas Dunne
+B) Robert Horton
+C) John Hewlett
+D) Victor Chow
+Answer: B
+
+Which flow type is typically associated with humid, vegetated environments?
+A) Hortonian flow
+B) Dunne flow
+C) Macropore flow
+D) Baseflow
+Answer: B
+
+What defines interflow within a hillslope system?
+A) It occurs in the water table
+B) It flows overland
+C) It moves laterally within the unsaturated zone
+D) It results from evapotranspiration
+Answer: C
+
+Which of the following best describes baseflow?
+A) Fast subsurface runoff
+B) Rainfall-driven overland flow
+C) Sustained groundwater discharge to streams
+D) Runoff from saturated soil only
+Answer: C
+
+Which flow type is most likely during short, intense summer storms in dry regions?
+A) Dunne flow
+B) Baseflow
+C) Hortonian flow
+D) Capillary rise
+Answer: C
+
+Quiz: Watershed Characteristics and Time of Concentration
+What is a watershed boundary?
+A) A network of streams in a region
+B) The line dividing one drainage basin from another
+C) The lowest point in a catchment
+D) A political boundary used in planning
+Answer: B
+
+Which factor most directly affects the total runoff volume from a watershed?
+A) Slope
+B) Land use
+C) Drainage density
+D) Watershed area
+Answer: D
+
+In engineering hydrology, slope is important because it affects:
+A) Rainfall intensity
+B) Groundwater recharge
+C) Flow velocity and erosion potential
+D) Vegetation type
+Answer: C
+
+Impervious land use typically results in:
+A) Decreased runoff and slower concentration time
+B) Increased infiltration and groundwater recharge
+C) Faster runoff and higher peak discharges
+D) More vegetation and lower evaporation
+Answer: C
+
+Which of the following best describes time of concentration (Tc)?
+A) Time for groundwater to reach the surface
+B) Time it takes for the first drop of rain to evaporate
+C) Time required for water to travel from the most distant point in the watershed to the outlet
+D) Time between two peak rainfall events
+Answer: C
+
+Which flow type occurs first and typically over very short distances?
+A) Baseflow
+B) Channel flow
+C) Shallow concentrated flow
+D) Sheet flow
+Answer: D
+
+The presence of steep slopes in a watershed will likely:
+A) Increase Tc and reduce peak discharge
+B) Decrease Tc and increase peak discharge
+C) Not affect flow characteristics
+D) Prevent infiltration entirely
+Answer: B
+
+What is the primary factor influencing the assignment of curve numbers or runoff coefficients in a watershed?
+A) Elevation
+B) Soil moisture
+C) Land use and land cover
+D) Flow direction algorithm
+Answer: C
+
+Drainage networks are important in hydrologic modeling because they:
+A) Represent legal jurisdictions
+B) Control infiltration and evapotranspiration
+C) Route water and determine hydrograph shape
+D) Define soil types in a basin
+Answer: C
+
+Which of the following methods is commonly used to estimate time of concentration?
+A) Darcy’s Law
+B) Kirpich Equation
+C) SCS Curve Number
+D) Theis Equation
+Answer: B
