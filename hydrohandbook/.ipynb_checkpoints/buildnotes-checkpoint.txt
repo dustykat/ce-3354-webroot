@@ -1,11 +1,16 @@
 Homeworks in \exercises (latex + typeset pdf) for:
-**
+** hydro cycle, wtaer budget
 02-Precipitation
-**
-**
+** infiltration/ evaporation
+** runoff generation, rational
 05-Rainfallrunoff
-**
-**
-**
-**
-**
+** streamflow (data analysis)
+** flood B17C
+** HEC-HMS/hardin branch
+09-Groundwater
+** well hydraulics
+     - theis solution predict drawdown
+     - superposition multiple wells
+     - interpret a boundary (old 6361 problem rearranged)
+     - dewatering system
+     - theis solution estimate parameters 
