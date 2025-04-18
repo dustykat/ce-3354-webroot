@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Infiltration, Evaporation, and Soil Moisture &#8212; Spreadsheet Hydrology</title>
+    <title>9. Hydrologic Abstractions &#8212; Spreadsheet Hydrology</title>
   
   
   
@@ -59,11 +59,9 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03-infiltration/03-infiltration';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/03-infiltration/EvaporationInfiltration';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Runoff Generation and Watershed Hydrology" href="../04-runoffgeneration/04-runoffgeneration.html" />
-    <link rel="prev" title="2. Precipitation, Hyetographs, Design Storms" href="../02-precipitation/02-precipitation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,11 +181,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
@@ -265,7 +265,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/03-infiltration/03-infiltration.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/03-infiltration/EvaporationInfiltration.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="../../_sources/chapters/03-infiltration/03-infiltration.ipynb" target="_blank"
+      <li><a href="../../_sources/chapters/03-infiltration/EvaporationInfiltration.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +379,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3. Infiltration, Evaporation, and Soil Moisture</h1>
+    <h1>9. Hydrologic Abstractions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,25 +389,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Infiltration, Evaporation, and Soil Moisture</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Hydrologic Abstractions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-and-factors-affecting-it">Infiltration Process and Factors Affecting It</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roles-in-hydrology">Roles in hydrology:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractions">Abstractions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaporation-and-transpiration">Evaporation and Transpiration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration">Infiltration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-and-roles">Importance and Roles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-description">Infiltration Process Description</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proportional-loss-model">Proportional Loss Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hortons-model">Horton’s Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-infiltration-model">Phi-Index Infiltration Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-model">Phi-Index Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-model">Green-Ampt Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-infiltration-and-falling-head-permeameter">Green-Ampt Infiltration and Falling Head Permeameter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-green-ampt-form">Classical Green-Ampt Form</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-abstraction-constant-loss">Initial Abstraction - Constant Loss</a></li>
 </ul>
 </li>
@@ -416,12 +416,9 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-soils-properties">GIS Soils Properties</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-based-maps">Paper-Based Maps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-data">GIS Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Infiltration Process and Factors Affecting It</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soil-moisture-and-groundwater-recharge">Soil Moisture and Groundwater Recharge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-infiltration-measurement-using-field-lab-methods">Lab/Exercise: Infiltration measurement using field/lab methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interception-depression-storage">Interception/Depression Storage</a></li>
 </ul>
 
             </nav>
@@ -434,8 +431,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="infiltration-evaporation-and-soil-moisture">
-<h1>3. Infiltration, Evaporation, and Soil Moisture<a class="headerlink" href="#infiltration-evaporation-and-soil-moisture" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hydrologic-abstractions">
+<h1>9. Hydrologic Abstractions<a class="headerlink" href="#hydrologic-abstractions" title="Link to this heading">#</a></h1>
+<p>Hydrologic abstractions refer to the various processes through which water is removed from the precipitation signal (or land surface) and eventually returning to the atmosphere compartment. The difference between input and abstraction, is the runoff.</p>
 <div class="admonition-course-website admonition">
 <p class="admonition-title">Course Website</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
@@ -457,7 +455,6 @@ document.write(`
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/Green-Ampt-Texas/Karki_Amit_Thesis.pdf">Karki, A (2007) <em>Parameters for the Green-Ampt Loss-Rate Function for Select Texas Watersheds</em>. Master’s Thesis, Department of Civil Engineering, College of Engineering, Texas Tech University</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/00HydrologyAnIntroduction/1096-1.pdf">Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork. pp. 130-170 (Evaporation)</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/00HydrologyAnIntroduction/1096-1.pdf">Brutsaert,  W.  2005.  Hydrology  :   An  Introduction  (8th  printing),  Cambridge  University Press. NewYork. pp. 106-112 (Interception)</a></p></li>
-<li><p><a class="reference external" href="https://archiveweb.epfl.ch/echo2.epfl.ch/VICAIRE/mod_3/chapt_8/main.htm">VICAIRE (VIrtual CAmpus In hydrology and water REsources management)</a> Used as source for some images, and instructional content.</p></li>
 </ol>
 </section>
 <section id="spreadsheets">
@@ -481,14 +478,53 @@ document.write(`
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=2rDt-fJvaNA">Evaporation (Aerodynamic Method)</a></p></li>
 </ul>
 </section>
-<section id="infiltration-process-and-factors-affecting-it">
-<h2>Infiltration Process and Factors Affecting It<a class="headerlink" href="#infiltration-process-and-factors-affecting-it" title="Link to this heading">#</a></h2>
-<p>One of the key factors affecting how much rainfall becomes runoff in a watershed is <em>infiltration</em>; the process by which water enters the soil. This is part of what we call hydrologic abstractions, which are the various ways water is absorbed, retained, or evaporated before it ever contributes to surface flow. In simple terms, the water that doesn’t run off is either infiltrating into the ground or returning to the atmosphere in some form.</p>
-<p>The amount of runoff we ultimately see is the difference between the rainfall that falls and the portion that is removed by these abstraction processes. Importantly, soil moisture conditions at the time of the storm play a major role. If the soil is already saturated, much less water will infiltrate—leading to more runoff. Conversely, dry soils can absorb a greater amount of water, reducing surface flow. So when we’re modeling stormwater or flood behavior, it’s critical that we account for how infiltration and soil moisture interact over time.</p>
-<p>Infiltration is a complex process influenced by multiple factors such as soil characteristics, land use, slope, vegetation cover, precipitation intensity, and human activities. The soil’s permeability, texture, structure, and moisture content significantly impact infiltration rates. Coarse soils with higher permeability tend to have higher infiltration rates compared to fine-textured soils like clay.
-Importance and Roles:</p>
-<section id="roles-in-hydrology">
-<h3>Roles in hydrology:<a class="headerlink" href="#roles-in-hydrology" title="Link to this heading">#</a></h3>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Infiltration</p></li>
+<li><p>Evapotranspiration</p></li>
+<li><p>Interception</p></li>
+</ul>
+</section>
+<section id="abstractions">
+<h2>Abstractions<a class="headerlink" href="#abstractions" title="Link to this heading">#</a></h2>
+<p>Hydrologic abstractions refer to the various processes through which water is removed from the precipitation signal (or land surface) and eventually returning to the atmosphere compartment. These abstractions play a crucial role in the water cycle. Three major categories of abstraction are listed below:</p>
+<ul class="simple">
+<li><p>Loss to the soil column comprised of:</p>
+<ul>
+<li><p>Infiltration: The process by which water on the ground surface enters the soil. It is a key component of groundwater recharge.</p></li>
+<li><p>Percolation: The downward movement of water through soil and rock layers beyond the root zone of plants. This contributes to the recharge of aquifers.</p></li>
+</ul>
+</li>
+<li><p>Evapotranspiration comprised of:</p>
+<ul>
+<li><p>Evaporation: The process by which water changes from a liquid to a gas (water vapor) and enters the atmosphere. This occurs from open water surfaces, soil, and vegetation.</p></li>
+<li><p>Transpiration: The release of water vapor from plants into the atmosphere through small pores in their leaves, stems, and other parts. It is essentially the plant version of evaporation.</p></li>
+<li><p>Sublimation: The direct transition of water from a solid (ice or snow) to a gas without passing through the liquid phase. This can occur in cold climates with significant snow cover.</p></li>
+</ul>
+</li>
+<li><p>Temporary storage on or near the surface comprised of:</p>
+<ul>
+<li><p>Interception: The capture of precipitation by vegetation before it reaches the ground. This water can later evaporate or be released to the ground surface.</p></li>
+<li><p>Surface Water Storage: The temporary storage of water in depressions, ponds, lakes, and other surface water bodies before it is evaporated, infiltrated, or discharged (to the runoff component).</p></li>
+</ul>
+</li>
+</ul>
+<p>The remainder in the water balance between precipitation (the input) and abstractions (the losses) is watershed runoff (the output).  It typically represents the flow of water over the land surface when the rate of precipitation exceeds the rate of abstraction. It includes surface water runoff and subsurface flow.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="evaporation-and-transpiration">
+<h1>Evaporation and Transpiration<a class="headerlink" href="#evaporation-and-transpiration" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson06/Lesson06.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Evaporation) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="infiltration">
+<h1>Infiltration<a class="headerlink" href="#infiltration" title="Link to this heading">#</a></h1>
+<p>Infiltration is a complex process influenced by multiple factors such as soil characteristics, land use, slope, vegetation cover, precipitation intensity, and human activities. The soil’s permeability, texture, structure, and moisture content significantly impact infiltration rates. Coarse soils with higher permeability tend to have higher infiltration rates compared to fine-textured soils like clay.</p>
+<section id="importance-and-roles">
+<h2>Importance and Roles:<a class="headerlink" href="#importance-and-roles" title="Link to this heading">#</a></h2>
+<p>Infiltration plays important roles in:</p>
 <ol class="arabic simple">
 <li><p>Water Availability: Infiltration governs the replenishment of groundwater resources, contributing to the sustained flow of streams and rivers during dry periods. A high infiltration rate allows water to percolate deeper into the soil, recharging aquifers and maintaining base flow in rivers.</p></li>
 <li><p>Flood Mitigation: Adequate infiltration helps prevent surface runoff, reducing the risk of flooding by allowing water to infiltrate into the soil, thus delaying the onset of overland flow.</p></li>
@@ -496,7 +532,7 @@ Importance and Roles:</p>
 </ol>
 </section>
 <section id="factors-affecting-infiltration-processes">
-<h3>Factors Affecting Infiltration Processes:<a class="headerlink" href="#factors-affecting-infiltration-processes" title="Link to this heading">#</a></h3>
+<h2>Factors Affecting Infiltration Processes:<a class="headerlink" href="#factors-affecting-infiltration-processes" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Land Use: Urbanization and deforestation can reduce natural infiltration rates due to increased impervious surfaces, resulting in enhanced surface runoff and decreased groundwater recharge.</p></li>
 <li><p>Climate Change: Alterations in precipitation patterns and intensities due to climate change can affect infiltration rates, potentially leading to soil erosion and reduced water infiltration capacities.</p></li>
@@ -504,21 +540,17 @@ Importance and Roles:</p>
 </ol>
 </section>
 <section id="engineering-enhancement-strategies">
-<h3>Engineering Enhancement Strategies:<a class="headerlink" href="#engineering-enhancement-strategies" title="Link to this heading">#</a></h3>
+<h2>Engineering Enhancement Strategies:<a class="headerlink" href="#engineering-enhancement-strategies" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Green Infrastructure: Implementing green spaces, permeable pavements, and rain gardens in urban areas can enhance infiltration rates and decrease surface runoff.</p></li>
 <li><p>Soil Conservation: Practices like terracing, contour farming, and agroforestry aid in reducing soil erosion, enhancing soil structure, and preserving natural infiltration capacities.</p></li>
 <li><p>Education and Regulation: Public awareness campaigns and policies regarding responsible land use and water management can aid in preserving natural infiltration processes.</p></li>
 </ol>
 </section>
-</section>
-<section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <section id="infiltration-models">
-<h3>Infiltration Models<a class="headerlink" href="#infiltration-models" title="Link to this heading">#</a></h3>
+<h2>Infiltration Models<a class="headerlink" href="#infiltration-models" title="Link to this heading">#</a></h2>
 <p>Examination of various process models at</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
-</section>
 <section id="infiltration-process-description">
 <h3>Infiltration Process Description<a class="headerlink" href="#infiltration-process-description" title="Link to this heading">#</a></h3>
 <p>Water that soaks into the ground and thereby enters the soil structure is considered removed from the runoff process at the time it enters the soil. The process by which this occurs is called infiltration. This process is the first step in a lengthy and vital process, the interaction of soil, water, air, and plant life.</p>
@@ -530,7 +562,6 @@ Importance and Roles:</p>
 <section id="proportional-loss-model">
 <h3>Proportional Loss Model<a class="headerlink" href="#proportional-loss-model" title="Link to this heading">#</a></h3>
 <p>The loss is some proportion of the incoming rainfall.  Somewhat similar in mindset to the rational method, but every rainfall pulse produces runoff (albeit possibly quite small).  It does produce good mass balance with observations.</p>
-<p>[NEED TO COMPLETE SECTION]</p>
 </section>
 <section id="hortons-model">
 <h3>Horton’s Model<a class="headerlink" href="#hortons-model" title="Link to this heading">#</a></h3>
@@ -649,7 +680,7 @@ The parameters in Hortons equation can be determined for any give soil by infilt
     <span class="n">CumPnow</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span><span class="o">=</span><span class="n">peein</span><span class="p">(</span><span class="n">pRate</span><span class="p">,</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">],</span><span class="n">Tend</span><span class="p">)</span><span class="o">*</span><span class="n">time</span><span class="p">[</span><span class="n">itime</span><span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
-<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
 
 <span class="c1"># Built the plot</span>
 <span class="c1">#matplotlib.pyplot.plot(pnow, pnow, color =&#39;blue&#39;) </span>
@@ -668,41 +699,13 @@ The parameters in Hortons equation can be determined for any give soil by infilt
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b10381f4bedcc897b0eb1cfdce8ded8cf5790ad7d4a58a011241e596a664fac4.png" src="../../_images/b10381f4bedcc897b0eb1cfdce8ded8cf5790ad7d4a58a011241e596a664fac4.png" />
+<img alt="../../_images/a11d9cb1a012902e93a15561363bac497a3214d3d69515a686f179a61e989edb.png" src="../../_images/a11d9cb1a012902e93a15561363bac497a3214d3d69515a686f179a61e989edb.png" />
 </div>
 </div>
 </section>
-<section id="phi-index-infiltration-model">
-<h3>Phi-Index Infiltration Model<a class="headerlink" href="#phi-index-infiltration-model" title="Link to this heading">#</a></h3>
-<p>The <span class="math notranslate nohighlight">\(\phi\)</span>-index is a simplified infiltration model commonly used in hydrology. It assumes that the infiltration capacity of the soil remains constant throughout a storm event, expressed as <span class="math notranslate nohighlight">\(\phi\)</span> (in/hr). When paired with observations from a rainfall hyetograph and runoff hydrograph, a suitable value for <span class="math notranslate nohighlight">\(\phi\)</span> can often be estimated with reasonable accuracy.</p>
-<p>Field data indicate that infiltration capacity is highest at the onset of a storm and then decreases rapidly to a relatively stable value. Because this stabilization typically occurs within 10 to 15 minutes, it is generally acceptable to treat the infiltration rate as constant for the duration of the event.</p>
-<p>The <span class="math notranslate nohighlight">\(\phi\)</span>-index approach simplifies hydrologic loss modeling as follows:</p>
-<ul class="simple">
-<li><p>When rainfall intensity is <strong>less than</strong> the infiltration capacity, all rainfall infiltrates, and the loss rate equals the rainfall intensity.</p></li>
-<li><p>When rainfall intensity <strong>exceeds</strong> the infiltration capacity, the loss rate is capped at <span class="math notranslate nohighlight">\(\phi\)</span>.</p></li>
-</ul>
-<p>This relationship is mathematically defined as:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-q(t) =
-\begin{cases}
-i(t), &amp; \text{if } i(t) &lt; \phi \\
-\phi, &amp; \text{if } i(t) \ge \phi
-\end{cases}
-\end{split}\]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(q(t)\)</span> is the infiltration loss rate,</p></li>
-<li><p><span class="math notranslate nohighlight">\(i(t)\)</span> is the storm rainfall intensity at time <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(\phi\)</span> is the constant infiltration capacity.</p></li>
-</ul>
-<p>To estimate <span class="math notranslate nohighlight">\(\phi\)</span> from measured rainfall-runoff data:</p>
-<ol class="arabic simple">
-<li><p>Separate baseflow from total runoff volume,</p></li>
-<li><p>Compute the volume of direct runoff,</p></li>
-<li><p>Determine the value of <span class="math notranslate nohighlight">\(\phi\)</span> such that the volume of effective rainfall (rainfall exceeding <span class="math notranslate nohighlight">\(\phi\)</span>) equals the volume of direct runoff.</p></li>
-</ol>
-<p>Once individual storm values are computed, an average <span class="math notranslate nohighlight">\(\phi\)</span>-index may be derived to represent typical conditions for use in design and modeling.</p>
+<section id="phi-index-model">
+<h3>Phi-Index Model<a class="headerlink" href="#phi-index-model" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/PhiIndex.png" /></p>
 </section>
 <section id="green-ampt-model">
 <h3>Green-Ampt Model<a class="headerlink" href="#green-ampt-model" title="Link to this heading">#</a></h3>
@@ -713,106 +716,6 @@ i(t), &amp; \text{if } i(t) &lt; \phi \\
 <p><img alt="" src="../../_images/GApart4.png" /></p>
 <p><img alt="" src="../../_images/GApart5.png" /></p>
 <p>A detailed explaination with example calculations is located at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08/Green-Ampt.pdf">Cleveland, T. G. (2008) <em>Surface Water Hydrology Notes (Green-Ampt Infiltration) to accompany CE-5361</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
-</section>
-<section id="green-ampt-infiltration-and-falling-head-permeameter">
-<h3>Green-Ampt Infiltration and Falling Head Permeameter<a class="headerlink" href="#green-ampt-infiltration-and-falling-head-permeameter" title="Link to this heading">#</a></h3>
-<p>The Green-Ampt model needs some context before presentation. The <strong>falling head permeameter</strong> is used when the hydraulic conductivity of the porous material is small. In this case, a constant head permeameter cannot easily generate a high enough gradient to produce measurable flow in a reasonable amount of time.</p>
-<p>The figure below shows a schematic diagram of a falling head permeameter. A sample of porous medium is placed in the device. The length of the sample is <span class="math notranslate nohighlight">\(L\)</span>, the cross-sectional area of the sample is <span class="math notranslate nohighlight">\(A = \pi \frac{(2r_s)^2}{4}\)</span>. A smaller area tube rises above the sample with area <span class="math notranslate nohighlight">\(a = \pi \frac{(2r)^2}{4} \)</span>. This tube provides the driving force required to move water through the porous sample with reasonably small water volume.</p>
-<p><img alt="" src="../../_images/FallingHeadPermeameterSchematic.png" /></p>
-<p>The <strong>head</strong> is measured at the inlet of the sample as the height of water in the tube above the sample, <span class="math notranslate nohighlight">\(h(t)\)</span>. The flow rate through the sample is <span class="math notranslate nohighlight">\(Q(t)\)</span>, and in a falling head permeameter, both <span class="math notranslate nohighlight">\(h(t)\)</span> and <span class="math notranslate nohighlight">\(Q(t)\)</span> vary with time.</p>
-<p>Darcy’s law for this situation is:</p>
-<div class="math notranslate nohighlight">
-\[
-Q(t) = \frac{KA\, h(t)}{L} \tag{3}
-\]</div>
-<p>A volume balance gives an alternate expression for discharge rate:</p>
-<div class="math notranslate nohighlight">
-\[
-Q(t) = -a \frac{dh(t)}{dt} = \frac{KA\, h(t)}{aL} \tag{4}
-\]</div>
-<p>Separating variables and integrating:</p>
-<div class="math notranslate nohighlight">
-\[
-\int \frac{dh(t)}{h} = -\frac{KA}{aL} \int dt \tag{5}
-\]</div>
-<p>Evaluating the integral gives:</p>
-<div class="math notranslate nohighlight">
-\[
-\ln(h(t)) = \ln(h_0) - \frac{KA}{aL} t \tag{6}
-\]</div>
-<p>This equation is linear in time, so a plot of <span class="math notranslate nohighlight">\(\ln(h)\)</span> versus time should yield a straight line. The slope is proportional to the hydraulic conductivity <span class="math notranslate nohighlight">\(K\)</span>.</p>
-<hr class="docutils" />
-<p>Now, turning to <strong>runoff</strong> and infiltration: in watershed settings, the tube and soil sample areas are essentially equal, but not all water infiltrates—some runs off after ponding.</p>
-<p>Figure 4 illustrates infiltration over time. Water has infiltrated into the soil to depth <span class="math notranslate nohighlight">\(z\)</span> after some ponding. The amount infiltrated is:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{V}{A} = nz
-\]</div>
-<p>The rate of wetting front movement is:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dz}{dt} = \frac{v}{n}, \quad \text{where } v = \frac{V}{A}
-\]</div>
-<p>Darcy’s law from the surface to the wetting front is:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{Q}{A} = q = K \frac{H + h_c + z}{z}
-\]</div>
-<p>Equating the two rates gives:</p>
-<div class="math notranslate nohighlight">
-\[
-n \frac{dz}{dt} = K \frac{H + h_c + z}{z} \tag{7}
-\]</div>
-<p>Separate and integrate:</p>
-<div class="math notranslate nohighlight">
-\[
-\int \frac{dz}{H + h_c + z} = \frac{K}{n} \int dt \tag{8}
-\]</div>
-<p>Using a partial fraction expansion:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{1}{H + h_c + z} = \left[ \frac{1}{H + h_c} - \frac{1}{H + h_c + z} \right]
-\]</div>
-<p>Integration yields:</p>
-<div class="math notranslate nohighlight">
-\[
-z - (H + h_c)\ln(H + h_c + z) = \frac{K}{n} t + C \tag{10}
-\]</div>
-<p>Setting <span class="math notranslate nohighlight">\(t = 0\)</span> and <span class="math notranslate nohighlight">\(z = 0\)</span> gives <span class="math notranslate nohighlight">\(C = 0\)</span>. Rearranging:</p>
-<div class="math notranslate nohighlight">
-\[
-z + (H + h_c)\ln\left( \frac{H + h_c}{H + h_c + z} \right) = \frac{K}{n} t \tag{12}
-\]</div>
-<p>Now define infiltration depth:</p>
-<div class="math notranslate nohighlight">
-\[
-I(t) = nz \Rightarrow z = \frac{I(t)}{n}
-\]</div>
-<p>Substituting into the equation:</p>
-<div class="math notranslate nohighlight">
-\[
-I(t) = Kt + (H + h_c) \ln\left(1 + \frac{I(t)}{H + h_c} \cdot \frac{1}{n} \right) \tag{14}
-\]</div>
-</section>
-<hr class="docutils" />
-<section id="classical-green-ampt-form">
-<h3>Classical Green-Ampt Form<a class="headerlink" href="#classical-green-ampt-form" title="Link to this heading">#</a></h3>
-<p>Green &amp; Ampt (1911) simplified infiltration model is based on an approximation of the water content profile in a soil, as depicted in the figure below.</p>
-<p><img alt="" src="../../_images/GAWaterProfile.png" /></p>
-<p>The wetting front is a sharp boundary (this sharp separation is the fundamental approximation) separating wet and dry soil zones. In Green-Ampt’s formulation the soil above the front is saturated, and that below is “dry.” The wetting front advances to depth <span class="math notranslate nohighlight">\(L\)</span> in time <span class="math notranslate nohighlight">\(t\)</span>, with a small ponded depth <span class="math notranslate nohighlight">\(h_0\)</span> on the surface. The Green-Ampt equation is structurally similar to the derivation above, but with a new definition:</p>
-<div class="math notranslate nohighlight">
-\[
-n = \phi_e - \phi_i, \quad H + h_c = h_0 + \psi
-\]</div>
-<p>So the Green-Ampt formula becomes:</p>
-<div class="math notranslate nohighlight">
-\[
-I(t) = Kt + (h_0 + \psi) \ln\left(1 + \frac{I(t)}{(h_0 + \psi)(\phi_e - \phi_i)}\right) \tag{15}
-\]</div>
-<p>This expression gives the total cumulative infiltration at time <span class="math notranslate nohighlight">\(t\)</span> during a storm. Combined with rainfall data, it helps compute <strong>runoff</strong> by subtracting infiltration from total precipitation.</p>
-<p>Green-Ampt is explicitly listed as the the preferred method in the <a class="reference external" href="https://hazards.fema.gov/femaportal/mapmod/casestudy/case_tx_outreach_tools.htm">TSARP report</a> for Harris County. Many modeling tools (e.g., HEC-HMS, SWMM) support it using <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(\nabla \phi\)</span>, <span class="math notranslate nohighlight">\(h_c\)</span>, and <span class="math notranslate nohighlight">\(\psi_f\)</span> forms.</p>
-<hr class="docutils" />
-<p>My preference is to use the <span class="math notranslate nohighlight">\(K\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(h_c\)</span> form because these parameters are often easier to estimate. However, most tools support all equivalent forms.</p>
 </section>
 <section id="initial-abstraction-constant-loss">
 <h3>Initial Abstraction - Constant Loss<a class="headerlink" href="#initial-abstraction-constant-loss" title="Link to this heading">#</a></h3>
@@ -901,27 +804,38 @@ Capillary Rise  0.402  m
 <p><img alt="" src="../../_images/SA-003.png" /></p>
 <p><img alt="" src="../../_images/SA-004.png" /></p>
 </section>
-<section id="id2">
-<h2>Infiltration Process and Factors Affecting It<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Soil types, vegetation, land use, and surface conditions</p></li>
-<li><p>Horton and Green-Ampt equations</p></li>
-</ul>
 </section>
-<section id="soil-moisture-and-groundwater-recharge">
-<h2>Soil Moisture and Groundwater Recharge<a class="headerlink" href="#soil-moisture-and-groundwater-recharge" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Field capacity, wilting point, and available moisture</p></li>
-<li><p>Percolation and aquifer recharge</p></li>
-</ul>
-</section>
-<section id="lab-exercise-infiltration-measurement-using-field-lab-methods">
-<h2>Lab/Exercise: Infiltration measurement using field/lab methods<a class="headerlink" href="#lab-exercise-infiltration-measurement-using-field-lab-methods" title="Link to this heading">#</a></h2>
-</section>
-<section id="section-end">
-<h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
-</section>
-</section>
+<section class="tex2jax_ignore mathjax_ignore" id="interception-depression-storage">
+<h1>Interception/Depression Storage<a class="headerlink" href="#interception-depression-storage" title="Link to this heading">#</a></h1>
+<p>Storage on the watershed is distributed among depression and canopy storage, and explicit storage in things large enough to be treated as reservoirs.  In this section we are considering just the first two components.</p>
+<p>Examination of various process models at</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson08.1/Lesson08ug.pdf">Cleveland, T. G. (2020) <em>Surface Water Hydrology Notes (Depression and Canopy Storage) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p>
+<!--## Typical HEC-HMS Model Constructs
+
+>A sub**basin** element conceptually represents infiltration, surface runoff, and
+subsurface processes interacting together, the actual infiltration calculations are
+performed by a loss method contained within the subbasin. A total of twelve different
+loss methods are provided. Some of the methods are designed primarily for
+simulating events while others are intended for continuous simulation. All of the
+methods conserve mass. That is, the sum of infiltration and precipitation left on the
+surface will always be equal to total incoming precipitation.
+
+>The inputs for each loss method are presented on a separate Component Editor
+from the subbasin element editor. The "Loss" editor is always shown next to the
+"Subbasin" editor. If the kinematic wave transform method is selected, there may be
+two loss editors, one for each runoff plane. The information shown on the loss editor
+will depend on which method is currently selected --><!-- ## References
+
+1. [Cleveland, T. G. (2020) *Surface Water Hydrology Notes (Infiltration) to accompany CE-5361*, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.](http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/Lesson07.pdf)
+2. [Green-Ampt Spreadsheet (Excel)](http://54.243.252.9/ce-3354-webroot/1-Lectures-2020/lesson07/ce5361_green_ampt.xlsx) Right-Click "Save As..."
+3. Chow, V. T., 1964. Handbook of Applied Hydrology. McGraw Hill, New York. Sec. 14., 2pp.
+4. Fang, X., Asquith, W.H., Garcia , C.A., Cleveland, T.G., Thompson, D.B., Malla, R. 2004 Literature Review on Time Parameters for Hydrographs. Project Report 4696-1. Texas Department of Transportation.
+5. USDA National Engineering Handbook, Chapters 4,5, and 10.
+6. Wurbs and James, 2002. Water Resources Engineering. Prentice-Hall, New Jersey. Pp 462-483.
+7. Polubarinova-Kochina, 1962. Theory of Groundwater Movement, (Translated from Russian by R. De Wiest), Princeton University Press, New Jersey.
+8. [An Initial-Abstraction, Constant-Loss Model for Unit Hydrograph Modeling for Applicable Watersheds in Texas](http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-Texas-IaCl/sir2007-5243.pdf)
+
+--></section>
 
     <script type="text/x-thebe-config">
     {
@@ -935,13 +849,13 @@ Capillary Rise  0.402  m
             mode: "python"
         },
         kernelOptions: {
-            name: "python-my-env",
+            name: "python3",
             path: "./chapters/03-infiltration"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python-my-env'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -953,24 +867,6 @@ Capillary Rise  0.402  m
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../02-precipitation/02-precipitation.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2. Precipitation, Hyetographs, Design Storms</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../04-runoffgeneration/04-runoffgeneration.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Runoff Generation and Watershed Hydrology</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -987,25 +883,25 @@ Capillary Rise  0.402  m
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">3. Infiltration, Evaporation, and Soil Moisture</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">9. Hydrologic Abstractions</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-and-factors-affecting-it">Infiltration Process and Factors Affecting It</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roles-in-hydrology">Roles in hydrology:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abstractions">Abstractions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaporation-and-transpiration">Evaporation and Transpiration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration">Infiltration</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-and-roles">Importance and Roles:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factors-affecting-infiltration-processes">Factors Affecting Infiltration Processes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-enhancement-strategies">Engineering Enhancement Strategies:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-models">Infiltration Models</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infiltration-process-description">Infiltration Process Description</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proportional-loss-model">Proportional Loss Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hortons-model">Horton’s Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-infiltration-model">Phi-Index Infiltration Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-index-model">Phi-Index Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-model">Green-Ampt Model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#green-ampt-infiltration-and-falling-head-permeameter">Green-Ampt Infiltration and Falling Head Permeameter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classical-green-ampt-form">Classical Green-Ampt Form</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-abstraction-constant-loss">Initial Abstraction - Constant Loss</a></li>
 </ul>
 </li>
@@ -1014,12 +910,9 @@ Capillary Rise  0.402  m
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-soils-properties">GIS Soils Properties</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-based-maps">Paper-Based Maps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gis-data">GIS Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Infiltration Process and Factors Affecting It</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soil-moisture-and-groundwater-recharge">Soil Moisture and Groundwater Recharge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-infiltration-measurement-using-field-lab-methods">Lab/Exercise: Infiltration measurement using field/lab methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#interception-depression-storage">Interception/Depression Storage</a></li>
 </ul>
 
   </nav></div>
