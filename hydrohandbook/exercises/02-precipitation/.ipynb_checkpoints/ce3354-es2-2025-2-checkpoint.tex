@@ -85,6 +85,7 @@ Determine:
     \end{enumerate}
 
 \clearpage
+\item Table \ref{tab:SomewhereElseUSARain} is precipitation data for a 6-hour storm in Somewhere Else USA.
 
 \begin{table}[h!]
 \centering
@@ -146,26 +147,7 @@ Determine:
 
 \clearpage
 
-\item The map excerpt in Figure \ref{fig:usgsmap}, shows a stream gage labeled as U.S.G.S. no. 1.  Various rain gages are shown as rectangles surrounding the catch for the gage for some time interval.  
 
-\begin{figure}[h!] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[height=5in]{Map.jpg} 
-   \caption{U.S.G.S. No. 1 Area Map}
-   \label{fig:usgsmap}
-\end{figure}
-
-Determine:
-    \begin{enumerate}[a)]
-        \item The drainage area boundary using watershed delineation principles.
-        \item The drainage area in square miles. 
-        \item The average precipitation over the area by arithmetic mean. 
-        \item The average precipitation over the area by Thiessen polygon method. 
-        \item The average precipitation over the area by Isoheytal method
-    \end{enumerate}
-
-
-\clearpage
 
 \item Table \ref{tab:SomewhereUSARainIDF} is intensity duration data for Somewhere USA.
 
@@ -224,7 +206,91 @@ Determine:
         \item The net volume of rainfall in m$^3$ and liters if the watershed is 4,000 m$^2$
         \item An approximate Annual Recurrance Interval (ARI) for the measured event, using NOAA Atlas 14. 
     \end{enumerate}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The map in Figure \ref{fig:polygonmap} shows the location of 6 rain gages and a watershed boundary. The rainfall depths for a certain storm are shown by each gage. An isohyetal map is displayed on the figure as is a linear distance scale.
 
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=4in]{polygonmap.png} 
+   \caption{Raingages}
+   \label{fig:polygonmap}
+\end{figure}
+
+Determine:
+    \begin{enumerate}[a)]
+        \item The Theissen polygon boundaries – verify if the gage in the upper left corner is included in the polygon boundaries in the picture (i.e determine your own boundaries for the gages, do they agree with the drawing?). 
+        \item The polygon areas and compute the Theissen weights.
+        \item The average weighted precipitation over the watershed (using the Theissen weights).
+        \item The average weighted precipitation (using the Isoheyets).
+    \end{enumerate}
+\clearpage
+~\newline
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The map in Figure \ref{fig:gagemap} shows the location of 8 rain gages and the watershed boundary. The rainfall depths for a certain storm are in Table \ref{tab:gagemap}. Use the Thiessen polygon method to determine the mean rainfall depth over the watershed for this storm event.
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=3in]{gagemap.png} 
+   \caption{Nowhere Watershed Active Raingages}
+   \label{fig:gagemap}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Nowhere Watershed Precipitation}
+\begin{tabular}{p{2.0in}p{2.0in}} % Column formatting, @{} suppresses leading/trailing space
+~&~\\
+Gage & Cumulative Depth (millimeters)\\
+\hline
+\hline
+A & 25.00 \\
+B & 18.00 \\
+C & 92.00 \\
+D & 95.00 \\
+E & 192.0 \\
+F & 175.0 \\
+G & 152.0 \\
+H & 168.0 \\
+
+\hline
+\end{tabular}
+\label{tab:gagemap}
+\end{table}
+
+Determine:
+    \begin{enumerate}[a)]
+        \item The mean rainfall depth over the watershed for this storm event using the arithmetic mean. 
+        \item The mean rainfall depth over the watershed for this storm event using the Thiessen polygon method. 
+    \end{enumerate}
+
+\clearpage
+~\newline
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The map excerpt in Figure \ref{fig:usgsmap}, shows a stream gage labeled as U.S.G.S. no. 1.  Various rain gages are shown as rectangles surrounding the catch for the gage for some time interval.  
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{Map.jpg} 
+   \caption{U.S.G.S. No. 1 Area Map}
+   \label{fig:usgsmap}
+\end{figure}
+
+Determine:
+    \begin{enumerate}[a)]
+        \item The drainage area boundary using watershed delineation principles.
+        \item The drainage area in square miles. 
+        \item The average precipitation over the area by arithmetic mean. 
+        \item The average precipitation over the area by Thiessen polygon method. 
+        \item The average precipitation over the area by Isoheytal method
+    \end{enumerate}
+
+
+\clearpage
+~\newline
+\clearpage
     
 \end{enumerate}
 

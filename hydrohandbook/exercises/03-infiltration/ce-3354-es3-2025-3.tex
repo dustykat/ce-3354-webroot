@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{daves,fancyhdr,natbib,graphicx,dcolumn,amsmath,lastpage,url}
+\usepackage{amsmath,amssymb,epstopdf,longtable}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\pagestyle{fancy}
+\lhead{CE 3354 -- Engineering Hydrology}
+\rhead{FALL 2024}
+\lfoot{ES5}
+\cfoot{}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+\renewcommand\headrulewidth{0pt}
+
+
+
+\begin{document}
+\begin{center}
+{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exercise Set 3}}}
+\end{center}
+
+ \section*{\small{Exercises}}
+ \begin{enumerate}
+%\item Problem 7.3.5 in Mays, pg. 278.
+
+\item Estimate the monthly evapotranspiration depths for Dallas (Tarrant County), Houston (Harris County), and San Angelo (Concho County) area using the Blaney-Criddle method.\footnote{A Google search should get you sufficient guidance to perform this exercise.}
+
+\item Estimate the monthly evapotranspiration depths for the San Angelo (Concho County) area using the Thornwaithe method.\footnote{A Google search should get you sufficient guidance to perform this exercise.}
+
+\item Locate grid cells 506,410, and 812 at the TWDB lake evaporation database. Determine the long term monthly evaporation rates for the three cells.  Compare these rates to the estimates you made above.  These cells correspond approximately to
+\begin{itemize}
+\item 506 == San Angelo
+\item 410 == Dallas
+\item 812 == Houston
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}  

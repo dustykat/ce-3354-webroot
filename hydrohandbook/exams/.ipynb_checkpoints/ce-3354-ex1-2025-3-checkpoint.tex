@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{daves,fancyhdr,natbib,graphicx,dcolumn,amsmath,lastpage,url}
+\usepackage{amsmath,amssymb,epstopdf,longtable}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\pagestyle{fancy}
+\lhead{CE 3354 -- Engineering Hydrology}
+\rhead{FALL 2025}
+\lfoot{EX1}
+\cfoot{}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+\renewcommand\headrulewidth{0pt}
+
+
+
+\begin{document}
+\begin{center}
+{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exam 1}}}
+\end{center}
+
+ \section*{\small{Exercises}}
+ \begin{enumerate}
+%\item Problem 7.3.5 in Mays, pg. 278.
+
+\item problem
+
+\item problem
+
+\item The file ``EVAP2.TXT'' are monthly evaporation rates for somewhere in Texas.  The three locations studied in ES-3, are San Angelo, Dallas, and Houston.
+
+Determine:
+\begin{enumerate}
+\item A method to decide which location the file most likely to represents.
+\item The location (of the three) that the file represents.
+\item A plot the monthly rates as a time series (the second column is the series counter).  What do you see in this plot?   Is there any trend (assuming you can remove the periodic component of the signal)?
+\item Break the data into three roughly even parts (1950-1969), (1970-1989),(1990-2009).  Perform a non-parametric hypothesis test for equal medians.  Does this data provide any evidence of a change in evaporation depth over time (that is are the median differences significant?)
+\item What would be the importance of an increase or decrease in evaporation over time (in the context of climate variability)?
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}  
