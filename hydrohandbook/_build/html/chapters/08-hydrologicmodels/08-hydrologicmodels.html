@@ -182,8 +182,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration and Soil Moisture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
@@ -415,6 +416,14 @@ document.write(`
 <li><p>Summary of key concepts and Q&amp;A session</p></li>
 <li><p>Final Lab/Exercise: Group Project on a Hydrologic Case Study</p></li>
 </ul>
+<p>Models are used extensively in hydrology because routine data collection and analysis for every project is simply too expensive. A model is a simplified representation of the real world that, ideally, captures the excitation-response relationship of the real-world phenomenon.</p>
+<p>In most situations a model refers to representing real-world situations in a mathematical structure that can be solved using a computer. Occasionally a physical or analog model is used in hydrology, but these kinds of models are becoming more and more rare because of the time and cost involved. Well constructed computer models (not just the program) can often do an excellent job of modeling, although some problems are geometrically complex enough to justify physical or analog modeling.</p>
+<p>With computer modeling a large number of variables and/or a large amount of data can be relatively quickly manipulated, increasing the chances of an accurate and defendable answer to the particular question (that the model was built to answer).</p>
+<p>The first step in developing any hydrologic model is the development of a <strong>conceptual model</strong>. During this stage of model development the existing are assembled. This data includes, but is not limited to, water company data on withdrawal rates and water levels; state and municipal well-permitting information; and previously published reports and maps. The documents are then reviewed to determine the system boundaries; extent and thickness of hydrologic units; aquifer recharge; ground water and surface water elevations; stream discharge and leakage to aquifers; aquifer parameters; and other characteristics unique to the situation to be modeled.</p>
+<p>Usually some fieldwork will be necessary to fill in the gaps. A data collection plan is prepared that sets out the field strategy for additional data collection. When the fieldwork is complete, the existing and new data are analyzed. The existing conceptual model is then revised and updated to incorporate data from the field program. This step ensures that all previously identified data needs have been satisfied and serves as a springboard for the computer modeling effort.</p>
+<p>With the conceptual model in place, it’s time to select the model code or computer program to be used for the well head protection simulations. Some states require the use of a particular code. In most cases, several modeling codes are available that are capable of adequately modeling the problem. The choice should be based, if possible, on the modeler’s preference, although consideration must be given to what the relevant agency personnel are familiar with, otherwise, considerable time and money may be spent defending your code and training agency personnel.</p>
+<p>Once the flow model code has been selected, the boundaries and parameters identified in the conceptual model are put into a form suitable for modeling. This step includes determining the number of model layers, design of the model grid, determining the initial values of parameters and hydrologic stresses, and setting boundary conditions.</p>
+<p>The purpose of calibration is to establish that the model can reproduce field-measured values. This procedure is done by adjusting the model parameters (hydraulic conductivity, storage coefficient, etc.) and stresses (recharge, up land underflow, etc.) to produce the best match between simulated and observed water related variables.</p>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
