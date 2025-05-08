@@ -1,0 +1,867 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>0. Communication Literacy &#8212; Spreadsheet Hydrology</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/00-CLRequirements/00-CLRequirements';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Introduction" href="../01-introduction/01-introduction.html" />
+    <link rel="prev" title="Spreadsheet Hydrology" href="../../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/aurora.png" class="logo__image only-light" alt="Spreadsheet Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/aurora.png" class="logo__image only-dark" alt="Spreadsheet Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Spreadsheet Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">0. Communication Literacy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/00-CLRequirements/00-CLRequirements.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/00-CLRequirements/00-CLRequirements.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>0. Communication Literacy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">0. Communication Literacy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings-references">Readings/References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-implementation-for-engineering-hydrology-ce-3354">Purpose and Implementation for Engineering Hydrology (CE 3354)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-literacy-assignments-and-rubrics">Communication Literacy Assignments and Rubrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-explainer">Video Explainer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric-score-out-of-15">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-prompt">Sample Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-summary">Sample Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eli5-explain-like-im-5-explanation">ELI5 (Explain Like I’m 5) Explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-prompt">Example Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-eli5-explanation">Sample ELI5 Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infographic">Infographic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-topic">Example Topic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-deliverable-description">Example Deliverable/Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-infographic">Example Infographic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-graph">Annotated Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example Topic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example Deliverable/Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-annotated-graph">Example Annotated Graph</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="communication-literacy">
+<h1>0. Communication Literacy<a class="headerlink" href="#communication-literacy" title="Link to this heading">#</a></h1>
+<div class="admonition-course-website admonition">
+<p class="admonition-title">Course Website</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
+</div>
+<hr class="docutils" />
+<section id="readings-references">
+<h2>Readings/References<a class="headerlink" href="#readings-references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.depts.ttu.edu/provost/curriculum/communication-literacy/index.php">TTU Communication Literacy Requirement</a></p></li>
+</ol>
+<p><strong>ELI5 / Simplified Explanations</strong></p>
+<ol class="arabic simple" start="2">
+<li><p>Feynman, R. P. (1999). The Pleasure of Finding Things Out. Perseus Books. Describes the “Feynman Technique” of learning by simplification and explanation, now widely adapted in education.</p></li>
+<li><p>Brown, P. C., Roediger, H. L., &amp; McDaniel, M. A. (2014). Make It Stick: The Science of Successful Learning. Harvard University Press. Emphasizes retrieval and elaboration as key to durable learning, which the ELI5 method practices.</p></li>
+<li><p>Bransford, J. D., Brown, A. L., &amp; Cocking, R. R. (Eds.). (2000). How People Learn: Brain, Mind, Experience, and School. National Academy Press. Advocates for adaptive expertise and learning through teaching, which ELI5 fosters.</p></li>
+<li><p>Chi, M. T. H. (2009). Active-Constructive-Interactive: A Conceptual Framework for Differentiating Learning Activities. Topics in Cognitive Science, 1(1), 73–105. Supports constructivist value of restating and simplifying as active learning.</p></li>
+</ol>
+<p><strong>Infographics</strong></p>
+<ol class="arabic simple" start="6">
+<li><p>Cairo, A. (2013). The Functional Art: An Introduction to Information Graphics and Visualization. New Riders. Emphasizes visual explanations as essential communication tools in technical fields.</p></li>
+<li><p>Tufte, E. R. (2001). The Visual Display of Quantitative Information. Graphics Press. Gold standard reference for effective visual communication of data and complex ideas.</p></li>
+<li><p>McCandless, D. (2014). Knowledge is Beautiful. HarperCollins. Demonstrates how layered meaning and simplification can be elegantly combined in infographic design.</p></li>
+<li><p>Zambrano, R. et al. (2020). Designing Effective Infographics in STEM Education: A Case Study on Climate Change. International Journal of STEM Education, 7(1), 18. Directly supports use of infographics for science and engineering communication to non-experts.</p></li>
+</ol>
+<p><strong>Annotated Graphs</strong></p>
+<ol class="arabic simple" start="10">
+<li><p>Wainer, H. (1997). Visual Revelations: Graphical Tales of Fate and Deception from Napoleon Bonaparte to Ross Perot. Lawrence Erlbaum Associates. Argues for annotations and narrative within graphs to guide interpretation.</p></li>
+<li><p>Kosslyn, S. M. (2006). Graph Design for the Eye and Mind. Oxford University Press. Details cognitive load reduction and visual processing in effective graphs, including annotation.</p></li>
+<li><p>Shah, P., &amp; Hoeffner, J. (2002). Review of Graph Comprehension Research: Implications for Instruction. Educational Psychology Review, 14(1), 47–69. Summarizes research on student comprehension of graphs, finding that explanatory annotation significantly improves understanding.</p></li>
+<li><p>Bowen, G. M. et al. (2014). Graphs as Tools: Learning to Use Graphs to Construct Knowledge in Science Learning. Canadian Journal of Science, Mathematics and Technology Education, 14(1), 9–24. Advocates explicit instruction in graph annotation to foster interpretation and communication skills.</p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>none</p></li>
+</ol>
+<!--## Outline
+- Course Resources
+- Essential Knowledge, Skills, and Abilities for Practical Engineering Hydrology
+- Importance of Hydrology in Engineering
+- Hydrologic Cycle
+--></section>
+<section id="purpose-and-implementation-for-engineering-hydrology-ce-3354">
+<h2>Purpose and Implementation for Engineering Hydrology (CE 3354)<a class="headerlink" href="#purpose-and-implementation-for-engineering-hydrology-ce-3354" title="Link to this heading">#</a></h2>
+<p>In alignment with Texas Tech University’s <a class="reference external" href="https://www.depts.ttu.edu/provost/curriculum/communication-literacy/index.php">Communication Literacy (CL) requirement</a>, this course equips students with essential communication skills tailored to the professional practice of civil and environmental engineering. Recognizing that hydrologic analysis must be conveyed not only through technical reports but also through clear visualizations and accessible explanations, the course includes structured assignments designed to foster clarity, fluency, and audience awareness across multiple communication modes.</p>
+<blockquote>
+<div><p>In the asynchronous distance format of this course, classical modalities such as in-person team presentations are not feasible. While a design report remains possible, collaborative authorship across remote locations presents significant logistical challenges. Instead, students will complete a series of individual communication artifacts to demonstrate their communication literacy.</p>
+</div></blockquote>
+<p>The CL-specific activities in this course include:</p>
+<p><strong>Video-style explanations</strong> that demonstrate the ability to explain “how-to” hydrologic concepts for technical or non-technical audiences. This activity emphasizes presentation fluency in a distance-compatible format.</p>
+<p><strong>ELI5-style written explanations</strong> that simplify complex hydrologic topics for non-specialist readers, reflecting the Feynman Method’s emphasis on learning through explanation.</p>
+<p><strong>Annotated technical graphs</strong> that showcase student proficiency in visual communication and the interpretation of hydrologic data.</p>
+<p><strong>Infographics</strong> that visually communicate watershed, soil, or runoff relationships in a format accessible to decision-makers, policymakers, or the general public.</p>
+<p>These assignments reflect the transactional nature of engineering communication, requiring students to adapt their messages to suit diverse audiences and platforms. Through this curriculum, students develop proficiency in discipline-specific communication and gain the professional literacy needed to function ethically and effectively in a global, interdisciplinary context.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="communication-literacy-assignments-and-rubrics">
+<h1>Communication Literacy Assignments and Rubrics<a class="headerlink" href="#communication-literacy-assignments-and-rubrics" title="Link to this heading">#</a></h1>
+<p>This sub-section contains rubrics and sample artifacts for four styles of communication exercises in the Engineering Hydrology online course. These are aligned with the program-level Communication Literacy (CL) criteria: clarity, fluency in mode, and audience awareness.</p>
+<p>All CL assignments will be peer-scored using an evaluation form (like a survey), and quiz questions will be generated for examinations based upon student produced content.</p>
+<hr class="docutils" />
+<section id="video-explainer">
+<h2>Video Explainer<a class="headerlink" href="#video-explainer" title="Link to this heading">#</a></h2>
+<p>Create a video (YouTube or similar mode) to demonstrate an ability to explain “how-to” hydrologic concepts for technical or non-technical audiences.</p>
+<section id="rubric-score-out-of-15">
+<h3>Rubric (Score out of 15)<a class="headerlink" href="#rubric-score-out-of-15" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterion</p></th>
+<th class="head"><p>Excellent (5)</p></th>
+<th class="head"><p>Acceptable (3)</p></th>
+<th class="head"><p>Unacceptable (1)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clarity</strong></p></td>
+<td><p>Accurate and well-organized explanation</p></td>
+<td><p>Mostly clear but contains minor confusion</p></td>
+<td><p>Disorganized or technically incorrect</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fluency in Mode</strong></p></td>
+<td><p>Smooth narration; visuals clearly support message</p></td>
+<td><p>Acceptable pacing or visual/text integration</p></td>
+<td><p>Jumbled audio or ineffective visuals</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Audience Awareness</strong></p></td>
+<td><p>Tone, style, and complexity appropriate to student audience</p></td>
+<td><p>Partially adapted to audience</p></td>
+<td><p>Not tailored to the audience</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sample-prompt">
+<h3>Sample Prompt<a class="headerlink" href="#sample-prompt" title="Link to this heading">#</a></h3>
+<p><em>Explain how time of concentration affects hydrograph shape using an example watershed.</em></p>
+</section>
+<section id="sample-summary">
+<h3>Sample Summary<a class="headerlink" href="#sample-summary" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>“In this 3-minute video, I explain how a watershed’s time of concentration determines the steepness and timing of peak discharge. I compare a steep-sloped basin versus a flat one and show their different hydrograph shapes using simple animations.”</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="eli5-explain-like-im-5-explanation">
+<h2>ELI5 (Explain Like I’m 5) Explanation<a class="headerlink" href="#eli5-explain-like-im-5-explanation" title="Link to this heading">#</a></h2>
+<p>Written content to simplify complex hydrologic topics for non-specialist readers, reflecting the Feynman Method’s emphasis on learning through explanation.</p>
+<section id="id1">
+<h3>Rubric (Score out of 15)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterion</p></th>
+<th class="head"><p>Excellent (5)</p></th>
+<th class="head"><p>Acceptable (3)</p></th>
+<th class="head"><p>Unacceptable (1)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clarity</strong></p></td>
+<td><p>Simplifies ideas using analogies; no jargon</p></td>
+<td><p>Mostly simplified but retains minor jargon</p></td>
+<td><p>Too technical or unclear</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fluency in Writing</strong></p></td>
+<td><p>Logical structure, smooth flow</p></td>
+<td><p>Slightly repetitive or choppy</p></td>
+<td><p>Rambling or grammatically flawed</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Audience Awareness</strong></p></td>
+<td><p>Clearly aimed at non-technical audience</p></td>
+<td><p>Some effort to simplify</p></td>
+<td><p>Not tailored to audience</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-prompt">
+<h3>Example Prompt<a class="headerlink" href="#example-prompt" title="Link to this heading">#</a></h3>
+<p><em>Explain infiltration using the Green-Ampt model.</em></p>
+</section>
+<section id="sample-eli5-explanation">
+<h3>Sample ELI5 Explanation<a class="headerlink" href="#sample-eli5-explanation" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>“Imagine pouring water on a sponge. At first, the water disappears fast—it’s super thirsty. That’s the ground soaking it up. But over time, the sponge gets full, and water moves slower. The Green-Ampt model is like watching how fast a sponge drinks based on how dry it was, how tight it holds water, and how hard you’re pouring.”</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="infographic">
+<h2>Infographic<a class="headerlink" href="#infographic" title="Link to this heading">#</a></h2>
+<p>Fact sheet(s), poster, or images that visually communicate hydrologic concepts or relationships in a format accessible to decision-makers, policymakers, or the general public.</p>
+<section id="id2">
+<h3>Rubric (Score out of 15)<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterion</p></th>
+<th class="head"><p>Excellent (5)</p></th>
+<th class="head"><p>Acceptable (3)</p></th>
+<th class="head"><p>Unacceptable (1)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clarity</strong></p></td>
+<td><p>Key ideas clearly presented using visual logic</p></td>
+<td><p>Some clutter or unclear organization</p></td>
+<td><p>Disorganized or misleading</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Visual Fluency</strong></p></td>
+<td><p>Professional appearance; consistent layout and design</p></td>
+<td><p>Minor inconsistencies, but usable</p></td>
+<td><p>Distracting or poorly formatted</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Audience Awareness</strong></p></td>
+<td><p>Designed for non-expert viewer or policymaker</p></td>
+<td><p>Some adaptation to audience</p></td>
+<td><p>Assumes too much technical background</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-topic">
+<h3>Example Topic<a class="headerlink" href="#example-topic" title="Link to this heading">#</a></h3>
+<p>Produce an infographic to illustrate the relationship of <em>Hydrologic Soil Groups and Runoff Potential</em></p>
+</section>
+<section id="example-deliverable-description">
+<h3>Example Deliverable/Description<a class="headerlink" href="#example-deliverable-description" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Title: <strong>“How Soil Type Affects Flooding”</strong></p></li>
+<li><p>Icons: Raindrop, sponge, runoff arrow</p></li>
+<li><p>Side-by-side soil profiles:</p>
+<ul>
+<li><p>Group A (sand): rapid infiltration</p></li>
+<li><p>Group D (clay): surface runoff dominates</p></li>
+</ul>
+</li>
+<li><p>Caption: “Used in Curve Number method to estimate storm runoff.”</p></li>
+</ul>
+</section>
+<section id="example-infographic">
+<h3>Example Infographic<a class="headerlink" href="#example-infographic" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/soil_infographic.png" /></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="annotated-graph">
+<h2>Annotated Graph<a class="headerlink" href="#annotated-graph" title="Link to this heading">#</a></h2>
+<p>Technical graphs with annotation to showcase proficiency in visual communication and the interpretation of hydrologic data</p>
+<section id="id3">
+<h3>Rubric (Score out of 15)<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterion</p></th>
+<th class="head"><p>Excellent (5)</p></th>
+<th class="head"><p>Acceptable (3)</p></th>
+<th class="head"><p>Unacceptable (1)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Clarity</strong></p></td>
+<td><p>Labels, units, and annotations are easy to follow</p></td>
+<td><p>Some missing labels or explanations</p></td>
+<td><p>Hard to interpret or missing axes/units</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Visual Fluency</strong></p></td>
+<td><p>Graph type appropriate; formatting consistent</p></td>
+<td><p>Basic presentation with some layout issues</p></td>
+<td><p>Poor design or wrong chart choice</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Audience Awareness</strong></p></td>
+<td><p>Highlights key takeaways for reader</p></td>
+<td><p>Partial guidance provided</p></td>
+<td><p>Reader left to interpret everything</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id4">
+<h3>Example Topic<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Produce an annotated graph for a <em>Storm Hydrograph from 1” Rainfall</em></p>
+</section>
+<section id="id5">
+<h3>Example Deliverable/Description<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>X-axis: Time (hr), Y-axis: Discharge (cfs)</p></li>
+<li><p>Curve: rising limb, peak, recession limb</p></li>
+<li><p>Annotations:</p>
+<ul>
+<li><p>“Rain starts here”</p></li>
+<li><p>“Peak discharge ~3 hours later”</p></li>
+<li><p>“Slow return to baseflow—due to soil and channel storage”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="example-annotated-graph">
+<h3>Example Annotated Graph<a class="headerlink" href="#example-annotated-graph" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/output.png" /></p>
+</section>
+</section>
+<section id="section-end">
+<h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python-my-env",
+            path: "./chapters/00-CLRequirements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python-my-env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Spreadsheet Hydrology</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../01-introduction/01-introduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">0. Communication Literacy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings-references">Readings/References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-and-implementation-for-engineering-hydrology-ce-3354">Purpose and Implementation for Engineering Hydrology (CE 3354)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-literacy-assignments-and-rubrics">Communication Literacy Assignments and Rubrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-explainer">Video Explainer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric-score-out-of-15">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-prompt">Sample Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-summary">Sample Summary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eli5-explain-like-im-5-explanation">ELI5 (Explain Like I’m 5) Explanation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-prompt">Example Prompt</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-eli5-explanation">Sample ELI5 Explanation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infographic">Infographic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-topic">Example Topic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-deliverable-description">Example Deliverable/Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-infographic">Example Infographic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotated-graph">Annotated Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Rubric (Score out of 15)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example Topic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example Deliverable/Description</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-annotated-graph">Example Annotated Graph</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

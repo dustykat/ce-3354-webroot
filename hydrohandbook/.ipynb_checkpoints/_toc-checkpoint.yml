@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: chapters/00-CLRequirements/00-CLRequirements
 - file: chapters/01-introduction/01-introduction
 - file: chapters/02-precipitation/02-precipitation
 - file: chapters/03-infiltration/03-infiltration

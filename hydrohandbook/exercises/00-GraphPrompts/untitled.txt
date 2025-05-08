@@ -1,0 +1,48 @@
+📊 Annotated Graph Assignment Topics (24 Unique Prompts)
+Storm hydrograph showing rising limb, peak, and recession
+
+Hyetograph vs. hydrograph for a single storm event
+
+Comparison of hydrographs for urban vs. rural catchments
+
+Runoff volume vs. rainfall depth using Curve Number method
+
+Effect of increasing impervious surface on peak discharge
+
+Soil infiltration rate over time (Horton curve)
+
+Cumulative rainfall and infiltration using Green-Ampt model
+
+Baseflow separation on a hydrograph
+
+Runoff coefficient (C) impact on Rational Method results
+
+Time of concentration estimation vs. watershed length/slope
+
+Discharge over time at different return periods (e.g., 2-, 10-, 100-yr)
+
+Hydrologic soil group vs. estimated runoff depth
+
+Flow velocity vs. slope in open channel using Manning’s equation
+
+Evapotranspiration variation over a year (monthly data)
+
+Flowrate vs. stage (rating curve)
+
+Comparison of measured vs. modeled hydrographs
+
+Flow-duration curve for a stream
+
+Precipitation intensity-duration-frequency (IDF) plot
+
+Rainfall distribution over time (NRCS Type I, IA, II, III storms)
+
+Retention basin inflow/outflow hydrograph
+
+Land use change effects on runoff over time (e.g., before/after development)
+
+Effect of slope on time to peak
+
+Cumulative runoff volume vs. time for storm event
+
+Antecedent moisture impact on infiltration and runoff

@@ -1,0 +1,76 @@
+1.3. Course Topics
+Hydrological processes and data measurement
+The hydrologic cycle
+Rainfall, evaporation and infiltration measurement
+Streamflow measurement
+Floods and Flood Frequency analysis
+Runoff generation
+Statistical tools for hydrological analysis
+Flood Frequency curves
+Design rainfalls
+IFD curves
+Temporal rainfall patterns
+Design storm
+Estimating peak discharge
+Rational method
+Design flow hydrographs
+Hydrograph components
+Using Flood hydrographs
+Catchment routing
+Reservoir routing
+Rainfall runoff monitoring
+Loss models
+Rainfall-runoff models
+Modelling applications
+
+Groundwater
+
+
+
+TTU COVID-19 2022 Guidance Please seehttps://www.ttu.edu/administration/president/communications/letters-and-memos/letter-2022.01.05-students.pdf for the latest policy definitions. CE 3354-002 Engineering Hydrology Spring 2022 Meetings:11:00 a.m.-12:20 p.m., MW, CE 9. Instructor:Ken Rainwater, Ph.D., P.E., BCEE, D.WRE, CFM. 834-7775, office CE 117. Office hours:8:30-10:00 MW, 2:00-5:00 TTh, or by appointment. Text:Hydrology and Hydraulic Systems, 4th Ed.,by Ram S. Gupta.Also required for CE 3372 later.Other materials on Blackboard later. Course Schedule ClassDatesTopics andEvents 11/122.1-4 (Introduction, Hydrologic Cycle) 1/17MLK holiday 21/19Handout (Watersheds) 31/242.5-9 (Precipitation) 41/263 (Evaporation and Transpiration) 51/314, 8 (Runoff, Streamflow) 62/29.1-7 (Hydrographs) 72/79.8-9 (Unit Hydrographs) 82/99.10 (S-Hydrographs) 92/149.11 (Synthetic Unit Hydrographs) 102/1612.8, 14, 15 (Hydrograph Routing) 112/21Begin Project 122/23Exam 1 (Material from Classes 1 to 8) 132/28HEC-HMS Program 143/211.1-5 (Probability and Statistics), Project Progress 153/711.6-8 (Frequency Analysis), Project Progress 163/911.9-17 (Applications), Project Progress 3/14,16Spring Break 173/212.8,9 (IDF Relationships), Project Progress 183/23Hydrologic Design 193/28Exam 2(Material from Classes 9-18) 203/3011.4 (Design Storms) 214/4Project Progress 224/65.1-5 (Groundwater) 234/11Project Due,5.6-10 (Mechanics of Flow) 244/136.1-2 (Flow to Wells) 4/18Day of no classes 254/206.3-4 (Flow to Wells, Pump Test Analyses) 264/256.4,9 (Pump Test Analyses) 274/27Handout (Water Rights) 28May 2Review Topics and/or dates may be
+
+
+
+- Introduction
+- Hydrologic Cycle
+- Water Balance Equation
+- Homework
+- Watersheds
+- Watershed Delineation
+- By-Hand
+- Using QGIS
+- Watershed Metrics
+- Homework
+
+- Precipitation
+
+- Losses (Infiltration, Evaporation)
+
+- Storage
+
+- Runoff
+
+- Predicting Behavior: Modeling
+
+- Rational Runoff Model
+
+- Modified Rational Model
+
+
+What should be able to do?
+
+Large Scale -  Given a Map, estimate discharge at some control point.  Size multiple box culverts.
+
+Small Scale - Given a Map, estimate discharge at some control point.  Size simple hydraulic structures.
+
+- Hydrological Processes: Understanding of various hydrological processes such as precipitation, evaporation, infiltration, runoff, and groundwater flow.
+- Hydrological Models: Knowledge of hydrological modeling techniques including statistical methods, deterministic models, and numerical simulations.
+- Watershed Dynamics: Understanding of watershed characteristics, behavior, and dynamics.
+- Hydraulic Structures: Knowledge of design and function of hydraulic structures such as dams, weirs, culverts, channels, and stormwater management systems.
+- Hydrological Data Collection: Familiarity with methods for collecting and analyzing hydrological data, including gauge stations, streamflow measurements, and rainfall data.
+- GIS and Remote Sensing: Proficiency in Geographic Information Systems (GIS) and remote sensing techniques for spatial analysis and mapping of hydrological features.
+    Regulatory Requirements: Understanding of relevant regulations and guidelines governing water resources management and environmental protection.
+    Climate Change Impacts: Awareness of how climate change can affect hydrological processes and water resource management strategies.
+- Software Proficiency: Familiarity with hydrological modeling software such as HEC-HMS, HEC-RAS, SWMM, and MODFLOW.
+- Erosion and Sediment Transport: Knowledge of erosion processes and sediment transport mechanisms in rivers and streams.
+
