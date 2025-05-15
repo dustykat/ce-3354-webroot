@@ -1,0 +1,71 @@
+Quiz 2: The Hydrologic Cycle
+1. Which of the following is not a process in the hydrologic cycle?
+A. Condensation
+B. Tectonic uplift
+C. Infiltration
+D. Evaporation
+Answer: B
+
+2. What term describes precipitation that runs off into streams after all other storage and loss processes are accounted for?
+A. Groundwater
+B. Depression storage
+C. Excess precipitation
+D. Effective precipitation
+Answer: C
+
+3. What term refers to water held temporarily on surfaces like leaves before evaporating?
+A. Recharge
+B. Detention storage
+C. Interception
+D. Direct runoff
+Answer: C
+
+4. The part of precipitation that infiltrates and becomes part of the aquifer is called:
+A. Baseflow
+B. Recharge
+C. Detention storage
+D. Interception
+Answer: B
+
+5. What happens to water in detention storage after rainfall ends?
+A. It evaporates completely
+B. It infiltrates back into aquifers
+C. It contributes to streamflow
+D. It becomes part of cloud formation
+Answer: C
+
+6. What is the hydrologic balance equation a statement of?
+A. Conservation of energy
+B. Momentum
+C. Conservation of mass
+D. Newton’s Second Law
+Answer: C
+
+7. In the water balance equation, which term is often negligible and set to zero?
+A. Inflow
+B. Outflow
+C. Storage
+D. Internal mass generation
+Answer: D
+
+8. In the combined hydrologic system, which is true?
+A. Groundwater and surface water do not interact
+B. Losses in one system may be gains in the other
+C. Surface systems only lose water through evaporation
+D. Systems are entirely independent
+Answer: B
+
+9. What is the general form of the water budget equation?
+A. P + Q = ET
+B. Inflow – Outflow = Change in storage + Generation
+C. ET – P = Runoff
+D. Recharge = Infiltration × Evaporation
+Answer: B
+
+10. Which component is not typically considered in a surface water budget?
+A. Rainfall
+B. Groundwater recharge
+C. Ocean currents
+D. Surface outflow
+Answer: C
+

@@ -1,0 +1,78 @@
+
+# 🧮 Work It Out: Estimating Usable Water and Sustainable Population
+
+### Problem Statement
+Over **2 months**, a **65 km²** area near **Betws-y-Coed in Wales** is expected to receive:
+- **254 mm of precipitation**
+- **85 mm of evapotranspiration**
+- **20 mm of infiltration**
+
+Assume **negligible storage** in the catchment.
+
+---
+
+### Your Tasks:
+1. Determine the **excess precipitation in cubic meters ($m^3$)**  
+2. Convert the result to **liters**  
+3. Estimate the **sustainable population** if daily water demand is **160 liters/person**
+
+---
+
+### What You Know:
+
+| Quantity                 | Value     | Units             |
+|--------------------------|-----------|-------------------|
+| Area                     | 65        | km²               |
+| Precipitation            | 254       | mm                |
+| Evapotranspiration       | 85        | mm                |
+| Infiltration             | 20        | mm                |
+| Storage                  | Negligible| -                 |
+| Water demand per person  | 160       | liters/day        |
+
+---
+
+### Step 1: Compute Excess Precipitation Depth
+
+$\text{Excess} = P - ET - I = 254 - 85 - 20 = 149 \, \text{mm}$
+
+Convert to meters:
+
+$149 \, \text{mm} = 0.149 \, \text{m}$
+
+---
+
+### Step 2: Convert Area to Square Meters
+
+$65 \, \text{km}^2 = 65 \times 10^6 = 65,000,000 \, \text{m}^2$
+
+---
+
+### Step 3: Compute Excess Precipitation Volume in $m^3$
+
+$\text{Volume} = \text{Depth} \times \text{Area} = 0.149 \times 65,000,000 = 9,685,000 \, \text{m}^3$
+
+✅ **Answer (1):** **9,685,000 m³**
+
+---
+
+### Step 4: Convert Cubic Meters to Liters
+
+$1 \, \text{m}^3 = 1,000 \, \text{liters}$
+
+$9,685,000 \times 1,000 = 9.685 \times 10^9 \, \text{liters}$
+
+✅ **Answer (2):** **9.685 × 10⁹ liters**
+
+---
+
+### Step 5: Estimate Sustainable Population
+
+Assume 2 months ≈ 60 days.
+
+$\text{Per person use} = 160 \times 60 = 9,600 \, \text{liters/person}$
+
+$\text{Sustainable population} = \frac{9.685 \times 10^9}{9,600} \approx 1,009,895$
+
+✅ **Answer (3):** **Approximately 1,009,900 people**
+
+---

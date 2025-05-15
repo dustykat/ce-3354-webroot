@@ -1,0 +1,81 @@
+
+# 🧮 Work It Out: Estimating Change in River Reach Storage
+
+### Problem Statement
+At a particular time, the **storage in a river reach is 55.3 acre-ft**.  
+At that same time:
+- **Inflow = 375 cfs**
+- **Outflow = 563 cfs**
+
+Two hours later:
+- **Inflow = 600 cfs**
+- **Outflow = 675 cfs**
+
+---
+
+### Your Tasks:
+1. Estimate the **change in storage** over the 2-hour period  
+2. Determine the **final storage** in the reach after 2 hours
+
+---
+
+### What You Know:
+
+| Quantity              | Value         | Units        |
+|-----------------------|---------------|--------------|
+| Initial storage       | 55.3          | acre-feet    |
+| Inflow at t₀          | 375           | cfs          |
+| Outflow at t₀         | 563           | cfs          |
+| Inflow at t₁          | 600           | cfs          |
+| Outflow at t₁         | 675           | cfs          |
+| Time interval         | 2             | hours        |
+
+---
+
+### Step 1: Compute Average Inflow and Outflow
+
+We use arithmetic means:
+
+$\bar{Q}_{\text{in}} = \frac{375 + 600}{2} = 487.5 \, \text{cfs}$
+
+$\bar{Q}_{\text{out}} = \frac{563 + 675}{2} = 619 \, \text{cfs}$
+
+---
+
+### Step 2: Compute Net Flow Rate
+
+$\frac{dS}{dt} = \bar{Q}_{\text{in}} - \bar{Q}_{\text{out}} = 487.5 - 619 = -131.5 \, \text{cfs}$
+
+This is a **rate of volume change**, negative indicating **storage is decreasing**.
+
+---
+
+### Step 3: Convert Time to Seconds
+
+$2 \, \text{hours} = 2 \times 3600 = 7200 \, \text{seconds}$
+
+---
+
+### Step 4: Compute Change in Storage (cubic feet)
+
+$\Delta S = -131.5 \, \text{cfs} \times 7200 \, \text{s} = -946,800 \, \text{ft}^3$
+
+---
+
+### Step 5: Convert to Acre-Feet
+
+$1 \, \text{acre-ft} = 43,560 \, \text{ft}^3$
+
+$\Delta S = \frac{-946,800}{43,560} \approx -21.73 \, \text{acre-ft}$
+
+✅ **Answer (1):** Change in storage = **–21.73 acre-ft**
+
+---
+
+### Step 6: Compute Final Storage
+
+$S_{\text{final}} = 55.3 - 21.73 = 33.57 \, \text{acre-ft}$
+
+✅ **Answer (2):** Storage after 2 hours = **33.57 acre-ft**
+
+---

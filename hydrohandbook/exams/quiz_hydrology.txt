@@ -1,0 +1,70 @@
+Quiz 1: Introduction to Engineering Hydrology
+1. What is the primary purpose of engineering hydrology?
+A. To study marine biology
+B. To predict rainfall
+C. To quantify water availability over time and space
+D. To measure ocean salinity
+Answer: C
+
+2. Which of the following is not a major use of water mentioned in the text?
+A. Recreation
+B. Space exploration
+C. Agriculture
+D. Power generation
+Answer: B
+
+3. Which term refers to the area that collects and discharges surface streamflow through one outlet?
+A. Infiltration zone
+B. Water body
+C. Watershed
+D. Aquifer
+Answer: C
+
+4. The driving force for the hydrologic cycle is:
+A. Gravity
+B. Wind
+C. Solar energy
+D. Earth’s rotation
+Answer: C
+
+5. What volume of water per person per day is considered basic for survival and hygiene?
+A. 1 liter
+B. 5 liters
+C. 15 liters
+D. 50 liters
+Answer: C
+
+6. What is the main goal of water treatment for wastewater before it is discharged?
+A. To change its color
+B. To remove all salt
+C. To enable natural systems to assimilate it
+D. To reduce water temperature
+Answer: C
+
+7. Flooding that interrupts daily life and causes measurable damage is categorized as:
+A. Routine flow
+B. Baseflow
+C. Flood flow
+D. Urban runoff
+Answer: C
+
+8. Which of the following is an example of industrial water use?
+A. Water for firefighting
+B. Water for drinking
+C. Water used in semiconductor manufacturing
+D. Water for boating
+Answer: C
+
+9. Which agency maintains the official national network of stream gages in the U.S.?
+A. EPA
+B. FEMA
+C. NOAA
+D. USGS
+Answer: D
+
+10. What engineering strategy involves using land adjacent to known flood paths?
+A. Residential storage
+B. Flood corridors
+C. Salt dome storage
+D. Pumped canals
+Answer: B

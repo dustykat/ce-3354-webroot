@@ -10,8 +10,8 @@
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \pagestyle{fancy}
 \lhead{CE 3354 -- Engineering Hydrology}
-\rhead{FALL 2025}
-\lfoot{ES2}
+\rhead{SUMMER 2025}
+\lfoot{ES1}
 \cfoot{}
 \rfoot{Page \thepage\ of \pageref{LastPage}}
 \renewcommand\headrulewidth{0pt}
@@ -25,35 +25,13 @@
 
 \section*{\small{Exercises}}
 \begin{enumerate}
-\item A farm has a reservoir with vertical sides and surface area of 2.5 acres. Following the reservoir has accumulated 9.84 feet of water.  During the dry season the reservoir loses 2.5 inches of water per week to evaporation.  The average irrigation demand during the dry season is 0.23 acre-ft per day.
-
-Determine:
-    \begin{enumerate}[a)]
-        \item How many weeks can the farm irrigate water from the reservoir supply? 
-    \end{enumerate}
-
-\clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\item The mean annual precipitation for a certain 132 square-mile watershed is 25 inches. Assume that 20 percent of the annual precipitation reaches the watershed outlet as streamflow.
+\item The mean annual precipitation for a certain 132 square-mile watershed is 26 inches. Assume that 21 percent of the annual precipitation reaches the watershed outlet as streamflow.
 
 Determine:
     \begin{enumerate}[a)]
         \item The mean streamflow rate in acre-feet per year. 
         \item The mean streamflow rate in cubic-feet per second.
-        \item The mean streamflow rate in cubic-meters per second.
-    \end{enumerate}
-
-\clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\item The mean annual rainfall depth over a 280 km$^2$ watershed is 725 mm.
-
-Determine:
-    \begin{enumerate}[a)]
-        \item The mean annual volume of rain falling on the watershed in cubic meters. 
-        \item The mean annual volume of rain falling on the watershed in cubic feet.
-        \item The mean annual volume of rain falling on the watershed in gallons.
-        \item The mean annual volume of rain falling on the watershed in acre-feet.
+%        \item The mean streamflow rate in cubic-meters per second.
     \end{enumerate}
 
 \clearpage
@@ -76,7 +54,18 @@ Determine:
    \caption{Tabular Water Budget Values}
    \label{fig:reservoir}
 \end{figure}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The equation $k\frac{dQ}{dt} + Q(t) = I(t)$ is used to describe the response of streamflow to a constant rate of precipitation applied indefinitely on some watershed.  
+Suppose that $Q(0)=0$ and the watershed characteristic time constant is $k=2~\text{hrs}$.
+$I(t) =2$ for $t=[0,12)~\text{hrs}$ and then $I(t) =0$ for $t=[12,24]~\text{hrs}.$ 
 
+Determine:
+\begin{enumerate}
+\item Plot the values of $I(t)$ over the 24-hour perios, in 1-hour increments.
+\item The necessary equation(s) to predict the response $Q(t)$ over the 24-hour period.
+\item Plot the values of $Q(t)$ over the 24-hour period, in 1-hour increments.
+\end{enumerate}
 
     
 \end{enumerate}
@@ -145,3 +134,25 @@ Determine:
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ~\newline
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item The mean annual rainfall depth over a 280 km$^2$ watershed is 725 mm.
+
+Determine:
+    \begin{enumerate}[a)]
+        \item The mean annual volume of rain falling on the watershed in cubic meters. 
+        \item The mean annual volume of rain falling on the watershed in cubic feet.
+        \item The mean annual volume of rain falling on the watershed in gallons.
+        \item The mean annual volume of rain falling on the watershed in acre-feet.
+    \end{enumerate}
+
+\clearpage
+\item A farm has a reservoir with vertical sides and surface area of 2.5 acres. Following the reservoir has accumulated 9.84 feet of water.  During the dry season the reservoir loses 2.5 inches of water per week to evaporation.  The average irrigation demand during the dry season is 0.23 acre-ft per day.
+
+Determine:
+    \begin{enumerate}[a)]
+        \item How many weeks can the farm irrigate water from the reservoir supply? 
+    \end{enumerate}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
