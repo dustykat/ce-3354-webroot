@@ -1,0 +1,107 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "903b1c92",
+   "metadata": {},
+   "source": [
+    "# Precipitation Data Analysis Template\n",
+    "\n",
+    "This notebook demonstrates a typical workflow to analyze and visualize precipitation data using Python, and export the results to Excel with an embedded chart. It serves both educational and administrative needs by producing:\n",
+    "\n",
+    "- A plot for visualization.\n",
+    "- A `.xlsx` file suitable for submission or archival, containing an embedded chart.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6b347726",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Define precipitation time series (replace as needed)\n",
+    "time = list(range(25))\n",
+    "increment = [0.121, 0.121, 0.132, 0.154, 0.165, 0.187, 0.198, 0.242, 0.297,\n",
+    "             0.374, 0.594, 4.708, 1.199, 0.528, 0.374, 0.286, 0.253, 0.209,\n",
+    "             0.176, 0.154, 0.132, 0.132, 0.132, 0.132, 0]\n",
+    "\n",
+    "# Compute accumulated precipitation\n",
+    "accumulate = [0 for _ in range(len(time))]\n",
+    "for i in range(1, len(time)):\n",
+    "    accumulate[i] = accumulate[i-1] + increment[i-1]\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b3e1b303",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "plt.figure(figsize=(10, 5))\n",
+    "plt.plot(time, increment, c='red', drawstyle='steps-post', label='Incremental Depth')\n",
+    "plt.plot(time, accumulate, c='blue', drawstyle='steps-post', label='Accumulated Depth')\n",
+    "plt.xlabel('Time (hours)')\n",
+    "plt.ylabel('Depth (inches)')\n",
+    "plt.title('Precipitation for Somewhere USA')\n",
+    "plt.legend()\n",
+    "plt.grid(True)\n",
+    "plt.tight_layout()\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8b51cabf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "from openpyxl import Workbook\n",
+    "from openpyxl.chart import LineChart, Reference\n",
+    "from openpyxl.utils.dataframe import dataframe_to_rows\n",
+    "\n",
+    "# Create DataFrame\n",
+    "df = pd.DataFrame({\n",
+    "    \"Time (hr)\": time,\n",
+    "    \"Incremental Depth (in)\": increment,\n",
+    "    \"Accumulated Depth (in)\": accumulate\n",
+    "})\n",
+    "\n",
+    "# Write to Excel\n",
+    "from openpyxl import Workbook\n",
+    "wb = Workbook()\n",
+    "ws = wb.active\n",
+    "ws.title = \"Precipitation Data\"\n",
+    "\n",
+    "# Write rows\n",
+    "for r in dataframe_to_rows(df, index=False, header=True):\n",
+    "    ws.append(r)\n",
+    "\n",
+    "# Add chart\n",
+    "chart = LineChart()\n",
+    "chart.title = \"Precipitation for Somewhere USA\"\n",
+    "chart.style = 13\n",
+    "chart.y_axis.title = 'Depth (inches)'\n",
+    "chart.x_axis.title = 'Time (hours)'\n",
+    "data = Reference(ws, min_col=2, min_row=1, max_col=3, max_row=len(df)+1)\n",
+    "cats = Reference(ws, min_col=1, min_row=2, max_row=len(df)+1)\n",
+    "chart.add_data(data, titles_from_data=True)\n",
+    "chart.set_categories(cats)\n",
+    "ws.add_chart(chart, \"E5\")\n",
+    "\n",
+    "# Save file\n",
+    "excel_output_path = \"precipitation_output.xlsx\"\n",
+    "wb.save(excel_output_path)\n",
+    "print(f\"Excel file saved as: {excel_output_path}\")\n"
+   ]
+  }
+ ],
+ "metadata": {},
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

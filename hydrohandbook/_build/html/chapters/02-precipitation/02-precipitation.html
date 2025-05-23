@@ -191,9 +191,12 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
@@ -414,6 +417,22 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.2 Hyetographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-hyetographs-used">Why are hyetographs used?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-data-analysis-template">Precipitation Data Analysis Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-point-hyetographs-to-precipitation-fields">From Point Hyetographs to Precipitation Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-conceptual-visualization">A Conceptual Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-derived-rainfall-fields-e-g-nexrad">Radar-Derived Rainfall Fields (e.g., NEXRAD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zr-relationship">Z–R Relationship</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-and-resolution">Data Format and Resolution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-use-case">Example Use Case</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
@@ -424,14 +443,33 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texas-empirical-hyetograph-based-design-storms">Texas Empirical Hyetograph-Based Design Storms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-observations">Historical Observations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncdc">NCDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-sources-of-precipitation-data">Additional Sources of Precipitation Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usgs-nwis-national-water-information-system">USGS NWIS (National Water Information System)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cocorahs-community-collaborative-rain-hail-and-snow-network">CoCoRaHS (Community Collaborative Rain, Hail, and Snow Network)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mesonet-systems-e-g-texas-mesonet-oklahoma-mesonet">Mesonet Systems (e.g., Texas Mesonet, Oklahoma Mesonet)</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-gaps-and-the-need-for-interpolation-estimation">Data Gaps and the Need for Interpolation/Estimation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data-replacement-techniques">Missing Data Replacement Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area">Precipitation over an Area</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area-from-point-observations">Precipitation over an Area (from Point Observations)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Precipitation over an Area (from point observations)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-areal-precipitation-from-point-gauge-data">Approximating Areal Precipitation from Point Gauge Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-conceptualization">Watershed Conceptualization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-mean">Arithmetic Mean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon weighted methods.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon-Weighted Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#thiessens-polygons-voronoi-diagrams">Thiessen’s Polygons (Voronoi Diagrams)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-elevation-weighted-and-contour-based-methods">(Future) Elevation-Weighted and Contour-Based Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors-arfs">Areal Reduction Factors (ARFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Arithmetic Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Polygon weighted methods.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors">Areal Reduction Factors</a></li>
@@ -653,34 +691,44 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 
 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf) 
 --></section>
-<section class="tex2jax_ignore mathjax_ignore" id="design-storms">
-<h1>2.3 Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h1>
-<p>A design storm is a theoretical or hypothetical weather event used by engineers, urban planners, and hydrologists as a standard to simulate and predict the potential impact of extreme weather conditions on a particular area. It is employed in the design and planning of various structures and systems to ensure they can withstand or manage the expected stresses caused by intense rainfall or other weather-related factors.</p>
-<section id="design-storm-characteristics">
-<h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Link to this heading">#</a></h2>
-<p>The characteristics of a design storm typically include:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="hyetographs">
+<h1>2.2 Hyetographs<a class="headerlink" href="#hyetographs" title="Link to this heading">#</a></h1>
+<p>A <strong>hyetograph</strong> is a graphical representation of precipitation intensity over time, typically used in hydrologic analysis to understand how rainfall is distributed during a storm event. It plays a central role in watershed modeling, stormwater design, and flood forecasting.</p>
+<p>Unlike a total rainfall value—which tells you how much precipitation occurred—a hyetograph shows when and how fast the rain fell. This temporal distribution is critical, especially for runoff and peak discharge estimations.</p>
+<p>Two ways of representing the precipitation time series are common: cumulative and incremental precipitation</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example Use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cumulative Precipitation</p></td>
+<td><p>Total rainfall measured from the start of the storm up to each time point</p></td>
+<td><p>Used to understand total event depth and plot rainfall accumulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Incremental Precipitation</p></td>
+<td><p>Rainfall depth that occurred in each discrete time interval (e.g., 5 min, 15 min)</p></td>
+<td><p>Used in hyetographs to estimate intensity and design runoff hydrographs</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p>Intensity: The rate of rainfall or snowfall during the storm, often measured in inches per hour or millimeters per hour.</p></li>
-<li><p>Duration: The period over which the intense rainfall or weather event persists, often measured in hours.</p></li>
-<li><p>Frequency: Often associated with a particular return period (e.g., 10-year storm, 50-year storm, 100-year storm), representing the average time interval between occurrences of storms of similar magnitude.</p></li>
+<li><p>Cumulative is like an odometer: always increasing (or flat when no rain).</p></li>
+<li><p>Incremental is like a speedometer: it spikes when rain is falling and drops to zero during dry periods.</p></li>
 </ul>
-<p>For instance, a 100-year design storm doesn’t mean it occurs once every century; rather, it indicates that there’s a 1% chance of this intensity of storm happening in any given year.</p>
-<p>Design storms are used in various engineering and urban planning scenarios, such as:</p>
-<ul class="simple">
-<li><p>Hydraulic Design: Designing stormwater drainage systems, sewers, culverts, and other structures to handle anticipated water flow during extreme weather events.</p></li>
-<li><p>Floodplain Management: Assessing the potential impact of flooding and creating regulations for construction in flood-prone areas.</p></li>
-<li><p>Infrastructure Design: Designing bridges, dams, and other structures to withstand the forces exerted by extreme weather conditions.</p></li>
-</ul>
-<p>These storms are not exact events that have occurred in the past; rather, they’re created based on statistical analyses of historical weather data to provide a standard for planning and design purposes. They assist in creating structures and systems that can manage the potential stress of extreme weather events, ensuring safety and functionality within the built environment.</p>
-<p>Design storms are statistical models of such temporal behavior and are used in hydrologic models when hydrographs need to be generated</p>
-</section>
-<section id="rainfall-distributions">
-<h2>Rainfall Distributions<a class="headerlink" href="#rainfall-distributions" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Rainfall distributions represent temporal patterns of a storm.</p></li>
-<li><p>A rainfall distribution is also called a hyetograph.</p></li>
-<li><p>Rainfall distributions are used when we need to estimate an entire hydrograph.</p></li>
-</ul>
+</div>
+<section id="why-are-hyetographs-used">
+<h2>Why are hyetographs used?<a class="headerlink" href="#why-are-hyetographs-used" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>To determine peak rainfall intensities needed for design storms.</p></li>
+<li><p>To input time-varying rainfall into simulation models like HEC-HMS or SWMM.</p></li>
+<li><p>To evaluate system response under various rainfall scenarios (uniform, front-loaded, back-loaded).</p></li>
+</ol>
 <div class="admonition-discrete-data-analysis admonition">
 <p class="admonition-title">Discrete Data Analysis</p>
 <p>The Figure below is a representation of some continuous process.  To extract values by measurements only occurs at discrete points in time. These samples are reconstructed in a variety of ways to restore the original representation.</p>
@@ -852,32 +900,105 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <div class="math notranslate nohighlight">
 \[acc_{i}=inc_{i-1}+acc_{i-1}\]</div>
 </div>
+</section>
+<section id="precipitation-data-analysis-template">
+<h2>Precipitation Data Analysis Template<a class="headerlink" href="#precipitation-data-analysis-template" title="Link to this heading">#</a></h2>
+<p>This notebook demonstrates a typical workflow to analyze and visualize precipitation data using Python, and export the results to <strong>Excel</strong> with an embedded chart. It serves both educational and administrative needs by producing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A plot for visualization.
+A .xlsx file suitable for submission or archival, containing an embedded chart.
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span>
-<span class="n">increment</span><span class="o">=</span><span class="p">[</span><span class="mf">0.121</span><span class="p">,</span><span class="mf">0.121</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.154</span><span class="p">,</span><span class="mf">0.165</span><span class="p">,</span><span class="mf">0.187</span><span class="p">,</span><span class="mf">0.198</span><span class="p">,</span><span class="mf">0.242</span><span class="p">,</span><span class="mf">0.297</span><span class="p">,</span><span class="mf">0.374</span><span class="p">,</span><span class="mf">0.594</span><span class="p">,</span><span class="mf">4.708</span><span class="p">,</span><span class="mf">1.199</span><span class="p">,</span><span class="mf">0.528</span><span class="p">,</span><span class="mf">0.374</span><span class="p">,</span><span class="mf">0.286</span><span class="p">,</span><span class="mf">0.253</span><span class="p">,</span><span class="mf">0.209</span><span class="p">,</span><span class="mf">0.176</span><span class="p">,</span><span class="mf">0.154</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mf">0.132</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">accumulate</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define precipitation time series (replace as needed)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+<span class="n">increment</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.121</span><span class="p">,</span> <span class="mf">0.121</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mf">0.154</span><span class="p">,</span> <span class="mf">0.165</span><span class="p">,</span> <span class="mf">0.187</span><span class="p">,</span> <span class="mf">0.198</span><span class="p">,</span> <span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.297</span><span class="p">,</span>
+             <span class="mf">0.374</span><span class="p">,</span> <span class="mf">0.594</span><span class="p">,</span> <span class="mf">4.708</span><span class="p">,</span> <span class="mf">1.199</span><span class="p">,</span> <span class="mf">0.528</span><span class="p">,</span> <span class="mf">0.374</span><span class="p">,</span> <span class="mf">0.286</span><span class="p">,</span> <span class="mf">0.253</span><span class="p">,</span> <span class="mf">0.209</span><span class="p">,</span>
+             <span class="mf">0.176</span><span class="p">,</span> <span class="mf">0.154</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)):</span>
-    <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">increment</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Compute accumulated precipitation</span>
+<span class="n">accumulate</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)):</span>
+    <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">increment</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># the python plotting library</span>
-<span class="n">plottitle</span> <span class="o">=</span><span class="s1">&#39;Precipitation for Somewhere USA &#39;</span> 
-<span class="n">mydata</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># build a square drawing canvass from figure class</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps&#39;</span><span class="p">)</span> <span class="c1"># step plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">accumulate</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps&#39;</span><span class="p">)</span> <span class="c1"># step plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">increment</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps-post&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Incremental Depth&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">accumulate</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps-post&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Accumulated Depth&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (hours)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (inches)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Incremental Depth&#39;</span><span class="p">,</span><span class="s1">&#39;Accumulated Depth&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">plottitle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Precipitation for Somewhere USA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f42487337cffc42bc014e4931271c21774d9cc9b8aa3928a1fa66273b269edc9.png" src="../../_images/f42487337cffc42bc014e4931271c21774d9cc9b8aa3928a1fa66273b269edc9.png" />
+<img alt="../../_images/db28ff1ba1d2d3402512aae9fbf09b0988cefb9673a177237e6998774dd8cedc.png" src="../../_images/db28ff1ba1d2d3402512aae9fbf09b0988cefb9673a177237e6998774dd8cedc.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="kn">from</span> <span class="nn">openpyxl.chart</span> <span class="kn">import</span> <span class="n">LineChart</span><span class="p">,</span> <span class="n">Reference</span>
+<span class="kn">from</span> <span class="nn">openpyxl.utils.dataframe</span> <span class="kn">import</span> <span class="n">dataframe_to_rows</span>
+
+<span class="c1"># Create DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Time (hr)&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span>
+    <span class="s2">&quot;Incremental Depth (in)&quot;</span><span class="p">:</span> <span class="n">increment</span><span class="p">,</span>
+    <span class="s2">&quot;Accumulated Depth (in)&quot;</span><span class="p">:</span> <span class="n">accumulate</span>
+<span class="p">})</span>
+
+<span class="c1"># Write to Excel</span>
+<span class="kn">from</span> <span class="nn">openpyxl</span> <span class="kn">import</span> <span class="n">Workbook</span>
+<span class="n">wb</span> <span class="o">=</span> <span class="n">Workbook</span><span class="p">()</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">active</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Precipitation Data&quot;</span>
+
+<span class="c1"># Write rows</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">dataframe_to_rows</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">ws</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="c1"># Add chart</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">LineChart</span><span class="p">()</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Precipitation for Somewhere USA&quot;</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">y_axis</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Depth (inches)&#39;</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">x_axis</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Time (hours)&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_col</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="n">Reference</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">min_col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_row</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">titles_from_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">set_categories</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">add_chart</span><span class="p">(</span><span class="n">chart</span><span class="p">,</span> <span class="s2">&quot;E5&quot;</span><span class="p">)</span>
+
+<span class="c1"># Save file</span>
+<span class="n">excel_output_path</span> <span class="o">=</span> <span class="s2">&quot;precipitation_output.xlsx&quot;</span>
+<span class="n">wb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">excel_output_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Excel file saved as: </span><span class="si">{</span><span class="n">excel_output_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Excel file saved as: precipitation_output.xlsx
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is a screen capture of the excel file; it has some modifications to the headers they are bold, and the default line type is changed.  Otherwise it is exactly what comes out of the script.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The image below is also a link to the source sheet, so if you click on the image it should attempt to download the source XLSX file :::</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/02-precipitation/precipitation_data_with_chart.xlsx"><img alt="width=&quot;400&quot;" src="../../_images/ExcelPrecipitationWithChart.png" /></a></p>
 </div>
 <p>When the time spacing is non-uniform, the numerical integration using rectangular panels looking backward in time is complicated by the various time increments.  The listing below is a FORTRAN script to process such situations it should be relatively easy to port the script to python, fix the file reading structure and then have a pretty general tool.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="n">program</span> <span class="n">to</span> <span class="n">interpolate</span> <span class="n">rain</span> <span class="ow">and</span> <span class="n">runoff</span> <span class="n">data</span> <span class="n">into</span> <span class="n">one</span> <span class="n">minute</span> <span class="n">increments</span> 
@@ -928,10 +1049,197 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
       <span class="n">end</span>
 </pre></div>
 </div>
-<div class="admonition-to-do admonition">
-<p class="admonition-title">To do:</p>
-<p>Port above FORTRAN to python, modify file management for general use.  Recall python cannot use floats as indices, so the loop processing needs rewrite.  Include an example.</p>
+<div class="admonition-python admonition">
+<p class="admonition-title">Python</p>
+<p>Below is a python script ported (automatically translated into python) to manage the non-uniform in time entries.</p>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python port of FORTRAN program to interpolate rain/runoff data to 1-minute intervals</span>
+
+<span class="k">def</span> <span class="nf">interpolate_rainfall</span><span class="p">(</span><span class="n">input_lines</span><span class="p">):</span>
+    <span class="n">etime</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">acc_wtd_value</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Read and parse data</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_lines</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">etime</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">acc_wtd_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Round time to nearest whole minute</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">etime</span><span class="p">)):</span> 
+        <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># round to nearest whole number as float</span>
+
+    <span class="c1"># Interpolate values</span>
+    <span class="n">interpolated</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">etime</span><span class="p">)):</span>
+        <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">etime</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">acc_wtd_value</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">acc_wtd_value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">v1</span> <span class="o">-</span> <span class="n">v0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+
+        <span class="n">rtime</span> <span class="o">=</span> <span class="n">t0</span>
+        <span class="k">while</span> <span class="n">rtime</span> <span class="o">&lt;</span> <span class="n">t1</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">rtime</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+            <span class="n">interpolated</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">round</span><span class="p">(</span><span class="n">rtime</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+            <span class="n">rtime</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+    <span class="k">return</span> <span class="n">interpolated</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Example input: could be replaced with reading from a file</span>
+    <span class="n">sample_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;# Time Depth</span>
+<span class="s2">0.0 0.00</span>
+<span class="s2">3.9 1.20</span>
+<span class="s2">7.0 2.40</span>
+<span class="s2">10.0 3.00</span>
+<span class="s2">11.0 3.00</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># Remember to pad the data so last line is one minute more that actual last line of data</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">interpolate_rainfall</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Time (min)&quot;</span><span class="p">,</span> <span class="s2">&quot;Interpolated Value&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;interpolated_output.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved interpolated data to interpolated_output.csv&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved interpolated data to interpolated_output.csv
+    Time (min)  Interpolated Value
+0          0.0                 0.0
+1          1.0                 0.3
+2          2.0                 0.6
+3          3.0                 0.9
+4          4.0                 1.2
+5          5.0                 1.6
+6          6.0                 2.0
+7          7.0                 2.4
+8          8.0                 2.6
+9          9.0                 2.8
+10        10.0                 3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="from-point-hyetographs-to-precipitation-fields">
+<h2>From Point Hyetographs to Precipitation Fields<a class="headerlink" href="#from-point-hyetographs-to-precipitation-fields" title="Link to this heading">#</a></h2>
+<p>So far, we’ve focused on hyetographs as point-based time series, showing how rainfall accumulates or varies with time at a single location. These are valuable for site-specific design (e.g., a gaged watershed outlet), but hydrologic modeling often requires a more comprehensive view.</p>
+<p>To move beyond a single point, we can consider rainfall as a spatiotemporal field. In this framework:</p>
+<p><span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> represent geographic coordinates (e.g., latitude and longitude).</p>
+<p><span class="math notranslate nohighlight">\(Z\)</span> represents either:</p>
+<ol class="arabic simple">
+<li><p>Incremental rainfall depth (e.g., mm/hr or in/hr), or</p></li>
+<li><p>Cumulative rainfall depth at each time step.</p></li>
+</ol>
+<p>This transforms the hyetograph from a 2D plot into a surface or sequence of surfaces over a region—effectively a 3D structure evolving through time.</p>
+<section id="a-conceptual-visualization">
+<h3>A Conceptual Visualization<a class="headerlink" href="#a-conceptual-visualization" title="Link to this heading">#</a></h3>
+<p>Imagine placing a rain gauge at every pixel of a grid overlaying a watershed. Each pixel produces a hyetograph. We can then stack these hyetographs spatially to generate a rainfall surface for each time step. These surfaces change in height (Z) as rain moves through the region—revealing storm structure, movement, and intensity.</p>
+<p>Let’s create a synthetic example: a rainfall event passing over a grid of 10x10 locations with peak intensity centered spatially and temporally.</p>
+<p><img alt="" src="../../_images/PrecipField.png" /></p>
+<p>This 3D plot represents a rainfall surface at a single time step. The spatial center receives the highest intensity (Z-axis), while outer regions receive less. Such surfaces change with time, forming a dynamic spatiotemporal hyetograph field.</p>
+</section>
+<section id="radar-derived-rainfall-fields-e-g-nexrad">
+<h3>Radar-Derived Rainfall Fields (e.g., NEXRAD)<a class="headerlink" href="#radar-derived-rainfall-fields-e-g-nexrad" title="Link to this heading">#</a></h3>
+<p>When gauges are sparse or spatial resolution is essential, hydrologists rely on <strong>radar-estimated precipitation</strong> to construct rainfall fields. The most widely used system in the U.S. is <strong>NEXRAD</strong> (Next-Generation Radar), operated by the National Weather Service.</p>
+<section id="zr-relationship">
+<h4>Z–R Relationship<a class="headerlink" href="#zr-relationship" title="Link to this heading">#</a></h4>
+<p>Radar does not measure rainfall directly—it measures <strong>reflectivity</strong> (Z), which is related to the <strong>drop size and concentration</strong> of raindrops. To estimate rainfall rate (R), a power-law relationship is applied:</p>
+<div class="math notranslate nohighlight">
+\[Z = a R^b\]</div>
+<ul class="simple">
+<li><p><strong>Z</strong> is radar reflectivity (mm⁶/m³)</p></li>
+<li><p><strong>R</strong> is rainfall rate (mm/hr)</p></li>
+<li><p><strong>a, b</strong> are empirical coefficients, often set to:</p>
+<ul>
+<li><p>Stratiform rain: ( a = 200, b = 1.6 )</p></li>
+<li><p>Convective rain: ( a = 300, b = 1.4 )</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="data-format-and-resolution">
+<h4>Data Format and Resolution<a class="headerlink" href="#data-format-and-resolution" title="Link to this heading">#</a></h4>
+<p>NEXRAD products (e.g., Stage IV, MRMS) provide:</p>
+<ul class="simple">
+<li><p><strong>Gridded rainfall fields</strong> at resolutions of:</p>
+<ul>
+<li><p>~1 km² spatial grid</p></li>
+<li><p>5-minute to 1-hour temporal updates</p></li>
+</ul>
+</li>
+<li><p>Formats include <strong>NetCDF, GRIB2, HDF</strong>, and GIS-ready rasters (GeoTIFF, ASCII Grid)</p></li>
+</ul>
+<p>These datasets allow us to construct spatially distributed hyetographs, where each grid cell has its own time series—ideal for input into distributed models like HEC-HMS (gridded mode), SWAT, or custom Python/R scripts.</p>
+</section>
+<section id="example-use-case">
+<h4>Example Use Case<a class="headerlink" href="#example-use-case" title="Link to this heading">#</a></h4>
+<p>Imagine a 20 km × 20 km watershed with 1 km² cells:</p>
+<ul class="simple">
+<li><p>NEXRAD provides a <strong>25 × 25 matrix</strong> of rainfall intensity every 5 minutes.</p></li>
+<li><p>Each cell can be converted into a hyetograph.</p></li>
+<li><p>These can then be interpolated across the watershed and used to drive runoff models.</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Note</strong>: Radar data often requires quality control (e.g., correcting for beam blockage, range degradation, and bright band contamination). Merging with gauge data (gauge-adjusted radar) improves reliability.</p>
+</div></blockquote>
+<p><img alt="" src="../../_images/ZRRelationship.png" /> A figure illustrating the Z–R relationship:</p>
+<ul class="simple">
+<li><p>The left panel shows simulated radar reflectivity (Z), with higher values near the center.</p></li>
+<li><p>The right panel shows the corresponding estimated rainfall intensity (R) using the Z = a·R^b conversion.</p></li>
+</ul>
+<p>A time series of these rasters plays the same role in spatially distributed precipitation, as our point estimates for different cases.  Of course the data volume is greatly increased and beyond what we can reasonably manage with Excel.</p>
+</section>
+<section id="data-sources">
+<h4>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NOAA NCEI Radar Archive: <a class="reference external" href="https://www.ncei.noaa.gov/products/radar-data">https://www.ncei.noaa.gov/products/radar-data</a></p></li>
+<li><p>Iowa Environmental Mesonet (IEM): <a class="reference external" href="https://mesonet.agron.iastate.edu/">https://mesonet.agron.iastate.edu/</a></p></li>
+<li><p>NOAA MRMS Portal: <a class="reference external" href="https://vlab.noaa.gov/web/wdtd/mrms">https://vlab.noaa.gov/web/wdtd/mrms</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="design-storms">
+<h1>2.3 Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h1>
+<p>A design storm is a theoretical or hypothetical weather event used by engineers, urban planners, and hydrologists as a standard to simulate and predict the potential impact of extreme weather conditions on a particular area. It is employed in the design and planning of various structures and systems to ensure they can withstand or manage the expected stresses caused by intense rainfall or other weather-related factors.</p>
+<section id="design-storm-characteristics">
+<h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Link to this heading">#</a></h2>
+<p>The characteristics of a design storm typically include:</p>
+<ul class="simple">
+<li><p>Intensity: The rate of rainfall or snowfall during the storm, often measured in inches per hour or millimeters per hour.</p></li>
+<li><p>Duration: The period over which the intense rainfall or weather event persists, often measured in hours.</p></li>
+<li><p>Frequency: Often associated with a particular return period (e.g., 10-year storm, 50-year storm, 100-year storm), representing the average time interval between occurrences of storms of similar magnitude.</p></li>
+</ul>
+<p>For instance, a 100-year design storm doesn’t mean it occurs once every century; rather, it indicates that there’s a 1% chance of this intensity of storm happening in any given year.</p>
+<p>Design storms are used in various engineering and urban planning scenarios, such as:</p>
+<ul class="simple">
+<li><p>Hydraulic Design: Designing stormwater drainage systems, sewers, culverts, and other structures to handle anticipated water flow during extreme weather events.</p></li>
+<li><p>Floodplain Management: Assessing the potential impact of flooding and creating regulations for construction in flood-prone areas.</p></li>
+<li><p>Infrastructure Design: Designing bridges, dams, and other structures to withstand the forces exerted by extreme weather conditions.</p></li>
+</ul>
+<p>These storms are not exact events that have occurred in the past; rather, they’re created based on statistical analyses of historical weather data to provide a standard for planning and design purposes. They assist in creating structures and systems that can manage the potential stress of extreme weather events, ensuring safety and functionality within the built environment.</p>
+<p>Design storms are statistical models of such temporal behavior and are used in hydrologic models when hydrographs need to be generated</p>
+</section>
+<section id="rainfall-distributions">
+<h2>Rainfall Distributions<a class="headerlink" href="#rainfall-distributions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Rainfall distributions represent temporal patterns of a storm.</p></li>
+<li><p>A rainfall distribution is also called a hyetograph.</p></li>
+<li><p>Rainfall distributions are used when we need to estimate an entire hydrograph.</p></li>
+</ul>
 <section id="design-distributions">
 <h3>Design Distributions<a class="headerlink" href="#design-distributions" title="Link to this heading">#</a></h3>
 <p>Distributions from historical storms are analyzed to generate statistical <strong>models</strong> of rainfall – these models are called <strong>design storms</strong>. Design storm distributions are typically represented as dimensionless hyetographs</p>
@@ -1000,8 +1308,10 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <img alt="../../_images/20236d99ac9aa17ab418610e1dc30598187f1c0835c3605f8f6af66f0c929057.png" src="../../_images/20236d99ac9aa17ab418610e1dc30598187f1c0835c3605f8f6af66f0c929057.png" />
 </div>
 </div>
+<p>An equivalent Excel worksheet to accomplish the same task is</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/02-precipitation/SCS_Type_Curves_with_Chart.xlsx"><img alt="" src="../../_images/SCSExcel.png" /></a></p>
 <p>A variant for 6-hour durations is</p>
-<p><img alt="" src="../../_images/SCS6hr.png" /></p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/02-precipitation/SCS-RainfallDistributions.xlsx"><img alt="" src="../../_images/SCS6hr.png" /></a></p>
 <p>Using the type curves is straightforward</p>
 <ol class="arabic simple">
 <li><p>Use NOAA Atlas 14, TP-40, or other defendable source to set total depth, P for the 24 hour storm (or 6 hour storm)</p></li>
@@ -1038,11 +1348,7 @@ The 90th percentile is appropriate for high consequence of failure targets (hosp
 <p>At times, there might be motivation to study the source observations - so how to obtain data is important.  There are likely multiple sources of data - here we will examine just a few.</p>
 <section id="ncdc">
 <h3>NCDC<a class="headerlink" href="#ncdc" title="Link to this heading">#</a></h3>
-<p>This is the easiest, and may suffice in many situations.  The National Climatic Data Center maintains historical records of climate related data - in some locations over a century of data exist.  Using our study area, and current online tools one can find gages near the study site.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The study area referred to above is Caprock Canyon SP, not the Hardin Branch area, methods are the same; I already had figures available so choose to go with them instead of recreate for Hardin Branch.</p>
-</div>
+<p>This is the easiest, and may suffice in many situations.  The National Climatic Data Center maintains historical records of climate related data - in some locations over a century of data exist.  Consider a study area at Caprock Canyon SP  and apply current online tools one can find gages near the study site.</p>
 <p><a class="reference external" href="https://www.ncei.noaa.gov/maps/daily/">https://www.ncei.noaa.gov/maps/daily/</a> will navigate to the NCDC server where daily data are available.  The landing page will look something like:</p>
 <p><img alt="" src="../../_images/ncdc-landing-page.png" /></p>
 <p>I have already located our study site - so I’ll just zoom in.  In the figure our area is the small yeller rectangles in West Texas.  Zoomed into a useful scale:</p>
@@ -1062,6 +1368,50 @@ The 90th percentile is appropriate for high consequence of failure targets (hosp
 <p>The data file itself looks like (click on the link in class):</p>
 <p><a class="reference external" href="http://54.243.252.9/ce-5361-webroot/ce5361book/lessons/04precipitation/3594221.csv">3594221.csv</a></p>
 </section>
+<section id="additional-sources-of-precipitation-data">
+<h3>Additional Sources of Precipitation Data<a class="headerlink" href="#additional-sources-of-precipitation-data" title="Link to this heading">#</a></h3>
+<p>While the NCDC portal is often sufficient for daily data, other sources offer <strong>higher temporal resolution</strong>, <strong>specialized sensor networks</strong>, or <strong>near-real-time access</strong>. Consider these alternatives when appropriate:</p>
+<section id="usgs-nwis-national-water-information-system">
+<h4>USGS NWIS (National Water Information System)<a class="headerlink" href="#usgs-nwis-national-water-information-system" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Focused on hydrology: precipitation, streamflow, groundwater.</p></li>
+<li><p>Useful for storm event reconstruction and runoff validation.</p></li>
+<li><p>Sub-daily (e.g., 15-minute) rainfall available at some sites.</p></li>
+</ul>
+<p><a class="reference external" href="https://waterdata.usgs.gov/nwis">https://waterdata.usgs.gov/nwis</a></p>
+</section>
+<section id="cocorahs-community-collaborative-rain-hail-and-snow-network">
+<h4>CoCoRaHS (Community Collaborative Rain, Hail, and Snow Network)<a class="headerlink" href="#cocorahs-community-collaborative-rain-hail-and-snow-network" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Volunteer-based daily observations, often high spatial density.</p></li>
+<li><p>Especially valuable in areas with limited official gauges.</p></li>
+<li><p>Data are generally daily totals, but with excellent quality metadata.</p></li>
+</ul>
+<p><a class="reference external" href="https://www.cocorahs.org/">https://www.cocorahs.org/</a></p>
+</section>
+<section id="mesonet-systems-e-g-texas-mesonet-oklahoma-mesonet">
+<h4>Mesonet Systems (e.g., Texas Mesonet, Oklahoma Mesonet)<a class="headerlink" href="#mesonet-systems-e-g-texas-mesonet-oklahoma-mesonet" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>High-frequency automated weather stations (5-15 minute data).</p></li>
+<li><p>Ideal for convective storm analysis, evapotranspiration estimates, and localized event studies.</p></li>
+<li><p>Interfaces vary by state; check regional water or climate centers.</p></li>
+</ul>
+<p><a class="reference external" href="https://www.mesonet.org/" title="Oklahoma example">https://www.mesonet.org/ Oklahoma</a></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-gaps-and-the-need-for-interpolation-estimation">
+<h2>Data Gaps and the Need for Interpolation/Estimation<a class="headerlink" href="#data-gaps-and-the-need-for-interpolation-estimation" title="Link to this heading">#</a></h2>
+<p>While observed precipitation data provide a powerful tool for realistic hydrologic analysis, they are not without limitations. Historical datasets—especially those spanning many decades—often contain <strong>gaps</strong> due to equipment failure, reporting delays, or changes in station operations.</p>
+<p>For many engineering and scientific applications, it is necessary to estimate these missing values in order to:</p>
+<ul class="simple">
+<li><p>Maintain continuity in hydrologic records.</p></li>
+<li><p>Enable statistical analysis over long time periods.</p></li>
+<li><p>Support model calibration or validation when uninterrupted data are required.</p></li>
+</ul>
+<p>However, caution must be exercised: overuse of interpolated values can distort the statistical character of the dataset. In fact, the <strong>World Meteorological Organization (WMO)</strong> recommends that interpolated values should comprise no more than <strong>5–10%</strong> of a station’s historical record.</p>
+<p>The following section outlines common <strong>techniques for estimating missing rainfall data</strong>, with emphasis on methods that leverage nearby stations and historical norms. These methods strike a balance between practicality and statistical rigor, and have been widely adopted in engineering hydrology practice.</p>
 </section>
 <section id="missing-data-replacement-techniques">
 <h2>Missing Data Replacement Techniques<a class="headerlink" href="#missing-data-replacement-techniques" title="Link to this heading">#</a></h2>
@@ -1091,6 +1441,8 @@ Given the annual precipitation values <span class="math notranslate nohighlight"
 <li><p>If the normal annual precipitations vary considerably then <span class="math notranslate nohighlight">\(P_x\)</span> is estimated by weighing the precipitation at various stations by the ratios of normal annual precipitations. This method, known as the normal ratio method, gives <span class="math notranslate nohighlight">\(P_x\)</span> as
 <span class="math notranslate nohighlight">\(P_x = \frac{N_x}{M}(\frac{P_1}{N_1} + \frac{P_2}{N_2} + \dots + \frac{P_M}{N_M})\)</span></p></li>
 </ul>
+<p><img alt="Spatial Layout of Stations" src="../../_images/missing_data_stations_layout.png" /></p>
+<p><em>Station X has missing data. Nearby stations are used to estimate values using arithmetic or normal ratio methods.</em></p>
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
@@ -1117,13 +1469,8 @@ the rainfall at station D in that year</p>
         <span class="n">nr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">precip_known</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">normal_all</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">normal_average</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nr</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">how_many</span><span class="p">))</span><span class="o">*</span><span class="n">normal_all</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">normal_average</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input Data</span>
+
+<span class="c1"># Input Data</span>
 <span class="n">precip_known</span> <span class="o">=</span> <span class="p">[</span><span class="mf">91.11</span><span class="p">,</span> <span class="mf">72.23</span><span class="p">,</span> <span class="mf">79.89</span><span class="p">]</span>
 <span class="n">normal_all</span> <span class="o">=</span> <span class="p">[</span><span class="mf">80.97</span><span class="p">,</span> <span class="mf">67.59</span><span class="p">,</span> <span class="mf">76.28</span><span class="p">,</span> <span class="mf">92.01</span><span class="p">]</span> 
 <span class="c1"># Find differences for normal values</span>
@@ -1149,9 +1496,30 @@ Missing Depth :  99.41  cm
 </div>
 </div>
 </div>
+<p>An Excel implementation to accomplish same task is</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/02-precipitation/editable_precip_estimation_tool.xlsx"><img alt="" src="../../_images/excel-estimation-tool.png" /></a></p>
 </section>
-<section id="precipitation-over-an-area">
-<h2>Precipitation over an Area<a class="headerlink" href="#precipitation-over-an-area" title="Link to this heading">#</a></h2>
+<section id="precipitation-over-an-area-from-point-observations">
+<h2>Precipitation over an Area (from Point Observations)<a class="headerlink" href="#precipitation-over-an-area-from-point-observations" title="Link to this heading">#</a></h2>
+<p>The measurement techniques discussed so far focus on <strong>point-scale precipitation</strong>—that is, rainfall recorded at a single location or over a very small area. However, hydrologists are typically concerned with estimating how much precipitation has fallen over a <strong>larger spatial domain</strong>, such as an entire catchment or watershed.</p>
+<p>To scale up from point measurements to areal estimates, some form of <strong>spatial averaging</strong> is required. This presents challenges because:</p>
+<ul class="simple">
+<li><p>Rain gauges are often <strong>irregularly distributed</strong> across a catchment.</p></li>
+<li><p><strong>Topographic features</strong> like elevation, slope, and aspect significantly influence rainfall patterns.</p></li>
+<li><p>Uniform spacing of gauges (a requirement for a simple arithmetic mean) is rare in practice.</p></li>
+</ul>
+<p>As a result, <strong>simple averaging methods</strong> are seldom appropriate. More advanced spatial interpolation techniques are used to estimate area-wide precipitation, particularly in regions with complex terrain or sparse data coverage.</p>
+<p>With the rise of <strong>Geographic Information Systems (GIS)</strong>, implementing these methods has become much easier. However, it’s still essential to understand the underlying assumptions and limitations of each technique—reliance on automation does not replace judgment.</p>
+<p>Three widely used techniques for spatial precipitation estimation are:</p>
+<ul class="simple">
+<li><p><strong>Thiessen Polygons</strong> – Assigns weighting to each gauge based on the area it represents.</p></li>
+<li><p><strong>Hypsometric Method</strong> – Incorporates topographic elevation bands to reflect orographic influences.</p></li>
+<li><p><strong>Isohyetal Method</strong> – Uses contouring of observed rainfall to delineate zones of equal depth.</p></li>
+</ul>
+<p>These methods are described in detail and compared in a case study presented later in this module (see p. 40).</p>
+</section>
+<section id="id1">
+<h2>Precipitation over an Area (from point observations)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>The measurement techniques described here have all concentrated on measuring rainfall at a precise location (or at least over an extremely small area).  In reality, the hydrologist needs to know how much
 precipitation has fallen over a far larger area, usually
 a catchment. To move from point measurements to
@@ -1175,6 +1543,116 @@ the technique works so that any shortcomings are
 fully understood. Three techniques are described
 here: Thiessen’s polygons, the hypsometric
 method and the isohyetal method. These methods are explored further in a Case Study on p. 40.</p>
+</section>
+<section id="approximating-areal-precipitation-from-point-gauge-data">
+<h2>Approximating Areal Precipitation from Point Gauge Data<a class="headerlink" href="#approximating-areal-precipitation-from-point-gauge-data" title="Link to this heading">#</a></h2>
+<p>Rainfall measurements are typically made at <strong>discrete points</strong>—individual rain gauges. However, hydrologists often require an estimate of precipitation across an entire <strong>watershed</strong> or <strong>basin</strong>. This necessitates the conversion of point observations into a spatially representative value: the <strong>effective uniform depth (EUD)</strong> of precipitation.</p>
+<section id="watershed-conceptualization">
+<h3>Watershed Conceptualization<a class="headerlink" href="#watershed-conceptualization" title="Link to this heading">#</a></h3>
+<p>A <strong>watershed</strong> is the area of land where all water drains to a common outlet. Precipitation falling anywhere in this area contributes to runoff observed at the outlet. In surface water studies, this is known as the <strong>drainage area</strong>; in groundwater, it may be referred to as a <strong>capture zone</strong> or <strong>basin</strong>.</p>
+<p>To model runoff or calculate water budgets, we need not only rainfall <em>rates</em>, but also <em>volumes</em>. The volume of precipitation falling over an entire basin is termed <strong>precipitation volume</strong>. Dividing this volume by the basin area yields the <strong>effective uniform depth (EUD)</strong>—a spatially averaged precipitation depth.</p>
+<p>Several methods exist to compute EUD from point data:</p>
+<ul class="simple">
+<li><p><strong>Arithmetic Mean</strong></p></li>
+<li><p><strong>Polygon-weighted Methods</strong> (e.g., Thiessen Polygons)</p></li>
+<li><p><strong>Isohyetal or Hypsometric Methods</strong></p></li>
+</ul>
+<p>A visual overview of point-to-area estimation is shown below:</p>
+<p><img alt="Distributed Precipitation from Point Data" src="../../_images/arealfrompoint.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The figures above are from the author’s archived lecture notes (circa 2002). The original Word files are no longer accessible, but a PDF copy has been preserved.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="arithmetic-mean">
+<h3>Arithmetic Mean<a class="headerlink" href="#arithmetic-mean" title="Link to this heading">#</a></h3>
+<p>The <strong>arithmetic mean method</strong> is the simplest: it averages all available rain gauge depths and assumes that value applies uniformly across the watershed.</p>
+<p>[
+\bar{P} = \frac{1}{n} \sum_{i=1}^{n} P_i
+]</p>
+<p>For example, if the mean rainfall is 88.4 mm over a watershed of 16 km², the precipitation volume is:</p>
+<p>[
+V = \bar{P} \times \text{Area} = 0.0884~\text{m} \times 16 \times 10^6~\text{m}^2 = 1.41 \times 10^6~\text{m}^3
+]</p>
+</section>
+<hr class="docutils" />
+<section id="polygon-weighted-methods">
+<h3>Polygon-Weighted Methods<a class="headerlink" href="#polygon-weighted-methods" title="Link to this heading">#</a></h3>
+<p>Polygon-based methods subdivide the watershed into <strong>influence zones</strong> assigned to each gauge. Each zone is weighted by its area to compute a <strong>weighted average depth</strong>. The most common technique is the <strong>Thiessen Polygon method</strong>.</p>
+<section id="thiessens-polygons-voronoi-diagrams">
+<h4>Thiessen’s Polygons (Voronoi Diagrams)<a class="headerlink" href="#thiessens-polygons-voronoi-diagrams" title="Link to this heading">#</a></h4>
+<p>Thiessen (1911) developed a method to address non-uniform gauge placement. In this approach:</p>
+<ul class="simple">
+<li><p>The region around each gauge is partitioned such that all points in a polygon are <strong>closer to that gauge than any other</strong>.</p></li>
+<li><p>These polygons form a <strong>weighted map</strong> of rainfall influence.</p></li>
+</ul>
+<p>To construct Thiessen polygons:</p>
+<ol class="arabic simple">
+<li><p>Connect neighboring gauges with straight lines.</p></li>
+<li><p>Construct perpendicular bisectors of each segment.</p></li>
+<li><p>Extend the bisectors to form closed polygons.</p></li>
+<li><p>Measure the area of each polygon.</p></li>
+</ol>
+<p>Each gauge is assigned a <strong>weight</strong> proportional to the area of its polygon:</p>
+<p>[
+\bar{P}<em>{\text{areal}} = \sum</em>{i=1}^{n} \left( \frac{a_i}{A} \right) P_i
+]</p>
+<p>Where ( a_i ) is the area of polygon ( i ), and ( A ) is the total watershed area.</p>
+<p>Illustrative steps are shown below:</p>
+<ol class="arabic simple">
+<li><p>Connecting gauges:<br />
+<img alt="" src="../../_images/theissenpoly1.png" /></p></li>
+<li><p>Constructing bisectors:<br />
+<img alt="" src="../../_images/theissenpoly2.png" /></p></li>
+<li><p>Final polygon layout:<br />
+<img alt="" src="../../_images/theissenpoly3.png" /></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An example worksheet is available here: <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/09-Precipitation/cive6361_week_002_A.pdf">Link to Example</a></p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="future-elevation-weighted-and-contour-based-methods">
+<h3>(Future) Elevation-Weighted and Contour-Based Methods<a class="headerlink" href="#future-elevation-weighted-and-contour-based-methods" title="Link to this heading">#</a></h3>
+<p><em>The following methods are planned for future release pending good visual examples:</em></p>
+<!--
+#### Hypsometric Method
+Leverages elevation–rainfall correlation using a hypsometric curve (catchment area above each elevation). Rainfall is averaged within elevation bands.
+
+#### Isohyetal Method
+Uses contours of equal rainfall (isohyets) drawn from dense gauge networks. Areas between isohyets are used to compute a weighted average.
+-->
+</section>
+</section>
+<hr class="docutils" />
+<section id="areal-reduction-factors-arfs">
+<h2>Areal Reduction Factors (ARFs)<a class="headerlink" href="#areal-reduction-factors-arfs" title="Link to this heading">#</a></h2>
+<p>Even with spatially averaged methods, some applications require adjusting <strong>design storm</strong> rainfall depths to account for area. <strong>Areal Reduction Factors (ARFs)</strong> are used to scale <strong>point precipitation</strong> into <strong>areal precipitation</strong>, accounting for the fact that maximum intensities observed at a point do not typically occur simultaneously across large areas.</p>
+<p>ARFs are especially relevant when:</p>
+<ul class="simple">
+<li><p>Using short-duration, high-intensity point data (e.g., from NOAA Atlas 14)</p></li>
+<li><p>Modeling <strong>design storms</strong> over large watersheds</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ARFs predate radar-derived rainfall grids and are slowly becoming obsolete. However, they remain in use for <strong>regulatory hydrology</strong> and <strong>legacy systems</strong> where only point data are available.</p>
+</div>
+<p>Factors influencing ARFs include:</p>
+<ul class="simple">
+<li><p><strong>Storm type and duration</strong></p></li>
+<li><p><strong>Topography</strong></p></li>
+<li><p><strong>Catchment shape and size</strong></p></li>
+</ul>
+<p>Incorporating ARFs improves estimates for:</p>
+<ul class="simple">
+<li><p>Flood risk modeling</p></li>
+<li><p>Urban drainage design</p></li>
+<li><p>Reservoir sizing</p></li>
+<li><p>Climate adaptation studies</p></li>
+</ul>
 <!-- ## Thiessen’s polygons
 Thiessen was an American engineer working around 
 the start of the twentieth century who devised a 
@@ -1218,8 +1696,8 @@ The entire volume of rainfall applied to an entire basin is called the precipita
 <p>The figures above are from author’s notes circa 2002; the original source files (MS Word) are unreadable with modern software, fortunately a PDF copy remains!  It’s the source of the figures.</p>
 </div>
 </section>
-<section id="arithmetic-mean">
-<h3>Arithmetic Mean<a class="headerlink" href="#arithmetic-mean" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3>Arithmetic Mean<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>The arithmetic mean method simply computes the mean value of all the rain gage catches (depths) and assigns this value as the average uniform depth over the watershed. To determine rainfall volume, multiply this depth by the area.
 The formula for average depth (precipitation) is simply,</p>
 <div class="math notranslate nohighlight">
@@ -1227,8 +1705,8 @@ The formula for average depth (precipitation) is simply,</p>
 <p>In this example the result is 88.4 mm over the entire watershed.</p>
 <p>The total volume in cubic meters is the product of the average depth and the watershed area converted into cubic meters. The watershed area is 16 <span class="math notranslate nohighlight">\(km^2\)</span>. Thus the total volume of precipitation over the watershed is <span class="math notranslate nohighlight">\(1.41 \times 10^6~m^3\)</span>. We will compare this volume to the other ways of estimated distributed rainfall depths.</p>
 </section>
-<section id="polygon-weighted-methods">
-<h3>Polygon weighted methods.<a class="headerlink" href="#polygon-weighted-methods" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Polygon weighted methods.<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>The polygon methods divide the watershed into subareas and assign depths at gages to each sub area, compute the total volume (sum of all sub-area volumes), then divide by the watershed area to determine an area-weighted average. Thiessen polygons (nearest neighbor approach) are the most common division scheme. Thiessen weights are reported in most USGS data.</p>
 <div class="admonition-thiessens-polygons admonition">
 <p class="admonition-title">Thiessen’s polygons</p>
@@ -1326,11 +1804,16 @@ where ai
  is the 
 average rainfall between the isohyets. This technique 
 is analogous to Figure 2.14, except in this case the 
-contours will be of rainfall rather than elevation.--></section>
+contours will be of rainfall rather than elevation.-->
+</section>
 </section>
 <section id="areal-reduction-factors">
 <h2>Areal Reduction Factors<a class="headerlink" href="#areal-reduction-factors" title="Link to this heading">#</a></h2>
 <p>Areal reduction factors (ARFs) are used in precipitation modeling to account for the spatial variability of rainfall across a region. Precipitation is not uniformly distributed over an area, and ARFs help adjust point rainfall measurements to better represent the average precipitation for a larger region.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recall the discussion of precipitation fields above.  ARFs and related techniques pre-date effective radar rainfall techniques, so although slowly evolving into obsolescence point data is still vital, and adjusting for affected area is still necessary</p>
+</div>
 <p>In precipitation modeling, meteorologists often collect rainfall data from specific points, such as weather stations. However, this point data may not accurately reflect the variability of precipitation over a broader area. ARFs are applied to these point measurements to estimate the average precipitation over a larger spatial scale.</p>
 <p>The factors influencing areal reduction include topography, land use, and other geographical features that affect how rainfall is distributed across an area. By applying ARFs, modelers can better capture the spatial patterns of precipitation, improving the accuracy of rainfall estimates for hydrological and environmental studies. This consideration is crucial for various applications, such as flood risk assessment, water resource management, and climate modeling.</p>
 </section>
@@ -1434,6 +1917,22 @@ contours will be of rainfall rather than elevation.--></section>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.2 Hyetographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-hyetographs-used">Why are hyetographs used?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-data-analysis-template">Precipitation Data Analysis Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-point-hyetographs-to-precipitation-fields">From Point Hyetographs to Precipitation Fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-conceptual-visualization">A Conceptual Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radar-derived-rainfall-fields-e-g-nexrad">Radar-Derived Rainfall Fields (e.g., NEXRAD)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zr-relationship">Z–R Relationship</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-and-resolution">Data Format and Resolution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-use-case">Example Use Case</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
@@ -1444,14 +1943,33 @@ contours will be of rainfall rather than elevation.--></section>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texas-empirical-hyetograph-based-design-storms">Texas Empirical Hyetograph-Based Design Storms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-observations">Historical Observations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncdc">NCDC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-sources-of-precipitation-data">Additional Sources of Precipitation Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#usgs-nwis-national-water-information-system">USGS NWIS (National Water Information System)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cocorahs-community-collaborative-rain-hail-and-snow-network">CoCoRaHS (Community Collaborative Rain, Hail, and Snow Network)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mesonet-systems-e-g-texas-mesonet-oklahoma-mesonet">Mesonet Systems (e.g., Texas Mesonet, Oklahoma Mesonet)</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-gaps-and-the-need-for-interpolation-estimation">Data Gaps and the Need for Interpolation/Estimation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-data-replacement-techniques">Missing Data Replacement Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area">Precipitation over an Area</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-over-an-area-from-point-observations">Precipitation over an Area (from Point Observations)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Precipitation over an Area (from point observations)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-areal-precipitation-from-point-gauge-data">Approximating Areal Precipitation from Point Gauge Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-conceptualization">Watershed Conceptualization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-mean">Arithmetic Mean</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon weighted methods.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polygon-weighted-methods">Polygon-Weighted Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#thiessens-polygons-voronoi-diagrams">Thiessen’s Polygons (Voronoi Diagrams)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#future-elevation-weighted-and-contour-based-methods">(Future) Elevation-Weighted and Contour-Based Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors-arfs">Areal Reduction Factors (ARFs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximation-of-distributed-precipitation-data-from-point-gage-data">Approximation of Distributed Precipitation Data from Point Gage Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Arithmetic Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Polygon weighted methods.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#areal-reduction-factors">Areal Reduction Factors</a></li>
