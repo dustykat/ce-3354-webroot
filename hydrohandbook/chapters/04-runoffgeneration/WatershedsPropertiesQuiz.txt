@@ -1,0 +1,99 @@
+1. What is a watershed?
+
+A. An underground aquifer
+
+B. A building for water storage
+
+C. An area that drains runoff to a common outlet ✅
+
+D. A large reservoir
+
+2. The outlet of a watershed is also known as the:
+
+A. Flow gate
+
+B. Pour point ✅
+
+C. Basin line
+
+D. Elevation minimum
+
+3. Watershed area is important because:
+
+A. It determines color on a map
+
+B. It affects runoff volume and peak flow ✅
+
+C. It defines soil depth
+
+D. It shows forest coverage
+
+4. Main channel slope influences:
+
+A. Soil formation
+
+B. The amount of rainfall
+
+C. The speed of runoff movement ✅
+
+D. Groundwater chemistry
+
+5. Which land use produces the least runoff?
+
+A. Asphalt roads
+
+B. Bare soil
+
+C. Dense forest ✅
+
+D. Rooftops
+
+6. What does an increase in watershed slope generally cause?
+
+A. More infiltration
+
+B. Decrease in runoff speed
+
+C. Higher peak flows ✅
+
+D. Longer time of concentration
+
+7. What is the time of concentration (Tc)?
+
+A. The time for soil to become saturated
+
+B. The time rainfall starts
+
+C. The time for water to travel from the farthest point to the outlet ✅
+
+D. The rainfall duration
+
+8. Which parameter is directly influenced by impervious surface percentage?
+
+A. Channel slope
+
+B. Infiltration rate ✅
+
+C. Evaporation
+
+D. Soil type
+
+9. Why is land use important in hydrologic modeling?
+
+A. It determines elevation
+
+B. It impacts stream length
+
+C. It affects infiltration and runoff coefficient ✅
+
+D. It controls DEM resolution
+
+10. Which factor is not a standard watershed property?
+
+A. Area
+
+B. Channel length
+
+C. Soil chemistry ✅
+
+D. Slope

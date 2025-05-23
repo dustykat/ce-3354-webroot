@@ -1,0 +1,101 @@
+ Watershed Delineation
+1. What is the first step in manual watershed delineation?
+
+A. Downloading a DEM
+
+B. Drawing the outlet point ✅
+
+C. Selecting slope color
+
+D. Polygonizing the raster
+
+2. Which tool in QGIS helps identify the lowest point for delineation?
+
+A. Coordinate Capture
+
+B. Raster Calculator
+
+C. Identify Features ✅
+
+D. Clip Raster
+
+3. What is the purpose of the Fill Sinks operation?
+
+A. Smooth elevation colors
+
+B. Remove lakes from DEM
+
+C. Ensure continuous downhill flow paths ✅
+
+D. Make the map printable
+
+4. What plugin is used to download elevation data in QGIS?
+
+A. ElevationTool
+
+B. DEM Fetch
+
+C. SRTM Downloader ✅
+
+D. TopoGet
+
+5. Why is clipping the DEM before analysis recommended?
+
+A. It improves color quality
+
+B. It reduces file size and processing demand ✅
+
+C. It hides high elevations
+
+D. It enables manual elevation input
+
+6. What expression turns a raster of values into a binary mask?
+
+A. "value" > 0
+
+B. ("UPSLOPE" ≥ 1) * 1 ✅
+
+C. Raster2Polygon
+
+D. If(DEM > 0, 1, 0)
+
+7. After binary raster is created, what's the next step?
+
+A. Clip DEM
+
+B. Fill sinks
+
+C. Convert to vector ✅
+
+D. Apply color ramp
+
+8. What layer is used to clip the final DEM to watershed shape?
+
+A. Flow path
+
+B. Outlet point
+
+C. Watershed polygon mask ✅
+
+D. DEM grid
+
+9. What issue might cause a failed delineation attempt in SAGA?
+
+A. Missing plugin
+
+B. Incorrect symbology
+
+C. Misplaced outlet point ✅
+
+D. Wrong file name
+
+10. Which description best explains time of concentration estimation?
+
+A. Only use slope
+
+B. Sum of three flow regimes: sheet, shallow, and channel flow ✅
+
+C. Depends only on DEM resolution
+
+D. Irrelevant for design
+

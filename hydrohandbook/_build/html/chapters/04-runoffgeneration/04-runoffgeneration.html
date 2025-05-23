@@ -182,12 +182,20 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
@@ -389,6 +397,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Runoff Generation and Watershed Hydrology</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-mechanisms">Runoff Mechanisms</a><ul class="nav section-nav flex-column">
@@ -416,6 +425,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-runoff-mechanisms-and-flow-pathways">Summary of Runoff Mechanisms and Flow Pathways</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics-and-delineation">Watershed Characteristics and Delineation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-watersheds">What are Watersheds?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-boundaries">Watershed Boundaries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-area">Watershed Area</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-slope">Watershed Slope</a></li>
@@ -424,38 +434,36 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration-and-drainage-network-mapping">Time of Concentration and Drainage Network Mapping</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drainage-network-mapping">Drainage Network Mapping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-delineating-a-watershed-using-gis-or-topographic-maps">Laboratory: Delineating a watershed using GIS or topographic maps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-watersheds">What are Watersheds?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-concepts">Delineation Concepts</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-hand">Delineation (by Hand)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-map-of-area-of-interest">Step 1.  Map of area of interest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-superimpose-a-grid">Step 2.  Superimpose a Grid</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-cell-elevations">Step 3.  Cell Elevations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-draw-refine-boundary-estimates">Step 3.  Draw/Refine Boundary Estimates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-tidy-up-boundary">Step 4.  Tidy up Boundary</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardin-branch-watershed-by-hand">Hardin Branch Watershed by-hand</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation">4.1 Watershed Delineation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-hand-workflow">Delineation (By-Hand) Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples">Additional Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation-workflow-using-qgis">Watershed Delineation Workflow Using QGIS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-qgis-workflow-steps">Summary of QGIS Workflow Steps</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-gis">Delineation (by GIS)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#florida-watershed-gis-workflow">Florida Watershed GIS Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples-of-qgis-workflow">Additional Examples of QGIS Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation-workflow-using-esri-arcgis">Watershed Delineation Workflow Using ESRI ArcGIS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-arcgis-workflow-steps">Summary of ArcGIS Workflow Steps</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-metrics-general-concepts">Watershed Metrics (General Concepts)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">Measuring Area</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-length-s">Measuring Length(s)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-slope-s">Estimating Slope(s)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardin-branch-watershed-gis-workflow">Hardin Branch Watershed GIS Workflow</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-soil-properties">Estimating Soil Properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-metrics-general-concepts">4.2 Watershed Metrics (General Concepts)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">Measuring Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-length-s">Measuring Length(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-slope-s">Estimating Slope(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-soil-properties">Estimating Soil Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-impervious">Estimating %-Impervious</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usgs-streamstats">USGS StreamStats</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -496,6 +504,7 @@ document.write(`
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/05-Watersheds/Lesson04.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Watershed Metrics) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Florida-Training-Watershed.png">Florida Delineation Training Watershed (png)</a> Right-Click “Save As…”</p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Texas-Training-Watershed.png">Texas Delineation Training Watershed (png)</a> Right-Click “Save As…”</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/CE3354-LBB-SMALL.zip">CE3354-LBB-SMALL.zip</a> Compressed files to recreate the example in the GIS workflow section.</p></li>
 </ol>
 <hr></section>
 <section id="videos">
@@ -678,6 +687,28 @@ This diagram illustrates how rainfall infiltrates initially, but once the satura
 <section id="watershed-characteristics-and-delineation">
 <h2>Watershed Characteristics and Delineation<a class="headerlink" href="#watershed-characteristics-and-delineation" title="Link to this heading">#</a></h2>
 <p>In engineering hydrology, understanding watershed characteristics is fundamental to estimating runoff, designing drainage structures, and managing water resources. The physical parameters of a watershed—its boundaries, area, slope, and land use—strongly influence both the quantity and timing of runoff.</p>
+<section id="what-are-watersheds">
+<h3>What are Watersheds?<a class="headerlink" href="#what-are-watersheds" title="Link to this heading">#</a></h3>
+<p>A watershed is the area of land that drains all the streams and rainfall to a common outlet such as the outflow of a reservoir, mouth of a bay, or any point along a stream channel (this outlet is called a pour-point in GIS-speak). The term “watershed” is often used interchangeably with “drainage basin,” which may make the concept easier to visualize.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A common outlet implies that the various discharges have concentrated into a a definable conduit (as opposed to sheet or overland distributed flow).  The distributed flows are part of the watershed, but at times make engineering analysis at smaller scales challenging as no single control point exists.</p>
+</div>
+<p>A watershed can encompass a small area of land that drains into a trickling creek. It can encompass multiple states in the Midwest, all draining into the Mississippi River. Or it can encompass multiple countries draining into the Atlantic Ocean. No matter where you are standing or sitting right now, you are in a watershed.</p>
+<p>Water is constantly in motion, be it via ocean currents, precipitation, or slowly moving through underground aquifers. Any given watershed is part of the larger whole of our global water supply.</p>
+<p>Smaller watersheds can make up larger watersheds. The Mississippi River has many tributaries (each of which has its own watershed), and in turn empties into the Gulf of Mexico, which connects to the Atlantic Ocean. The U.S. Geological Survey delineates our nation’s watersheds as “Hydrologic Units,” which are assigned hydrologic unit codes. These can range in scale  from expansive water resource regions covering millions of square miles down to tiny local tributary systems. There are 90,000 hydrologic unit codes  designated nationwide.</p>
+<p>Some more compact definitions of a watershed include:</p>
+<ul class="simple">
+<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
+<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
+<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
+</ul>
+<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
+It’s a big deal in urban areas.</p>
+<p>Consider the artist rendering of a watershed</p>
+<p><img alt="" src="../../_images/watershed.png" /></p>
+<p>Large watersheds are comprised of smaller interconnected watersheds, thus in the rendering watershed B is a part of watershed A.</p>
+</section>
 <section id="watershed-boundaries">
 <h3>Watershed Boundaries<a class="headerlink" href="#watershed-boundaries" title="Link to this heading">#</a></h3>
 <p>A watershed boundary defines the spatial extent within which all precipitation drains to a common outlet point. These divides follow the highest ridgelines between basins and can often be visualized as the perimeter around a bowl. In hydrological modeling, boundaries are used to isolate contributing areas and apply water balance equations.</p>
@@ -737,89 +768,431 @@ This diagram illustrates how rainfall infiltrates initially, but once the satura
 <p>A well-mapped drainage network improves accuracy in hydrograph development, flood modeling, and sediment transport studies.</p>
 </div>
 </section>
-<section id="laboratory-delineating-a-watershed-using-gis-or-topographic-maps">
-<h2>Laboratory: Delineating a watershed using GIS or topographic maps<a class="headerlink" href="#laboratory-delineating-a-watershed-using-gis-or-topographic-maps" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>How to Delineate a Watershed using a Paper Map</p></li>
-<li><p>How to Delineate a Watershed using GIS</p></li>
-</ul>
-<section id="what-are-watersheds">
-<h3>What are Watersheds?<a class="headerlink" href="#what-are-watersheds" title="Link to this heading">#</a></h3>
-<p>A watershed is the area of land that drains all the streams and rainfall to a common outlet such as the outflow of a reservoir, mouth of a bay, or any point along a stream channel (this outlet is called a pour-point in GIS-speak). The term “watershed” is often used interchangeably with “drainage basin,” which may make the concept easier to visualize.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A common outlet implies that the various discharges have concentrated into a a definable conduit (as opposed to sheet or overland distributed flow).  The distributed flows are part of the watershed, but at times make engineering analysis at smaller scales challenging as no single control point exists.</p>
-</div>
-<p>A watershed can encompass a small area of land that drains into a trickling creek. It can encompass multiple states in the Midwest, all draining into the Mississippi River. Or it can encompass multiple countries draining into the Atlantic Ocean. No matter where you are standing or sitting right now, you are in a watershed.</p>
-<p>Water is constantly in motion, be it via ocean currents, precipitation, or slowly moving through underground aquifers. Any given watershed is part of the larger whole of our global water supply.</p>
-<p>Smaller watersheds can make up larger watersheds. The Mississippi River has many tributaries (each of which has its own watershed), and in turn empties into the Gulf of Mexico, which connects to the Atlantic Ocean. The U.S. Geological Survey delineates our nation’s watersheds as “Hydrologic Units,” which are assigned hydrologic unit codes. These can range in scale  from expansive water resource regions covering millions of square miles down to tiny local tributary systems. There are 90,000 hydrologic unit codes  designated nationwide.</p>
-<p>Some more compact definitions of a watershed include:</p>
-<ul class="simple">
-<li><p>Topographic area that collects and discharges surface streamflow through one outlet or mouth (pour point)</p></li>
-<li><p>The area on the surface of the Earth that drains to a specific location</p></li>
-<li><p>In groundwater a similar concept is called a groundwater basin – only the boundaries can move depending on relative rates of recharge and discharge</p></li>
-</ul>
-<p>The topographic definition omits that there could be subsurface sewer systems that can cross topographic boundaries.<br />
-It’s a big deal in urban areas.</p>
-<p>Consider the artist rendering of a watershed</p>
-<p><img alt="" src="../../_images/watershed.png" /></p>
-<p>Large watersheds are comprised of smaller interconnected watersheds, thus in the rendering watershed B is a part of watershed A.</p>
 </section>
-<section id="delineation-concepts">
-<h3>Delineation Concepts<a class="headerlink" href="#delineation-concepts" title="Link to this heading">#</a></h3>
-<p>Watershed delineation is a fundamental process in hydrology and environmental science that involves defining the boundaries of a drainage area or catchment. It identifies the geographic area from which all precipitation and surface runoff flow into a single outlet, typically a river, stream, or lake.</p>
-<p>This analytical method is typically employed:</p>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="watershed-delineation">
+<h1>4.1 Watershed Delineation<a class="headerlink" href="#watershed-delineation" title="Link to this heading">#</a></h1>
+<p>Watershed delineation is a fundamental analytical process in hydrology and environmental science that involves defining the boundaries of a drainage area or catchment. Its result identifies the geographic area from which all precipitation and surface runoff flow into a single point of interest (called the outlet), typically a river, stream, or lake.</p>
+<p>The analysis is typically performed:</p>
 <ol class="arabic simple">
 <li><p>By-hand and/or semi-automated using digital maps (obsolete, but viable for small areas)</p></li>
 <li><p>Fully-automated using digital elevation data and geographic information systems (GIS) (current practice)</p></li>
 </ol>
-<p>In all the cases above the goal is to trace the flow of water and determine the contributing area to a specific point of interest.</p>
+<p>In all cases the goal is to trace the flow of water and determine the contributing area to a specific point of interest.</p>
 <p>Watershed delineation plays a crucial role in various applications, including flood management, water resource planning, and environmental conservation, by providing a spatial framework to understand and manage water-related processes within a defined geographic region.</p>
-</section>
-</section>
-<section id="delineation-by-hand">
-<h2>Delineation (by Hand)<a class="headerlink" href="#delineation-by-hand" title="Link to this heading">#</a></h2>
-<section id="step-1-map-of-area-of-interest">
-<h3>Step 1.  Map of area of interest<a class="headerlink" href="#step-1-map-of-area-of-interest" title="Link to this heading">#</a></h3>
-<p>Identify the pour point.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Inability to delineate a watershed greatly reduces your utility as a hydrologic engineer, relegating your contributions to secondary support roles rather than core decision-making in water resources planning and management.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples below show different ways to delineate a watershed for further engineering efforts.  They (the examples) were built at different points in time, so the aesthetics of the examples are different.</p>
+</div>
+<section id="delineation-by-hand-workflow">
+<h2>Delineation (By-Hand) Workflow<a class="headerlink" href="#delineation-by-hand-workflow" title="Link to this heading">#</a></h2>
+<p>The following example illustrates what would be considered a <em>by-hand</em> watershed delineation. While much of the visual representation can be produced on a computer, the critical decisions—such as assigning elevation references and determining flow paths—are made manually by the analyst.</p>
+<p>By-hand analysis is still appropriate for small areas that fit on one or two map sheets. However, for larger watersheds, automated tools and digital elevation models (DEMs) are far more efficient and reliable.</p>
+<ol class="arabic simple">
+<li><p>Map of area of interest<br><br>Identify the pour point.</p></li>
+</ol>
 <p><img alt="" src="../../_images/pourpoint.png" /></p>
-</section>
-<section id="step-2-superimpose-a-grid">
-<h3>Step 2.  Superimpose a Grid<a class="headerlink" href="#step-2-superimpose-a-grid" title="Link to this heading">#</a></h3>
-<p>While not strictly necessary its helpful.  The grid serves two purposes, first a reference system and as a raster representation of the watershed (albeit at a coarse resolution)</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p>Superimpose a Grid <br><br> While not strictly necessary its helpful.  The grid serves two purposes, first a reference system and as a raster representation of the watershed (albeit at a coarse resolution)</p></li>
+</ol>
 <p><img alt="" src="../../_images/gridoverlay.png" /></p>
-</section>
-<section id="step-3-cell-elevations">
-<h3>Step 3.  Cell Elevations<a class="headerlink" href="#step-3-cell-elevations" title="Link to this heading">#</a></h3>
-<p>Use the grid to estimate average elevations in a grid cell, you use this information to help locate the boundary.  Water flows from high to low elevation.  Starting from the outlet work uphill until have high point, if its downhill as you cntinue in one direction beyond the point, its possibly the boundary (you are identifying “ridgeline” features).</p>
-<p>Simultaneously identify internal water flow paths, these help identify the ridgeline features.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Cell Elevations <br><br> Use the grid to estimate average elevations in a grid cell, you use this information to help locate the boundary.  Water flows from high to low elevation.  Starting from the outlet work uphill until have high point, if its downhill as you cntinue in one direction beyond the point, its possibly the boundary (you are identifying “ridgeline” features).<br><br>Simultaneously identify internal water flow paths, these help identify the ridgeline features.</p></li>
+</ol>
 <p><img alt="" src="../../_images/estimatecellelev.png" /></p>
-</section>
-<section id="step-3-draw-refine-boundary-estimates">
-<h3>Step 3.  Draw/Refine Boundary Estimates<a class="headerlink" href="#step-3-draw-refine-boundary-estimates" title="Link to this heading">#</a></h3>
-<p>Using the grid to estimate average elevations in a grid cell, you locate the coarse resolution boundary.  Water flows from high to low elevation.  Using the internal water flow paths, move upgradient along these paths to refine the boundary delineation.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p>Draw/Refine Boundary Estimates<br><br> Using the grid to estimate average elevations in a grid cell, you locate the coarse resolution boundary.  Water flows from high to low elevation.  Using the internal water flow paths, move upgradient along these paths to refine the boundary delineation.</p></li>
+</ol>
 <p><img alt="" src="../../_images/drawboundary.png" /></p>
-</section>
-<section id="step-4-tidy-up-boundary">
-<h3>Step 4.  Tidy up Boundary<a class="headerlink" href="#step-4-tidy-up-boundary" title="Link to this heading">#</a></h3>
-<p>Tidy up your boundary and declare victory!</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p>Tidy up Boundary <br><br>Tidy up your boundary and declare victory!</p></li>
+</ol>
 <p><img alt="" src="../../_images/completed-delineation.png" /></p>
+<p>From here we can now make measurements (from the map) of things like area, path distances, and slopes along particular paths.</p>
 </section>
-<section id="hardin-branch-watershed-by-hand">
-<h3>Hardin Branch Watershed by-hand<a class="headerlink" href="#hardin-branch-watershed-by-hand" title="Link to this heading">#</a></h3>
-<p>Here we do step-by-step example of the Hardin Branch project watershed(s). <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/ce3354-es2-2024-3-ByHandRFS.pdf">ce3354-es2-2024-3-ByHandRFS.pdf</a></p>
+<hr class="docutils" />
+<section id="additional-examples">
+<h2>Additional Examples<a class="headerlink" href="#additional-examples" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Hardin Branch project watershed(s). <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/ce3354-es2-2024-3-ByHandRFS.pdf">ce3354-es2-2024-3-ByHandRFS.pdf</a> This was used as a semester project case study to gain HEC-HMS experience.</p></li>
+<li><p>TBA</p></li>
+</ol>
+</section>
+<section id="watershed-delineation-workflow-using-qgis">
+<h2>Watershed Delineation Workflow Using QGIS<a class="headerlink" href="#watershed-delineation-workflow-using-qgis" title="Link to this heading">#</a></h2>
+<p>Several step-by-step examples using QGIS are presented. The steps follow those outlined below.  The watershed for these notes is one in Lubbock that you can drive to and visit to obtain ground truth validation.</p>
+<p>Here we wish to delineate the watershed that contains the cross-hatched area in the figure below.</p>
+<p><img alt="" src="../../_images/LBB-SMALL-PROJECT.png" /></p>
+<p>A site we intend to develop into a light-industrial manufacturing facility.  Our hydrologic concern is to manage any water that enters the site, assess its impact on existing hydrologic response, and use that to inform any mitigation strategies. So a first step is to understand the projects impact in terms of its hydrologic context - hence we need to delineate the watershed around the site.</p>
+<ol class="arabic simple">
+<li><p>Install QGIS (Recommended: Version 3.34 “Prizren”). You can download it from the <a class="reference external" href="https://qgis.org/en/site/forusers/download.html">QGIS website</a>.</p></li>
+<li><p>Launch QGIS</p></li>
+</ol>
+<ul class="simple">
+<li><p>Open QGIS.</p></li>
+<li><p><strong>Upgrade all plugins</strong> if prompted (this is usually automatic).</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Install Key Plugins</p></li>
+</ol>
+<p>Go to <strong>Plugins → Manage and Install Plugins</strong>, and verify/install the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SRTM</span> <span class="pre">Downloader</span></code> <em>(NASA data access — requires credentials)</em></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAGA</span> <span class="pre">NextGen</span> <span class="pre">Spatial</span> <span class="pre">Analysis</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Coordinate</span> <span class="pre">Capture</span></code></p></li>
+</ul>
+<p><img alt="" src="../../_images/QGIS-PlugIn.png" /> Plugin Manager showing these three plugins selected/installed.</p>
+<ol class="arabic simple" start="4">
+<li><p>Create a New Project</p></li>
+</ol>
+<ul class="simple">
+<li><p>Add the <strong>OpenStreetMap</strong> base layer.</p></li>
+<li><p>Navigate to coordinates near:<br />
+<strong>Latitude/Longitude:</strong> <code class="docutils literal notranslate"><span class="pre">33.61399,</span> <span class="pre">-101.88107</span></code><br />
+(Use CRS: <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code>)</p></li>
+<li><p>Bounding corners of the map window should be:</p>
+<ul>
+<li><p><strong>Lower Left:</strong> <code class="docutils literal notranslate"><span class="pre">-101.89303,</span> <span class="pre">33.60631</span></code></p></li>
+<li><p><strong>Upper Right:</strong> <code class="docutils literal notranslate"><span class="pre">-101.86875,</span> <span class="pre">33.62317</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../../_images/QGISMapExtent.png" /> Map canvas zoomed to (approximately) the correct extent, with coordinates shown.</p>
+<ol class="arabic simple" start="5">
+<li><p>Save the Project</p></li>
+</ol>
+<p>Use <strong><code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">→</span> <span class="pre">Save</span> <span class="pre">As</span></code></strong> and choose a permanent location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Misfortune will come—prepare for it.</strong> The wise analyst saves not because they fear failure, but because they accept its inevitability.</p>
+<p>QGIS, like all things, is mortal. Crashes may come without warning, processes may stall, and memory may falter. But through frequent saving, you remain undisturbed. Your work persists, not by chance, but by discipline.</p>
+<p>To save is to practice foresight. To restore from a save is not defeat—but serenity.</p>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p>Download 30m Elevation Data</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Later in the course, we will work with LiDAR point cloud data. While the conceptual workflow is similar, working with LiDAR introduces a much higher computational load and increases the risk of software crashes or memory exhaustion.</p>
+<p>The 30-meter DEMs used in this example are relatively lightweight and easy to manage. The step where we clip the raster to the watershed boundary is a <em>best practice</em>, not just for tidiness, but for performance: working with smaller datasets reduces processing time and the likelihood of failure—especially important when transitioning to high-resolution data like LiDAR.</p>
+</div>
+<ul class="simple">
+<li><p>Use <strong>SRTM Downloader</strong> to get elevation data for the region.</p></li>
+<li><p>If you don’t have NASA credentials, the tool will prompt you to create an account.</p></li>
+<li><p>You may need to retry a few times — firewalls or login issues are common.</p></li>
+</ul>
+<p>After downloading:</p>
+<ul class="simple">
+<li><p>Remove unnecessary layers.</p></li>
+<li><p>Adjust symbology (optional, for prettier displays).</p></li>
+<li><p><strong>Save the project again.</strong></p></li>
+</ul>
+<p><img alt="" src="../../_images/SRTMHillslope.png" /> <strong>Raster layer loaded, symbology adjusted.</strong> By default, QGIS often displays DEMs as a simple grayscale image. In relatively flat areas, this default rendering may appear nearly blank or uniform light gray, making elevation differences hard to distinguish.</p>
+<p>To improve visibility, open the <strong>Layer Properties → Symbology</strong> tab. Here you can switch to <strong>Hillshade</strong> or apply a <strong>color ramp</strong>. Hillshade is especially useful in the early stages of watershed analysis for identifying terrain features. You may choose to switch to a color ramp later for final presentations or quantitative interpretation.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li><p>Reproject the DEM Raster</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Raster → Projections → Reproject</strong></p></li>
+<li><p>Target CRS: <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code></p></li>
+</ul>
+<p>Save the result and <strong>save the project</strong> again.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="8">
+<li><p>Clip the DEM</p></li>
+</ol>
+<ul class="simple">
+<li><p>Clip the DEM to match the current display region.</p></li>
+<li><p><strong>Set no_data to <code class="docutils literal notranslate"><span class="pre">-9999.0</span></code></strong> during clipping.</p></li>
+</ul>
+<p>Save the clipped DEM and the project.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="9">
+<li><p>Fill Sinks in DEM using SAGA</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>SAGA → Preprocessing → Fill Sinks (Wang &amp; Liu)</strong> on the clipped DEM.</p></li>
+</ul>
+<p>Save the filled DEM and the project.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="10">
+<li><p>Select Outlet Point</p></li>
+</ol>
+<ul class="simple">
+<li><p>Zoom to the northeast corner of your project extent (the cross-hatched area).</p></li>
+<li><p>Use the Identify Features tool on the sink-filled DEM to locate the lowest elevation point within the study area. This tool is especially valuable—it allows you to quickly query pixel values and is essential for confirming the actual low point.</p></li>
+<li><p>In this example, the lowest point falls in the highway median in the northeast corner. This location will serve as the outlet for watershed delineation.</p></li>
+<li><p>Once identified, use Coordinate Capture to record the easting and northing of this outlet point for use in subsequent SAGA tools.</p></li>
+</ul>
+<p><img alt="" src="../../_images/OUTLET_ID.png" /> Coordinate Capture tool active and capturing.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="11">
+<li><p>Delineate Watershed Using SAGA Upslope Tool</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>SAGA → Terrain Analysis → Upslope Area</strong></p></li>
+<li><p>Input the captured coordinates</p></li>
+<li><p>Output: raster representing all upslope area draining to outlet</p></li>
+</ul>
+<p><strong>Save the raster and the project.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some trial-and-error is required.  You may have to move the outlet location around in the grid until the program returns useable output.  If you get no output or error, find an adjacent cell of lower elevation (or move uphill) until the algorithm produces a result.  You can also experiment with different algorithms (8-direction deterministic is useful).</p>
+<p>You need a feel of what the watershed should look like, so a by-hand overview is usually quite useful.</p>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple" start="12">
+<li><p>Create Binary Watershed Raster</p></li>
+</ol>
+<ul class="simple">
+<li><p>Open <strong>Raster Calculator</strong> and use the expression:</p></li>
+</ul>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>(&quot;LBB-30M-DTM-UPSLOPE@1&quot; &gt;= 1) * 1
+</pre></div>
+</div>
+<p>This sets upslope areas ≥ 1 to 1 and all else to 0 or no_data.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="13">
+<li><p>Convert Binary Raster to Vector Mask</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Raster → Conversion → Polygonize (Raster to Vector)</strong>.</p></li>
+<li><p>Open the resulting attribute table.</p></li>
+<li><p>Use <strong>Select by Expression</strong> with:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;DN&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Right-click layer → <strong>Export → Save Selected Features As…</strong> to save the mask polygon.</p></li>
+</ul>
+<p><img alt="" src="../../_images/BinaryAreaBdy.png" /> Vectorized raster and selection dialog showing <code class="docutils literal notranslate"><span class="pre">&quot;DN&quot;=1</span></code></p>
+<hr class="docutils" />
+<ol class="arabic simple" start="14">
+<li><p>Final Clip: Cut DEM to Watershed Only</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Raster → Extraction → Clip Raster by Mask Layer</strong></p></li>
+<li><p>Mask: your saved watershed polygon</p></li>
+<li><p>Output: clipped DEM containing only the watershed</p></li>
+</ul>
+<p>Save the raster for permanent use after verifying output.</p>
+<p><img alt="" src="../../_images/FinalReadyForMeasures.png" /> The completed DEM ready for further analysis.  This should be saved, any temp files tossed or saved.</p>
+<hr class="docutils" />
+<ol class="arabic simple" start="15">
+<li><p>Make Watershed Measurements</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use appropriate tools for analysis:</p></li>
+<li><p><strong>Area Tool</strong>: Calculate watershed area</p>
+<ol class="arabic simple">
+<li><p>Use expression editor in attribute table for the boundary <a class="reference external" href="https://gis.stackexchange.com/questions/23355/calculating-polygon-areas-in-shapefile-using-qgis">e.g. calculating polygon areas in shapefile using qgis</a><br>
+<br> <img alt="" src="../../_images/AreaUsingExpression.png" /> Area in sq. meters using polygon analysis is 529,726.</p></li>
+<li><p>Use the GUI tool (kind of tedious if the area has a lot of corners); its fast if you are sloppy! <br>
+<img alt="" src="../../_images/AreaByGUI.png" /> Area in sq. meters using GUI tool is 572,077.</p></li>
+</ol>
+</li>
+</ul>
+<p>Comparing the results below:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head text-right"><p>Value (<span class="math notranslate nohighlight">\(m^2\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Polygon Analysis</p></td>
+<td class="text-right"><p>529,726</p></td>
+</tr>
+<tr class="row-odd"><td><p>GUI Drawing</p></td>
+<td class="text-right"><p>572,077</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The GUI tool in this instance <strong>overestimates by about 8%</strong>. This level of accuracy is common, as both manual and automated methods often differ by up to <strong>10%</strong>. For <strong>hydrologic studies</strong>, this level of accuracy is usually acceptable because the goal is to understand general patterns and magnitudes, not exact values.</p>
+<p>However, for tasks requiring <strong>high precision</strong>, such as <strong>property boundary surveys</strong>, even small discrepancies are unacceptable. This illustrates why it’s important to match the method’s precision to the <strong>intended application</strong>.</p>
+</div>
+<ul class="simple">
+<li><p><strong>Distance Tool</strong>: Measure channel/flow path lengths. <img alt="" src="../../_images/DistancePath.png" /></p></li>
+<li><p><strong>Profile Tool</strong>: Create elevation profiles
+<br> <img alt="" src="../../_images/ProfileToolView.png" /> Profile tool open with a drawn path and elevation plot</p></li>
+</ul>
+<hr class="docutils" />
+<section id="summary-of-qgis-workflow-steps">
+<h3>Summary of QGIS Workflow Steps<a class="headerlink" href="#summary-of-qgis-workflow-steps" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Set up QGIS and plugins</p></li>
+<li><p>Download and preprocess DEM</p></li>
+<li><p>Fill sinks and delineate watershed using upslope area</p></li>
+<li><p>Convert results to vector mask</p></li>
+<li><p>Clip DEM for watershed-only use</p></li>
+<li><p>Perform area, distance, and profile measurements</p></li>
+</ol>
 </section>
 </section>
-<section id="delineation-by-gis">
-<h2>Delineation (by GIS)<a class="headerlink" href="#delineation-by-gis" title="Link to this heading">#</a></h2>
-<section id="florida-watershed-gis-workflow">
-<h3>Florida Watershed GIS Workflow<a class="headerlink" href="#florida-watershed-gis-workflow" title="Link to this heading">#</a></h3>
-<p>Here we do step-by-step example of the previous watershed(s).  The steps are those outlined in  <a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf">Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide</a></p>
-<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/QGISWorkflowFlorida.pdf">Florida Watershed Workflow Notes (PDF)</a></p>
+<hr class="docutils" />
+<section id="additional-examples-of-qgis-workflow">
+<h2>Additional Examples of QGIS Workflow<a class="headerlink" href="#additional-examples-of-qgis-workflow" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/QGISWorkflowFlorida.pdf">Florida Watershed Workflow Notes (PDF)</a> This is the Florida watershed above.</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/GISWorkflowHardinBranchNotes.pdf">GIS Hardin Branch Workflow Notes (PDF)</a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="watershed-delineation-workflow-using-esri-arcgis">
+<h2>Watershed Delineation Workflow Using ESRI ArcGIS<a class="headerlink" href="#watershed-delineation-workflow-using-esri-arcgis" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The instructor does <strong>not currently use ArcGIS products</strong> and has not used them in over 30 years. This workflow is provided for students who have access to ArcGIS through their employers. The general <strong>principles and steps are conceptually similar to QGIS</strong>, and should be adaptable using standard ArcGIS tools.</p>
+<p>Support for this specific workflow is limited; however, all tasks are based on core GIS operations common across platforms.</p>
+</div>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Start a New ArcGIS Project</p></li>
+</ol>
+<ul class="simple">
+<li><p>Open <strong>ArcGIS Pro</strong> or <strong>ArcMap</strong>.</p></li>
+<li><p>Set your project <strong>coordinate system</strong> to <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code> (Web Mercator), or to your preferred UTM zone for better measurement accuracy.</p></li>
+<li><p>Add a <strong>basemap layer</strong>, such as OpenStreetMap or ESRI’s Topographic Basemap.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="2">
+<li><p>Identify Your Study Area</p></li>
+</ol>
+<ul class="simple">
+<li><p>Pan/zoom to center the view near:</p>
+<ul>
+<li><p><strong>Longitude:</strong> -101.88107</p></li>
+<li><p><strong>Latitude:</strong> 33.61399</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p>Note the bounding extent or draw a polygon for the area of interest.</p>
+</div></blockquote>
+<hr class="docutils" />
+<ol class="arabic simple" start="3">
+<li><p>Download Elevation Data</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use the <strong>USGS 3DEP Lidar Explorer</strong>, <strong>EarthExplorer</strong>, or <strong>ArcGIS Living Atlas</strong> to obtain <strong>SRTM 30m DEM</strong> for your study area.</p></li>
+<li><p>Add the raster to your map.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="4">
+<li><p>Reproject the DEM</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Project Raster</strong> tool to reproject the DEM to match your project CRS (e.g., <code class="docutils literal notranslate"><span class="pre">EPSG:3857</span></code>).</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="5">
+<li><p>Clip DEM to Study Area</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Extract by Mask</strong> or <strong>Clip Raster</strong>.</p></li>
+<li><p>Input: Reprojected DEM</p></li>
+<li><p>Mask: Polygon covering the study area</p></li>
+<li><p>Set <strong>no_data</strong> to <code class="docutils literal notranslate"><span class="pre">-9999</span></code></p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="6">
+<li><p>Fill Sinks in DEM</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Fill</strong> tool from <strong>Spatial Analyst → Hydrology</strong></p></li>
+<li><p>This prepares the DEM for accurate flow direction modeling.</p></li>
+</ul>
+<blockquote>
+<div><p>You may need to enable the <strong>Spatial Analyst extension</strong>.</p>
+</div></blockquote>
+<hr class="docutils" />
+<ol class="arabic simple" start="7">
+<li><p>Delineate the Watershed Outlet</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use a <strong>hillshade render</strong> or contour lines to identify the likely outlet point (e.g., northeast corner).</p></li>
+<li><p>Use the <strong>Identify tool</strong> or cursor readout to obtain the <strong>Easting and Northing</strong> of the outlet.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="8">
+<li><p>Flow Direction and Accumulation</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Flow Direction</strong> tool on the sink-filled DEM.</p></li>
+<li><p>Then use <strong>Flow Accumulation</strong> tool to determine upslope contributing areas.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="9">
+<li><p>Delineate the Watershed</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Snap Pour Point</strong> to align your outlet point with the nearest high-accumulation cell.</p></li>
+<li><p>Then use <strong>Watershed</strong> tool to delineate the contributing area.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="10">
+<li><p>Convert Raster Watershed to Polygon</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Raster to Polygon</strong> to convert the watershed raster into a shapefile or feature class.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="11">
+<li><p>Clip DEM to Watershed Boundary</p></li>
+</ol>
+<ul class="simple">
+<li><p>Use <strong>Extract by Mask</strong> again, this time using the <strong>watershed polygon</strong> as the mask layer.</p></li>
+<li><p>This will trim the DEM to just the contributing area.</p></li>
+</ul>
+<hr class="docutils" />
+<ol class="arabic simple" start="12">
+<li><p>Analyze the Watershed</p></li>
+</ol>
+<p>Use built-in tools to analyze basic watershed metrics:</p>
+<ul class="simple">
+<li><p><strong>Measure Tool</strong> for distances and path lengths</p></li>
+<li><p><strong>Zonal Statistics</strong> for elevation ranges</p></li>
+<li><p><strong>3D Analyst</strong> or <strong>Elevation Profile Tool</strong> for longitudinal profiles</p></li>
+</ul>
+<hr class="docutils" />
+<section id="summary-of-arcgis-workflow-steps">
+<h3>Summary of ArcGIS Workflow Steps<a class="headerlink" href="#summary-of-arcgis-workflow-steps" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Set up project and coordinate system</p></li>
+<li><p>Download and reproject DEM</p></li>
+<li><p>Clip DEM to study area</p></li>
+<li><p>Fill sinks</p></li>
+<li><p>Generate flow direction and accumulation</p></li>
+<li><p>Identify and snap outlet point</p></li>
+<li><p>Delineate watershed</p></li>
+<li><p>Convert to polygon and clip DEM</p></li>
+<li><p>Perform measurements</p></li>
+</ol>
+<hr class="docutils" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For students who are familiar with ArcGIS Pro, many of these tools are accessible through the <strong>ModelBuilder</strong> or <strong>Geoprocessing Toolbox</strong>, and can be automated for batch processing.</p>
+</div>
 </section>
 </section>
-<section id="watershed-metrics-general-concepts">
-<h2>Watershed Metrics (General Concepts)<a class="headerlink" href="#watershed-metrics-general-concepts" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="watershed-metrics-general-concepts">
+<h1>4.2 Watershed Metrics (General Concepts)<a class="headerlink" href="#watershed-metrics-general-concepts" title="Link to this heading">#</a></h1>
 <p>Now that the watershed is identified and demarked we can measure a few commonly used and important physical properties.  These measurements are used are to characterize the fundamental unit in surface water hydrology which is the watershed.</p>
 <ul class="simple">
 <li><p>A watershed is defined as the area on the surface of the earth that drains to a specific location.</p></li>
@@ -832,19 +1205,24 @@ It’s a big deal in urban areas.</p>
 <li><p>Soil permeability</p></li>
 <li><p>%-impervious (developed)</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many of the references above were originally developed for manual (by-hand) analysis, which predates today’s GIS-based workflows. While we now rely heavily on automated tools, learning the manual methods builds a strong foundation in the core concepts and arithmetic that underlie all hydrologic analysis.</p>
+<p>These skills aren’t just academic—understanding the logic behind the tools allows you to interpret results more critically, spot errors, and even work in data-sparse or hypothetical situations where maps don’t yet exist—like on Mars, or other <em>Class M planets</em> in the known universe. Welcome to the frontier of <em>astro-hydrology</em>!</p>
+</div>
 <section id="measuring-area">
-<h3>Measuring Area<a class="headerlink" href="#measuring-area" title="Link to this heading">#</a></h3>
+<h2>Measuring Area<a class="headerlink" href="#measuring-area" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>If the grid cells used in delineation are all squares, one can count the squares contained in the watershed, multiply by the per-cell area and have a good estimate of the watershed area.</p></li>
+<li><p>If the grid cells used in delineation (by-hand) are all squares, one can count the squares contained in the watershed, multiply by the per-cell area and have a good estimate of the watershed area.</p></li>
 <li><p>If using GIS there is usually an area measurement tool; one can use it, or use the Ones raster mask information to count squares and convert into useful values</p></li>
 </ul>
 </section>
 <section id="measuring-length-s">
-<h3>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Link to this heading">#</a></h3>
+<h2>Measuring Length(s)<a class="headerlink" href="#measuring-length-s" title="Link to this heading">#</a></h2>
 <p>Similar to area, you can count cells along a path and multiply the count by the length of a cell side, or the cell diagonal (depends on how many diagonal moves you need to make) to obtain a length.  Or use software (Acrobat Pro, AutoCAD, Engauge, ArcGIS, QGIS, …. ) to make the measurements.</p>
 </section>
 <section id="estimating-slope-s">
-<h3>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Link to this heading">#</a></h3>
+<h2>Estimating Slope(s)<a class="headerlink" href="#estimating-slope-s" title="Link to this heading">#</a></h2>
 <p>Slope estimates require two components</p>
 <ol class="arabic simple">
 <li><p>A path with a length (<span class="math notranslate nohighlight">\(S\)</span>)</p></li>
@@ -853,20 +1231,14 @@ It’s a big deal in urban areas.</p>
 <p>The dimensionless slope is simply the ratio of the two <span class="math notranslate nohighlight">\(\frac{\Delta z}{S}\)</span>.  Percent slope is the dimensionless slope multiplied by 100.
 Sometimes slope is expressed in units of <span class="math notranslate nohighlight">\(\frac{ft}{mi}\)</span> or <span class="math notranslate nohighlight">\(\frac{m}{km}\)</span>, while meaningful these will have to be converted into dimensionless or %-slope for most hydrologic computations.</p>
 </section>
-</section>
-<section id="hardin-branch-watershed-gis-workflow">
-<h2>Hardin Branch Watershed GIS Workflow<a class="headerlink" href="#hardin-branch-watershed-gis-workflow" title="Link to this heading">#</a></h2>
-<p>Linked is a step-by-step example of a Texas watershed(s).  The steps are those outlined in  <a class="reference external" href="http://54.243.252.9/ce-5361-webroot/3-Readings/Hydrology_GIS_part1.pdf">Baraka, M. 2024, Watershed Delineation in QGIS: A Summary Guide</a></p>
-<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/04-runoffgeneration/GISWorkflowHardinBranchNotes.pdf">GIS Hardin Branch Workflow Notes (PDF)</a></p>
 <section id="estimating-soil-properties">
-<h3>Estimating Soil Properties<a class="headerlink" href="#estimating-soil-properties" title="Link to this heading">#</a></h3>
+<h2>Estimating Soil Properties<a class="headerlink" href="#estimating-soil-properties" title="Link to this heading">#</a></h2>
 <p>Subjective when using paper maps, but reasonable values can be inferred from soil maps - either paper-based or electronic <a class="reference external" href="https://websoilsurvey.sc.egov.usda.gov/App/HomePage.htm">Web Soil Survey</a></p>
 <p><img alt="" src="../../_images/websoilsurvey.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There is a GIS plug-in that can directly access the USDA database.</p>
 </div>
-</section>
 <section id="estimating-impervious">
 <h3>Estimating %-Impervious<a class="headerlink" href="#estimating-impervious" title="Link to this heading">#</a></h3>
 <p>This is subjective, but one reasonable approach is using Google Earth</p>
@@ -959,6 +1331,7 @@ Sometimes slope is expressed in units of <span class="math notranslate nohighlig
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Runoff Generation and Watershed Hydrology</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-mechanisms">Runoff Mechanisms</a><ul class="nav section-nav flex-column">
@@ -986,6 +1359,7 @@ Sometimes slope is expressed in units of <span class="math notranslate nohighlig
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-runoff-mechanisms-and-flow-pathways">Summary of Runoff Mechanisms and Flow Pathways</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics-and-delineation">Watershed Characteristics and Delineation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-watersheds">What are Watersheds?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-boundaries">Watershed Boundaries</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-area">Watershed Area</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-slope">Watershed Slope</a></li>
@@ -994,38 +1368,36 @@ Sometimes slope is expressed in units of <span class="math notranslate nohighlig
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration-and-drainage-network-mapping">Time of Concentration and Drainage Network Mapping</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drainage-network-mapping">Drainage Network Mapping</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laboratory-delineating-a-watershed-using-gis-or-topographic-maps">Laboratory: Delineating a watershed using GIS or topographic maps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-watersheds">What are Watersheds?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-concepts">Delineation Concepts</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-hand">Delineation (by Hand)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-map-of-area-of-interest">Step 1.  Map of area of interest</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-superimpose-a-grid">Step 2.  Superimpose a Grid</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-cell-elevations">Step 3.  Cell Elevations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-draw-refine-boundary-estimates">Step 3.  Draw/Refine Boundary Estimates</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-tidy-up-boundary">Step 4.  Tidy up Boundary</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hardin-branch-watershed-by-hand">Hardin Branch Watershed by-hand</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation">4.1 Watershed Delineation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-hand-workflow">Delineation (By-Hand) Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples">Additional Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation-workflow-using-qgis">Watershed Delineation Workflow Using QGIS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-qgis-workflow-steps">Summary of QGIS Workflow Steps</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delineation-by-gis">Delineation (by GIS)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#florida-watershed-gis-workflow">Florida Watershed GIS Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-examples-of-qgis-workflow">Additional Examples of QGIS Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-delineation-workflow-using-esri-arcgis">Watershed Delineation Workflow Using ESRI ArcGIS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-arcgis-workflow-steps">Summary of ArcGIS Workflow Steps</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-metrics-general-concepts">Watershed Metrics (General Concepts)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">Measuring Area</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-length-s">Measuring Length(s)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-slope-s">Estimating Slope(s)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardin-branch-watershed-gis-workflow">Hardin Branch Watershed GIS Workflow</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-soil-properties">Estimating Soil Properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-metrics-general-concepts">4.2 Watershed Metrics (General Concepts)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">Measuring Area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-length-s">Measuring Length(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-slope-s">Estimating Slope(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-soil-properties">Estimating Soil Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-impervious">Estimating %-Impervious</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usgs-streamstats">USGS StreamStats</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -1,458 +1,451 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Streamflow Data Modeling &#8212; Engineering Hydrology</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lessons/lesson05/lesson05-';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
         
       
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      <img src="../../_static/hydrology.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Engineering Hydrology</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/hydrology.png" class="logo__image only-light" alt="Engineering Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/hydrology.png" class="logo__image only-dark" alt="Engineering Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Engineering Hydrology
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Engineering Hydrology
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson01/lesson01.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson02/lesson02.html">Hydrologic Cycle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson03/lesson03.html">Watersheds</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lesson04/lesson04.html">Precipitation Data Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lesson04/precipitation.html">Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson04/designstorms.html">Design Storms</a></li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson01/lesson01.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson02/lesson02.html">
-   Hydrologic Cycle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson03/lesson03.html">
-   Watersheds
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../lesson04/lesson04.html">
-   Precipitation Data Modeling
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson04/precipitation.html">
-     Precipitation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson04/designstorms.html">
-     Design Storms
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lesson05.html">
-   06. Streamflow Data Modeling
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../lesson06/lesson06.html">
-   Hydrologic Process Modeling
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson06/rationalmethod.html">
-     Rational Equation (Rainfall-Runoff) Model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson06/linearreservoir.html">
-     Linear Reservoir Model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson06/CNmethod.html">
-     NRCS CN model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../lesson06/nonlinreservoir.html">
-     Nonlinear Reservoir Model
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson06.1/HMSintro.html">
-   HEC-HMS Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson07/lesson07.html">
-   Evaporation Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson08/lesson08.html">
-   Infiltration Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson08.1/lesson081.html">
-   On-Watershed Storage Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson09/lesson09.html">
-   Unit Hydrographs - I (Analysis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson10/lesson10.html">
-   Unit Hydrographs - II (Synthesis)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson11/lesson11.html">
-   Hydrograph Routing - I
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson12/lesson12.html">
-   Hydrograph Routing - II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson13/lesson13.html">
-   Reservoir-Storage Routing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../lesson14/lesson14.html">
-   Reservoir Outlet Works
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../groundwater/groundwater1.html">
-   Groundwater Hydrology
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../groundwater/groundwater2.html">
-   Groundwater Hydrology - II
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../groundwater/groundwater3.html">
-   Steady Groundwater Flow to Wells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../groundwater/groundwater4.html">
-   Transient Flow to Wells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../groundwater/groundwater5.html">
-   Constituient Transport
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../workshops/workshop3.html">
-   Workshop #3
-  </a>
- </li>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson05.html">06. Streamflow Data Modeling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lesson06/lesson06.html">Hydrologic Process Modeling</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lesson06/rationalmethod.html">Rational Equation (Rainfall-Runoff) Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson06/linearreservoir.html">Linear Reservoir Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson06/CNmethod.html">NRCS CN model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson06/nonlinreservoir.html">Nonlinear Reservoir Model</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson06.1/HMSintro.html">HEC-HMS Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson07/lesson07.html">Evaporation Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson08/lesson08.html">Infiltration Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson08.1/lesson081.html">On-Watershed Storage Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson09/lesson09.html">Unit Hydrographs - I (Analysis)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson10/lesson10.html">Unit Hydrographs - II (Synthesis)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson11/lesson11.html">Hydrograph Routing - I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson12/lesson12.html">Hydrograph Routing - II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson13/lesson13.html">Reservoir-Storage Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lesson14/lesson14.html">Reservoir Outlet Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groundwater/groundwater1.html">Groundwater Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groundwater/groundwater2.html">Groundwater Hydrology - II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groundwater/groundwater3.html">Steady Groundwater Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groundwater/groundwater4.html">Transient Flow to Wells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../groundwater/groundwater5.html">Constituient Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workshops/workshop3.html">Workshop #3</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/lesson05/lesson05-.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson05/lesson05-.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/lesson05/lesson05-.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/lesson05/lesson05-.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lessons/lesson05/lesson05-.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
+  
 </div>
+</div>
+              
+              
 
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Streamflow Data Modeling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#streamflow-measurement">
-   Streamflow Measurement
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slope-area-method">
-     Slope Area Method
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#streamflow-data">
-   Streamflow Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#watershed-characteristics">
-   Watershed Characteristics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#regional-regression-equations">
-   Regional Regression Equations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequency-analysis-background">
-   Frequency Analysis (Background)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#probability-estimation-modeling">
-     Probability Estimation Modeling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exceedence-probability">
-     Exceedence Probability
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beargrass-creek">
-     Beargrass Creek
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#log-normal">
-     Log-Normal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gumbell-double-exponential-distribution">
-     Gumbell (Double Exponential) Distribution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gamma-distribution-as-pearson-type-3">
-     Gamma Distribution (as Pearson Type 3)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">
-   Flood Frequency Analysis (B17C)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">
-     Illustrative Example using Beargrass creek
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flow-duration-curves">
-   Flow Duration Curves
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics">Watershed Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-analysis-background">Frequency Analysis (Background)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation-modeling">Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceedence-probability">Exceedence Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beargrass-creek">Beargrass Creek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal">Log-Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gumbell-double-exponential-distribution">Gumbell (Double Exponential) Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution-as-pearson-type-3">Gamma Distribution (as Pearson Type 3)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">Flood Frequency Analysis (B17C)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-duration-curves">Flow Duration Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="streamflow-data-modeling">
-<h1>Streamflow Data Modeling<a class="headerlink" href="#streamflow-data-modeling" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="streamflow-measurement">
-<h2>Streamflow Measurement<a class="headerlink" href="#streamflow-measurement" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="streamflow-data-modeling">
+<h1>Streamflow Data Modeling<a class="headerlink" href="#streamflow-data-modeling" title="Link to this heading">#</a></h1>
+<section id="streamflow-measurement">
+<h2>Streamflow Measurement<a class="headerlink" href="#streamflow-measurement" title="Link to this heading">#</a></h2>
 <p>Streamflow is measured by a variety of gaging technologies.</p>
 <ul class="simple">
 <li><p>Continuous record (usually stage, then rated to produce discharge)</p>
@@ -477,8 +470,8 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <li><p>Slope area method between several nearby pipes is used to estimate discharge</p></li>
 </ul>
 <p><img alt="" src="../../_images/creststagegage.png" /></p>
-<div class="section" id="slope-area-method">
-<h3>Slope Area Method<a class="headerlink" href="#slope-area-method" title="Permalink to this headline">¶</a></h3>
+<section id="slope-area-method">
+<h3>Slope Area Method<a class="headerlink" href="#slope-area-method" title="Link to this heading">#</a></h3>
 <p>Application of Manning’s equation, using the slope of the water surface as the friction slope, and the stage geometry at measured cross sections.</p>
 <div class="math notranslate nohighlight">
 \[Q=\frac{1.49}{n}~A~R^{2/3}~S^{1/2}\]</div>
@@ -487,10 +480,10 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">See pp. 33-39 CMM for explaination of Manning’s equation</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method</a></p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="streamflow-data">
-<h2>Streamflow Data<a class="headerlink" href="#streamflow-data" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="streamflow-data">
+<h2>Streamflow Data<a class="headerlink" href="#streamflow-data" title="Link to this heading">#</a></h2>
 <p>Data sources for streamflow include:</p>
 <ul class="simple">
 <li><p>USGS NWIS (Website)</p></li>
@@ -515,9 +508,9 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <li><p>Typical file structure</p></li>
 </ul>
 <p><img alt="" src="../../_images/nwis-buffalo3.png" /></p>
-</div>
-<div class="section" id="watershed-characteristics">
-<h2>Watershed Characteristics<a class="headerlink" href="#watershed-characteristics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="watershed-characteristics">
+<h2>Watershed Characteristics<a class="headerlink" href="#watershed-characteristics" title="Link to this heading">#</a></h2>
 <p>One tool in applied hydrology is to relate measurable watershed properties to streamflow discharge.</p>
 <p>What characteristics influence runoff?</p>
 <ul class="simple">
@@ -548,9 +541,9 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <li><p>Previous investigations</p></li>
 </ul>
 <p><img alt="" src="../../_images/nrcs-soilsmap.png" /></p>
-</div>
-<div class="section" id="regional-regression-equations">
-<h2>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="regional-regression-equations">
+<h2>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Link to this heading">#</a></h2>
 <p>Where sufficient data exist, one technique for gross estimates of streamflow based largely on watershed area, rainfall input, and location are regional regression equations.  These exist in some fashion for each state in the USA, and most terrortories (Puerto Rico, Guam …).  They probably exist for many other countries, and are all obtained in a similar fashion.</p>
 <p>The equations are constructed by first fitting an appropriate probability distribution to observations at a gaged location (station flood frequency). Then the station flood frequency curves are used as surrogate observations (at a specified AEP) to relate discharge to select geomorphic variables:</p>
 <div class="math notranslate nohighlight">
@@ -587,12 +580,12 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <img alt="" src="../../_images/texasregionalonline1.png" /></p>
 <p>and the on-line results
 <img alt="" src="../../_images/texasregionalonline2.png" /></p>
-</div>
-<div class="section" id="frequency-analysis-background">
-<h2>Frequency Analysis (Background)<a class="headerlink" href="#frequency-analysis-background" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="frequency-analysis-background">
+<h2>Frequency Analysis (Background)<a class="headerlink" href="#frequency-analysis-background" title="Link to this heading">#</a></h2>
 <p>Frequency analysis is a kind of probability estimation modeling exercise</p>
-<div class="section" id="probability-estimation-modeling">
-<h3>Probability Estimation Modeling<a class="headerlink" href="#probability-estimation-modeling" title="Permalink to this headline">¶</a></h3>
+<section id="probability-estimation-modeling">
+<h3>Probability Estimation Modeling<a class="headerlink" href="#probability-estimation-modeling" title="Link to this heading">#</a></h3>
 <p>Probability estimation modeling is the use of probability distributions (population data models) to model or explain behavior in observed (sample data) values.  Once a particular distribution is selected, then the concept of risk (probability) can be explored for events of varying magnitudes.</p>
 <p>Two important “extremes” in engineering:</p>
 <ul class="simple">
@@ -661,12 +654,12 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_6_0.png" src="../../_images/lesson05-_6_0.png" />
+<img alt="../../_images/e740fb05f32b3807db2c03b5ab17b0ab54048016bcdb77d9ddbbd5f4798f4eec.png" src="../../_images/e740fb05f32b3807db2c03b5ab17b0ab54048016bcdb77d9ddbbd5f4798f4eec.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exceedence-probability">
-<h3>Exceedence Probability<a class="headerlink" href="#exceedence-probability" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exceedence-probability">
+<h3>Exceedence Probability<a class="headerlink" href="#exceedence-probability" title="Link to this heading">#</a></h3>
 <p>The purpose of distributions is to model data and allow us to estimate an answer to the question, what is the probability that we will observe a value of the random variable less than or equal to some sentinel value.  A common way to plot the quantile function is with accumulated probability on the horizontal axis, and random variable value on the vertical axis.
 Consider the figure below;</p>
 <p><img alt="" src="http://54.243.252.9/engr-1330-psuedo-course/CECE-1330-PsuedoCourse/1-Lessons/Lesson13/PsuedoLesson/exceedence.png" /></p>
@@ -726,7 +719,7 @@ The accumulated probability value at 50,000 is 0.1 or roughly 10% chance, but we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_11_0.png" src="../../_images/lesson05-_11_0.png" />
+<img alt="../../_images/798016ff1047b346394303f9ba3c9b8a790392eecf6cd04622bfb4ada9a42155.png" src="../../_images/798016ff1047b346394303f9ba3c9b8a790392eecf6cd04622bfb4ada9a42155.png" />
 </div>
 </div>
 <p>What a horrible plot, but lets now use the sample statistics to “fit” the data model (red) to the observations (blue). Notice we have already rotated the axes so this plot and ones that follow are structured like the “Exceedence” plot above.</p>
@@ -770,7 +763,7 @@ The accumulated probability value at 50,000 is 0.1 or roughly 10% chance, but we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_14_0.png" src="../../_images/lesson05-_14_0.png" />
+<img alt="../../_images/a73d7540c60f719420551c55bfb4779f3641655060566ecb845c5fca11bc9dda.png" src="../../_images/a73d7540c60f719420551c55bfb4779f3641655060566ecb845c5fca11bc9dda.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -811,7 +804,7 @@ The accumulated probability value at 50,000 is 0.1 or roughly 10% chance, but we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_15_0.png" src="../../_images/lesson05-_15_0.png" />
+<img alt="../../_images/19d1e350908a5cffe5837006d333183c1e6aa72111524b6b2fec668fa1aafe64.png" src="../../_images/19d1e350908a5cffe5837006d333183c1e6aa72111524b6b2fec668fa1aafe64.png" />
 </div>
 </div>
 <p>Some observations are in order:</p>
@@ -821,9 +814,9 @@ The accumulated probability value at 50,000 is 0.1 or roughly 10% chance, but we
 </ul>
 <p>Real things of engineering interest are not always bounded as shown here, the choice of the Weibull plotting position is not arbitrary.  The blue dot scatterplot in practice is called the empirical distribution function, or empirical quantile function.</p>
 <p>Now we will apply these ideas to some realistic data.</p>
-</div>
-<div class="section" id="beargrass-creek">
-<h3>Beargrass Creek<a class="headerlink" href="#beargrass-creek" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="beargrass-creek">
+<h3>Beargrass Creek<a class="headerlink" href="#beargrass-creek" title="Link to this heading">#</a></h3>
 <p>The file <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson05/beargrass.txt">beargrass.txt</a> contains annual peak flows for Beargrass Creek.  The year is a water year, so the peaks occur on different days in each year; thus it is not a time series. Let’s examine the data and see how well a Normal distribution data model fits, then estimate from the distribution the peak magnitude with exceedence probability 0.01 (1%-chance that will observe a value equal to or greater).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -924,7 +917,7 @@ For exceedance probabilities, the sample values are ranked from largest to small
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_20_0.png" src="../../_images/lesson05-_20_0.png" />
+<img alt="../../_images/682cd9141bc03331141084a4347f7606aaeb70ddde41bf315991f654be36963d.png" src="../../_images/682cd9141bc03331141084a4347f7606aaeb70ddde41bf315991f654be36963d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -988,9 +981,9 @@ Name: Peak, dtype: float64
 </div>
 </div>
 <p>So a peak discharge of 4000 or so is expected to be observed with 1% chance, notice we took the value from the fitted distribution, not the empirical set.  As an observation, the Normal model is not a very good data model for these observations.</p>
-</div>
-<div class="section" id="log-normal">
-<h3>Log-Normal<a class="headerlink" href="#log-normal" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="log-normal">
+<h3>Log-Normal<a class="headerlink" href="#log-normal" title="Link to this heading">#</a></h3>
 <p>Another data model we can try is log-normal, where we stipulate that the logarithms of the observations are normal.  The scripts are practically the same, but there is an inverse transformation required to recover original value scale.  Again we will use Beargrass creek.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1027,7 +1020,7 @@ Name: Peak, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_27_0.png" src="../../_images/lesson05-_27_0.png" />
+<img alt="../../_images/aa425282ff6726fc905c67dd00690b0cc03da39d09411a682b832a1b1ab33b13.png" src="../../_images/aa425282ff6726fc905c67dd00690b0cc03da39d09411a682b832a1b1ab33b13.png" />
 </div>
 </div>
 <p>The plot doesn’t look too bad, but we are in log-space, which is hard to interpret, so we will transform back to arithmetic space</p>
@@ -1061,7 +1054,7 @@ Name: Peak, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_29_0.png" src="../../_images/lesson05-_29_0.png" />
+<img alt="../../_images/cd711baf64b4b4e095de794df72d143a79cec47c5289bf0609af3faf74e012b8.png" src="../../_images/cd711baf64b4b4e095de794df72d143a79cec47c5289bf0609af3faf74e012b8.png" />
 </div>
 </div>
 <p>Visually a better data model, now lets determine the 1% chance value.</p>
@@ -1075,7 +1068,7 @@ Name: Peak, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.23730905616488 0.4984855728993489
-0.9900772507418302
+0.9900772507418303
 </pre></div>
 </div>
 </div>
@@ -1099,15 +1092,15 @@ Name: Peak, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4433.567789173262
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4433.567789173268
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now we have a decent method, we should put stuff into functions to keep code concise, lets examine a couple more data models</p>
-</div>
-<div class="section" id="gumbell-double-exponential-distribution">
-<h3>Gumbell (Double Exponential) Distribution<a class="headerlink" href="#gumbell-double-exponential-distribution" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gumbell-double-exponential-distribution">
+<h3>Gumbell (Double Exponential) Distribution<a class="headerlink" href="#gumbell-double-exponential-distribution" title="Link to this heading">#</a></h3>
 <p>The Gumbell is also called the Extreme-Value Type I distribution, the density and quantile function are:</p>
 <div class="math notranslate nohighlight">
 \[ \text{pdf(x)} = \frac{1}{\beta} \cdot exp [-\frac{(x-\alpha)}{\beta} - exp (-\frac{(x-\alpha)}{\beta}) ]\]</div>
@@ -1167,7 +1160,7 @@ Name: Peak, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_36_0.png" src="../../_images/lesson05-_36_0.png" />
+<img alt="../../_images/2f7186e5e96362c547b197fe154537e9bb502ae2d8835021916a2095f2dc3232.png" src="../../_images/2f7186e5e96362c547b197fe154537e9bb502ae2d8835021916a2095f2dc3232.png" />
 </div>
 </div>
 <p>Again a so-so visual fit.
@@ -1212,9 +1205,9 @@ To find the 1% chance value</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="gamma-distribution-as-pearson-type-3">
-<h3>Gamma Distribution (as Pearson Type 3)<a class="headerlink" href="#gamma-distribution-as-pearson-type-3" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gamma-distribution-as-pearson-type-3">
+<h3>Gamma Distribution (as Pearson Type 3)<a class="headerlink" href="#gamma-distribution-as-pearson-type-3" title="Link to this heading">#</a></h3>
 <p>One last data model to consider is one that is specifically stipulated for use by federal agencies for probability estimation of extreme hydrologic events.  The data model ia called the Log-Pearson Type III distribution, its actually a specific case of a Gamma distrubution.</p>
 <p>This example we will dispense with tyring to build it in python primative, and just use a package - the density function is not all that hard, but the quantile function is elaborate.</p>
 <p>Learn more at <a class="reference external" href="http://54.243.252.9/engr-1330-psuedo-course/CECE-1330-PsuedoCourse/3-Readings/NumericalRecipesinF77.pdf">http://54.243.252.9/engr-1330-psuedo-course/CECE-1330-PsuedoCourse/3-Readings/NumericalRecipesinF77.pdf</a> (in particular around Page 276)</p>
@@ -1329,7 +1322,7 @@ To find the 1% chance value</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/lesson05-_51_0.png" src="../../_images/lesson05-_51_0.png" />
+<img alt="../../_images/d7dff0bdecbfab0e7558f1f0eb031e6df19314f1096f6427a41e4e7c83f3ebdd.png" src="../../_images/d7dff0bdecbfab0e7558f1f0eb031e6df19314f1096f6427a41e4e7c83f3ebdd.png" />
 </div>
 </div>
 <p>And as before lets find the value that retruns the 99% quantile - we will just use the newton method above.
@@ -1384,77 +1377,79 @@ First recover the required model parameters. Then we will paste these into the <
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9753
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9753)
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now lets summarize our efforts regarding Beargrass Creek annual peaks and probabilities anticipated.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Data Model</p></th>
-<th class="text-align:left head"><p>99% Peak Flow</p></th>
-<th class="text-align:left head"><p>Remarks</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Data Model</p></th>
+<th class="head text-left"><p>99% Peak Flow</p></th>
+<th class="head text-left"><p>Remarks</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>Normal</p></td>
-<td class="text-align:left"><p>3902</p></td>
-<td class="text-align:left"><p>so-so visual fit</p></td>
+<tr class="row-even"><td class="text-left"><p>Normal</p></td>
+<td class="text-left"><p>3902</p></td>
+<td class="text-left"><p>so-so visual fit</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Log-Normal</p></td>
-<td class="text-align:left"><p>4433</p></td>
-<td class="text-align:left"><p>better visual fit</p></td>
+<tr class="row-odd"><td class="text-left"><p>Log-Normal</p></td>
+<td class="text-left"><p>4433</p></td>
+<td class="text-left"><p>better visual fit</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>Gumbell</p></td>
-<td class="text-align:left"><p>3296</p></td>
-<td class="text-align:left"><p>better visual fit</p></td>
+<tr class="row-even"><td class="text-left"><p>Gumbell</p></td>
+<td class="text-left"><p>3296</p></td>
+<td class="text-left"><p>better visual fit</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>Log-Pearson III</p></td>
-<td class="text-align:left"><p>5856</p></td>
-<td class="text-align:left"><p>best (of the set) visual fit</p></td>
+<tr class="row-odd"><td class="text-left"><p>Log-Pearson III</p></td>
+<td class="text-left"><p>5856</p></td>
+<td class="text-left"><p>best (of the set) visual fit</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>At this point, now we have to choose our model and then can investigate different questions.  So using LP3 as our favorite, lets now determine anticipated flow values for different probabilities (from the data model) - easy enought to just change the quantile value and rerun the newtons optimizer, for example:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Exceedence Probability</p></th>
-<th class="text-align:left head"><p>Flow Value</p></th>
-<th class="text-align:left head"><p>Remarks</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Exceedence Probability</p></th>
+<th class="head text-left"><p>Flow Value</p></th>
+<th class="head text-left"><p>Remarks</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p>25%</p></td>
-<td class="text-align:left"><p>968</p></td>
-<td class="text-align:left"><p>First Quartile Divider</p></td>
+<tr class="row-even"><td class="text-left"><p>25%</p></td>
+<td class="text-left"><p>968</p></td>
+<td class="text-left"><p>First Quartile Divider</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>50%</p></td>
-<td class="text-align:left"><p>1302</p></td>
-<td class="text-align:left"><p>Median, and Second Quartile Divider</p></td>
+<tr class="row-odd"><td class="text-left"><p>50%</p></td>
+<td class="text-left"><p>1302</p></td>
+<td class="text-left"><p>Median, and Second Quartile Divider</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>75%</p></td>
-<td class="text-align:left"><p>1860</p></td>
-<td class="text-align:left"><p>3rd Quartile Divider</p></td>
+<tr class="row-even"><td class="text-left"><p>75%</p></td>
+<td class="text-left"><p>1860</p></td>
+<td class="text-left"><p>3rd Quartile Divider</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>90%</p></td>
-<td class="text-align:left"><p>2706</p></td>
-<td class="text-align:left"><p>10% chance of greater value</p></td>
+<tr class="row-odd"><td class="text-left"><p>90%</p></td>
+<td class="text-left"><p>2706</p></td>
+<td class="text-left"><p>10% chance of greater value</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>99%</p></td>
-<td class="text-align:left"><p>5856</p></td>
-<td class="text-align:left"><p>1% chance of greater value (in flood statistics, this is the 1 in 100-yr chance event)</p></td>
+<tr class="row-even"><td class="text-left"><p>99%</p></td>
+<td class="text-left"><p>5856</p></td>
+<td class="text-left"><p>1% chance of greater value (in flood statistics, this is the 1 in 100-yr chance event)</p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:left"><p>99.8%</p></td>
-<td class="text-align:left"><p>9420</p></td>
-<td class="text-align:left"><p>0.002% chance of greater value (in flood statistics, this is the 1 in 500-yr chance event)</p></td>
+<tr class="row-odd"><td class="text-left"><p>99.8%</p></td>
+<td class="text-left"><p>9420</p></td>
+<td class="text-left"><p>0.002% chance of greater value (in flood statistics, this is the 1 in 500-yr chance event)</p></td>
 </tr>
-<tr class="row-even"><td class="text-align:left"><p>99.9%</p></td>
-<td class="text-align:left"><p>11455</p></td>
-<td class="text-align:left"><p>0.001% chance of greater value (in flood statistics, this is the 1 in 1000-yr chance event)</p></td>
+<tr class="row-even"><td class="text-left"><p>99.9%</p></td>
+<td class="text-left"><p>11455</p></td>
+<td class="text-left"><p>0.001% chance of greater value (in flood statistics, this is the 1 in 1000-yr chance event)</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
@@ -1481,10 +1476,10 @@ First recover the required model parameters. Then we will paste these into the <
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="flood-frequency-analysis-b17c">
-<h2>Flood Frequency Analysis (B17C)<a class="headerlink" href="#flood-frequency-analysis-b17c" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="flood-frequency-analysis-b17c">
+<h2>Flood Frequency Analysis (B17C)<a class="headerlink" href="#flood-frequency-analysis-b17c" title="Link to this heading">#</a></h2>
 <p>Flood hydrology is typically studied using the annual peak streamflow data collected by the U.S. Geological Survey (USGS) at streamgages. Hydraulic design engineers need standard of practice guidance for various tasks involving the analysis and application peak streamflow information. Analyses of this information materially influences bridge design, operational safety of drainage infrastructure, flood-plain management, and other decisions affecting society.</p>
 <p>Bulletin 17B was the standard of practice for decades, recently superceded by Bulletin <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">17C</a>.  These and similar tools relate certain statistical metrics (mean, variance, and skew) to a prescribed probability distribution function (Log-Pearson Type III) to extrapolate (predict) the magnitude of rare (low probability) events to inform engineering design.</p>
 <p>Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.<br />
@@ -1494,8 +1489,8 @@ Recent updates to B17B in terms of software improvements and different handling 
 <li><p>B17C is a report containing methods for estimating magnitudes of rare events</p></li>
 <li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
 </ul>
-<div class="section" id="illustrative-example-using-beargrass-creek">
-<h3>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Permalink to this headline">¶</a></h3>
+<section id="illustrative-example-using-beargrass-creek">
+<h3>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Link to this heading">#</a></h3>
 <p>Demonstrate using Bearcreek as an example.  Beargrass creek is not a real site, therefore is not in the NWIS database, so we have to modify the file to be readable in PeakFQ.</p>
 <p>A modified version is at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson05/BearGrass-B17B.txt">BearGrass-B17B.txt</a></p>
 <p>A fully provisioned Windows Implementation of B17C is located at:</p>
@@ -1508,18 +1503,18 @@ Recent updates to B17B in terms of software improvements and different handling 
 <ul class="simple">
 <li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">Video to Demo PeakFQ on Beargrass Creek (YouTube)</a></p></li>
 </ul>
-<p>In class access <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;site_no=08145000">Brady Creek</a> (close to Hardin Creek)</p>
-</div>
-</div>
-<div class="section" id="flow-duration-curves">
-<h2>Flow Duration Curves<a class="headerlink" href="#flow-duration-curves" title="Permalink to this headline">¶</a></h2>
+<p>In class access <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;amp;site_no=08145000">Brady Creek</a> (close to Hardin Creek)</p>
+</section>
+</section>
+<section id="flow-duration-curves">
+<h2>Flow Duration Curves<a class="headerlink" href="#flow-duration-curves" title="Link to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://pubs.er.usgs.gov/publication/wsp1542A">flow-duration curve</a> is a cumulative frequency curve that shows the percent of <strong>time</strong> specified discharges were equaled or exceeded during a given period.
 It combines in one curve the flow characteristics of a stream throughout the range of discharge, without regard to the sequence of occurrence. If the period upon which the curve is based represents the long-term flow of a stream, the curve may be used to predict the distribution of future flows for water- power, water-supply, and pollution studies.</p>
 <p><a class="reference external" href="https://streamflow.engr.oregonstate.edu/analysis/flow/index.htm">OSU Flow Duration Curve Mechanics</a></p>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ">Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses</a></p></li>
@@ -1532,8 +1527,8 @@ It combines in one curve the flow characteristics of a stream throughout the ran
 <li><p><a class="reference external" href="https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html">https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html</a></p></li>
 <li><p><a class="reference external" href="https://www.inferentialthinking.com/chapters/15/Prediction.html">https://www.inferentialthinking.com/chapters/15/Prediction.html</a></p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1547,7 +1542,7 @@ It combines in one curve the flow characteristics of a stream throughout the ran
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./lessons/lesson05"
         },
         predefinedOutput: true
@@ -1555,38 +1550,106 @@ It combines in one curve the flow characteristics of a stream throughout the ran
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
             
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics">Watershed Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-analysis-background">Frequency Analysis (Background)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation-modeling">Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceedence-probability">Exceedence Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beargrass-creek">Beargrass Creek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal">Log-Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gumbell-double-exponential-distribution">Gumbell (Double Exponential) Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution-as-pearson-type-3">Gamma Distribution (as Pearson Type 3)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">Flood Frequency Analysis (B17C)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-duration-curves">Flow Duration Curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
 
-<div class='prev-next-bottom'>
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
     
 
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
         
-        </div>
+
+      </main>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
-        
-            &copy; Copyright 2024.<br/>
-      </p>
-    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
   </footer>
-</main>
-
-
-      </div>
-    </div>
-  
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
   </body>
 </html>

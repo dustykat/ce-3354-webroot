@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/02-precipitation/02-precipitation';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Infiltration and Soil Moisture" href="../03-infiltration/03-infiltration.html" />
+    <link rel="next" title="3. Infiltration, Evaporation, and Soil Moisture" href="../03-infiltration/03-infiltration.html" />
     <link rel="prev" title="1. Introduction" href="../01-introduction/01-introduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,10 +182,17 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Precipitation, Hyetographs, Design Storms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration and Soil Moisture</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
@@ -388,12 +395,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Precipitation, Hyetographs, Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-characteristics">Precipitation Characteristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms-and-frequency-analysis">Design Storms and Frequency Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-estimating-design-storms-using-idf-curves">Lab/Exercise: Estimating design storms using IDF curves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-description">Precipitation Description</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forms-of-precipitation">Forms of Precipitation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-precipitation-by-origin">Types of Precipitation (by Origin)</a></li>
@@ -402,13 +406,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclonic-storms">Cyclonic Storms</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Precipitation Characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">Measurement Techniques</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-characteristics">2.1 Precipitation Characteristics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
@@ -433,6 +439,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -487,36 +496,23 @@ document.write(`
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=Smg_c93luwQ">Areal extent of rainfall/how to measure rainfall/rainfall radar/rainfall measurement </a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=qhXj3s9qwTE">Weather Radar 101</a></p></li>
 </ol>
-</section>
-<section id="precipitation-characteristics">
-<h2>Precipitation Characteristics<a class="headerlink" href="#precipitation-characteristics" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Rainfall intensity, duration, and frequency</p></li>
-<li><p>Measurement techniques (rain gauges, radar, remote sensing)</p></li>
-</ul>
-</section>
-<section id="design-storms-and-frequency-analysis">
-<h2>Design Storms and Frequency Analysis<a class="headerlink" href="#design-storms-and-frequency-analysis" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Intensity-Duration-Frequency (IDF) curves</p></li>
-<li><p>Return periods and probability distributions</p></li>
-</ul>
-</section>
-<section id="lab-exercise-estimating-design-storms-using-idf-curves">
-<h2>Lab/Exercise: Estimating design storms using IDF curves<a class="headerlink" href="#lab-exercise-estimating-design-storms-using-idf-curves" title="Link to this heading">#</a></h2>
-</section>
-<section id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>What is precipitation</p></li>
-<li><p>Point precipitation</p></li>
-<li><p>Probability estimation Modeling</p></li>
-<li><p>Design Storms</p></li>
-<li><p>Areal precipitation</p></li>
-<li><p>ARF approach</p></li>
-<li><p>Radar rainfall</p></li>
-</ol>
-</section>
+<!--## Precipitation Characteristics
+  - Rainfall intensity, duration, and frequency
+  - Measurement techniques (rain gauges, radar, remote sensing)
+
+## Design Storms and Frequency Analysis
+  - Intensity-Duration-Frequency (IDF) curves
+  - Return periods and probability distributions
+
+## Lab/Exercise: Estimating design storms using IDF curves--><!-- ## Outline
+
+1. What is precipitation
+2. Point precipitation 
+  1. Probability estimation Modeling
+  2. Design Storms
+3. Areal precipitation
+  1. ARF approach
+  2. Radar rainfall --></section>
 <section id="precipitation-description">
 <h2>Precipitation Description<a class="headerlink" href="#precipitation-description" title="Link to this heading">#</a></h2>
 <p>Precipitation is the water which falls from the atmosphere in either liquid or solid form. It results from the condensation of moisture in the atmosphere due to cooling of a parcel of air. The most common cause of cooling is dynamic or adiabatic lifting of the air. Adiabatic lifting means that a
@@ -568,8 +564,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p>Tornadoes and other <strong>violent</strong> weather phenomena are associated with cold fronts.</p>
 </section>
 </section>
-<section id="id1">
-<h2>Precipitation Characteristics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="precipitation-characteristics">
+<h1>2.1 Precipitation Characteristics<a class="headerlink" href="#precipitation-characteristics" title="Link to this heading">#</a></h1>
 <p>There are several variables of interest:</p>
 <ol class="arabic simple">
 <li><p>Intensity: how hard it rains (a rate)</p></li>
@@ -584,7 +581,7 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p>A slow gentle rain for a long time versus a hard rain for a short time can have the same total depth, but vastly different hydrologic impact</p>
 </div>
 <section id="depth-duration-frequency">
-<h3>Depth-Duration-Frequency<a class="headerlink" href="#depth-duration-frequency" title="Link to this heading">#</a></h3>
+<h2>Depth-Duration-Frequency<a class="headerlink" href="#depth-duration-frequency" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Depth of rainfall is the accumulated depth (in a gage) over some time interval.</p></li>
 <li><p>Duration is that time interval.</p></li>
@@ -611,7 +608,7 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <p>Conversion from Intensity-Duration to Depth-Duration is obtained by multiplication</p>
 </section>
 <section id="intensity-duration-frequency">
-<h3>Intensity-Duration-Frequency<a class="headerlink" href="#intensity-duration-frequency" title="Link to this heading">#</a></h3>
+<h2>Intensity-Duration-Frequency<a class="headerlink" href="#intensity-duration-frequency" title="Link to this heading">#</a></h2>
 <p>The family of curves that depicts the relationship between the intensity, duration, and frequency of precipitation at a point is a fundamental part of the rational equation method for storm water drainage design.</p>
 <p><img alt="" src="../../_images/IDFcurves.png" /></p>
 <p>Conversion from Depth-Duration to Intensity-Duration is obtained by the ratio of depth to duration</p>
@@ -621,8 +618,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 <div class="math notranslate nohighlight">
 \[ D = i_{avg}*{T_C}\]</div>
 </section>
-<section id="measurement-techniques">
-<h3>Measurement Techniques<a class="headerlink" href="#measurement-techniques" title="Link to this heading">#</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="measurement-techniques">
+<h1>2.2 Measurement Techniques<a class="headerlink" href="#measurement-techniques" title="Link to this heading">#</a></h1>
 <!-- ## References
 
 1. [Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/) 
@@ -655,11 +653,9 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 
 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf) 
 --></section>
-</section>
-<section id="design-storms">
-<h2>Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="design-storms">
+<h1>2.3 Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h1>
 <p>A design storm is a theoretical or hypothetical weather event used by engineers, urban planners, and hydrologists as a standard to simulate and predict the potential impact of extreme weather conditions on a particular area. It is employed in the design and planning of various structures and systems to ensure they can withstand or manage the expected stresses caused by intense rainfall or other weather-related factors.</p>
-</section>
 <section id="design-storm-characteristics">
 <h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Link to this heading">#</a></h2>
 <p>The characteristics of a design storm typically include:</p>
@@ -1399,7 +1395,7 @@ contours will be of rainfall rather than elevation.--></section>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3. Infiltration and Soil Moisture</p>
+        <p class="prev-next-title">3. Infiltration, Evaporation, and Soil Moisture</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1419,12 +1415,9 @@ contours will be of rainfall rather than elevation.--></section>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. Precipitation, Hyetographs, Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-characteristics">Precipitation Characteristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms-and-frequency-analysis">Design Storms and Frequency Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-estimating-design-storms-using-idf-curves">Lab/Exercise: Estimating design storms using IDF curves</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-description">Precipitation Description</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forms-of-precipitation">Forms of Precipitation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-precipitation-by-origin">Types of Precipitation (by Origin)</a></li>
@@ -1433,13 +1426,15 @@ contours will be of rainfall rather than elevation.--></section>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cyclonic-storms">Cyclonic Storms</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Precipitation Characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">Measurement Techniques</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-characteristics">2.1 Precipitation Characteristics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-duration-frequency">Depth-Duration-Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
@@ -1464,6 +1459,9 @@ contours will be of rainfall rather than elevation.--></section>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

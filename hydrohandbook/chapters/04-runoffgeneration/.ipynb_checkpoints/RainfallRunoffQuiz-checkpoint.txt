@@ -1,0 +1,100 @@
+1. What is the primary trigger for Hortonian overland flow?
+
+A. High slope angles
+
+B. Saturated soil conditions
+
+C. Rainfall intensity exceeding infiltration capacity ✅
+
+D. Snowmelt volume
+
+2. Dunne overland flow occurs when:
+
+A. Rainfall rate is extremely high
+
+B. Soil surface crusts over
+
+C. Soil becomes fully saturated before or during a storm ✅
+
+D. There is no vegetation cover
+
+3. Which environment is most likely to produce Hortonian flow?
+
+A. Humid forest
+
+B. Urban area with impervious surfaces ✅
+
+C. Flat agricultural fields
+
+D. Marshland
+
+4. Which statement best describes interflow?
+
+A. Groundwater contribution during drought
+
+B. Surface runoff down steep slopes
+
+C. Lateral subsurface flow above an impermeable layer ✅
+
+D. Water vapor movement
+
+5. Baseflow primarily contributes to streamflow:
+
+A. During rainfall events
+
+B. From impervious surfaces
+
+C. Between rainfall events ✅
+
+D. From overland flow
+
+6. Which mechanism is most delayed in its contribution to streamflow?
+
+A. Hortonian flow
+
+B. Dunne flow
+
+C. Interflow
+
+D. Baseflow ✅
+
+7. Horton’s infiltration model shows infiltration:
+
+A. Increases with time
+
+B. Decreases then increases
+
+C. Decreases asymptotically toward a minimum ✅
+
+D. Stays constant
+
+8. Which flow mechanism is intensity-driven?
+
+A. Dunne
+
+B. Interflow
+
+C. Baseflow
+
+D. Hortonian ✅
+
+9. Which tool or model uses Hortonian infiltration modeling?
+
+A. MODFLOW
+
+B. HEC-RAS
+
+C. SWMM ✅
+
+D. QGIS
+
+10. In a watershed with shallow water tables and frequent rainfall, which flow mechanism dominates?
+
+A. Hortonian flow
+
+B. Dunne flow ✅
+
+C. Interflow
+
+D. Baseflow
+

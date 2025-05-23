@@ -1,0 +1,12 @@
+Recording Plan
+1. Introduction: Syllabus; Course Website; Blackboard LMS; CL Requirements; Weekly Zoom Meeting
+2. Introduction: Engineering hydrology (JB Section 1. -1.1)
+3. Introduction: Hydrologic Cycle and Water Budgets (JB Section 1.1-end of chapter)
+4. Precipitation: JB Section 2.-through 2.2
+5. Precipitation: JB Section 2.3 - end of chapter
+5.X Precipitation Extensions
+6. Infiltration: Models of infiltration
+7. Infiltration: Evapotranspiration and Soil Moisture
+8. Infiltration: Other abstractions
+9. Runoffgeneration: processes hortonian excess, dunne excess
+10. Runoff generation: watershed delineation
