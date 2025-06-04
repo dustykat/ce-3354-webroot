@@ -416,8 +416,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.2 Hyetographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-measurement-techniques">2.2 Precipitation Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.3 Hyetographs</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-hyetographs-used">Why are hyetographs used?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-data-analysis-template">Precipitation Data Analysis Template</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-point-hyetographs-to-precipitation-fields">From Point Hyetographs to Precipitation Fields</a><ul class="nav section-nav flex-column">
@@ -433,7 +433,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.4 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
@@ -657,8 +657,135 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 \[ D = i_{avg}*{T_C}\]</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="measurement-techniques">
-<h1>2.2 Measurement Techniques<a class="headerlink" href="#measurement-techniques" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="precipitation-measurement-techniques">
+<h1>2.2 Precipitation Measurement Techniques<a class="headerlink" href="#precipitation-measurement-techniques" title="Link to this heading">#</a></h1>
+<p>Understanding how precipitation is measured is essential for interpreting rainfall data and constructing accurate hyetographs. This section introduces several common measurement techniques used in hydrology, from manual gauges to radar-based systems.</p>
+<ol class="arabic simple">
+<li><p>Total Depth Gauges: The simplest form of precipitation measurement involves collecting rainfall over a period of time and measuring the accumulated depth.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Standard Rain Gauge: A cylindrical container with a known cross-sectional area, typically read manually after a storm or at set intervals. It gives total rainfall depth over the collection period.</p></li>
+<li><p>Storage (Non-Recording) Gauges: Similar in function, but used in remote areas for later retrieval. Measurement resolution is limited, and event timing is lost.</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="" src="../../_images/total-type-gage.png" /></p>
+<p>Photograph (infographic) of a total catch gage.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Recording Gauges: These devices not only measure the amount of precipitation but also record the time history of rainfall events.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Tipping Bucket Rain Gauge: Consists of two small buckets balanced on a pivot. Each tip (often 0.2 mm or 0.01 in) represents a fixed volume of rainfall. As water fills one bucket, it tips when full, emptying and triggering a switch that logs the time. Useful for generating high-resolution time-series data.</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="" src="../../_images/tipping-type-gage.png" /></p>
+<p>Schematic diagram of a tipping bucket rain gauge showing tipping mechanism.</p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Tipping bucket gauges tend to underestimate rainfall during high-intensity events due to mechanical lag and loss during tip transitions.</p>
+</div>
+<ul class="simple">
+<li><p>Weighing Gauges: Accumulate rainfall in a container placed on a scale or load cell. Continuously record the weight, which is converted to depth. High precision and excellent performance during mixed precipitation (rain + snow).</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="" src="../../_images/weighing-type-gage.png" /></p>
+<p>Schematic diagram of a weighing rain gauge showing weighing mechanism (spring scale). More modern implementations replace the scale with a load cell, and the recording mechanism would be a digital device (like a Raspberry Pi, with a RTC hat)</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Optical and Acoustic Sensors: Newer designs detect raindrop size and velocity using laser or acoustic signals. Primarily used in research or specialized field deployments.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Dataloggers and Telemetry:</strong> Most modern recording gauges are connected to dataloggers, which:</p></li>
+</ol>
+<ul>
+<li><p>Store timestamped measurements (tipping counts, weight readings, etc.).</p></li>
+<li><p>Can interface with telemetry systems for real-time data transmission.</p></li>
+<li><p>Allow long-term unattended monitoring.</p>
+<p>Best Practices:</p>
+</li>
+<li><p>Ensure power reliability (solar panels often used).</p></li>
+<li><p>Calibrate sensors regularly.</p></li>
+<li><p>Protect against debris and insects in the funnel.</p></li>
+</ul>
+<blockquote>
+<div><p><img alt="" src="../../_images/tipping-datalogger.png" /></p>
+<p>Example layout of a tipping bucket with datalogger and telemetry system.</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p><strong>Radar-Based Rainfall Measurement</strong></p></li>
+</ol>
+<p>Weather radar offers spatially distributed rainfall estimates across entire regions, a powerful supplement to point-based gauges.</p>
+<p>Radar sends microwave pulses and measures return signals reflected from raindrops.</p>
+<p>The intensity of return signals is related to rainfall rate using empirically derived relationships (e.g., Z-R relationships:</p>
+<div class="math notranslate nohighlight">
+\[Z = a R^b\]</div>
+<ul class="simple">
+<li><p><strong>Z</strong> is radar reflectivity (mm⁶/m³)</p></li>
+<li><p><strong>R</strong> is rainfall rate (mm/hr)</p></li>
+<li><p><strong>a, b</strong> are empirical coefficients, often set to:</p>
+<ul>
+<li><p>Stratiform rain: <span class="math notranslate nohighlight">\( a = 200, b = 1.6 \)</span></p></li>
+<li><p>Convective rain: <span class="math notranslate nohighlight">\( a = 300, b = 1.4 \)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Provides data over large areas at high temporal resolution (5–15 min typical).</p>
+<p>Pros:
+Excellent spatial coverage.</p>
+<p>Captures storm structure and movement.</p>
+<p>Cons:
+Subject to errors from beam overshooting, attenuation, ground clutter.</p>
+<p>Requires calibration with ground gauges for accurate quantitative use.</p>
+<blockquote>
+<div><p><img alt="" src="../../_images/radar-rain-image.png" /></p>
+<p>Sample radar image showing rainfall intensity over a watershed.</p>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Choosing a Measurement Technique</p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Technique</p></th>
+<th class="head"><p>Resolution</p></th>
+<th class="head"><p>Cost</p></th>
+<th class="head"><p>Maintenance</p></th>
+<th class="head"><p>Best Use Case</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Total Depth Gauge</p></td>
+<td><p>Low</p></td>
+<td><p>Low</p></td>
+<td><p>Low</p></td>
+<td><p>Basic field stations</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipping Bucket</p></td>
+<td><p>High</p></td>
+<td><p>Moderate</p></td>
+<td><p>Moderate</p></td>
+<td><p>Urban/stormwater studies</p></td>
+</tr>
+<tr class="row-even"><td><p>Weighing Gauge</p></td>
+<td><p>Very High</p></td>
+<td><p>High</p></td>
+<td><p>High</p></td>
+<td><p>Snowfall, research</p></td>
+</tr>
+<tr class="row-odd"><td><p>Radar</p></td>
+<td><p>Variable  (1 km² pixels)</p></td>
+<td><p>Very High</p></td>
+<td><p>Institutional</p></td>
+<td><p>Regional storm analysis</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
+<p>Accurate precipitation measurement is foundational in hydrology. The choice of instrument depends on the desired resolution, site conditions, and budget. Point measurements from gauges offer high fidelity at specific locations, while radar adds spatial context. Dataloggers and telemetry enhance the usability of both by enabling real-time monitoring and data archiving.</p>
+</div>
+<p>In the next section, we will explore how to use precipitation data from these techniques to construct hyetographs, which visually represent rainfall intensity over time.</p>
 <!-- ## References
 
 1. [Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)](http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/) 
@@ -692,7 +819,7 @@ toward areas of lower pressure. In the middle latitudes, cyclonic storms general
 15. [Areal-Reduction Factors for the Precipitation of the 1-Day Design Storm in Texas USGS WRI 99-4267](https://pubs.usgs.gov/wri/wri99-4267/pdf/wri99-4267.pdf) 
 --></section>
 <section class="tex2jax_ignore mathjax_ignore" id="hyetographs">
-<h1>2.2 Hyetographs<a class="headerlink" href="#hyetographs" title="Link to this heading">#</a></h1>
+<h1>2.3 Hyetographs<a class="headerlink" href="#hyetographs" title="Link to this heading">#</a></h1>
 <p>A <strong>hyetograph</strong> is a graphical representation of precipitation intensity over time, typically used in hydrologic analysis to understand how rainfall is distributed during a storm event. It plays a central role in watershed modeling, stormwater design, and flood forecasting.</p>
 <p>Unlike a total rainfall value—which tells you how much precipitation occurred—a hyetograph shows when and how fast the rain fell. This temporal distribution is critical, especially for runoff and peak discharge estimations.</p>
 <p>Two ways of representing the precipitation time series are common: cumulative and incremental precipitation</p>
@@ -1213,7 +1340,7 @@ A .xlsx file suitable for submission or archival, containing an embedded chart.
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="design-storms">
-<h1>2.3 Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h1>
+<h1>2.4 Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h1>
 <p>A design storm is a theoretical or hypothetical weather event used by engineers, urban planners, and hydrologists as a standard to simulate and predict the potential impact of extreme weather conditions on a particular area. It is employed in the design and planning of various structures and systems to ensure they can withstand or manage the expected stresses caused by intense rainfall or other weather-related factors.</p>
 <section id="design-storm-characteristics">
 <h2>Design Storm Characteristics<a class="headerlink" href="#design-storm-characteristics" title="Link to this heading">#</a></h2>
@@ -1314,7 +1441,7 @@ A .xlsx file suitable for submission or archival, containing an embedded chart.
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/02-precipitation/SCS-RainfallDistributions.xlsx"><img alt="" src="../../_images/SCS6hr.png" /></a></p>
 <p>Using the type curves is straightforward</p>
 <ol class="arabic simple">
-<li><p>Use NOAA Atlas 14, TP-40, or other defendable source to set total depth, P for the 24 hour storm (or 6 hour storm)</p></li>
+<li><p>Use <a class="reference external" href="https://hdsc.nws.noaa.gov/pfds/">NOAA Atlas 14 (Precipitation Frequency Data Server)</a>, TP-40, or other <strong>defendable (in court)</strong> source to set total depth, P for the 24 hour storm (or 6 hour storm)</p></li>
 <li><p>Pick appropriate SCS type curve (location).</p></li>
 <li><p>Multiply (rescale) the type curve with P to get the design mass curve.</p></li>
 </ol>
@@ -1916,8 +2043,8 @@ contours will be of rainfall rather than elevation.-->
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intensity-duration-frequency">Intensity-Duration-Frequency</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">2.2 Measurement Techniques</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.2 Hyetographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-measurement-techniques">2.2 Precipitation Measurement Techniques</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hyetographs">2.3 Hyetographs</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-hyetographs-used">Why are hyetographs used?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precipitation-data-analysis-template">Precipitation Data Analysis Template</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-point-hyetographs-to-precipitation-fields">From Point Hyetographs to Precipitation Fields</a><ul class="nav section-nav flex-column">
@@ -1933,7 +2060,7 @@ contours will be of rainfall rather than elevation.-->
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.3 Design Storms</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">2.4 Design Storms</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storm-characteristics">Design Storm Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rainfall-distributions">Rainfall Distributions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-distributions">Design Distributions</a></li>
