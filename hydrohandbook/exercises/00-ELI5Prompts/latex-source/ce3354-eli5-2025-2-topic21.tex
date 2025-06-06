@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+
+% ------------------------ PAGE LAYOUT ------------------------
+\usepackage[letterpaper]{geometry}
+\usepackage[parfill]{parskip}    % No paragraph indent, blank line between
+\usepackage{fancyhdr}            % Header/Footer formatting
+\usepackage{lastpage}            % Reference last page in footer
+
+% ------------------------ MATH & SYMBOLS ---------------------
+\usepackage{amsmath, amssymb}
+
+% ------------------------ FIGURES & TABLES -------------------
+\usepackage{graphicx}
+\usepackage{longtable}          % For multipage tables, if needed
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+% ------------------------ TEXT UTILITIES ---------------------
+\usepackage{url}                % For URLs in footnotes
+\usepackage{paralist}           % Compact list environments
+\usepackage{natbib}             % Bibliographic references
+\usepackage[final]{pdfpages}    % For including PDFs
+
+% ------------------------ CUSTOM -------------------------------
+\usepackage{daves}
+
+% ------------------------ HEADER / FOOTER ---------------------
+\pagestyle{fancy}
+\lhead{CE 3354 -- Engineering Hydrology}
+\rhead{SUMMER 2025}
+\lfoot{ELI5 Assignment}
+\cfoot{}
+\rfoot{Page \thepage\ of \pageref{LastPage}}
+\renewcommand\headrulewidth{0pt}
+
+% ------------------------ DOCUMENT START ---------------------
+\begin{document}
+
+\begin{center}
+    \textbf{CE 3354 Engineering Hydrology\\
+    ELI5 Topic 21}
+\end{center}
+
+\section*{Explain Like I’m 5 (ELI5)}
+
+Produce a short written explanation that simplifies a complex hydrologic topic for a non-specialist audience. Your response should reflect the Feynman Method\footnote{\url{http://54.243.252.9/ce-3105-webroot/ce3105notes/_build/html/lessons/laboratory0/feynman/feynman.html#feynman-learning-technique}}, emphasizing clear and concise teaching through explanation.
+
+\textbf{Topic:} What pervious vs. impervious surfaces mean
+
+\textbf{Deliverable:}
+\begin{itemize}
+    \item A one-page typeset explanation (exclusive of images, charts, and references), aimed at a general audience.
+\end{itemize}
+
+\end{document}

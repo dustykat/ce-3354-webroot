@@ -1,0 +1,26 @@
+📘 ELI5 Explanation Prompts for Engineering Hydrology
+
+1. How rain turns into runoff
+2. What a watershed is and why it matters
+3. What the time of concentration tells us
+4. Why curve numbers help us predict flooding
+5. How soil type affects flooding risk
+6. What happens to water when it hits pavement
+7. How a hydrograph tells the story of a storm
+8. What infiltration means (and why it’s like a sponge)
+9. Why we use the Rational Method
+10. How detention basins help control floods 
+11. What “return period” really means for storms
+12. Why cities flood faster than forests
+13. What the Green-Ampt model tells us
+14. How evaporation and transpiration remove water
+15. Why engineers need to know about baseflow
+16. What we mean by ‘design storm’
+17. How a rainfall intensity-duration-frequency (IDF) curve works
+18. Why stream gauges matter for flood prediction
+19. What happens to water underground (groundwater basics)
+20. How rain barrels and green roofs reduce runoff
+21. What pervious vs. impervious surfaces mean
+22. Why small storms can still be dangerous
+23. How land use changes affect flood risk
+24. What peak discharge is—and why we care
