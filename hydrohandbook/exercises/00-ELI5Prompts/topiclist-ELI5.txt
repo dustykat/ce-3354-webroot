@@ -1,4 +1,4 @@
-📘 ELI5 Explanation Prompts for Engineering Hydrology
+ELI5 Explanation Prompts for Engineering Hydrology
 
 1. How rain turns into runoff
 2. What a watershed is and why it matters

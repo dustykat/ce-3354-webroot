@@ -1,0 +1,26 @@
+Infographic Prompts for Engineering Hydrology (24 Topics)
+
+1. What is a watershed?
+2. How soil type affects flood potential (Hydrologic Soil Groups A–D)
+3. Curve Number Method: How we estimate storm runoff
+4. The journey of a raindrop through the hydrologic cycle
+5. Why urban areas flood more than rural ones
+6. Rainfall-Runoff relationship explained visually
+7. How detention and retention basins prevent downstream flooding
+8. Design storm events: What a “100-year storm” really means
+9. How land use changes affect watershed hydrology
+10. How engineers model infiltration: Green-Ampt and Horton
+11. Understanding runoff coefficients and surface types
+12. Stormwater best management practices (BMPs) at a glance
+13. Why time of concentration matters in flood modeling
+14. How a hydrograph is used in storm design
+15. Role of evapotranspiration in reducing runoff
+16. Pervious vs. impervious surfaces: a visual comparison
+17. Floodplain mapping and why it matters
+18. How rainfall intensity and duration affect flood risk
+19. Hydrologic modeling tools (e.g., SWMM, HEC-HMS) explained
+20. The anatomy of a detention pond
+21. Peak discharge explained for policy makers
+22. Water balance equation for a watershed
+23. How rain gardens help with stormwater
+24. Green infrastructure solutions for small urban sites

@@ -5,11 +5,12 @@
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{daves,fancyhdr,natbib,graphicx,dcolumn,amsmath,lastpage,url}
 \usepackage{amsmath,amssymb,epstopdf,longtable}
+\usepackage{paralist}  % need to modify standard enumerate blocks
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \pagestyle{fancy}
 \lhead{CE 3354 -- Engineering Hydrology}
-\rhead{FALL 2024}
-\lfoot{ES5}
+\rhead{SUMMER 2025}
+\lfoot{ES3}
 \cfoot{}
 \rfoot{Page \thepage\ of \pageref{LastPage}}
 \renewcommand\headrulewidth{0pt}
@@ -18,28 +19,225 @@
 
 \begin{document}
 \begin{center}
-{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exercise Set 5}}}
+{\textbf{{ CE 3354 Engineering Hydrology} \\ {Exercise Set 3}}}
 \end{center}
 
  \section*{\small{Exercises}}
  \begin{enumerate}
-%\item Problem 7.3.5 in Mays, pg. 278.
 
-\item Estimate the monthly evapotranspiration depths for the San Angelo (Concho County) area using the Blaney-Criddle method.\footnote{A Google search should get you sufficient guidance to perform this exercise.}
-
+\item Estimate the monthly evapotranspiration depths for Dallas (Tarrant County), Houston (Harris County), and San Angelo (Concho County) area using the Blaney-Criddle method.\footnote{A Google search should get you sufficient guidance to perform this exercise.}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Estimate the monthly evapotranspiration depths for the San Angelo (Concho County) area using the Thornwaithe method.\footnote{A Google search should get you sufficient guidance to perform this exercise.}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item Locate grid cells 506,410, and 812 at the TWDB lake evaporation database. Determine the long term monthly evaporation rates for the three cells.  Compare these rates to the estimates you made above.  These cells correspond approximately to
 
-\item How important are these estimates in the drainage analysis project for a storm lasting 24-48 hours?
+\begin{itemize}
+\item 506 == San Angelo
+\item 410 == Dallas
+\item 812 == Houston
+\end{itemize}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item A storm of moderate intensity strikes a semi-urban watershed with predominantly loamy soils. The storm begins at time $ t = 0 $ and lasts for \textbf{3 hours} with a constant rainfall intensity of \textbf{15 mm/h}.
 
-%\item Estimate the monthly evapotranspiration depths for the Houston area using the Preistly-Taylor method\footnote{You will need to estimate the monthly evapotranspiration depths for Concho County using the Preistly-Taylor method for the semester design project.}
+The watershed has the following properties:
 
-%\item  The file ``EVAP2.TXT'' are monthly evaporation rates for coastal Texas (from Texas Water Development Board).  Assume these are actual evaporation rates for the indicated months.  In the context of questions 2 and 3 perform the following:
-%\begin{enumerate}
-%\item Compare the long-term monthly averages to the rates you computed in (1) and (2).  Are they the same or different?  Any ideas why?
-%\item Plot the monthly rates as a time series (the second column is the series counter).  What do you see in this plot?   Is there any trend (assuming you can remove the periodic component of the signal)?
-%\item Break the data into three roughly even parts (1950-1969), (1970-1989),(1990-2009).  Perform a non-parametric hypothesis test for equal medians.  Does this data provide any evidence of a change in evaporation depth over time (that is are the median differences significant?)
-%\item What would be the importance of an increase or decrease in evaporation over time (in the context of climate variability)?
-%\end{enumerate}
+\begin{itemize}
+    \item Area: 2 hectares
+    \item Slope: gentle (assume negligible effect)
+    \item Vegetative cover: 50\% grass, 50\% compacted dirt
+    \item Antecedent moisture conditions: dry (unless otherwise specified)
+    \item Initial abstraction: assume 5 mm where applicable
+\end{itemize}
+
+A prior study suggests the following Horton parameters:
+\begin{align*}
+    f_0 &= 5\ \text{mm/h} \quad \text{(initial infiltration capacity)} \\
+    f_c &= 1\ \text{mm/h} \quad \text{(final infiltration capacity)} \\
+    k   &= 2.0\ \text{h}^{-1} \quad \text{(decay constant)}
+\end{align*}
+
+
+Determine:
+\begin{enumerate}[a)]
+    \item The infiltration rate function $f(t)$ over the 3-hour duration using Horton’s exponential decay equation: $f(t) = f_c + (f_0 - f_c) e^{-kt}$
+    \item The cumulative infiltration depth $F(t)$, by integrating the rate function over time.
+    \item Plot the rate and cumulative infiltration depth for every 15-minutes for the 3 hour storm.
+    \item Report the total runoff depth as: $\text{Runoff} = \text{Rainfall Depth} - F(3\ \text{h})$
+\end{enumerate}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item A storm of moderate intensity strikes a semi-urban watershed with predominantly loamy soils. The storm begins at time $ t = 0 $ and lasts for \textbf{3 hours} with a constant rainfall intensity of \textbf{15 mm/h}.
+
+The watershed has the following properties:
+
+\begin{itemize}
+    \item Area: 2 hectares
+    \item Slope: gentle (assume negligible effect)
+    \item Vegetative cover: 50\% grass, 50\% compacted dirt
+    \item Antecedent moisture conditions: dry (unless otherwise specified)
+    \item Initial abstraction: assume 5 mm where applicable
+\end{itemize}
+
+An prior study suggests the following Green-Ampt parameters for the watershed:
+\begin{align*}
+    \Delta \theta &= 0.25 \quad \text{(initial moisture deficit)} \\
+    \psi &= 110\ \text{mm} \quad \text{(wetting front suction head)} \\
+    K_s &= 3\ \text{mm/h} \quad \text{(saturated hydraulic conductivity)}
+\end{align*}
+
+Determine:
+\begin{enumerate}[a)]
+     \item Use the Green-Ampt equation to estimate cumulative infiltration: 
+     $$F = K_s t + \psi \Delta \theta \ln \left(1 + \frac{F}{\psi \Delta \theta} \right)$$ 
+     Solve this equation iteratively (numerically or in Excel/Python) for $ t = 3 $ hours.
+    \item Plot the Green-Ampt cumulative infiltration for every 15-minutes for the 3 hour storm.
+    \item Report the total runoff depth as: $\text{Runoff} = \text{Rainfall Depth} - F(3\ \text{h})$
+\end{enumerate}
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item A storm of moderate intensity strikes a semi-urban watershed with predominantly loamy soils. The storm begins at time $ t = 0 $ and lasts for \textbf{3 hours} with a constant rainfall intensity of \textbf{15 mm/h}.
+
+The watershed has the following properties:
+
+\begin{itemize}
+    \item Area: 2 hectares
+    \item Slope: gentle (assume negligible effect)
+    \item Vegetative cover: 50\% grass, 50\% compacted dirt
+    \item Antecedent moisture conditions: dry (unless otherwise specified)
+    \item Initial abstraction: assume 5 mm where applicable
+\end{itemize}
+
+A prior study suggests the following NRCS CN parameters for the watershed:
+\begin{itemize}
+    \item Curve Number (CN): 75 (based on land use and hydrologic soil group B)
+    \item Total Rainfall: 45 mm over 3 hours
+\end{itemize}
+
+Using the same watershed and storm conditions, Determine:
+\begin{enumerate}[a)]
+    \item Potential maximum retention:
+    \[
+    S = \frac{25400}{\text{CN}} - 254 \quad \text{(in mm)}
+    \]
+    \item Total runoff from the NRCS runoff equation:
+    \[
+    Q = \frac{(P - 0.2S)^2}{P + 0.8S} \quad \text{for } P > 0.2S
+    \]
+    \item Total infiltration as:
+    \[
+    \text{Infiltration} = P - Q
+    \]
+\end{enumerate}
+\clearpage
+
+    \item Compare infiltration results among the three methods.
+    \begin{enumerate}[a)]
+        \item What causes the differences?
+        \item Which method is most sensitive to changes in soil properties?
+        \item How would the results change under wet antecedent conditions?
+        \item Suggest which model is most appropriate for:
+            \begin{itemize}
+                \item Urban drainage design
+                \item Physically-based process modeling
+                \item Regional-scale hydrologic planning
+            \end{itemize}
+    \end{enumerate}
+    
 \end{enumerate}
 
-\end{document}  
+\end{document}
+
+
+
+\begin{enumerate}[a)]
+    \item Compute the infiltration rate $f(t)$ over the 3-hour duration using Horton’s exponential decay equation: $f(t) = f_c + (f_0 - f_c) e^{-kt}$
+    \item Integrate over time to find the cumulative infiltration depth $F(t)$.
+    \item Compute runoff depth as: $\text{Runoff} = \text{Rainfall Depth} - F(3\ \text{h})$
+\end{enumerate}
+
+  
+
+\section*{Homework Assignment: Infiltration Modeling in Engineering Hydrology}
+
+\subsection*{Objective}
+This assignment introduces three common methods used to estimate infiltration in hydrologic modeling: Horton, Green-Ampt, and the NRCS Curve Number method. Students will compare how each method predicts cumulative infiltration and runoff depth for the same rainfall scenario.
+
+\begin{itemize}
+    \item Area: 2 hectares
+    \item Slope: gentle (assume negligible effect)
+    \item Vegetative cover: 50\% grass, 50\% compacted dirt
+    \item Antecedent moisture conditions: dry (unless otherwise specified)
+    \item Initial abstraction: assume 5 mm where applicable
+\end{itemize}
+
+
+
+
+
+\subsubsection*{Part B: Green-Ampt Infiltration Method}
+Assume the following soil parameters:
+\begin{align*}
+    \Delta \theta &= 0.25 \quad \text{(initial moisture deficit)} \\
+    \psi &= 110\ \text{mm} \quad \text{(wetting front suction head)} \\
+    K_s &= 3\ \text{mm/h} \quad \text{(saturated hydraulic conductivity)}
+\end{align*}
+
+\begin{enumerate}[label=B.\arabic*.]
+    \item Use the Green-Ampt equation to estimate cumulative infiltration:
+    \[
+    F = K_s t + \psi \Delta \theta \ln \left(1 + \frac{F}{\psi \Delta \theta} \right)
+    \]
+    Solve this equation iteratively (numerically or in Excel/Python) for $ t = 3 $ hours.
+    \item Compute runoff depth as:
+    \[
+    \text{Runoff} = \text{Rainfall Depth} - F
+    \]
+\end{enumerate}
+
+\subsubsection*{Part C: NRCS Curve Number (CN) Method}
+Use the following conditions:
+\begin{itemize}
+    \item Curve Number (CN): 75 (based on land use and hydrologic soil group B)
+    \item Total Rainfall: 45 mm over 3 hours
+\end{itemize}
+
+\begin{enumerate}[label=C.\arabic*.]
+    \item Compute potential maximum retention:
+    \[
+    S = \frac{25400}{\text{CN}} - 254 \quad \text{(in mm)}
+    \]
+    \item Use the NRCS runoff equation:
+    \[
+    Q = \frac{(P - 0.2S)^2}{P + 0.8S} \quad \text{for } P > 0.2S
+    \]
+    \item Compute infiltration as:
+    \[
+    \text{Infiltration} = P - Q
+    \]
+\end{enumerate}
+
+\subsection*{Optional Discussion Questions}
+\begin{enumerate}
+    \item Compare infiltration results among the three methods. What causes the differences?
+    \item Which method is most sensitive to changes in soil properties?
+    \item How would the results change under wet antecedent conditions?
+    \item Suggest which model is most appropriate for:
+    \begin{itemize}
+        \item Urban drainage design
+        \item Physically-based process modeling
+        \item Regional-scale hydrologic planning
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Deliverables}
+Submit a brief technical memorandum (1--2 pages) with the following:
+\begin{itemize}
+    \item A summary table comparing infiltration and runoff for all three methods
+    \item Supporting calculations (attached or embedded)
+    \item A brief reflection (3--5 sentences) on model differences
+\end{itemize}
+
+
