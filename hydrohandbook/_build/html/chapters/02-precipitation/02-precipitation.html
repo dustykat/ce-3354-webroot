@@ -1403,7 +1403,7 @@ A .xlsx file suitable for submission or archival, containing an embedded chart.
 
 <span class="c1"># dimensionalize</span>
 
-<span class="n">Ptotal</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">Ptotal</span> <span class="o">=</span> <span class="mf">7.0</span>
 <span class="n">T1D</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hour</span><span class="p">))]</span>
 <span class="n">T1AD</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hour</span><span class="p">))]</span>
 <span class="n">T2D</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hour</span><span class="p">))]</span>
@@ -1432,7 +1432,7 @@ A .xlsx file suitable for submission or archival, containing an embedded chart.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/20236d99ac9aa17ab418610e1dc30598187f1c0835c3605f8f6af66f0c929057.png" src="../../_images/20236d99ac9aa17ab418610e1dc30598187f1c0835c3605f8f6af66f0c929057.png" />
+<img alt="../../_images/cf1a1dc7bb680089a7ba3ff944c26132af98c93687521365931a6b8910da8087.png" src="../../_images/cf1a1dc7bb680089a7ba3ff944c26132af98c93687521365931a6b8910da8087.png" />
 </div>
 </div>
 <p>An equivalent Excel worksheet to accomplish the same task is</p>
@@ -1628,20 +1628,20 @@ Missing Depth :  99.41  cm
 </section>
 <section id="precipitation-over-an-area-from-point-observations">
 <h2>Precipitation over an Area (from Point Observations)<a class="headerlink" href="#precipitation-over-an-area-from-point-observations" title="Link to this heading">#</a></h2>
-<p>The measurement techniques discussed so far focus on <strong>point-scale precipitation</strong>—that is, rainfall recorded at a single location or over a very small area. However, hydrologists are typically concerned with estimating how much precipitation has fallen over a <strong>larger spatial domain</strong>, such as an entire catchment or watershed.</p>
-<p>To scale up from point measurements to areal estimates, some form of <strong>spatial averaging</strong> is required. This presents challenges because:</p>
+<p>The measurement techniques discussed so far focus on point-scale precipitation—that is, rainfall recorded at a single location or over a very small area. However, hydrologists are typically concerned with estimating how much precipitation has fallen over a larger spatial domain, such as an entire catchment or watershed.</p>
+<p>To scale up from point measurements to areal estimates, some form of spatial averaging is required. This presents challenges because:</p>
 <ul class="simple">
-<li><p>Rain gauges are often <strong>irregularly distributed</strong> across a catchment.</p></li>
-<li><p><strong>Topographic features</strong> like elevation, slope, and aspect significantly influence rainfall patterns.</p></li>
+<li><p>Rain gauges are often irregularly distributed across a catchment.</p></li>
+<li><p>Topographic features like elevation, slope, and aspect significantly influence rainfall patterns.</p></li>
 <li><p>Uniform spacing of gauges (a requirement for a simple arithmetic mean) is rare in practice.</p></li>
 </ul>
-<p>As a result, <strong>simple averaging methods</strong> are seldom appropriate. More advanced spatial interpolation techniques are used to estimate area-wide precipitation, particularly in regions with complex terrain or sparse data coverage.</p>
-<p>With the rise of <strong>Geographic Information Systems (GIS)</strong>, implementing these methods has become much easier. However, it’s still essential to understand the underlying assumptions and limitations of each technique—reliance on automation does not replace judgment.</p>
+<p>As a result, simple averaging methods are seldom appropriate. More advanced spatial interpolation techniques are used to estimate area-wide precipitation, particularly in regions with complex terrain or sparse data coverage.</p>
+<p>With the rise of Geographic Information Systems (GIS), implementing these methods has become much easier. However, it’s still essential to understand the underlying assumptions and limitations of each technique—reliance on automation does not replace judgment.</p>
 <p>Three widely used techniques for spatial precipitation estimation are:</p>
 <ul class="simple">
-<li><p><strong>Thiessen Polygons</strong> – Assigns weighting to each gauge based on the area it represents.</p></li>
-<li><p><strong>Hypsometric Method</strong> – Incorporates topographic elevation bands to reflect orographic influences.</p></li>
-<li><p><strong>Isohyetal Method</strong> – Uses contouring of observed rainfall to delineate zones of equal depth.</p></li>
+<li><p>Thiessen Polygons – Assigns weighting to each gauge based on the area it represents.</p></li>
+<li><p>Hypsometric Method – Incorporates topographic elevation bands to reflect orographic influences.</p></li>
+<li><p>Isohyetal Method – Uses contouring of observed rainfall to delineate zones of equal depth.</p></li>
 </ul>
 <p>These methods are described in detail and compared in a case study presented later in this module (see p. 40).</p>
 </section>
@@ -1663,26 +1663,26 @@ more than one rain gauge sampling the area. Hence
 it is very rare to use a simple averaging technique.
 There are different statistical techniques that
 address the spatial distribution issues, and with the
-growth in use of Geographic Information Systems (GIS) it is often a relatively trivial matter to
+growth in use of Geographic Information Systems (GIS) it is often a relatively trivial matter to
 do the calculation. As with any computational task
 it is important to have a good knowledge of how
 the technique works so that any shortcomings are
 fully understood. Three techniques are described
 here: Thiessen’s polygons, the hypsometric
-method and the isohyetal method. These methods are explored further in a Case Study on p. 40.</p>
+method and the isohyetal method.</p>
 </section>
 <section id="approximating-areal-precipitation-from-point-gauge-data">
 <h2>Approximating Areal Precipitation from Point Gauge Data<a class="headerlink" href="#approximating-areal-precipitation-from-point-gauge-data" title="Link to this heading">#</a></h2>
-<p>Rainfall measurements are typically made at <strong>discrete points</strong>—individual rain gauges. However, hydrologists often require an estimate of precipitation across an entire <strong>watershed</strong> or <strong>basin</strong>. This necessitates the conversion of point observations into a spatially representative value: the <strong>effective uniform depth (EUD)</strong> of precipitation.</p>
+<p>Rainfall measurements are typically made at discrete points—individual rain gauges. However, hydrologists often require an estimate of precipitation across an entire watershed or basin. This necessitates the conversion of point observations into a spatially representative value: the effective uniform depth (EUD) of precipitation.</p>
 <section id="watershed-conceptualization">
 <h3>Watershed Conceptualization<a class="headerlink" href="#watershed-conceptualization" title="Link to this heading">#</a></h3>
-<p>A <strong>watershed</strong> is the area of land where all water drains to a common outlet. Precipitation falling anywhere in this area contributes to runoff observed at the outlet. In surface water studies, this is known as the <strong>drainage area</strong>; in groundwater, it may be referred to as a <strong>capture zone</strong> or <strong>basin</strong>.</p>
-<p>To model runoff or calculate water budgets, we need not only rainfall <em>rates</em>, but also <em>volumes</em>. The volume of precipitation falling over an entire basin is termed <strong>precipitation volume</strong>. Dividing this volume by the basin area yields the <strong>effective uniform depth (EUD)</strong>—a spatially averaged precipitation depth.</p>
+<p>A watershed is the area of land where all water drains to a common outlet. Precipitation falling anywhere in this area contributes to runoff observed at the outlet. In surface water studies, this is known as the drainage area; in groundwater, it may be referred to as a capture zone or basin.</p>
+<p>To model runoff or calculate water budgets, we need not only rainfall <em>rates</em>, but also <em>volumes</em>. The volume of precipitation falling over an entire basin is termed precipitation volume. Dividing this volume by the basin area yields the effective uniform depth (EUD)—a spatially averaged precipitation depth.</p>
 <p>Several methods exist to compute EUD from point data:</p>
 <ul class="simple">
-<li><p><strong>Arithmetic Mean</strong></p></li>
-<li><p><strong>Polygon-weighted Methods</strong> (e.g., Thiessen Polygons)</p></li>
-<li><p><strong>Isohyetal or Hypsometric Methods</strong></p></li>
+<li><p>Arithmetic Mean</p></li>
+<li><p>Polygon-weighted Methods (e.g., Thiessen Polygons)</p></li>
+<li><p>Isohyetal or Hypsometric Methods</p></li>
 </ul>
 <p>A visual overview of point-to-area estimation is shown below:</p>
 <p><img alt="Distributed Precipitation from Point Data" src="../../_images/arealfrompoint.png" /></p>
@@ -1695,24 +1695,25 @@ method and the isohyetal method. These methods are explored further in a Case S
 <section id="arithmetic-mean">
 <h3>Arithmetic Mean<a class="headerlink" href="#arithmetic-mean" title="Link to this heading">#</a></h3>
 <p>The <strong>arithmetic mean method</strong> is the simplest: it averages all available rain gauge depths and assumes that value applies uniformly across the watershed.</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 \bar{P} = \frac{1}{n} \sum_{i=1}^{n} P_i
-]</p>
-<p>For example, if the mean rainfall is 88.4 mm over a watershed of 16 km², the precipitation volume is:</p>
-<p>[
+\]</div>
+<p>For example, if the mean rainfall is 88.4 mm over a watershed of 16 km², the precipitation volume is:
+$<span class="math notranslate nohighlight">\(
 V = \bar{P} \times \text{Area} = 0.0884~\text{m} \times 16 \times 10^6~\text{m}^2 = 1.41 \times 10^6~\text{m}^3
-]</p>
+\)</span>$</p>
 </section>
 <hr class="docutils" />
 <section id="polygon-weighted-methods">
 <h3>Polygon-Weighted Methods<a class="headerlink" href="#polygon-weighted-methods" title="Link to this heading">#</a></h3>
-<p>Polygon-based methods subdivide the watershed into <strong>influence zones</strong> assigned to each gauge. Each zone is weighted by its area to compute a <strong>weighted average depth</strong>. The most common technique is the <strong>Thiessen Polygon method</strong>.</p>
+<p>Polygon-based methods subdivide the watershed into influence zones assigned to each gauge. Each zone is weighted by its area to compute a weighted average depth. The most common technique is the <strong>Thiessen Polygon method</strong>.</p>
 <section id="thiessens-polygons-voronoi-diagrams">
 <h4>Thiessen’s Polygons (Voronoi Diagrams)<a class="headerlink" href="#thiessens-polygons-voronoi-diagrams" title="Link to this heading">#</a></h4>
 <p>Thiessen (1911) developed a method to address non-uniform gauge placement. In this approach:</p>
 <ul class="simple">
-<li><p>The region around each gauge is partitioned such that all points in a polygon are <strong>closer to that gauge than any other</strong>.</p></li>
-<li><p>These polygons form a <strong>weighted map</strong> of rainfall influence.</p></li>
+<li><p>The region around each gauge is partitioned such that all points in a polygon are closer to that gauge than any other.</p></li>
+<li><p>These polygons form a weighted map of rainfall influence.</p></li>
 </ul>
 <p>To construct Thiessen polygons:</p>
 <ol class="arabic simple">
@@ -1721,11 +1722,12 @@ V = \bar{P} \times \text{Area} = 0.0884~\text{m} \times 16 \times 10^6~\text{m}^
 <li><p>Extend the bisectors to form closed polygons.</p></li>
 <li><p>Measure the area of each polygon.</p></li>
 </ol>
-<p>Each gauge is assigned a <strong>weight</strong> proportional to the area of its polygon:</p>
-<p>[
-\bar{P}<em>{\text{areal}} = \sum</em>{i=1}^{n} \left( \frac{a_i}{A} \right) P_i
-]</p>
-<p>Where ( a_i ) is the area of polygon ( i ), and ( A ) is the total watershed area.</p>
+<p>Each gauge is assigned a weight proportional to the area of its polygon:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{P}_{\text{areal}} = \sum_{i=1}^{n} \left( \frac{a_i}{A} \right) P_i
+\]</div>
+<p>Where <span class="math notranslate nohighlight">\( a_i \)</span> is the area of polygon <span class="math notranslate nohighlight">\( i \)</span>, and <span class="math notranslate nohighlight">\( A \)</span> is the total watershed area.</p>
 <p>Illustrative steps are shown below:</p>
 <ol class="arabic simple">
 <li><p>Connecting gauges:<br />
@@ -1757,21 +1759,21 @@ Uses contours of equal rainfall (isohyets) drawn from dense gauge networks. Area
 <hr class="docutils" />
 <section id="areal-reduction-factors-arfs">
 <h2>Areal Reduction Factors (ARFs)<a class="headerlink" href="#areal-reduction-factors-arfs" title="Link to this heading">#</a></h2>
-<p>Even with spatially averaged methods, some applications require adjusting <strong>design storm</strong> rainfall depths to account for area. <strong>Areal Reduction Factors (ARFs)</strong> are used to scale <strong>point precipitation</strong> into <strong>areal precipitation</strong>, accounting for the fact that maximum intensities observed at a point do not typically occur simultaneously across large areas.</p>
+<p>Even with spatially averaged methods, some applications require adjusting design storm rainfall depths to account for area. Areal Reduction Factors (ARFs) are used to scale point precipitation into areal precipitation, accounting for the fact that maximum intensities observed at a point do not typically occur simultaneously across large areas.</p>
 <p>ARFs are especially relevant when:</p>
 <ul class="simple">
 <li><p>Using short-duration, high-intensity point data (e.g., from NOAA Atlas 14)</p></li>
-<li><p>Modeling <strong>design storms</strong> over large watersheds</p></li>
+<li><p>Modeling design storms over large watersheds</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>ARFs predate radar-derived rainfall grids and are slowly becoming obsolete. However, they remain in use for <strong>regulatory hydrology</strong> and <strong>legacy systems</strong> where only point data are available.</p>
+<p>ARFs predate radar-derived rainfall grids and are slowly becoming obsolete. However, they remain in use for regulatory hydrology and legacy systems where only point data are available.</p>
 </div>
 <p>Factors influencing ARFs include:</p>
 <ul class="simple">
-<li><p><strong>Storm type and duration</strong></p></li>
-<li><p><strong>Topography</strong></p></li>
-<li><p><strong>Catchment shape and size</strong></p></li>
+<li><p>Storm type and duration</p></li>
+<li><p>Topography</p></li>
+<li><p>Catchment shape and size</p></li>
 </ul>
 <p>Incorporating ARFs improves estimates for:</p>
 <ul class="simple">
@@ -1820,7 +1822,7 @@ The entire volume of rainfall applied to an entire basin is called the precipita
 <p><img alt="" src="../../_images/arealfrompoint.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The figures above are from author’s notes circa 2002; the original source files (MS Word) are unreadable with modern software, fortunately a PDF copy remains!  It’s the source of the figures.</p>
+<p>The figures are from author’s notes circa 2002; the original source files (MS Word) are unreadable with modern software, fortunately a PDF copy remains!  It’s the source of the figures.</p>
 </div>
 </section>
 <section id="id2">
@@ -1949,7 +1951,7 @@ contours will be of rainfall rather than elevation.-->
 <p>Radar rainfall estimates involve using weather radar systems to measure precipitation over a given area. These estimates are valuable for various applications, including weather forecasting, hydrological modeling, and flood management. Unlike point measurements from rain gauges, radar provides spatially continuous information about precipitation distribution.</p>
 <p>Radar systems emit radio waves that interact with precipitation particles in the atmosphere. By analyzing the returned signals, meteorologists can estimate the intensity and location of rainfall across a region. However, radar data may still contain uncertainties and errors that need to be addressed.</p>
 <p>To improve the accuracy of radar rainfall estimates, meteorologists often employ various correction techniques. One common method is gauge adjustment, where radar data are calibrated using ground-based rain gauge measurements. Another approach involves applying quality control measures to filter out artifacts and errors in the radar signal.</p>
-<p>Additionally, radar-based estimates may be adjusted using gauge-to-radar ratios to better represent ground-level precipitation. These ratios help account for potential biases in the radar measurements, ensuring that the radar-derived rainfall values align more closely with <strong>ground truth</strong> observations.</p>
+<p>Additionally, radar-based estimates may be adjusted using gauge-to-radar ratios to better represent ground-level precipitation. These ratios help account for potential biases in the radar measurements, ensuring that the radar-derived rainfall values align more closely with ground truth observations.</p>
 <p>Radar rainfall estimates provide valuable information about precipitation patterns over a wide area, but correction and adjustment methods are required to maintain accuracy and reliability for applications in meteorology and hydrology.</p>
 </section>
 <section id="exercise-s">

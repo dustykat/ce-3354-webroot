@@ -1,0 +1,72 @@
+🟢 Easy (3 Questions)
+Q1. What is a hyetograph?
+A. A graph of humidity over time
+B. A graph of cumulative runoff over time
+C. A graph of rainfall intensity over time
+D. A graph of evaporation rate over time
+✅ Correct: C
+
+Q2. In the provided Python code, which color is used to plot the incremental depth?
+A. Blue
+B. Red
+C. Green
+D. Black
+✅ Correct: B
+
+Q3. What unit is used for the precipitation depth in the example graph?
+A. Millimeters
+B. Feet
+C. Inches
+D. Centimeters
+✅ Correct: C
+
+🟡 Medium (3 Questions)
+Q4. The accumulate array in the Python example represents:
+A. The rate of precipitation
+B. The average rainfall per hour
+C. The accumulated precipitation over time
+D. The runoff volume
+✅ Correct: C
+
+Q5. What is the primary purpose of a design storm in hydrology?
+A. To simulate drought conditions
+B. To provide average rainfall values for planning
+C. To estimate stormwater impact for infrastructure design
+D. To measure soil infiltration rates
+✅ Correct: C
+
+Q6. In hydrologic design, short-duration high-intensity rainfall events are especially critical for:
+A. Water quality modeling
+B. Reservoir sizing
+C. Urban drainage design
+D. Snowmelt estimation
+✅ Correct: C
+
+🔴 Hard (4 Questions)
+Q7. In the matplotlib plot, what does the drawstyle='steps-post' argument accomplish?
+A. Smooths the curve
+B. Draws vertical bars
+C. Connects data points with stairs that rise after each point
+D. Draws steps that change before each data point
+✅ Correct: C
+
+Q8. Suppose you were designing a drainage system for a 10-year storm. Which factor must most influence the selection of design rainfall depth?
+A. Monthly averages
+B. Historical maximum for the month
+C. NOAA Atlas 14 depth-duration-frequency values
+D. Number of wet days per year
+✅ Correct: C
+
+Q9. Given a hyetograph with decreasing rainfall over time, which storm pattern is most closely represented?
+A. Huff’s First Quartile
+B. Huff’s Second Quartile
+C. Uniform
+D. Huff’s Fourth Quartile
+✅ Correct: A
+
+Q10. The use of openpyxl in the notebook suggests integration with:
+A. MATLAB
+B. QGIS
+C. Microsoft Excel
+D. LaTeX
+✅ Correct: C
