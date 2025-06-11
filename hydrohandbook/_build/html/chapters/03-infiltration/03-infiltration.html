@@ -196,6 +196,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
 
 
@@ -440,13 +441,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penman-monteith-method">Penman-Monteith Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-monthly-water-budget">Example 1: Simple Monthly Water Budget</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-penman-monteith-reference-et-estimate">Example 2: Penman-Monteith Reference ET Estimate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-approach">3.4 Data Science Approach</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-approach">3.4 Data Science Approach</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-evaporation-trend-examination-data-science-approach">Example 3. Evaporation Trend Examination (Data Science Approach)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">Example Problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application">Application</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-more">Explore More</a></li>
 </ul>
@@ -881,7 +883,7 @@ S = \frac{1000}{CN} - 10
 <li><p>Sensitive to antecedent moisture condition (AMC), which may adjust CN values upward or downward</p></li>
 </ul>
 <p><strong>Use Case</strong> Routinely used in stormwater management, flood estimation, and watershed-scale hydrologic models such as TR-55, HEC-HMS, and SWMM.</p>
-<p><a class="reference internal" href="#%5Chttps://www.nrcs.usda.gov/sites/default/files/2022-10/tr55.pdf"><span class="xref myst">USDA NRCS (1986). Urban Hydrology for Small Watersheds, Technical Release 55 (TR-55)</span></a></p>
+<p><a class="reference external" href="https://www.ars.usda.gov/research/software/download/?softwareid=527&amp;amp;modecode=30-70-10-10">USDA NRCS (1986). Urban Hydrology for Small Watersheds, Technical Release 55 (TR-55)</a></p>
 </section>
 <section id="gis-soils-properties">
 <h2>GIS Soils Properties<a class="headerlink" href="#gis-soils-properties" title="Link to this heading">#</a></h2>
@@ -1161,8 +1163,9 @@ ETo = \frac{0.408 \cdot 0.188 \cdot 8 + 0.066 \cdot \frac{900}{298} \cdot 2 \cdo
 \[ETo = \frac{1.41}{0.299} \approx \boxed{4.72\ \text{mm/day}}\]</div>
 <p>This result represents the reference ET under well-watered grass conditions.</p>
 </section>
-<section id="data-science-approach">
-<h2>3.4 Data Science Approach<a class="headerlink" href="#data-science-approach" title="Link to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-science-approach">
+<h1>3.4 Data Science Approach<a class="headerlink" href="#data-science-approach" title="Link to this heading">#</a></h1>
 <p>The Data Science Approach to evapotranspiration estimation uses observed meteorological and hydrologic data to build statistical or machine learning models that approximate ET based on historical patterns. This method is particularly useful in regions where pan evaporation, temperature, and rainfall data are available, but complete energy balance or aerodynamic measurements are lacking.</p>
 <p>Rather than relying on physical or semi-empirical equations, this approach leverages data-driven relationships between evapotranspiration and climate variables using regression models, time series techniques, or advanced machine learning algorithms.</p>
 <p><strong>Key Data Inputs</strong> (from available sources):</p>
@@ -1193,11 +1196,8 @@ ET_{\text{cell}} = f(T_{3p},\ P_{3p},\ \text{Month},\ R_{3p})
 </ul>
 <p><strong>Use Case</strong> Ideal for operational forecasting, drought monitoring, or spatial mapping of ET where sufficient historical data exist. Particularly useful when computational resources permit model fitting and validation.</p>
 <p><strong>Data Source Example</strong> Texas Water Development Board’s evaporation and rainfall data portal <a class="reference external" href="https://waterdatafortexas.org/lake-evaporation-rainfall">https://waterdatafortexas.org/lake-evaporation-rainfall</a></p>
-</section>
 <section id="example-3-evaporation-trend-examination-data-science-approach">
 <h2>Example 3. Evaporation Trend Examination (Data Science Approach)<a class="headerlink" href="#example-3-evaporation-trend-examination-data-science-approach" title="Link to this heading">#</a></h2>
-<section id="background">
-<h3>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h3>
 <p>Global warming is a currently popular and hotly (pun intended) debated issue.
 The usual evidence is temperature data presented as a time series with various temporal correlations to industrial activity and so forth. The increase in the global temperature is not disputed - what it means for society and how to respond is widely disputed.</p>
 <p>One possible consequence of warming, regardless of the cause is an expectation that
@@ -1211,7 +1211,6 @@ Pan evaporation is driven as much by direct solar radiation (sun shining on wate
 Water droplets containing these air-borne particles form polluted clouds. These polluted clouds have a heavier and larger number of droplets. These changed properties of the cloud – such clouds are called ‘brown clouds’ – makes them more reflective.
 Vapors emitted from the planes flying high in the sky called contrails are another cause of heat reflection and related global dimming.</p>
 <p>Both global dimming and global warming have been happening all over the world and together they have caused severe changes in the rainfall patterns. It is also believed that it was global dimming behind the 1984 Saharan drought that killed millions of people in sub-Saharan Africa. Scientists believe that despite the cooling effect created by global dimming, the earth’s temperature has increased by more than 1 deg. in the last century.</p>
-</section>
 <section id="references">
 <h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/Peterson1995/Peterson-Nature1995-377.pdf">Peterson, T.C., Golubev, V.S. and Groisman, P. Ya. 1995. Evaporation
@@ -1582,8 +1581,8 @@ Name: 911, dtype: float64
 </div>
 <p>At this point, we would appeal to hypothesis testing or some other serious statistical analysis tools.  Lets try a favorite (of mine) non-paramatric test called the <code class="docutils literal notranslate"><span class="pre">mannwhitneyu</span></code> test.</p>
 </section>
-<section id="id2">
-<h3>Background<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="background">
+<h3>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h3>
 <p>In statistics, the Mann–Whitney U test (also called the Mann–Whitney–Wilcoxon (MWW), Wilcoxon rank-sum test, or Wilcoxon–Mann–Whitney test) is a nonparametric test of the null hypothesis that it is equally likely that a randomly selected value from one population will be less than or greater than a randomly selected value from a second population.</p>
 <p>This test can be used to investigate whether two independent samples were selected from populations having the same distribution.</p>
 </section>
@@ -1796,13 +1795,14 @@ does using this subset of data change your conclusions?</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penman-monteith-method">Penman-Monteith Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-simple-monthly-water-budget">Example 1: Simple Monthly Water Budget</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-penman-monteith-reference-et-estimate">Example 2: Penman-Monteith Reference ET Estimate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-approach">3.4 Data Science Approach</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-approach">3.4 Data Science Approach</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-evaporation-trend-examination-data-science-approach">Example 3. Evaporation Trend Examination (Data Science Approach)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem">Example Problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application">Application</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-more">Explore More</a></li>
 </ul>
