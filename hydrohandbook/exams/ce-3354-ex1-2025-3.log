@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.30)  11 JUN 2025 20:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.30)  11 JUN 2025 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ce3354-es1-2025-2-solution.tex
-(./ce3354-es1-2025-2-solution.tex
+**ce-3354-ex1-2025-3.tex
+(./ce-3354-ex1-2025-3.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -267,88 +267,28 @@ Package: paralist 2017/01/22 v2.7 Extended list environments
 \plparsep=\skip72
 \pl@lab=\toks25
 )
-(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2022/01/29 v0.5u Insert pages of external PDF documents (AM)
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count286
-\calc@Bcount=\count287
-\calc@Adimen=\dimen166
-\calc@Bdimen=\dimen167
-\calc@Askip=\skip73
-\calc@Bskip=\skip74
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count288
-\calc@Cskip=\skip75
-)
-(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
-Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen168
-\ESO@tempdimb=\dimen169
-
-(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 227.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
-Package xcolor Info: Model `RGB' extended on input line 1368.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-))
-\AM@pagewidth=\dimen170
-\AM@pageheight=\dimen171
-\AM@fboxrule=\dimen172
-
-(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
-)
-\pdfpages@includegraphics@status=\count289
-\AM@pagebox=\box59
-\AM@global@opts=\toks26
-\AM@pagecnt=\count290
-\AM@toc@title=\toks27
-\c@AM@survey=\count291
-\AM@templatesizebox=\box60
-)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count292
-\l__pdf_internal_box=\box61
+\l__color_backend_stack_int=\count286
+\l__pdf_internal_box=\box59
 )
-(./ce3354-es1-2025-2-solution.aux
+(./ce-3354-ex1-2025-3.aux)
+\openout1 = `ce-3354-ex1-2025-3.aux'.
 
-LaTeX Warning: Label `fig:ES1-P1-XLS' multiply defined.
-
-)
-\openout1 = `ce3354-es1-2025-2-solution.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -386,43 +326,32 @@ LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count293
-\scratchdimen=\dimen173
-\scratchbox=\box62
-\nofMPsegments=\count294
-\nofMParguments=\count295
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count296
-\MPscratchDim=\dimen174
-\MPnumerator=\count297
-\makeMPintoPDFobject=\count298
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count287
+\scratchdimen=\dimen166
+\scratchbox=\box60
+\nofMPsegments=\count288
+\nofMParguments=\count289
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count290
+\MPscratchDim=\dimen167
+\MPnumerator=\count291
+\makeMPintoPDFobject=\count292
+\everyMPtoPDFconversion=\toks27
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 21.
- (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
-Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(lastpage)             ! on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<ES1-P1-XLS.png, id=1, 291.33844pt x 281.55188pt>
-File: ES1-P1-XLS.png Graphic file (type png)
-<use ES1-P1-XLS.png>
-Package pdftex.def Info: ES1-P1-XLS.png  used on input line 40.
-(pdftex.def)             Requested size: 289.07999pt x 279.39021pt.
-<ES1-P1-FORMULA.png, id=3, 618.05907pt x 377.15906pt>
-File: ES1-P1-FORMULA.png Graphic file (type png)
-<use ES1-P1-FORMULA.png>
-Package pdftex.def Info: ES1-P1-FORMULA.png  used on input line 47.
-(pdftex.def)             Requested size: 433.62pt x 264.61957pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -433,7 +362,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./ES1-P1-XLS.png>]
+]
+<EX1-P2_PLOT.png, id=10, 682.80093pt x 414.04688pt>
+File: EX1-P2_PLOT.png Graphic file (type png)
+<use EX1-P2_PLOT.png>
+Package pdftex.def Info: EX1-P2_PLOT.png  used on input line 66.
+(pdftex.def)             Requested size: 433.62pt x 262.94843pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -442,41 +377,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2 <./ES1-P1-FORMULA.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
+[2
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<farmland.png, id=17, 431.6125pt x 297.11pt>
-File: farmland.png Graphic file (type png)
-<use farmland.png>
-Package pdftex.def Info: farmland.png  used on input line 58.
-(pdftex.def)             Requested size: 289.07999pt x 198.99919pt.
-<ES1-P2-XLS.png, id=18, 356.0803pt x 326.72063pt>
-File: ES1-P2-XLS.png Graphic file (type png)
-<use ES1-P2-XLS.png>
-Package pdftex.def Info: ES1-P2-XLS.png  used on input line 66.
-(pdftex.def)             Requested size: 289.07999pt x 265.25545pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<ES1-P2-FORM.png, id=19, 536.75531pt x 319.94531pt>
-File: ES1-P2-FORM.png Graphic file (type png)
-<use ES1-P2-FORM.png>
-Package pdftex.def Info: ES1-P2-FORM.png  used on input line 73.
-(pdftex.def)             Requested size: 433.62pt x 258.4708pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <./EX1-P2_PLOT.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -487,68 +390,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3
 
- <./farmland.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4 <./ES1-P2-XLS.png> <./ES1-P2-FORM.png>]
-<Reservior.pdf, id=33, 744.7825pt x 593.21625pt>
-File: Reservior.pdf Graphic file (type pdf)
-<use Reservior.pdf>
-Package pdftex.def Info: Reservior.pdf  used on input line 84.
-(pdftex.def)             Requested size: 433.62pt x 345.38722pt.
-<ES1-P3-XLS.png, id=34, 661.72218pt x 455.45157pt>
-File: ES1-P3-XLS.png Graphic file (type png)
-<use ES1-P3-XLS.png>
-Package pdftex.def Info: ES1-P3-XLS.png  used on input line 91.
-(pdftex.def)             Requested size: 433.62pt x 298.45152pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5
-
- <./Reservior.pdf>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[6 <./ES1-P3-XLS.png>]
-<ES1-P4-XLS.png, id=44, 601.4972pt x 645.16031pt>
-File: ES1-P4-XLS.png Graphic file (type png)
-<use ES1-P4-XLS.png>
-Package pdftex.def Info: ES1-P4-XLS.png  used on input line 155.
-(pdftex.def)             Requested size: 433.62pt x 465.11557pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<ES1-P4-FORM.png, id=45, 526.21594pt x 619.56468pt>
-File: ES1-P4-FORM.png Graphic file (type png)
-<use ES1-P4-FORM.png>
-Package pdftex.def Info: ES1-P4-FORM.png  used on input line 162.
-(pdftex.def)             Requested size: 433.62pt x 510.56102pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
+]
+<INFIL.png, id=20, 362.85562pt x 271.76532pt>
+File: INFIL.png Graphic file (type png)
+<use INFIL.png>
+Package pdftex.def Info: INFIL.png  used on input line 92.
+(pdftex.def)             Requested size: 361.34999pt x 270.645pt.
+ 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -558,54 +406,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7
+[4
 
-]
+ <./INFIL.png>] (./ce-3354-ex1-2025-3.aux)
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[8 <./ES1-P4-XLS.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[9 <./ES1-P4-FORM.png>] (./ce3354-es1-2025-2-solution.aux)
-
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6571 strings out of 480247
- 100215 string characters out of 5896151
- 403372 words of memory out of 5000000
- 24393 multiletter control sequences out of 15000+600000
- 476824 words of font info for 58 fonts, out of 8000000 for 9000
+ 5150 strings out of 480247
+ 78051 string characters out of 5896151
+ 374883 words of memory out of 5000000
+ 23015 multiletter control sequences out of 15000+600000
+ 474211 words of font info for 47 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 61i,11n,75p,591b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb>
-Output written on ce3354-es1-2025-2-solution.pdf (9 pages, 518175 bytes).
+ 55i,11n,62p,583b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb>
+Output written on ce-3354-ex1-2025-3.pdf (4 pages, 114858 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 32 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

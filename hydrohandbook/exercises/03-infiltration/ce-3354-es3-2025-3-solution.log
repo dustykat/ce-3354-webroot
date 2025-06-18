@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.30)  11 JUN 2025 20:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.30)  18 JUN 2025 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ce3354-es1-2025-2-solution.tex
-(./ce3354-es1-2025-2-solution.tex
+**ce-3354-es3-2025-3-solution.tex
+(./ce-3354-es3-2025-3-solution.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -328,12 +328,8 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count292
 \l__pdf_internal_box=\box61
 )
-(./ce3354-es1-2025-2-solution.aux
-
-LaTeX Warning: Label `fig:ES1-P1-XLS' multiply defined.
-
-)
-\openout1 = `ce3354-es1-2025-2-solution.aux'.
+(./ce-3354-es3-2025-3-solution.aux)
+\openout1 = `ce-3354-es3-2025-3-solution.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
@@ -409,17 +405,55 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<ES1-P1-XLS.png, id=1, 291.33844pt x 281.55188pt>
-File: ES1-P1-XLS.png Graphic file (type png)
-<use ES1-P1-XLS.png>
-Package pdftex.def Info: ES1-P1-XLS.png  used on input line 40.
-(pdftex.def)             Requested size: 289.07999pt x 279.39021pt.
-<ES1-P1-FORMULA.png, id=3, 618.05907pt x 377.15906pt>
-File: ES1-P1-FORMULA.png Graphic file (type png)
-<use ES1-P1-FORMULA.png>
-Package pdftex.def Info: ES1-P1-FORMULA.png  used on input line 47.
-(pdftex.def)             Requested size: 433.62pt x 264.61957pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
 
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<dallaslatitude.png, id=1, 249.93375pt x 249.18094pt>
+File: dallaslatitude.png Graphic file (type png)
+<use dallaslatitude.png>
+Package pdftex.def Info: dallaslatitude.png  used on input line 37.
+(pdftex.def)             Requested size: 144.98074pt x 144.54pt.
+<houstonlatitude.png, id=3, 551.05875pt x 118.19156pt>
+File: houstonlatitude.png Graphic file (type png)
+<use houstonlatitude.png>
+Package pdftex.def Info: houstonlatitude.png  used on input line 43.
+(pdftex.def)             Requested size: 289.07999pt x 62.00461pt.
+<sanangelolat.png, id=4, 513.41812pt x 73.02281pt>
+File: sanangelolat.png Graphic file (type png)
+<use sanangelolat.png>
+Package pdftex.def Info: sanangelolat.png  used on input line 49.
+(pdftex.def)             Requested size: 289.07999pt x 41.11533pt.
+<mmtdallas.png, id=5, 695.59875pt x 155.83218pt>
+File: mmtdallas.png Graphic file (type png)
+<use mmtdallas.png>
+Package pdftex.def Info: mmtdallas.png  used on input line 58.
+(pdftex.def)             Requested size: 433.62pt x 97.14044pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<houstonmmt.png, id=6, 724.95844pt x 182.93344pt>
+File: houstonmmt.png Graphic file (type png)
+<use houstonmmt.png>
+Package pdftex.def Info: houstonmmt.png  used on input line 65.
+(pdftex.def)             Requested size: 433.62pt x 109.42035pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<mmtsanangelo.png, id=7, 740.0147pt x 173.14688pt>
+File: mmtsanangelo.png Graphic file (type png)
+<use mmtsanangelo.png>
+Package pdftex.def Info: mmtsanangelo.png  used on input line 72.
+(pdftex.def)             Requested size: 433.62pt x 101.45828pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -433,47 +467,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./ES1-P1-XLS.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2 <./ES1-P1-FORMULA.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-<farmland.png, id=17, 431.6125pt x 297.11pt>
-File: farmland.png Graphic file (type png)
-<use farmland.png>
-Package pdftex.def Info: farmland.png  used on input line 58.
-(pdftex.def)             Requested size: 289.07999pt x 198.99919pt.
-<ES1-P2-XLS.png, id=18, 356.0803pt x 326.72063pt>
-File: ES1-P2-XLS.png Graphic file (type png)
-<use ES1-P2-XLS.png>
-Package pdftex.def Info: ES1-P2-XLS.png  used on input line 66.
-(pdftex.def)             Requested size: 289.07999pt x 265.25545pt.
+ <./dallaslatitude.png> <./houstonlatitude.png> <./sanangelolat.png>]
+<bcdallas.png, id=22, 709.14937pt x 371.88937pt>
+File: bcdallas.png Graphic file (type png)
+<use bcdallas.png>
+Package pdftex.def Info: bcdallas.png  used on input line 81.
+(pdftex.def)             Requested size: 433.62pt x 227.40262pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<ES1-P2-FORM.png, id=19, 536.75531pt x 319.94531pt>
-File: ES1-P2-FORM.png Graphic file (type png)
-<use ES1-P2-FORM.png>
-Package pdftex.def Info: ES1-P2-FORM.png  used on input line 73.
-(pdftex.def)             Requested size: 433.62pt x 258.4708pt.
+<bchouston.png, id=23, 706.89093pt x 351.56343pt>
+File: bchouston.png Graphic file (type png)
+<use bchouston.png>
+Package pdftex.def Info: bchouston.png  used on input line 88.
+(pdftex.def)             Requested size: 433.62pt x 215.655pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<bcsanangelo.png, id=24, 706.13812pt x 364.36125pt>
+File: bcsanangelo.png Graphic file (type png)
+<use bcsanangelo.png>
+Package pdftex.def Info: bcsanangelo.png  used on input line 95.
+(pdftex.def)             Requested size: 433.62pt x 223.74446pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -485,9 +501,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3
-
- <./farmland.png>]
+[2 <./mmtdallas.png> <./houstonmmt.png> <./mmtsanangelo.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -496,18 +510,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./ES1-P2-XLS.png> <./ES1-P2-FORM.png>]
-<Reservior.pdf, id=33, 744.7825pt x 593.21625pt>
-File: Reservior.pdf Graphic file (type pdf)
-<use Reservior.pdf>
-Package pdftex.def Info: Reservior.pdf  used on input line 84.
-(pdftex.def)             Requested size: 433.62pt x 345.38722pt.
-<ES1-P3-XLS.png, id=34, 661.72218pt x 455.45157pt>
-File: ES1-P3-XLS.png Graphic file (type png)
-<use ES1-P3-XLS.png>
-Package pdftex.def Info: ES1-P3-XLS.png  used on input line 91.
-(pdftex.def)             Requested size: 433.62pt x 298.45152pt.
+[3 <./bcdallas.png> <./bchouston.png>]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4 <./bcsanangelo.png>]
+<thorndallas.png, id=42, 767.11594pt x 527.72156pt>
+File: thorndallas.png Graphic file (type png)
+<use thorndallas.png>
+Package pdftex.def Info: thorndallas.png  used on input line 110.
+(pdftex.def)             Requested size: 433.62pt x 298.30013pt.
+<thornhouston.png, id=43, 764.8575pt x 528.47438pt>
+File: thornhouston.png Graphic file (type png)
+<use thornhouston.png>
+Package pdftex.def Info: thornhouston.png  used on input line 117.
+(pdftex.def)             Requested size: 433.62pt x 299.60461pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<thornsanangelo.png, id=44, 766.36313pt x 437.38406pt>
+File: thornsanangelo.png Graphic file (type png)
+<use thornsanangelo.png>
+Package pdftex.def Info: thornsanangelo.png  used on input line 124.
+(pdftex.def)             Requested size: 433.62pt x 247.48283pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -521,7 +552,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5
 
- <./Reservior.pdf>]
+ <./thorndallas.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -530,26 +561,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6 <./ES1-P3-XLS.png>]
-<ES1-P4-XLS.png, id=44, 601.4972pt x 645.16031pt>
-File: ES1-P4-XLS.png Graphic file (type png)
-<use ES1-P4-XLS.png>
-Package pdftex.def Info: ES1-P4-XLS.png  used on input line 155.
-(pdftex.def)             Requested size: 433.62pt x 465.11557pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<ES1-P4-FORM.png, id=45, 526.21594pt x 619.56468pt>
-File: ES1-P4-FORM.png Graphic file (type png)
-<use ES1-P4-FORM.png>
-Package pdftex.def Info: ES1-P4-FORM.png  used on input line 162.
-(pdftex.def)             Requested size: 433.62pt x 510.56102pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-AED: lastpage setting LastPage
+[6 <./thornhouston.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -558,7 +570,109 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7
+[7 <./thornsanangelo.png>]
+
+pdfTeX warning: pdflatex (file ./EvaporationAnalysisHomework.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+<./EvaporationAnalysisHomework.pdf, id=58, 614.295pt x 794.97pt>
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf  used on input line 
+143.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+
+pdfTeX warning: pdflatex (file ./EvaporationAnalysisHomework.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf  used on input line 
+143.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+
+
+pdfTeX warning: pdflatex (file ./EvaporationAnalysisHomework.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./EvaporationAnalysisHomework.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+<./EvaporationAnalysisHomework.pdf, id=61, page=1, 614.295pt x 794.97pt>
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 1>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page1 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 1>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page1 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8
+
+]
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 1>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page1 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 1>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page1 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 1>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page1 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+ [9 <./EvaporationAnalysisHomework.pdf>]
+
+pdfTeX warning: pdflatex (file ./EvaporationAnalysisHomework.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+<./EvaporationAnalysisHomework.pdf, id=128, page=2, 614.295pt x 794.97pt>
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 2>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page2 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 2>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page2 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+File: ./EvaporationAnalysisHomework.pdf Graphic file (type pdf)
+<use ./EvaporationAnalysisHomework.pdf, page 2>
+Package pdftex.def Info: ./EvaporationAnalysisHomework.pdf , page2 used on inpu
+t line 143.
+(pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
+[10 <./EvaporationAnalysisHomework.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12
 
 ]
 
@@ -569,7 +683,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8 <./ES1-P4-XLS.png>]
+[13]
+<es3-4xls.png, id=153, 512.66531pt x 556.32843pt>
+File: es3-4xls.png Graphic file (type png)
+<use es3-4xls.png>
+Package pdftex.def Info: es3-4xls.png  used on input line 232.
+(pdftex.def)             Requested size: 433.62pt x 470.55545pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -578,34 +698,202 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[9 <./ES1-P4-FORM.png>] (./ce3354-es1-2025-2-solution.aux)
+[14
 
-LaTeX Warning: There were multiply-defined labels.
+ <./es3-4xls.png>]
+<es3-4func.png, id=158, 658.71094pt x 582.67688pt>
+File: es3-4func.png Graphic file (type png)
+<use es3-4func.png>
+Package pdftex.def Info: es3-4func.png  used on input line 239.
+(pdftex.def)             Requested size: 433.62pt x 383.57214pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15
+
+ <./es3-4func.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17]
+<es3-5xls.png, id=170, 724.95844pt x 573.64313pt>
+File: es3-5xls.png Graphic file (type png)
+<use es3-5xls.png>
+Package pdftex.def Info: es3-5xls.png  used on input line 337.
+(pdftex.def)             Requested size: 433.62pt x 343.12065pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18 <./es3-5xls.png>]
+<es3-5func.png, id=175, 726.46407pt x 605.26125pt>
+File: es3-5func.png Graphic file (type png)
+<use es3-5func.png>
+Package pdftex.def Info: es3-5func.png  used on input line 344.
+(pdftex.def)             Requested size: 433.62pt x 361.28473pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19
+
+ <./es3-5func.png>]
+<es3-6xls.png, id=181, 537.50812pt x 451.6875pt>
+File: es3-6xls.png Graphic file (type png)
+<use es3-6xls.png>
+Package pdftex.def Info: es3-6xls.png  used on input line 390.
+(pdftex.def)             Requested size: 433.62pt x 364.38994pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[20
+
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[21 <./es3-6xls.png>]
+<es3-6func.png, id=189, 642.14906pt x 418.56375pt>
+File: es3-6func.png Graphic file (type png)
+<use es3-6func.png>
+Package pdftex.def Info: es3-6func.png  used on input line 397.
+(pdftex.def)             Requested size: 433.62pt x 282.64606pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22
+
+ <./es3-6func.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+
+Overfull \hbox (3.13687pt too wide) in paragraph at lines 415--416
+\OT1/cmr/m/sl/12 (AMC), which re-duces re-ten-tion and in-creases runoff. Green
+-Ampt re-sponds through
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23
+
+] 
+AED: lastpage setting LastPage
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24] (./ce-3354-es3-2025-3-solution.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6571 strings out of 480247
- 100215 string characters out of 5896151
- 403372 words of memory out of 5000000
- 24393 multiletter control sequences out of 15000+600000
- 476824 words of font info for 58 fonts, out of 8000000 for 9000
+ 6672 strings out of 480247
+ 102400 string characters out of 5896151
+ 401433 words of memory out of 5000000
+ 24479 multiletter control sequences out of 15000+600000
+ 478018 words of font info for 63 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 61i,11n,75p,591b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb>
-Output written on ce3354-es1-2025-2-solution.pdf (9 pages, 518175 bytes).
+ 61i,17n,75p,799b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm1200.pfb>
+Output written on ce-3354-es3-2025-3-solution.pdf (24 pages, 845875 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 270 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
