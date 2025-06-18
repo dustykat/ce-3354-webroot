@@ -248,7 +248,8 @@ Solution(s):
 The python script below should interpolate the hyetographs onto the desired 15-minute space.  
 Copy the output file into an Excel spreadsheet, and complete the exercise.
 
-\begin{verbatim}o# Script to generate 1-minute hyetographs
+\begin{verbatim}
+# Script to generate 1-minute hyetographs
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -288,7 +289,7 @@ df = pd.DataFrame({
 # Optionally, write every nth row (e.g., every 15 minutes)
 n = 15
 df_thinned = df.iloc[::n]
-# Save t CSV ##########################################################
+# Save to CSV ##########################################################
 df_thinned.to_csv(f"interpolated_output_{hyetType.upper()}.csv", index=False)
 ##########################################################################
 \end{verbatim}
@@ -351,6 +352,33 @@ Determine:
         \item An equation (model) of the "best" straight line for these values. 
     \end{enumerate}
 
+Solution(s):
+
+The attached spreadsheet in Figure \ref{fig:es2-7xls} shows the analysis.  
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=4in]{es2-7xls.png} 
+   \caption{Spreadsheet screen capture with arithmetic and double log plots.}
+   \label{fig:es2-7xls}
+\end{figure}
+
+In this case the data, when plotted on log-log axes, align closely along a straight line. This suggests that the relationship between variables follows a power-law form of the type:
+
+$ y=ax^b$
+ 
+In a log-log plot, such relationships appear linear because:
+
+
+$log(y)=log(a)+b \cdot log(x)$
+
+This linearity in the transformed space indicates that a power-law model may be the most appropriate choice for describing the underlying behavior of the data.
+
+The equation based on the plot (using Excel Trendline) is
+\begin{equation}
+I_{in/hr} = 18.925 \cdot T_{c~min}^{0.665}
+\end{equation}
+
 \clearpage
 
 \item Table \ref{tab:Baltimore} is a measured 1-hour hyetograph for Baltimore, Maryland.
@@ -380,6 +408,25 @@ Determine:
         \item The net volume of rainfall in m$^3$ and liters if the watershed is 4,000 m$^2$
         \item An approximate Annual Recurrance Interval (ARI) for the measured event, using NOAA Atlas 14. 
     \end{enumerate}
+
+Solution(s):
+
+a), b), and c) are shown in the spreadsheet in Figure \ref{fig:es2-8xls} and the formulas used are in Figure \ref{fig:es2-8func}
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=6in]{es2-8xls.png} 
+   \caption{Baltimore, MD intensity data analysis}
+   \label{fig:es2-8xls}
+\end{figure}
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=6in]{es2-8func.png} 
+   \caption{Baltimore, MD intensity data analysis (Excel formulas)}
+   \label{fig:es2-8func}
+\end{figure}
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item The map in Figure \ref{fig:polygonmap} shows the location of 6 rain gages and a watershed boundary. The rainfall depths for a certain storm are shown by each gage. An isohyetal map is displayed on the figure as is a linear distance scale.
