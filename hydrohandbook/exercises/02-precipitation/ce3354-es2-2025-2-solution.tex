@@ -23,6 +23,7 @@
 
 \section*{\small{Exercises}}
 \begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item A raingage is located in a 2.5 acre impervious watershed with non initial abstraction.  The gage records a catch of 1.0 inches of precipitation in one hour.  The maximum intensity was 2.4 inches per hour for 10 minutes.  Assume that 10 minutes is the characteristic time for which all parts of the watershed can contribute runoff to a discharge point.
 
 Determine:
@@ -30,7 +31,6 @@ Determine:
         \item Volume of rainfall in cubic feet for the watershed. 
         \item Maximum (peak) discharge rate for the watershed.
     \end{enumerate}
-
 Solution(s):
 
 
@@ -52,9 +52,8 @@ i = rainfall intensity (2.4 in/hr, given maximum 10-min intensity) for the time 
 A = area in acres (2.5 ac., given)\\
 
 \end{enumerate}
-
 \clearpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Consider the rainfall data in Table \ref{tab:SomewhereUSARain}
 
 \begin{table}[h!]
@@ -95,7 +94,6 @@ Both items above are shown on Figure \ref{fig:es2-2}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \item The intersection of US 408 and US 417 in Orange County, Florida at 28°32'51.2"N 81°15'28.5"W is the approximate centroid of that county. Using NOAA Atlas 14 (use the online PFDS tool)
 
 Determine:
@@ -129,7 +127,6 @@ Solutions:
    \label{fig:pfds-3}
 \end{figure}
 \clearpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[h!]
 \centering
 \caption{Summary Florida Depths and Intensity for the intersection of US 408 and US 417 in Orange County, Florida}
@@ -172,6 +169,7 @@ The reported ARF is consistent with plotted ARF for the Austin curve, but the re
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \item Table \ref{tab:SomewhereElseUSARain} is precipitation data for a 6-hour storm in Somewhere Else USA.
 
 \begin{table}[h!]
@@ -319,11 +317,8 @@ Figures \ref{fig:es2-6-xls} and \ref{fig:es2-6-form} are spreadsheet fragments t
         \item The maximum rainfall intensity (inches/hour) in any 30-minute interval.  The largest average of any 3 three adjacent rows would be the maximum 30-minute intensity.  In the image its the column labeled 30-minute moving average.  The largest value is 4.84 in/hr at time 735 minutes.(12:15 from the storm start)
     \end{enumerate}
 
-
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \item Table \ref{tab:SomewhereUSARainIDF} is intensity duration data for Somewhere USA.
 
 \begin{table}[h!]
@@ -380,7 +375,7 @@ I_{in/hr} = 18.925 \cdot T_{c~min}^{0.665}
 \end{equation}
 
 \clearpage
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \item Table \ref{tab:Baltimore} is a measured 1-hour hyetograph for Baltimore, Maryland.
 
 \begin{table}[h!]
@@ -429,6 +424,7 @@ a), b), and c) are shown in the spreadsheet in Figure \ref{fig:es2-8xls} and the
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \item The map in Figure \ref{fig:polygonmap} shows the location of 6 rain gages and a watershed boundary. The rainfall depths for a certain storm are shown by each gage. An isohyetal map is displayed on the figure as is a linear distance scale.
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
@@ -445,8 +441,64 @@ Determine:
         \item The average weighted precipitation over the watershed (using the Theissen weights).
         \item The average weighted precipitation (using the Isoheyets).
     \end{enumerate}
+
+\textbf{Solution(s):}
+
+For this problem the solution documents workflow using `ImageJ` software, which is free to download.  It has way more useful stuff than simple map measuring, but reflective of the kind of software that will have some durability.
+
+1) Download and extract, install using the imageJ.exe file in the download folder, when extracted, move the folder to somewhere on your computer (or leave in Downloads).  
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{imageJ.png} 
+   \caption{ImageJ Download Landing Page (note the URL)}
+   \label{fig:imageJ}
+\end{figure}
+
+2) Start ImageJ and open the image file (in this case clip from the assignment)
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{polymap2process1.png} 
+   \caption{Image to process in ImageJ tool.}
+   \label{fig:polymap2process1}
+\end{figure}
+
+Calibrate scale using a known distance on the map (in \textbf{Analyze} menu item set the scale after drawing a line on the 3.3 mi. scale bar.  In the Set Scale dialog, enter 3.3 as the known distance)
+
+3) Use \textbf{Polygon} tool to draw amd measure various polygons.  
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{polymeasure1.png} 
+   \caption{Polygon drawn and measurement completed.}
+   \label{fig:polymeasure1}
+\end{figure}
+\clearpage
+
+4) Repeat 3) above until have the entire polygon field, record in a spreadsheet.
+
+a), b), c), d) are shown in Figures \ref{fig:es2-9xls} and \ref{fig:es2-9func} using measurements made in ImageJ by the workflow depicted above.
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{es2-9xls.png} 
+   \caption{Excel spreadsheet showing EUD calculations.}
+   \label{fig:es2-9xls}
+\end{figure}
+\clearpage
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{es2-9func.png} 
+   \caption{Excel spreadsheet showing EUD calculations (formulas)}
+   \label{fig:es2-9func}
+\end{figure}
+
+    
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \item The map in Figure \ref{fig:gagemap} shows the location of 8 rain gages and the watershed boundary. The rainfall depths for a certain storm are in Table \ref{tab:gagemap}. Use the Thiessen polygon method to determine the mean rainfall depth over the watershed for this storm event.
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
@@ -484,9 +536,27 @@ Determine:
         \item The mean rainfall depth over the watershed for this storm event using the Thiessen polygon method. 
     \end{enumerate}
 
+\textbf{Solution(s):}
 
+Again using ImageJ software to measure areas the results are displayed on Figures \ref{fig:es2-10xls} and \ref{fig:es2-10func} below.
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{es2-10xls.png} 
+   \caption{Excel spreadsheet showing EUD calculations.}
+   \label{fig:es2-10xls}
+\end{figure}
+\clearpage
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{es2-10func.png} 
+   \caption{Excel spreadsheet showing EUD calculations (formulas)}
+   \label{fig:es2-10func}
+\end{figure}
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \item The map excerpt in Figure \ref{fig:usgsmap}, shows a stream gage labeled as U.S.G.S. no. 1.  Various rain gages are shown as rectangles surrounding the catch for the gage for some time interval.  
 
 \begin{figure}[h!] %  figure placement: here, top, bottom, or page
@@ -502,13 +572,28 @@ Determine:
         \item The drainage area in square miles. 
         \item The average precipitation over the area by arithmetic mean. 
         \item The average precipitation over the area by Thiessen polygon method. 
-        \item The average precipitation over the area by Isoheytal method
+       % \item The average precipitation over the area by Isoheytal method
     \end{enumerate}
 
+\textbf{Solution(s):}
 
+Again using ImageJ software to measure areas the results are displayed on Figures \ref{fig:es2-11xls} and \ref{fig:es2-11func} below.
 
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=5in]{es2-11xls.png} 
+   \caption{Excel spreadsheet showing EUD calculations.}
+   \label{fig:es2-11xls}
+\end{figure}
+\clearpage
+
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=5in]{es2-11func.png} 
+   \caption{Excel spreadsheet showing EUD calculations (formulas)}
+   \label{fig:es2-11func}
+\end{figure}
     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{enumerate}
-
-
 \end{document}  
