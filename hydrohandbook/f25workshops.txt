@@ -1,0 +1,5 @@
+by-hand watershed delineation using es2-11 problem. Using paper and physical model. (45 minutes)
+by-hand watershed delineation using Hardin Branch study, using paper and physical model. (45 minutes)
+GIS delineation Hardin Branch study site. (45 minutes)
+GIS delineation LBB Study Site (45 minutes)
+ImageJ polygon area measurements (
