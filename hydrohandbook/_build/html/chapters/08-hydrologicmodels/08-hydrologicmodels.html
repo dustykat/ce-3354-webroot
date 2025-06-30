@@ -180,16 +180,31 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Hydrologic Modeling</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -387,10 +402,60 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. Hydrologic Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-modeling-in-engineering-design">Hydrologic modeling in Engineering Design</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-review-and-final-project-presentations">Course Review and Final Project Presentations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms">8.1 HEC-HMS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-hms">History of HMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management">Data management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-conceptualization">Hydrologic Conceptualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-minimal-model">HEC-HMS Minimal Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basin-model-specification">Basin Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#meterological-model-specification">Meterological Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-model-specification">Control Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-the-models">Parameterizing the models</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-multiple-elements">HEC-HMS Multiple Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.2 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop">Workshop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#junctions">Junctions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduits">Conduits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catchments">Catchments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raingages">Raingages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-hydrology">SWMM Hydrology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-hydrology-review">SWMM/Hydrology Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-generation">Runoff Generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Raingages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conceptualization-s">SWMM Conceptualization(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catchment-to-catchment-routing">Catchment-to-Catchment Routing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-example">SWMM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-section">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">End of Section</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -403,8 +468,58 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hydrologic-modeling">
 <h1>8. Hydrologic Modeling<a class="headerlink" href="#hydrologic-modeling" title="Link to this heading">#</a></h1>
+<div class="admonition-course-website admonition">
+<p class="admonition-title">Course Website</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
+</div>
+<p>Hydrologic models are indispensable tools in both research and practice because the routine, site-specific collection of field data for every watershed or infrastructure project is often impractical and cost-prohibitive. Instead of measuring every component of the water cycle at every location of interest, models allow engineers and scientists to simulate hydrologic behavior using a combination of limited field data, physical laws, and conceptual or empirical relationships.</p>
+<p>At their core, models are simplified representations of the real world. They aim to capture the essential characteristics of a natural system — especially the relationship between inputs (such as rainfall or snowmelt) and outputs (such as streamflow or infiltration). A good hydrologic model preserves the cause-and-effect, or excitation–response, behavior of the system it represents, even if it omits many secondary details. This simplification enables engineers to predict how a watershed or aquifer will behave under both historical and hypothetical scenarios.</p>
+<p>This chapter focuses on two widely used modeling systems for surface water hydrology:</p>
+<p>HEC-HMS (Hydrologic Modeling System), developed by the U.S. Army Corps of Engineers, is commonly used for rainfall-runoff modeling, flood forecasting, and <strong>watershed-scale</strong> planning.</p>
+<p>EPA-SWMM (Storm Water Management Model), developed by the U.S. Environmental Protection Agency, is particularly suited for urban stormwater management, including <strong>drainage network</strong> modeling and green infrastructure evaluation.</p>
+<p>In European practice, common alternatives include:</p>
+<p>MIKE SHE, a comprehensive and physically-based modeling system developed by the Danish Hydraulic Institute (DHI), which integrates surface water, groundwater, and unsaturated zone flow in a unified framework.</p>
+<p>HBV (Hydrologiska Byråns Vattenbalansavdelning), a conceptual rainfall-runoff model widely used for water resource assessments and flood forecasting across northern and central Europe.</p>
+<p>While surface water models like those described above simulate watershed behavior at or near the ground surface, groundwater hydrology involves modeling the subsurface. This domain requires fundamentally different tools. Groundwater modeling is almost exclusively performed using MODFLOW, a modular finite-difference flow model developed by the U.S. Geological Survey. MODFLOW and its capabilities are discussed in a later chapter of this text.</p>
+<p>Hydrologic modeling is not a replacement for engineering judgment or data collection, but rather a decision-support tool that helps quantify, interpret, and communicate complex hydrologic behavior. The remaining sections in this chapter walk through the fundamental concepts, data requirements, and practical workflows associated with HEC-HMS and SWMM, and demonstrate their application to representative problems in watershed hydrology.</p>
+<hr class="docutils" />
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Introduction to HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/16-HEC_HMS/Lesson09ug.pdf">Cleveland, T. G. (2022) <em>Engineering Hydrology Notes to Accompany CE 3354 (Introduction to HEC-HMS; Ash Creek Dallas HEC-HMS Example)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Users_Manual_3.5.pdf">HEC-HMS User Manual 3.5</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Applications_Guide_March2008.pdf">HEC-HMS Applications Guide</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_QuickStart_Guide_3.5.pdf">HEC_HMS Quick Start Guide 3.5</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Release_Notes_3.5.pdf">HEC-HMS Release Notes 3.5</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_TechnicalReferenceManual_(CPD-74B).pdf">HEC-HMS Technical Reference Manual</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/NRCS-CN-TP149/methodforestimat149kent.pdf">NRCS TP-149 CN estimation</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip">AshCreek Data (zip)</a></p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<p>There are a lot of videos on YouTube suitable for self-training to use HEC-HMS (non-gridded).  The gridded HMS is a more advanced exercise (you have to have GIS skills first) and is the obvious extension of lumped (non-gridded) models – but outside the course scope.</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=hCbTpNzInpQ">How to install HEC-HMS (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=0JvoJPDPKSk">HEC-HMS Overview (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=E2nIwH2NbOc&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=2">HEC-HMS Building a Basin Model (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=dzOZQpj7PSg&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=3">HEC-HMS Building a Meterological Model (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=U-TIoKYFCrw&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=4">HEC-HMS Running a Simulation (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=WwmzAqer6GU&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=5">HEC-HMS Results Interpretation (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=rwXwY7heaLQ&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=6">HEC-HMS Simulation Types (YouTube)</a></p></li>
+</ol>
+</section>
 <section id="hydrologic-modeling-in-engineering-design">
 <h2>Hydrologic modeling in Engineering Design<a class="headerlink" href="#hydrologic-modeling-in-engineering-design" title="Link to this heading">#</a></h2>
+<p>In most situations a model refers to representing real-world situations in a mathematical structure that can be solved using a computer. Occasionally a physical or analog model is used in hydrology, but these kinds of models are becoming more and more rare because of the time and cost involved. Well constructed computer models (not just the program) can often do an excellent job of modeling, although some problems are geometrically complex enough to justify physical or analog modeling.</p>
+<p>With computer modeling a large number of variables and/or a large amount of data can be relatively quickly manipulated, increasing the chances of an accurate and defendable answer to the particular question (that the model was built to answer).</p>
+<p>The first step in developing any hydrologic model is the development of a <strong>conceptual model</strong>. During this stage of model development the existing are assembled. This data includes, but is not limited to, water company data on withdrawal rates and water levels; state and municipal well-permitting information; and previously published reports and maps. The documents are then reviewed to determine the system boundaries; extent and thickness of hydrologic units; aquifer recharge; ground water and surface water elevations; stream discharge and leakage to aquifers; aquifer parameters; and other characteristics unique to the situation to be modeled.</p>
+<p>Usually some fieldwork will be necessary to fill in the gaps. A data collection plan is prepared that sets out the field strategy for additional data collection. When the fieldwork is complete, the existing and new data are analyzed. The existing conceptual model is then revised and updated to incorporate data from the field program. This step ensures that all previously identified data needs have been satisfied and serves as a springboard for the computer modeling effort.</p>
+<p>With the conceptual model in place, it’s time to select the model code or computer program to be used for the well head protection simulations. Some states require the use of a particular code. In most cases, several modeling codes are available that are capable of adequately modeling the problem. The choice should be based, if possible, on the modeler’s preference, although consideration must be given to what the relevant agency personnel are familiar with, otherwise, considerable time and money may be spent defending your code and training agency personnel.</p>
+<p>Once the flow model code has been selected, the boundaries and parameters identified in the conceptual model are put into a form suitable for modeling. This step includes determining the number of model layers, design of the model grid, determining the initial values of parameters and hydrologic stresses, and setting boundary conditions.</p>
+<p>The purpose of calibration is to establish that the model can reproduce field-measured values. This procedure is done by adjusting the model parameters (hydraulic conductivity, storage coefficient, etc.) and stresses (recharge, up land underflow, etc.) to produce the best match between simulated and observed water related variables.</p>
 <ul class="simple">
 <li><p>Hydrologic modeling, climate change impacts, and water management</p></li>
 <li><p>Real-world case studies (dams, levees, stormwater systems)</p></li>
@@ -416,14 +531,378 @@ document.write(`
 <li><p>Summary of key concepts and Q&amp;A session</p></li>
 <li><p>Final Lab/Exercise: Group Project on a Hydrologic Case Study</p></li>
 </ul>
-<p>Models are used extensively in hydrology because routine data collection and analysis for every project is simply too expensive. A model is a simplified representation of the real world that, ideally, captures the excitation-response relationship of the real-world phenomenon.</p>
-<p>In most situations a model refers to representing real-world situations in a mathematical structure that can be solved using a computer. Occasionally a physical or analog model is used in hydrology, but these kinds of models are becoming more and more rare because of the time and cost involved. Well constructed computer models (not just the program) can often do an excellent job of modeling, although some problems are geometrically complex enough to justify physical or analog modeling.</p>
-<p>With computer modeling a large number of variables and/or a large amount of data can be relatively quickly manipulated, increasing the chances of an accurate and defendable answer to the particular question (that the model was built to answer).</p>
-<p>The first step in developing any hydrologic model is the development of a <strong>conceptual model</strong>. During this stage of model development the existing are assembled. This data includes, but is not limited to, water company data on withdrawal rates and water levels; state and municipal well-permitting information; and previously published reports and maps. The documents are then reviewed to determine the system boundaries; extent and thickness of hydrologic units; aquifer recharge; ground water and surface water elevations; stream discharge and leakage to aquifers; aquifer parameters; and other characteristics unique to the situation to be modeled.</p>
-<p>Usually some fieldwork will be necessary to fill in the gaps. A data collection plan is prepared that sets out the field strategy for additional data collection. When the fieldwork is complete, the existing and new data are analyzed. The existing conceptual model is then revised and updated to incorporate data from the field program. This step ensures that all previously identified data needs have been satisfied and serves as a springboard for the computer modeling effort.</p>
-<p>With the conceptual model in place, it’s time to select the model code or computer program to be used for the well head protection simulations. Some states require the use of a particular code. In most cases, several modeling codes are available that are capable of adequately modeling the problem. The choice should be based, if possible, on the modeler’s preference, although consideration must be given to what the relevant agency personnel are familiar with, otherwise, considerable time and money may be spent defending your code and training agency personnel.</p>
-<p>Once the flow model code has been selected, the boundaries and parameters identified in the conceptual model are put into a form suitable for modeling. This step includes determining the number of model layers, design of the model grid, determining the initial values of parameters and hydrologic stresses, and setting boundary conditions.</p>
-<p>The purpose of calibration is to establish that the model can reproduce field-measured values. This procedure is done by adjusting the model parameters (hydraulic conductivity, storage coefficient, etc.) and stresses (recharge, up land underflow, etc.) to produce the best match between simulated and observed water related variables.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hec-hms">
+<h1>8.1 HEC-HMS<a class="headerlink" href="#hec-hms" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.hec.usace.army.mil/software/hec-hms/">HEC-Hydrologic Modeling System (HMS)</a>  the U.S. Army Corps of Engineers’ software package for modeling the complete hydrologic processes of dendritic watershed systems. The software includes many traditional hydrologic analysis procedures such as event infiltration, unit hydrographs, and hydrologic routing. HEC-HMS also includes procedures necessary for continuous simulation including evapo-transpiration, snowmelt, and soil moisture accounting. Advanced capabilities are also provided for gridded runoff simulation using the linear quasi-distributed runoff transform (ModClark). Supplemental analysis tools are provided for model optimization, forecasting streamflow, depth-area reduction, assessing model uncertainty, erosion and sediment transport, and water quality. The software and documentation are available free of charge.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of the stated capabilities above are marketing BS, but the software is a widely used tool.  A practicing Civil and Enviornmental Engineer would be expected to be proficient in HEC-HMS and/or SWMM</p>
+<p>Proficiency in HEC-HMS involves:</p>
+<ul class="simple">
+<li><p>Understanding of Hydrologic Processes:
+<br>A solid grasp of hydrologic principles and processes, such as rainfall-runoff relationships, loss models, baseflow separation, and channel routing.</p></li>
+<li><p>Model Development:
+<br>Ability to create and configure hydrologic models, including defining watershed boundaries, inputting hydrologic data (precipitation, temperature, etc.), and setting up sub-basins, reaches, junctions, and reservoirs.</p></li>
+<li><p>Selection and Application of Methods:
+<br>Knowledge of various computational methods available in HEC-HMS for different hydrologic processes, such as loss models (e.g., SCS Curve Number, Green-Ampt), transform methods (e.g., SCS Unit Hydrograph, Clark Unit Hydrograph), and routing methods (e.g., Muskingum, Kinematic Wave).</p></li>
+<li><p>Data Management:
+<br>Competence in importing and managing input data, such as time series data for precipitation, temperature, streamflow, and observed data for model calibration.</p></li>
+<li><p>Model Calibration and Validation:
+<br>Skill in calibrating the model parameters to match observed data, and validating the model’s performance with different data sets to ensure its reliability.</p></li>
+<li><p>Simulation and Analysis:
+<br>Capability to run simulations, interpret results, and analyze hydrographs, peak flows, and flow volumes for different scenarios (e.g., different rainfall events or land-use changes).</p></li>
+<li><p>Advanced Features:
+<br>Familiarity with advanced features, such as simulating stormwater management practices, running continuous simulations, or using the software for flood forecasting.</p></li>
+<li><p>Troubleshooting and Problem-Solving:
+<br>Ability to identify and resolve issues related to model setup, data inconsistencies, and convergence problems.</p></li>
+<li><p>Documentation and Reporting:
+<br>Proficiency in documenting the modeling process, assumptions, and results, as well as preparing professional reports and presentations.</p></li>
+</ul>
+<p>Being proficient in HEC-HMS means not only knowing how to use the software’s interface but also understanding the underlying hydrologic concepts and methodologies, enabling effective and accurate hydrologic modeling and analysis.</p>
+</div>
+<section id="history-of-hms">
+<h2>History of HMS<a class="headerlink" href="#history-of-hms" title="Link to this heading">#</a></h2>
+<p>HMS Evolved from HEC-1 as part of a “new-generation” software emphasis circa 1990.  The main end-user result is an Integrated user interface to speed up data input and enhance output interpretation.</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>HMS is a complex and sophisticated tool:</p>
+<ul class="simple">
+<li><p>Intended to be used by a knowledgeable and skilled operator</p></li>
+<li><p>Knowledge and skill increase with use</p></li>
+<li><p>The skills are perishable</p></li>
+</ul>
+</section>
+<section id="data-management">
+<h2>Data management<a class="headerlink" href="#data-management" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Graphical User Interface (GUI)</p></li>
+<li><p>Multiple input files</p></li>
+<li><p>Multiple output files</p></li>
+<li><p>Time-series in HEC-DSS</p></li>
+</ul>
+<p>All files arranged in a <strong>Project</strong> which is the fundamental data organization structure</p>
+<ul class="simple">
+<li><p>Paths to individual files</p></li>
+<li><p>Can compress and e-mail entire project folders and have them run elsewhere (assuming the files are stored in the folder in their entirety)</p></li>
+</ul>
+</section>
+<section id="hydrologic-conceptualization">
+<h2>Hydrologic Conceptualization<a class="headerlink" href="#hydrologic-conceptualization" title="Link to this heading">#</a></h2>
+<p>Organizes precipitation, watershed interaction, and runoff into major elements</p>
+<ul class="simple">
+<li><p>Basin model and sub-basin description</p></li>
+<li><p>Downstream connections: how the system components are interconnected</p></li>
+<li><p>Loss model: how rainfall is converted into excess rainfall</p></li>
+<li><p>Transformation model: how the excess rainfall is redistributed in time and moved to the hydrologically nearest outlet (unit hydrographs, routing elements …)</p></li>
+<li><p>Meterological model</p></li>
+<li><p>Raingage specifications and assignment to different sub-basins</p></li>
+<li><p>Time-series models: Supply input hyetographs; Supply observed hydrographs</p></li>
+<li><p>Simulation control</p></li>
+<li><p>Supply instructions of what, when, how to simulate</p></li>
+</ul>
+<p>In the end HEC-HMS is a Hydrologic Model and can estimate:</p>
+<ul class="simple">
+<li><p>Peak Flows</p></li>
+<li><p>Hydrographs</p></li>
+</ul>
+<p>It can perform</p>
+<ul class="simple">
+<li><p>Hydrograph Routing</p></li>
+<li><p>Stream reaches</p></li>
+<li><p>Reservoirs and detention basins</p></li>
+<li><p>Hydrograph lagging and attenuation</p></li>
+<li><p>Sub-basin modeling (if appropriate)</p></li>
+</ul>
+<p>Precipitation to Runoff</p>
+<ul class="simple">
+<li><p>Abstractions</p></li>
+<li><p>Fraction of precipitation that does not contribute to runoff (and ultimately discharge)</p></li>
+<li><p>Routing</p></li>
+<li><p>Watershed routing (unit hydrograph and similar concepts)</p></li>
+<li><p>Stream (Channel) routing</p></li>
+<li><p>Reservoir (Storage) routing</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>Navigate to the HEC-HMS website, select software appropriate for your computer.</p>
+<p><img alt="" src="../../_images/download-window.png" /></p>
+<!--Apple users will choose the Linux versions and have to figure out an interface, or get a [CodeWeaver](https://www.codeweavers.com/) application layer, or get [Parallels](https://www.parallels.com/pd/general/?gclid=CjwKCAjw79iaBhAJEiwAPYwoCFORJ8sEPl3m0sP2EEj6TExbC4rKqt6LUsS22AVAmTK8PkgnfLqbkxoC_dcQAvD_BwE), or build a [Cloud Application](https://aws.amazon.com/free/compute/lightsail/?trk=56417dfe-8849-4622-bfa4-7ec30bd6f5a3&sc_channel=ps&s_kwcid=AL!4422!3!536323500429!e!!g!!aws%20lightsail&ef_id=CjwKCAjw79iaBhAJEiwAPYwoCKquJK3Cnwmaf8sZZURFgvZO3FdYDyiQufkvEyD4DGuUCtGIGII50BoC77EQAvD_BwE:G:s&s_kwcid=AL!4422!3!536323500429!e!!g!!aws%20lightsail)-->
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>My copy of HEC-HMS is stored as a cloud application hosted on AWS.  It houses a fully provisioned Windows Implementation of HEC-HMS (and some other tools) and is located at:</p>
+<ul class="simple">
+<li><p>server_name: <strong><a class="reference external" href="http://kittyinthewindow.ddns.net">kittyinthewindow.ddns.net</a></strong></p></li>
+<li><p>user_name: <strong>texas-skew</strong></p></li>
+<li><p>passwd: <strong>peakfq73$hare</strong></p></li>
+</ul>
+<p>Users must access using <a class="reference external" href="https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac">Remote Desktop Protocol</a> (Built into Windows, Apple Store has a free Mac application).</p>
+</div>
+<p>For a typical winders machine:</p>
+<ol class="arabic simple">
+<li><p>Download an installer</p></li>
+<li><p>Run the installer <br></p></li>
+</ol>
+<ul class="simple">
+<li><p>Accept the defaults (otherwise YOYO!)</p></li>
+</ul>
+<p>Upon sucessful install you should be able to select the program and launch it and get the control interface</p>
+<p>To install supplied examples, navigate to the help tab (in the HMS interface) and select download examples</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually the above works, unless you try something fancy and are <a class="reference external" href="https://www.imdb.com/title/tt0112697/">clueless</a>.  If you cannot figure it out go <a class="reference external" href="https://harri.com/mysubwaycareer">here</a></p>
+</div>
+<section id="hec-hms-minimal-model">
+<h3>HEC-HMS Minimal Model<a class="headerlink" href="#hec-hms-minimal-model" title="Link to this heading">#</a></h3>
+<p>A minimal model consists of</p>
+<ul class="simple">
+<li><p>Basin Model</p></li>
+<li><p>Meteorological Model</p></li>
+<li><p>Control Specifications</p></li>
+</ul>
+<section id="basin-model-specification">
+<h4>Basin Model Specification<a class="headerlink" href="#basin-model-specification" title="Link to this heading">#</a></h4>
+<p>For this example we will use the Hardin Creek basin which is about 17 square miles.  For the example we will neglect the reservoirs and model the whole thing as a single watershed.</p>
+<p>To create a basin model, select Components from the menu then Basin Manager</p>
+<p><img alt="" src="../../_images/hms-basinmanager.png" /></p>
+<p>As with most HMS creator dialogs, you next name the basin.</p>
+<p><img alt="" src="../../_images/hms-basinname.png" /></p>
+</section>
+<section id="meterological-model-specification">
+<h4>Meterological Model Specification<a class="headerlink" href="#meterological-model-specification" title="Link to this heading">#</a></h4>
+<p>To create a meterological model, select Components from the menu then Meterological Model Manager</p>
+<p><img alt="" src="../../_images/hms-metmodel.png" /></p>
+<p>As with most HMS creator dialogs, you next name the model.</p>
+<p><img alt="" src="../../_images/hms-metmodelname.png" /></p>
+</section>
+<section id="control-model-specification">
+<h4>Control Model Specification<a class="headerlink" href="#control-model-specification" title="Link to this heading">#</a></h4>
+<p>The last component is the control specification model (with dates and times for the simulation period).  To create a control model, select Components from the menu then Control Model Manager</p>
+<p><img alt="" src="../../_images/hms-controlspecs.png" /></p>
+<p>Then next name the model.</p>
+<p><img alt="" src="../../_images/hms-controlspecsname.png" /></p>
+</section>
+<section id="parameterizing-the-models">
+<h4>Parameterizing the models<a class="headerlink" href="#parameterizing-the-models" title="Link to this heading">#</a></h4>
+<p>Now that the pieces are built, we need to supply watershed and rainfall characteristics to the components for a useable model.  First we will simulate the entire watershed as a single basin, with CN=98, and all other watershed-based model components disabled (i.e. None)</p>
+<p>First build the single <strong>basin</strong></p>
+<p><img alt="" src="../../_images/hms-subbasinselect.png" /></p>
+<p>Then supply the inputs, first area and the CN model.  Disable all the remaining methods (choose –None–)</p>
+<p><img alt="" src="../../_images/hms-nwebasins1.png" /></p>
+<p>Then the CN parameters (same as in class)</p>
+<p><img alt="" src="../../_images/hms-nwebasins2.png" /></p>
+<p>Then supply the <strong>meterological</strong> model inputs, for the example we will use an SCS design storm, in HMS its called “hypothetical” storm.</p>
+<p><img alt="" src="../../_images/hms-hypothetical1.png" /></p>
+<p>Then be sure the correct basins are attached to the precipitation input signal</p>
+<p><img alt="" src="../../_images/hms-hypothetical2.png" /></p>
+<p>Next select the storm itself and supply model inputs</p>
+<p><img alt="" src="../../_images/hms-hypothetical3.png" /></p>
+<p>Now select the <strong>control</strong> specifications and provide needed time values (must be calendar/clock time, HMS does not easily handle elapsed times - you can use fake dates as needed)</p>
+<p><img alt="" src="../../_images/hms-control1.png" /></p>
+<p>Now one can select simulation run builder</p>
+<p><img alt="" src="../../_images/hms-sim1.png" /></p>
+<p><img alt="" src="../../_images/hms-sim2.png" /></p>
+<p><img alt="" src="../../_images/hms-sim3.png" /></p>
+<p><img alt="" src="../../_images/hms-sim4.png" /></p>
+<p>Once these are complete select Finish and the run manager is loaded, next select the particular run to active the compute engine</p>
+<p><img alt="" src="../../_images/hms-sim5.png" /></p>
+<p>At this point it should be ready, this is a good time to save the project, then reload the saved project from the file menu. Now attempt to run the simulation by selecting the exploding raindrop!</p>
+<p><img alt="" src="../../_images/hms-sim6.png" /></p>
+<p>With some luck it works like</p>
+<p><img alt="" src="../../_images/hms-sim7.png" /></p>
+<p>With a suseccful run we can examine various output features - to complete this notebook section we will just use a default chart of runoff from the watershed.  Select the Results/Element_Graph to get:</p>
+<p><img alt="" src="../../_images/hms-sim8.png" /></p>
+<p>There are tutorials and examples in the User Manual for the software.</p>
+</section>
+</section>
+<section id="hec-hms-multiple-elements">
+<h3>HEC-HMS Multiple Elements<a class="headerlink" href="#hec-hms-multiple-elements" title="Link to this heading">#</a></h3>
+<p>This example uses data from <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip">AshCreek Data (zip)</a>.  The .ZIP file is an old homework problem, learners had to convert the provided data files into a format that HEC-HMS could process then analyze the watershed and interpret results and answer some questions.  The original problem statement is shown below</p>
+<div class="admonition-problem-statement admonition">
+<p class="admonition-title">Problem Statement</p>
+<p><strong>HEC-HMS Exercises</strong></p>
+<p>In this folder are rainfall-runofff data for three storms on Ash Creek watershed in Dallas, Texas.<br />
+Included are some base maps to help locate the watershed.<br />
+The maps are simply PDF files and are not georeferenced, so other than pretty pictures the maps are useless.</p>
+<p>Using HEC HMS model the Ash Creek Watershed using a loss model of your choice and a transformation model of your choice.  Model the watershed as a lumped system (one sub-basin, no routing).</p>
+<p>(1) Estimate parameter values in the model without using the time-series data (synthetic hydrology).  Document how you make the estimates.</p>
+<p>(2) Test your estimated with the 1973_0603 storm, how well did your synthetic approach perform.</p>
+<p>(3) Use the 1973_0603 storm to “calibrate” your model.  Trial-and-error is appropriate, or you chould choose the internal calibration tools in HMS, also your choice.  Demonstrate the calibrated model by capturing the model output for the storm (i.e. a time series of computed and observed discharge).   Use the weighted accumulated precipitation is the input (since we don’t have the raingage locations).</p>
+<p>(4) Test the calibrated model with the other two storms (DO NOT CHANGE PARAMETERS IN THE MODEL).   Assess model performance with thses other two real storms.  What do you conclude?</p>
+<p>(5) Now try to adjust the parameters to obtain a best “average” performance.  What do you conclude?</p>
+<p>(6-8) Repeat steps 3-5 with the watershed subdivided into multiple sub-basins, with routing.    Use any subdivision scheme you think is appropriate, but use at least 3 sub-basins.</p>
+<p>Did subdivision confer any performance advantage?   At what cost?</p>
+<p>(9)  Presumably you represented the current conditions with some variable that reflects the land coverage.  Estimate the watershed response to the historical storms if the entire watershed is impermeable, and very smooth (low friction).</p>
+<p>Prepare a brief report on the modeling effort, be sure to address each question above.  Due in 2 weeks.</p>
+<p>You will need to download the HEC-HMS user manual and do some reading in the manual as well as in the hydrology literature and textbook to complete this exercise.</p>
+</div>
+<p>Here is a look at the watershed</p>
+<p><img alt="" src="../../_images/STA08057320_MAPS.png" /></p>
+<p>The study area is
+Highland Road and Ash Creek, Dallas, TX.
+Area is residential subdivisions, light industrial parks, and some open parkland.
+White Rock Lake is water body to the North-West</p>
+<p>Now if we make measurements we might arrive at</p>
+<p><img alt="" src="../../_images/ashcreekparameters.png" /></p>
+<p>So one can model as just this lumped basin or apply some subdivision like:</p>
+<p><img alt="" src="../../_images/subdivide.png" /></p>
+<p>If we use the subdivided case, we will need routing elements and parameters for each subbasin.</p>
+<ul class="simple">
+<li><p><strong>Red basin</strong> <img alt="" src="../../_images/redbasin.png" /></p></li>
+<li><p><strong>Green basin</strong> <img alt="" src="../../_images/greenbasin.png" /></p></li>
+<li><p><strong>Blue basin</strong> <img alt="" src="../../_images/bluebasin.png" /></p></li>
+<li><p><strong>Combined</strong> <img alt="" src="../../_images/combine.png" /></p></li>
+</ul>
+<p>Using measuring tools (GIS, Acrobat Pro, Paint, ….) determine area, and lengths, get CN using NRCS tools.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub-Basin ID</p></th>
+<th class="head text-left"><p>Property</p></th>
+<th class="head text-right"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Red</p></td>
+<td class="text-left"><p>AREA</p></td>
+<td class="text-right"><p>1.87 sq.mi.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Red</p></td>
+<td class="text-left"><p>CN</p></td>
+<td class="text-right"><p>86</p></td>
+</tr>
+<tr class="row-even"><td><p>Red</p></td>
+<td class="text-left"><p>Dist. To Outlet</p></td>
+<td class="text-right"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green</p></td>
+<td class="text-left"><p>AREA</p></td>
+<td class="text-right"><p>2.67sq.mi.</p></td>
+</tr>
+<tr class="row-even"><td><p>Green</p></td>
+<td class="text-left"><p>CN</p></td>
+<td class="text-right"><p>86</p></td>
+</tr>
+<tr class="row-odd"><td><p>Green</p></td>
+<td class="text-left"><p>Dist. To Outlet</p></td>
+<td class="text-right"><p>4227ft</p></td>
+</tr>
+<tr class="row-even"><td><p>Blue</p></td>
+<td class="text-left"><p>AREA</p></td>
+<td class="text-right"><p>2.39sq.mi</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blue</p></td>
+<td class="text-left"><p>CN</p></td>
+<td class="text-right"><p>86</p></td>
+</tr>
+<tr class="row-even"><td><p>Blue</p></td>
+<td class="text-left"><p>Dist. To Outlet</p></td>
+<td class="text-right"><p>2660 ft</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then estimate travel times for the routing elements</p>
+<p><img alt="" src="../../_images/lagtime.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HEC-HMS requires a lot of external (to the program) thinking and preparation.</p>
+<ul class="simple">
+<li><p>Try to gather data reports before modeling if at all possible.</p></li>
+<li><p>Keep a notebook handy to write down intermediate values as needed.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="epa-swmm">
+<h1>8.2 EPA-SWMM<a class="headerlink" href="#epa-swmm" title="Link to this heading">#</a></h1>
+<p>The <a class="reference external" href="https://www.epa.gov/water-research/storm-water-management-model-swmm#software%20and%20compatibility">EPA Storm Water Management Model (SWMM)</a> is a comprehensive software tool developed by the U.S. Environmental Protection Agency for simulating the quantity and quality of stormwater runoff in urban areas. First developed in 1971, SWMM has become one of the most widely used models for planning, analyzing, and designing urban drainage systems, including storm sewers, combined sewers, and other conveyance systems. Its ability to simulate dynamic rainfall-runoff relationships, along with pollutant transport, makes it a key tool for engineers working on stormwater management, flood control, and water quality improvement projects.</p>
+<p>SWMM allows users to model the physical processes involved in stormwater runoff, including rainfall, infiltration, evaporation, and surface flow, as well as the behavior of drainage networks under varying conditions. The model supports continuous or event-based simulation, which enables long-term studies of stormwater systems under different climate conditions. Additionally, SWMM includes a variety of features for modeling green infrastructure practices such as permeable pavement, rain gardens, and green roofs, which are essential for sustainable stormwater management. Its versatility and ability to incorporate both conventional and innovative infrastructure make it an invaluable tool for engineers tasked with addressing complex urban water challenges.</p>
+<section id="interface-tour">
+<h2>Interface Tour<a class="headerlink" href="#interface-tour" title="Link to this heading">#</a></h2>
+<section id="example-of-a-minimal-model">
+<h3>Example of a Minimal Model<a class="headerlink" href="#example-of-a-minimal-model" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="workshop">
+<h2>Workshop<a class="headerlink" href="#workshop" title="Link to this heading">#</a></h2>
+<section id="junctions">
+<h3>Junctions<a class="headerlink" href="#junctions" title="Link to this heading">#</a></h3>
+</section>
+<section id="conduits">
+<h3>Conduits<a class="headerlink" href="#conduits" title="Link to this heading">#</a></h3>
+</section>
+<section id="catchments">
+<h3>Catchments<a class="headerlink" href="#catchments" title="Link to this heading">#</a></h3>
+</section>
+<section id="raingages">
+<h3>Raingages<a class="headerlink" href="#raingages" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="swmm-hydrology">
+<h2>SWMM Hydrology<a class="headerlink" href="#swmm-hydrology" title="Link to this heading">#</a></h2>
+<p>This section focuses on hydrological modeling using the Storm Water Management Model (SWMM), a widely used software tool for simulating rainfall-runoff processes in urban environments. Understanding the key hydrological concepts within SWMM is essential for adequately modeling stormwater systems, managing surface runoff, and designing urban drainage solutions.</p>
+<p>It reviews important hydrological principles such as rainfall-runoff generation and by examples demonstrates how each concept is modeled within SWMM.</p>
+<p>Upon completion you should have rudimentary understanding of:</p>
+<ul class="simple">
+<li><p>How hydrological concepts are represented in SWMM; in particular how SWMM simplifies and structures complex hydrological processes, such as surface runoff generation, infiltration losses, and flow routing.</p></li>
+<li><p>How to input data into SWMM: Using basic data inputs like rainfall, land use, and surface characteristics, the section demonstrates how to set up a model, showing what types of data are required and how they are incorporated into the software.</p></li>
+<li><p>How to generate and interpret results: After running a SWMM simulation, the section demonstrates how to analyze the results, which typically include hydrographs, flow rates, and water quality data. It also covers how to interpret these outputs to make informed decisions regarding stormwater management.</p></li>
+</ul>
+</section>
+<section id="swmm-hydrology-review">
+<h2>SWMM/Hydrology Review<a class="headerlink" href="#swmm-hydrology-review" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Design Storms</p></li>
+<li><p>Runoff Generation</p></li>
+<li><p>Raingages</p></li>
+<li><p>SWMM Conceptualization(s)</p></li>
+<li><p>Catchment-to-Catchment Routing</p></li>
+<li><p>SWMM Example</p></li>
+</ul>
+</section>
+<section id="design-storms">
+<h2>Design Storms<a class="headerlink" href="#design-storms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>SCS Type-Curves</p></li>
+<li><p>Other Dimensionlass Hyetographs</p></li>
+<li><p>NOAA Atlas 14</p></li>
+</ul>
+<section id="runoff-generation">
+<h3>Runoff Generation<a class="headerlink" href="#runoff-generation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Proportional Model (Rational approximation)</p></li>
+<li><p>NRCS CN Model</p></li>
+<li><p>Horton Infiltration Excess Model</p></li>
+<li><p>Green-Ampt Infiltration Excess Model</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h2>Raingages<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using HEC-HMS to generate input</p></li>
+<li><p>Manual entry</p></li>
+<li><p>Elapsed Time versus Calendar/Clock Time</p></li>
+</ul>
+</section>
+<section id="swmm-conceptualization-s">
+<h2>SWMM Conceptualization(s)<a class="headerlink" href="#swmm-conceptualization-s" title="Link to this heading">#</a></h2>
+</section>
+<section id="catchment-to-catchment-routing">
+<h2>Catchment-to-Catchment Routing<a class="headerlink" href="#catchment-to-catchment-routing" title="Link to this heading">#</a></h2>
+</section>
+<section id="swmm-example">
+<h2>SWMM Example<a class="headerlink" href="#swmm-example" title="Link to this heading">#</a></h2>
+</section>
+<section id="end-of-section">
+<h2>End of Section<a class="headerlink" href="#end-of-section" title="Link to this heading">#</a></h2>
+</section>
+<section id="id2">
+<h2>End of Section<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -494,10 +973,60 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. Hydrologic Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-modeling-in-engineering-design">Hydrologic modeling in Engineering Design</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-review-and-final-project-presentations">Course Review and Final Project Presentations</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms">8.1 HEC-HMS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-hms">History of HMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management">Data management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-conceptualization">Hydrologic Conceptualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-minimal-model">HEC-HMS Minimal Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basin-model-specification">Basin Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#meterological-model-specification">Meterological Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-model-specification">Control Model Specification</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-the-models">Parameterizing the models</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-multiple-elements">HEC-HMS Multiple Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.2 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workshop">Workshop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#junctions">Junctions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduits">Conduits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catchments">Catchments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raingages">Raingages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-hydrology">SWMM Hydrology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-hydrology-review">SWMM/Hydrology Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-storms">Design Storms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-generation">Runoff Generation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Raingages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conceptualization-s">SWMM Conceptualization(s)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catchment-to-catchment-routing">Catchment-to-Catchment Routing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-example">SWMM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-section">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">End of Section</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -192,13 +192,19 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -444,6 +450,173 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ File saved: generated_rainfall_data.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script to generate 1-minute hyetographs</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="n">hyetType</span> <span class="o">=</span> <span class="s1">&#39;type3&#39;</span>
+<span class="n">PT</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># total depth</span>
+<span class="c1">#######################################</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">9.75</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">11.5</span><span class="p">,</span><span class="mf">11.75</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">12.5</span><span class="p">,</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">13.6</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">48</span><span class="p">]</span>
+<span class="n">minutes</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">60</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hour</span><span class="p">]</span>
+<span class="n">hyets</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.035</span><span class="p">,</span><span class="mf">0.076</span><span class="p">,</span><span class="mf">0.125</span><span class="p">,</span><span class="mf">0.156</span><span class="p">,</span><span class="mf">0.194</span><span class="p">,</span><span class="mf">0.219</span><span class="p">,</span><span class="mf">0.254</span><span class="p">,</span><span class="mf">0.303</span><span class="p">,</span><span class="mf">0.362</span><span class="p">,</span><span class="mf">0.515</span><span class="p">,</span><span class="mf">0.583</span><span class="p">,</span><span class="mf">0.624</span><span class="p">,</span><span class="mf">0.654</span><span class="p">,</span><span class="mf">0.669</span><span class="p">,</span><span class="mf">0.682</span><span class="p">,</span><span class="mf">0.706</span><span class="p">,</span><span class="mf">0.727</span><span class="p">,</span><span class="mf">0.748</span><span class="p">,</span><span class="mf">0.767</span><span class="p">,</span><span class="mf">0.83</span><span class="p">,</span><span class="mf">0.926</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;type1A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.116</span><span class="p">,</span><span class="mf">0.206</span><span class="p">,</span><span class="mf">0.268</span><span class="p">,</span><span class="mf">0.425</span><span class="p">,</span><span class="mf">0.48</span><span class="p">,</span><span class="mf">0.52</span><span class="p">,</span><span class="mf">0.55</span><span class="p">,</span><span class="mf">0.564</span><span class="p">,</span><span class="mf">0.577</span><span class="p">,</span><span class="mf">0.601</span><span class="p">,</span><span class="mf">0.624</span><span class="p">,</span><span class="mf">0.645</span><span class="p">,</span><span class="mf">0.655</span><span class="p">,</span><span class="mf">0.664</span><span class="p">,</span><span class="mf">0.683</span><span class="p">,</span><span class="mf">0.701</span><span class="p">,</span><span class="mf">0.719</span><span class="p">,</span><span class="mf">0.736</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.906</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;type2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.022</span><span class="p">,</span><span class="mf">0.048</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.098</span><span class="p">,</span><span class="mf">0.12</span><span class="p">,</span><span class="mf">0.133</span><span class="p">,</span><span class="mf">0.147</span><span class="p">,</span><span class="mf">0.163</span><span class="p">,</span><span class="mf">0.172</span><span class="p">,</span><span class="mf">0.181</span><span class="p">,</span><span class="mf">0.204</span><span class="p">,</span><span class="mf">0.235</span><span class="p">,</span><span class="mf">0.283</span><span class="p">,</span><span class="mf">0.357</span><span class="p">,</span><span class="mf">0.663</span><span class="p">,</span><span class="mf">0.735</span><span class="p">,</span><span class="mf">0.772</span><span class="p">,</span><span class="mf">0.799</span><span class="p">,</span><span class="mf">0.82</span><span class="p">,</span><span class="mf">0.88</span><span class="p">,</span><span class="mf">0.952</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;type3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.043</span><span class="p">,</span><span class="mf">0.072</span><span class="p">,</span><span class="mf">0.089</span><span class="p">,</span><span class="mf">0.115</span><span class="p">,</span><span class="mf">0.13</span><span class="p">,</span><span class="mf">0.148</span><span class="p">,</span><span class="mf">0.167</span><span class="p">,</span><span class="mf">0.178</span><span class="p">,</span><span class="mf">0.189</span><span class="p">,</span><span class="mf">0.216</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.298</span><span class="p">,</span><span class="mf">0.339</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.702</span><span class="p">,</span><span class="mf">0.751</span><span class="p">,</span><span class="mf">0.785</span><span class="p">,</span><span class="mf">0.811</span><span class="p">,</span><span class="mf">0.886</span><span class="p">,</span><span class="mf">0.957</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4285</span><span class="p">,</span><span class="mf">0.8571</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]</span>  <span class="c1"># Adjust time scaling below if needed</span>
+    <span class="p">}</span>
+<span class="k">if</span> <span class="n">hyetType</span> <span class="o">==</span> <span class="s1">&#39;user&#39;</span><span class="p">:</span>
+    <span class="n">user_time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">9.3333</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">48</span><span class="p">]</span>
+    <span class="n">minutes</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">60</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">user_time</span><span class="p">]</span>
+    <span class="n">hyet</span> <span class="o">=</span> <span class="n">hyets</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">hyet</span> <span class="o">=</span> <span class="n">hyets</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">hyetType</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">minutes</span><span class="p">,</span> <span class="n">hyet</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">t24</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1455</span><span class="p">)</span>  <span class="c1"># 48 hours in minutes</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">PT</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">t24</span><span class="p">)</span>  <span class="c1"># Scaled cumulative rainfall depth</span>
+<span class="n">intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="o">*</span> <span class="mi">60</span>  <span class="c1"># in/hr</span>
+<span class="c1"># Build DataFrame ########################################</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Time (min)&quot;</span><span class="p">:</span> <span class="n">t24</span><span class="p">,</span>
+    <span class="s2">&quot;Cumulative Depth (in)&quot;</span><span class="p">:</span> <span class="n">depth</span><span class="p">,</span>
+    <span class="s2">&quot;Intensity (in/hr)&quot;</span><span class="p">:</span> <span class="n">intensity</span>
+<span class="p">})</span>
+<span class="c1"># Optionally, write every nth row (e.g., every 15 minutes)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">df_thinned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="n">n</span><span class="p">]</span>
+<span class="c1"># Save to CSV ##########################################################</span>
+<span class="n">df_thinned</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;interpolated_output_</span><span class="si">{</span><span class="n">hyetType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">##########################################################################</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optional plot (for visual inspection)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t24</span><span class="p">,</span> <span class="n">intensity</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rainfall Intensity - </span><span class="si">{</span><span class="n">hyetType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (min)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Intensity (in/hr)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/98e29b6718c8f5b6503e959977379ec1de6c4867eba85ce5a29d18f65a18517e.png" src="../../_images/98e29b6718c8f5b6503e959977379ec1de6c4867eba85ce5a29d18f65a18517e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python port of FORTRAN program to interpolate rain/runoff data to 1-minute intervals</span>
+
+<span class="k">def</span> <span class="nf">interpolate_rainfall</span><span class="p">(</span><span class="n">input_lines</span><span class="p">):</span>
+    <span class="n">etime</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">acc_wtd_value</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Read and parse data</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_lines</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">etime</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">acc_wtd_value</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Round time to nearest whole minute</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">etime</span><span class="p">)):</span> 
+        <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">((</span><span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mf">60.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># round to nearest whole number as float</span>
+
+    <span class="c1"># Interpolate values</span>
+    <span class="n">interpolated</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">etime</span><span class="p">)):</span>
+        <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">etime</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">acc_wtd_value</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">acc_wtd_value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="c1">#        print(t0,t1,v0,v1)</span>
+        <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">v1</span> <span class="o">-</span> <span class="n">v0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+
+        <span class="n">rtime</span> <span class="o">=</span> <span class="n">t0</span>
+        <span class="k">while</span> <span class="n">rtime</span> <span class="o">&lt;</span> <span class="n">t1</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">rtime</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span>
+            <span class="n">interpolated</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">round</span><span class="p">(</span><span class="n">rtime</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">6</span><span class="p">)))</span>
+            <span class="n">rtime</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+    <span class="k">return</span> <span class="n">interpolated</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Example input: could be replaced with reading from a file</span>
+    <span class="n">sample_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;# Time Depth</span>
+<span class="s2">0.0 0.0</span>
+<span class="s2">2.0 0.02</span>
+<span class="s2">4.0 0.043</span>
+<span class="s2">6.0 0.072</span>
+<span class="s2">7.0 0.089</span>
+<span class="s2">8.0 0.115</span>
+<span class="s2">8.5 0.13</span>
+<span class="s2">9.0 0.148</span>
+<span class="s2">9.5 0.167</span>
+<span class="s2">9.75 0.178</span>
+<span class="s2">10.0 0.189</span>
+<span class="s2">10.5 0.216</span>
+<span class="s2">11.0 0.25</span>
+<span class="s2">11.5 0.298</span>
+<span class="s2">11.75 0.339</span>
+<span class="s2">12.0 0.5</span>
+<span class="s2">12.5 0.702</span>
+<span class="s2">13.6 0.751</span>
+<span class="s2">13.5 0.785</span>
+<span class="s2">14.0 0.811</span>
+<span class="s2">16.0 0.886</span>
+<span class="s2">20.0 0.957</span>
+<span class="s2">24.0 1.0</span>
+<span class="s2">24.1 1.0</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># Remember to pad the data so last line is one minute more that actual last line of data</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="n">interpolate_rainfall</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">15</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Time (min)&quot;</span><span class="p">,</span> <span class="s2">&quot;Interpolated Value&quot;</span><span class="p">])</span>
+    <span class="n">df_thinned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># selects every n-th row starting from 0</span>
+    <span class="n">df_thinned</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;interpolated_output_TypeIII_thinned.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved interpolated data to interpolated_output.csv&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df_thinned</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;# Time Depth&#39;, &#39;0.0 0.0&#39;, &#39;2.0 0.02&#39;, &#39;4.0 0.043&#39;, &#39;6.0 0.072&#39;, &#39;7.0 0.089&#39;, &#39;8.0 0.115&#39;, &#39;8.5 0.13&#39;, &#39;9.0 0.148&#39;, &#39;9.5 0.167&#39;, &#39;9.75 0.178&#39;, &#39;10.0 0.189&#39;, &#39;10.5 0.216&#39;, &#39;11.0 0.25&#39;, &#39;11.5 0.298&#39;, &#39;11.75 0.339&#39;, &#39;12.0 0.5&#39;, &#39;12.5 0.702&#39;, &#39;13.6 0.751&#39;, &#39;13.5 0.785&#39;, &#39;14.0 0.811&#39;, &#39;16.0 0.886&#39;, &#39;20.0 0.957&#39;, &#39;24.0 1.0&#39;, &#39;24.1 1.0&#39;]
+Saved interpolated data to interpolated_output.csv
+      Time (min)  Interpolated Value
+0            0.0            0.000000
+15          15.0            0.002381
+30          30.0            0.004762
+45          45.0            0.007143
+60          60.0            0.009524
+...          ...                 ...
+1395      1389.0            0.989788
+1410      1404.0            0.992475
+1425      1419.0            0.995162
+1440      1434.0            0.997850
+1455      1449.0            1.000000
+
+[98 rows x 2 columns]
 </pre></div>
 </div>
 </div>

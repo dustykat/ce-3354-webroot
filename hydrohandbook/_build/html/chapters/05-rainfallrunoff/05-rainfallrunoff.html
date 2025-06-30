@@ -182,16 +182,31 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Rainfall-Runoff Relationships</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -389,12 +404,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Rainfall-Runoff Relationships</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-and-scs-curve-number-cn-method">Rational Method and SCS Curve Number (CN) Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrograph-theory">Unit Hydrograph Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-runoff-estimation-using-rational-and-cn-methods">Lab/Exercise: Runoff estimation using Rational and CN methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rational-method-background">The Rational Method - Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-in-detail">Rational Method - In Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scs-curve-number-cn-method-background">The SCS Curve Number (CN) Method - Background</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-number-selection">Curve Number Selection</a></li>
 </ul>
@@ -405,21 +424,53 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-runoff-generation-models">NRCS Runoff Generation Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model">Interpretation of NRCS CN as a linear reservoir model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-in-detail">Rational Method - In Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrographs-and-peak-flow-estimation">Concept of Hydrographs and Peak Flow Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrographs">5.1 Unit Hydrographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-unit-hydrograph-assumptions">Principal Unit Hydrograph Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">Timing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-hydrograph-as-a-convolution-kernel">The Unit Hydrograph as a Convolution Kernel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-formulation">Continuous Formulation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-formulation">Discrete Formulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-vs-observed-unit-hydrographs">Synthetic vs. Observed Unit Hydrographs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-unit-hydrographs">Observed Unit Hydrographs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-unit-hydrograph-from-observations">Building a Unit Hydrograph from Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-substitution">Back-Substitution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">Least-Squares</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programming">Linear Programming</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-unit-hydrographs-used-for">What are Unit Hydrographs used for?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-unit-hydrographs">Parametric Unit Hydrographs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-parametric-unit-hydrographs">Why Use Parametric Unit Hydrographs?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-synthetic-unit-hydrograph">What is a Synthetic Unit Hydrograph?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-time-base">Extending the Time Base</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-unit-hydrographs">Synthetic Unit Hydrographs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method">Modified Rational Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method-hydrograph-generator">Modified Rational Method Hydrograph Generator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrographs-and-peak-flow-estimation">Concept of Hydrographs and Peak Flow Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-vs-observed-unit-hydrographs">Synthetic vs. Observed Unit Hydrographs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-unit-hydrographs">Observed Unit Hydrographs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-unit-hydrographs">Synthetic Unit Hydrographs</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -526,9 +577,6 @@ Understanding rainfall–runoff relationships are essential for:</p>
 <li><p>Synthetic vs. observed unit hydrographs</p></li>
 </ul>
 </section>
-<section id="lab-exercise-runoff-estimation-using-rational-and-cn-methods">
-<h2>Lab/Exercise: Runoff estimation using Rational and CN methods<a class="headerlink" href="#lab-exercise-runoff-estimation-using-rational-and-cn-methods" title="Link to this heading">#</a></h2>
-</section>
 <section id="the-rational-method-background">
 <h2>The Rational Method - Background<a class="headerlink" href="#the-rational-method-background" title="Link to this heading">#</a></h2>
 <p>The Rational Method is one of the oldest and most widely used techniques in engineering hydrology to estimate peak runoff discharge from small watersheds, particularly in urban environments. It’s valued for its simplicity and direct application in drainage design.</p>
@@ -558,6 +606,77 @@ Understanding rainfall–runoff relationships are essential for:</p>
 <p class="admonition-title">Note</p>
 <p>The rational method is most reliable when used for short-duration, high-intensity storms in urbanized watersheds with impervious surfaces.</p>
 </div>
+</section>
+<section id="rational-method-in-detail">
+<h2>Rational Method - In Detail<a class="headerlink" href="#rational-method-in-detail" title="Link to this heading">#</a></h2>
+<p>The rational method is probably applied the most often by hydraulic and drainage engineers to estimate design discharges for small drainage areas. These design discharges are used to size a variety of drainage structures for small undeveloped and developed watersheds throughout the United States.</p>
+<p>The rational method (Kuichling 1889) is expressed as,</p>
+<p><span class="math notranslate nohighlight">\(Q_p = m_0 C_{std} iA \)</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_p\)</span> is peak discharge <strong>at some point where flow is concentrated</strong> (an inlet to a storm sewer, a culvert, an outlet from a small watershed, … )</p></li>
+<li><p><span class="math notranslate nohighlight">\(m_0\)</span> is a dimensional conversion factor (<span class="math notranslate nohighlight">\(\frac{1}{360} = 0.00278\)</span> in SI units; <span class="math notranslate nohighlight">\(1.008\)</span> in English units).</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{std}\)</span> is a rational runoff coefficient (dimensionless) determined by the land-use characteristics in the watershed,</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is drainage area (hectares or acres), and</p></li>
+<li><p>i is average intensity of rainfall (<span class="math notranslate nohighlight">\(mm/h\)</span> or <span class="math notranslate nohighlight">\(in/h\)</span>) of a specified frequency (probability) for a duration equal to a characteristic time, <span class="math notranslate nohighlight">\(T_c\)</span>, of the drainage area.</p></li>
+</ul>
+<p>In the U.S., the customary units for the rational method are cubic feet per second (cfs) for <span class="math notranslate nohighlight">\(Q\)</span>, inches per hour (in/hr) for <span class="math notranslate nohighlight">\(i\)</span>, and acres for <span class="math notranslate nohighlight">\(A\)</span>. To be dimensionally consistent, a conversion factor of 1.0083 should be included to <em>convert</em> acre-inches per hour into cubic feet per second; however, this factor is generally neglected.</p>
+<p>In this document, <span class="math notranslate nohighlight">\(C_{std}\)</span> is the standard rational runoff coefficient that relates the ratio of input volume rate <span class="math notranslate nohighlight">\(iA\)</span> to the output volume rate <span class="math notranslate nohighlight">\(Q_p\)</span>.</p>
+<p>For development of the rational method, it is assumed that:</p>
+<ol class="arabic simple">
+<li><p><font color="red"><strong>The discharge concentrates/collects at the point of interest</strong> </font></p></li>
+<li><p>The rainfall is uniform over the drainage area,</p></li>
+<li><p>The peak rate of runoff can be reflected by the rainfall intensity averaged over a time period equal to the characteristic time3 of the drainage area,</p></li>
+<li><p>The relative frequency (probability) of runoff is the same as the relative frequency (probability) of the rainfall used in the equation4,</p></li>
+<li><p>The above formula implies that the peak discharge occurs when the entire area is contributing flow to the drainage outlet, that is, the peak flow will occur at the characteristic time Tc after the start of uniform rainfall. A uniform rainfall of a longer duration than Tc will not produce a greater peak flow but will only lengthen the discharge period, and</p></li>
+<li><p>All runoff generation processes are incorporated into the runoff coefficient.</p></li>
+</ol>
+<p>The conceptual runoff generation mechanism is illustrated in the Figure below for a continuous rainfall where discharge at the point of interest (watershed outlet) increases until an equilibrium value is reached where the excess rainfall rate and the discharge per unit area become equal. This figure in particular illustrates the fifth assumption, that is that rainfall over a period longer than <span class="math notranslate nohighlight">\(T_c\)</span> has no effect on the discharge in the rational method model.</p>
+<p><img alt="" src="../../_images/RationalMethodConceptualProcess.png" /></p>
+<p>For small urban drainage designs, such as storm drains, the rational method is the common method for peak flow estimation in the United States (McPherson, 1969) despite criticism for over-simplified assumptions. The widespread use of the rational method can be explained by its simplicity, entrenchment in practice, extensive coverage in the literature, and lack of comparable simple-to-use alternatives (Haan and others, 1994).</p>
+<p>The applicable area (over which the method can be applied) is generally restricted to less than one square mile (e.g. FHWA (1980)), and in urban jurisdictions to areas to less than 20 acres (Poertner, 1974), yet the idea of a runoff coefficient could certainly be extended to large basins</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this context these coefficients are not the same as the rational runoff coefficient, hence the use of the jargon “rational runoff coefficient”).</p>
+</div>
+<p>From inspection of the equation, it is evident that <span class="math notranslate nohighlight">\(C\)</span> is an expression of proportionality between rainfall intensity and peak discharge (flow rate). The theoretical range of values for <span class="math notranslate nohighlight">\(C\)</span> is between 0 and 1. The typical whole watershed <span class="math notranslate nohighlight">\(C\)</span> values (that is, <span class="math notranslate nohighlight">\(C\)</span> values representing the integrated effects of various surfaces in the watershed and other watershed properties) are listed for different general land-use conditions in various design manuals and textbooks.</p>
+<p>An on-line <span class="math notranslate nohighlight">\(Q_p\)</span> calculator has links to one such table.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/RationalUS/RationalUS.html">Rational Equation Model US Customary</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/RationalSI/RationalSI.html">Rational Equation Model SI</a></p></li>
+</ul>
+<p>The <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/rational_method.htm#i1108707">Texas Hydraulic Design Manual</a> contains a useful discussion on appliciability and use of the Rational Method in drainage design.</p>
+<section id="time-of-concentration">
+<h3>Time of Concentration<a class="headerlink" href="#time-of-concentration" title="Link to this heading">#</a></h3>
+<p>The time of concentration is the crucial element of the Rational Equation (notably actually absent in an explicit sense from the equation).</p>
+<ul class="simple">
+<li><p>The value of <span class="math notranslate nohighlight">\(T_C\)</span> is important in rational method for estimating rainfall intensity.</p></li>
+<li><p>It is also used in many other hydrologic models to quantify the watershed response time.</p></li>
+</ul>
+<p>Time of concentration <span class="math notranslate nohighlight">\(T_C\)</span> is the time required for an entire watershed to contribute to runoff at the point of interest for hydraulic design. It is calculated as the time for runoff to flow from the most hydraulically remote point of the drainage area to the point under investigation.</p>
+<p>Travel time and <span class="math notranslate nohighlight">\(T_C\)</span> are functions of length and velocity for a particular watercourse.</p>
+<ul class="simple">
+<li><p>A long but steep flow path with a high velocity may actually have a shorter travel time than a short but relatively flat flow path.</p></li>
+<li><p>There may be multiple paths to consider in determining the longest travel time.</p></li>
+<li><p>The designer must identify the flow path along which the longest travel time is likely to occur.</p></li>
+</ul>
+<p>Various Methods to Estimate <span class="math notranslate nohighlight">\(T_C\)</span> include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">CMM pp. 500-501</a> has several formulas.</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">HDS-2 pp. 2-21 to 2-31</a> has formulas and examples.</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">LS pp. 196-198</a> has several formulas.</p></li>
+</ul>
+<p>Some simple useful methods are examined in</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Rational Equation, HEC-HMS)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ul>
+<p>The tools referenced in the above document are located below:</p>
+<ul class="simple">
+<li><p>NRCS Upland (uses the graph pg 720 of Gupta). <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/NRCS-Upland.xls">NRCS-Upland.xls</a>; <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/NRCS-Upland.xlsx">NRCS-Upland.xlsx</a></p></li>
+<li><p>Kerby-Kirpich <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xls">Kerby-Kirpich.xls</a>;<a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xlsx">Kerby-Kirpich.xlsx</a></p></li>
+<li><p>NRCS Velocity <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx">TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx</a></p></li>
+</ul>
+</section>
 </section>
 <section id="the-scs-curve-number-cn-method-background">
 <h2>The SCS Curve Number (CN) Method - Background<a class="headerlink" href="#the-scs-curve-number-cn-method-background" title="Link to this heading">#</a></h2>
@@ -854,75 +973,372 @@ The units of <strong>accumulated</strong> depth are length (thus the time deriva
 <p>The <span class="math notranslate nohighlight">\(CN\)</span> method using composite curve numbers is one of the suggested methods to consider in the Hardin Creek design/analysis project.  While by no means the bestest, its not bad for the application and relatively easy to parameterize and is built-in to HEC-HMS the design/analysis tool you will use.</p>
 </div>
 </section>
-<section id="rational-method-in-detail">
-<h2>Rational Method - In Detail<a class="headerlink" href="#rational-method-in-detail" title="Link to this heading">#</a></h2>
-<p>The rational method is probably applied the most often by hydraulic and drainage engineers to estimate design discharges for small drainage areas. These design discharges are used to size a variety of drainage structures for small undeveloped and developed watersheds throughout the United States.</p>
-<p>The rational method (Kuichling 1889) is expressed as,</p>
-<p><span class="math notranslate nohighlight">\(Q_p = m_0 C_{std} iA \)</span></p>
-<p>where</p>
+<section id="concept-of-hydrographs-and-peak-flow-estimation">
+<h2>Concept of Hydrographs and Peak Flow Estimation<a class="headerlink" href="#concept-of-hydrographs-and-peak-flow-estimation" title="Link to this heading">#</a></h2>
+<p>A hydrograph is a time series plot that shows how streamflow or discharge varies over time at a particular point in a watershed, typically following a rainfall event. It reflects the integrated response of a watershed to precipitation, modulated by surface and subsurface flow processes.</p>
+<p><img alt="" src="../../_images/hydrograph-1.png" /></p>
+<p>The idealized hydrograph is divided into:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Q_p\)</span> is peak discharge <strong>at some point where flow is concentrated</strong> (an inlet to a storm sewer, a culvert, an outlet from a small watershed, … )</p></li>
-<li><p><span class="math notranslate nohighlight">\(m_0\)</span> is a dimensional conversion factor (<span class="math notranslate nohighlight">\(\frac{1}{360} = 0.00278\)</span> in SI units; <span class="math notranslate nohighlight">\(1.008\)</span> in English units).</p></li>
-<li><p><span class="math notranslate nohighlight">\(C_{std}\)</span> is a rational runoff coefficient (dimensionless) determined by the land-use characteristics in the watershed,</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\)</span> is drainage area (hectares or acres), and</p></li>
-<li><p>i is average intensity of rainfall (<span class="math notranslate nohighlight">\(mm/h\)</span> or <span class="math notranslate nohighlight">\(in/h\)</span>) of a specified frequency (probability) for a duration equal to a characteristic time, <span class="math notranslate nohighlight">\(T_c\)</span>, of the drainage area.</p></li>
+<li><p>Rising limb: where discharge increases rapidly due to incoming runoff</p></li>
+<li><p>Peak flow: the highest point of the hydrograph, representing the maximum discharge</p></li>
+<li><p>Recession limb: the gradual decrease in flow as runoff and baseflow subside</p></li>
 </ul>
-<p>In the U.S., the customary units for the rational method are cubic feet per second (cfs) for <span class="math notranslate nohighlight">\(Q\)</span>, inches per hour (in/hr) for <span class="math notranslate nohighlight">\(i\)</span>, and acres for <span class="math notranslate nohighlight">\(A\)</span>. To be dimensionally consistent, a conversion factor of 1.0083 should be included to <em>convert</em> acre-inches per hour into cubic feet per second; however, this factor is generally neglected.</p>
-<p>In this document, <span class="math notranslate nohighlight">\(C_{std}\)</span> is the standard rational runoff coefficient that relates the ratio of input volume rate <span class="math notranslate nohighlight">\(iA\)</span> to the output volume rate <span class="math notranslate nohighlight">\(Q_p\)</span>.</p>
-<p>For development of the rational method, it is assumed that:</p>
+<p>In engineering hydrology, peak flow estimation is crucial for:</p>
 <ol class="arabic simple">
-<li><p><font color="red"><strong>The discharge concentrates/collects at the point of interest</strong> </font></p></li>
-<li><p>The rainfall is uniform over the drainage area,</p></li>
-<li><p>The peak rate of runoff can be reflected by the rainfall intensity averaged over a time period equal to the characteristic time3 of the drainage area,</p></li>
-<li><p>The relative frequency (probability) of runoff is the same as the relative frequency (probability) of the rainfall used in the equation4,</p></li>
-<li><p>The above formula implies that the peak discharge occurs when the entire area is contributing flow to the drainage outlet, that is, the peak flow will occur at the characteristic time Tc after the start of uniform rainfall. A uniform rainfall of a longer duration than Tc will not produce a greater peak flow but will only lengthen the discharge period, and</p></li>
-<li><p>All runoff generation processes are incorporated into the runoff coefficient.</p></li>
+<li><p>Designing culverts, bridges, detention ponds</p></li>
+<li><p>Urban drainage systems</p></li>
+<li><p>Flood risk assessments</p></li>
 </ol>
-<p>The conceptual runoff generation mechanism is illustrated in the Figure below for a continuous rainfall where discharge at the point of interest (watershed outlet) increases until an equilibrium value is reached where the excess rainfall rate and the discharge per unit area become equal. This figure in particular illustrates the fifth assumption, that is that rainfall over a period longer than <span class="math notranslate nohighlight">\(T_c\)</span> has no effect on the discharge in the rational method model.</p>
-<p><img alt="" src="../../_images/RationalMethodConceptualProcess.png" /></p>
-<p>For small urban drainage designs, such as storm drains, the rational method is the common method for peak flow estimation in the United States (McPherson, 1969) despite criticism for over-simplified assumptions. The widespread use of the rational method can be explained by its simplicity, entrenchment in practice, extensive coverage in the literature, and lack of comparable simple-to-use alternatives (Haan and others, 1994).</p>
-<p>The applicable area (over which the method can be applied) is generally restricted to less than one square mile (e.g. FHWA (1980)), and in urban jurisdictions to areas to less than 20 acres (Poertner, 1974), yet the idea of a runoff coefficient could certainly be extended to large basins</p>
+<p>In engineering hydrology, entire hydrograph estimation is important for</p>
+<p>In engineering hydrology, entire hydrograph estimation is important for</p>
+<ol class="arabic simple">
+<li><p>Modeling the temporal distribution of runoff for detention and retention system design</p></li>
+<li><p>Assessing watershed response for hydrologic and hydraulic simulation models</p></li>
+<li><p>Supporting water quality analysis and long-term water resource planning</p></li>
+</ol>
+<p>The hydrograph pictured also has a baseflow component
+– Flow in the absence of a storm, often contributed by groundwater discharge or delayed interflow.
+– During storm events, total streamflow consists of both baseflow and stormflow (direct runoff) components.
+– To estimate peak flow or the entire storm hydrograph, it is important to separate the baseflow from the observed hydrograph.
+– This separation is essential for understanding rainfall-runoff relationships and for use in modeling, design, and watershed assessments.</p>
+<p>To perform baseflow separation, several graphical methods have been developed. Common approaches include:</p>
+<section id="constant-discharge-method">
+<h3>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/constantdischarge.png" /></p>
+<ul class="simple">
+<li><p>Identify the point where the rising limb begins.</p></li>
+<li><p>Assign that flow value as a constant baseflow rate throughout the storm event.</p></li>
+<li><p>Connect this baseflow rate across the event duration until it re-joins the recession limb.</p></li>
+<li><p>The portion of flow above the constant line is considered stormflow.</p></li>
+</ul>
+</section>
+<section id="constant-slope-method">
+<h3>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/constantslope.png" /></p>
+<ol class="arabic simple">
+<li><p>Identify the point where the rising limb begins.</p></li>
+<li><p>Draw a straight line from this point to the inflection point on the recession limb.</p></li>
+<li><p>The area above this line is treated as stormflow.</p></li>
+<li><p>Limitations: Difficult to apply accurately in hydrographs with multiple peaks.</p></li>
+</ol>
+</section>
+<section id="concave-method">
+<h3>Concave method<a class="headerlink" href="#concave-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/concave.png" /></p>
+<ol class="arabic simple">
+<li><p>Begin at the rising limb, and trace a concave curve downward along the recession limb, ending beneath the hydrograph peak.</p></li>
+<li><p>Then draw a second segment from this point to the inflection point on the falling limb.</p></li>
+<li><p>The region above these segments is defined as stormflow.</p></li>
+<li><p>Limitations: Can be subjective, especially when dealing with multi-peaked hydrographs.</p></li>
+</ol>
+</section>
+<section id="other-techniques">
+<h3>Other Techniques<a class="headerlink" href="#other-techniques" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>The Master Depletion Curve Method, described in course readings, is useful for long-term or event-specific hydrograph separation using established depletion patterns.</p></li>
+<li><p>For complex or continuous simulations, automated baseflow separation techniques or hydrologic modeling tools (e.g., SWAT, HEC-HMS) may be more appropriate.</p></li>
+<li><p>In practice, the constant discharge method is often favored for multi-peaked events due to its simplicity and reproducibility.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="unit-hydrographs">
+<h1>5.1 Unit Hydrographs<a class="headerlink" href="#unit-hydrographs" title="Link to this heading">#</a></h1>
+<p>A Unit Hydrograph (UH) is a special type of hydrograph function that represents the response (in discharge) of a watershed to 1 inch (or 1 mm) of effective rainfall uniformly distributed over the basin for a specified duration.</p>
+<p>It is a model of how excess rainfall (after losses like infiltration) turns into runoff at the watershed outlet.</p>
+<ul class="simple">
+<li><p>“Excess” means we’ve already subtracted out losses using a loss model.</p></li>
+<li><p>It helps us see how water moves from where it falls to where it exits—this is called time redistribution.</p></li>
+</ul>
+<p>You can simply think of it as a response function that turns rainfall into runoff.</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/ShermanUH/Sherman_ENR_1932.pdf">L. K. Sherman (1932)</a> introduced this idea and it became a key tool in hydrology.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this context these coefficients are not the same as the rational runoff coefficient, hence the use of the jargon “rational runoff coefficient”).</p>
+<p>Once a unit hydrograph is known, it can be scaled and convolved with rainfall excess to predict runoff hydrographs for any storm, allowing flexible design under varied rainfall conditions.</p>
 </div>
-<p>From inspection of the equation, it is evident that <span class="math notranslate nohighlight">\(C\)</span> is an expression of proportionality between rainfall intensity and peak discharge (flow rate). The theoretical range of values for <span class="math notranslate nohighlight">\(C\)</span> is between 0 and 1. The typical whole watershed <span class="math notranslate nohighlight">\(C\)</span> values (that is, <span class="math notranslate nohighlight">\(C\)</span> values representing the integrated effects of various surfaces in the watershed and other watershed properties) are listed for different general land-use conditions in various design manuals and textbooks.</p>
-<p>An on-line <span class="math notranslate nohighlight">\(Q_p\)</span> calculator has links to one such table.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/RationalUS/RationalUS.html">Rational Equation Model US Customary</a></p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/RationalSI/RationalSI.html">Rational Equation Model SI</a></p></li>
+<div class="admonition-unit-hydrograph-concepts admonition">
+<p class="admonition-title">Unit Hydrograph Concepts</p>
+<p>The unit hydrograph is a response function that transforms the distributed input to the outlet, accounting for transit time to get from remote parts of the watershed to the outlet.</p>
+<p><img alt="" src="../../_images/unithydrograph1.png" /></p>
+<p>Another way to picture it is the stack of pizza boxes model of the watershed</p>
+<p><img alt="" src="../../_images/unithydrograph2.png" /></p>
+<p>The time basis matters.  In the figure below a single input of time length D produces the outlet response shown.
+The unit hydrograph is the kernel function that makes the transformation.</p>
+<p><img alt="" src="../../_images/unithydrograph3.png" /></p>
+<p>Unit hydrograph models contain a few common themes, first input hyetograph, then a loss model which are combined to produce the excess precipitation signal</p>
+<p><img alt="" src="../../_images/unithydrograph4.png" /></p>
+<p>The excess precipitation signal has the same total volume as the direct ruoff</p>
+<p><img alt="" src="../../_images/unithydrograph5.png" /></p>
+<p>And the unit hydrograph as a transfer function maps the excess hyetograph to the outlet</p>
+<p><img alt="" src="../../_images/unithydrograph6.png" /></p>
+<p>The storm induced flow is added to any baseflow to produce the total hydrograph.</p>
+<p><img alt="" src="../../_images/unithydrograph7.png" /></p>
+</div>
+<section id="principal-unit-hydrograph-assumptions">
+<h2>Principal Unit Hydrograph Assumptions<a class="headerlink" href="#principal-unit-hydrograph-assumptions" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Direct runoff duration is the same for all uniform-intensity storms of the same duration:</p></li>
+</ol>
+<p><img alt="" src="../../_images/unitgraph1.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If two storms both last, say, 2 hours and have uniform rainfall intensity (rain falls at a constant rate), the resulting direct runoff hydrograph (i.e., the storm response at the outlet) will cover the same time window.</p></li>
+<li><p>Even if one storm drops 1 cm and another drops 2 cm, their runoff hydrographs will start and end at the same times.</p></li>
+<li><p>The reason is that the unit hydrograph depends on how long the rainfall lasts, not how much falls.</p></li>
+<li><p>So, duration of the direct runoff response is determined solely by the duration of the excess precipitation, not its depth.</p></li>
 </ul>
-<p>The <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/rational_method.htm#i1108707">Texas Hydraulic Design Manual</a> contains a useful discussion on appliciability and use of the Rational Method in drainage design.</p>
-<section id="time-of-concentration">
-<h3>Time of Concentration<a class="headerlink" href="#time-of-concentration" title="Link to this heading">#</a></h3>
-<p>The time of concentration is the crucial element of the Rational Equation (notably actually absent in an explicit sense from the equation).</p>
-<ul class="simple">
-<li><p>The value of <span class="math notranslate nohighlight">\(T_C\)</span> is important in rational method for estimating rainfall intensity.</p></li>
-<li><p>It is also used in many other hydrologic models to quantify the watershed response time.</p></li>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Two excess hyetographs of the same duration will produce direct runoff hydrographs of the same duration but different magnitudes
+This reflects linearity of the unit hydrograph system:</p></li>
+</ol>
+<p><img alt="" src="../../_images/unitgraph2.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Imagine two storms that each last 3 hours, but one storm has 1 cm excess rainfall, and the other has 2 cm.</p></li>
+<li><p>The shape and time span of the resulting hydrographs are the same.</p></li>
+<li><p>But the runoff flow rates (ordinates of the hydrograph) will be scaled proportionally to the volume (or depth) of the excess rainfall.</p></li>
+<li><p>For instance, if the first storm produces a peak of 10 m³/s, the second will produce a peak of 20 m³/s.</p></li>
+<li><p>The <strong>runoff</strong> hydrograph is directly <strong>proportional</strong> to the volume of <strong>excess rainfall</strong>, but its duration and shape in time stay the same.</p></li>
 </ul>
-<p>Time of concentration <span class="math notranslate nohighlight">\(T_C\)</span> is the time required for an entire watershed to contribute to runoff at the point of interest for hydraulic design. It is calculated as the time for runoff to flow from the most hydraulically remote point of the drainage area to the point under investigation.</p>
-<p>Travel time and <span class="math notranslate nohighlight">\(T_C\)</span> are functions of length and velocity for a particular watercourse.</p>
-<ul class="simple">
-<li><p>A long but steep flow path with a high velocity may actually have a shorter travel time than a short but relatively flat flow path.</p></li>
-<li><p>There may be multiple paths to consider in determining the longest travel time.</p></li>
-<li><p>The designer must identify the flow path along which the longest travel time is likely to occur.</p></li>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>The time distribution of direct runoff is independent of prior storms (no memory).  This assumption reflects the principle of superposition and linearity:</p></li>
+</ol>
+<p><img alt="" src="../../_images/unitgraph3.png" /></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The watershed responds only to the current excess precipitation—there is no “memory” of what happened before.</p></li>
+<li><p>So if you have a new storm today, the runoff it creates depends only on today’s excess rainfall, not on whether it also rained yesterday.</p></li>
+<li><p>This is true as long as the watershed is assumed to be linear and time-invariant, which is a key assumption in unit hydrograph theory.</p></li>
+<li><p>In reality, soils and storage might retain some effects, but for unit hydrograph models, past rainfall doesn’t affect current response.</p></li>
+<li><p>The watershed behaves like a memoryless system in unit hydrograph theory: the runoff at any time is determined only by current and recent rainfall, not rainfall from previous, far back in time, unrelated events.</p></li>
 </ul>
-<p>Various Methods to Estimate <span class="math notranslate nohighlight">\(T_C\)</span> include:</p>
+</div></blockquote>
+<section id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Link to this heading">#</a></h3>
+<p>Strictly speaking, each unit hydrograph has a particular duration associated with it, D in the diagram</p>
+<p><img alt="" src="../../_images/unithydrograph3.png" /></p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">CMM pp. 500-501</a> has several formulas.</p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">HDS-2 pp. 2-21 to 2-31</a> has formulas and examples.</p></li>
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">LS pp. 196-198</a> has several formulas.</p></li>
+<li><p>That duration must coincide with the time step size used in discrete aggregation</p></li>
+<li><p>Thus a D-hour unit hydrograph is a response to a D-hour “pulse” of excess precipitation.</p></li>
 </ul>
-<p>Some simple useful methods are examined in</p>
+<p>The flow associated with that response is reported every D-hours until there is no further response
+(<span class="math notranslate nohighlight">\(T_D\)</span> in the diagram)</p>
+<p>Each watershed has a characteristic response time, <span class="math notranslate nohighlight">\(T_{lag}\)</span> and <span class="math notranslate nohighlight">\(T_P\)</span> in the diagram.
+The characteristic time of the watershed is related to physical characteristics of the watershed contributing area, slope, etc.
+The time step size for aggregation must the same as the duration, and the time-to-peak for the watershed must be an integer multiple of that value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These requirements are coded into HEC-HMS which will issue warnings as these requirements are violated.  As a designer you need to decide whether to ignore the warnings and proceede or adjust inputs and parameters to satisfy the various rules of the signal processing.</p>
+<p>If you are using SWMM, there is less warning structure - using UH in SWMM is fine; but the user must be able to detect failed input reqirements themselves - there is no internal checking pre-se (SWMM is a hydraulics model, that approximates hydrology whereas HMS is a hydrologic model that can do some simplified hydraulics)</p>
+</div>
+</section>
+<section id="the-unit-hydrograph-as-a-convolution-kernel">
+<h3>The Unit Hydrograph as a Convolution Kernel<a class="headerlink" href="#the-unit-hydrograph-as-a-convolution-kernel" title="Link to this heading">#</a></h3>
+<p>The unit hydrograph (UH) acts as a kernel function in a convolution integral, transforming excess rainfall distributed over time into direct runoff at the watershed outlet.</p>
+<section id="continuous-formulation">
+<h4>Continuous Formulation<a class="headerlink" href="#continuous-formulation" title="Link to this heading">#</a></h4>
+<p>In continuous time, the transformation from rainfall to runoff is expressed as:</p>
+<div class="math notranslate nohighlight">
+\[Q(t)=A \int_0^T{r(\tau)f(t-\tau)d\tau}\]</div>
+<p>Here:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Rational Equation, HEC-HMS)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q(t)\)</span> is the direct runoff rate at time</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> is the drainage area,</p></li>
+<li><p><span class="math notranslate nohighlight">\(r(τ)\)</span> is the excess rainfall rate at past time</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(t−τ)\)</span> is the unit hydrograph kernel, which describes how rainfall occurring at time <span class="math notranslate nohighlight">\(𝜏\)</span> contributes to runoff at later time <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
 </ul>
-<p>The tools referenced in the above document are located below:</p>
+<p>The kernel redistributes rainfall over time, incorporating travel time delays from all points in the watershed to the outlet. In the continuous form, the UH kernel is usually normalized, meaning it integrates to 1. That way, runoff units match rainfall depth units, and the area <span class="math notranslate nohighlight">\(A\)</span> scales the total runoff volume.</p>
+</section>
+<section id="discrete-formulation">
+<h4>Discrete Formulation<a class="headerlink" href="#discrete-formulation" title="Link to this heading">#</a></h4>
+<p>In practical hydrologic modeling, rainfall and runoff are measured in time steps. The discrete form of the convolution becomes:</p>
+<div class="math notranslate nohighlight">
+\[Q(t)=\sum_{m=1}^{n&lt;=M}{P_m U_{n-m}}\]</div>
+<p>In the above,</p>
 <ul class="simple">
-<li><p>NRCS Upland (uses the graph pg 720 of Gupta). <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/NRCS-Upland.xls">NRCS-Upland.xls</a>; <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/NRCS-Upland.xlsx">NRCS-Upland.xlsx</a></p></li>
-<li><p>Kerby-Kirpich <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xls">Kerby-Kirpich.xls</a>;<a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/KerbyKirpich-US.xlsx">Kerby-Kirpich.xlsx</a></p></li>
-<li><p>NRCS Velocity <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/5-Spreadsheets/TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx">TXDOT-TIME-OF-CONCENTRATION-NRCS.xlsx</a></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_n\)</span> is the direct runoff at time step <span class="math notranslate nohighlight">\(n\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_m\)</span> is the excess precipitation depth at time step <span class="math notranslate nohighlight">\(m\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(U_{n-m}\)</span> is the unit hydrograph ordinate, indicating how much runoff occurs at time <span class="math notranslate nohighlight">\(n\)</span> due to rainfall at time <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
 </ul>
+<p>This formulation assumes:</p>
+<ul class="simple">
+<li><p>Time is broken into equal intervals,</p></li>
+<li><p>Rainfall at each time step contributes to future runoff according to the weights of the UH.</p></li>
+</ul>
+<p>In the discrete case, the area of the watershed is embedded in the UH ordinates. This means that rainfall is in depth units (e.g., mm or inches), and runoff are in flow units (e.g., CFS or CMS) , and the UH itself gives direct runoff rate per unit excess rainfall.</p>
+<p>The convolution approach reflects two key assumptions of the unit hydrograph theory:</p>
+<ul class="simple">
+<li><p>Linearity: Doubling the rainfall doubles the runoff.</p></li>
+<li><p>Time invariance: The watershed responds the same way to rainfall regardless of when it occurs.</p></li>
+</ul>
+<p>Together, these allow us to superimpose the effects of multiple rainfall inputs and predict runoff using past input data, efficiently and with reasonable accuracy.</p>
+<p><img alt="" src="../../_images/convolution1.png" /></p>
+</section>
+</section>
+</section>
+<section id="synthetic-vs-observed-unit-hydrographs">
+<h2>Synthetic vs. Observed Unit Hydrographs<a class="headerlink" href="#synthetic-vs-observed-unit-hydrographs" title="Link to this heading">#</a></h2>
+<p>Unit hydrographs can be derived in two principal ways:</p>
+<section id="observed-unit-hydrographs">
+<h3>Observed Unit Hydrographs<a class="headerlink" href="#observed-unit-hydrographs" title="Link to this heading">#</a></h3>
+<p>These are generated from real rainfall-runoff events in gauged watersheds. They reflect the unique topography, land use, and hydrologic response of the basin.</p>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>Highly accurate for the basin where they’re developed</p></li>
+<li><p>Reflects actual watershed behavior</p></li>
+</ul>
+<p>Limitations:</p>
+<ul class="simple">
+<li><p>Requires extensive rainfall and flow records</p></li>
+<li><p>Difficult to generalize to other locations</p></li>
+</ul>
+</section>
+<section id="building-a-unit-hydrograph-from-observations">
+<h3>Building a Unit Hydrograph from Observations<a class="headerlink" href="#building-a-unit-hydrograph-from-observations" title="Link to this heading">#</a></h3>
+<p>Several methods can be used to derive a unit hydrograph from observed rainfall-runoff data. Each approach attempts to solve a system that relates known rainfall inputs (excess hyetograph) to observed direct runoff at the outlet.</p>
+<section id="back-substitution">
+<h4>Back-Substitution<a class="headerlink" href="#back-substitution" title="Link to this heading">#</a></h4>
+<p><img alt="" src="../../_images/convolution2.png" /></p>
+<p><img alt="" src="../../_images/convolution3.png" /></p>
+<p><img alt="" src="../../_images/convolution4.png" /></p>
+<p><img alt="" src="../../_images/convolution5.png" /></p>
+<p>In this approach, we use the discrete convolution equation and known data to back out the unit hydrograph ordinates:</p>
+<ul class="simple">
+<li><p>If the linear system is square (same number of equations as unknowns), full-rank, and has a non-zero diagonal, then the unit hydrograph ordinates can be solved using direct methods.</p></li>
+<li><p>This is often better than manual back-substitution, which is error-prone and tedious.</p></li>
+<li><p>In many real-world cases, the system is over-determined—meaning there are more equations than unknowns. In such cases, a simple solution may not exist, and an optimization method is required.</p></li>
+</ul>
+<p><img alt="" src="../../_images/convolution6.png" /></p>
+</section>
+<section id="least-squares">
+<h4>Least-Squares<a class="headerlink" href="#least-squares" title="Link to this heading">#</a></h4>
+<p>This method is well-suited to over-determined systems.</p>
+<p><img alt="" src="../../_images/leastsquares.png" /></p>
+<p>It finds the best-fit unit hydrograph that minimizes the squared error between observed and predicted runoff:</p>
+<ul class="simple">
+<li><p>May occasionally produce negative weights, especially for later times where data is sparse or noisy.</p></li>
+<li><p>These negative values are typically small and occur late in the hydrograph; while not ideal, they can often be corrected or constrained in post-processing.</p></li>
+<li><p>The least squares method treats the problem like a regression problem, using rainfall inputs as predictors and runoff outputs as the response.</p></li>
+<li><p>It is easy to implement in a spreadsheet for small-to-moderate datasets.</p></li>
+</ul>
+<p><img alt="" src="../../_images/leastsquaresSS.png" /></p>
+</section>
+<section id="linear-programming">
+<h4>Linear Programming<a class="headerlink" href="#linear-programming" title="Link to this heading">#</a></h4>
+<p>Linear programming methods can enforce constraints (e.g., non-negative weights), making them more robust in some situations. These methods are beyond the scope of this course, but are referenced in assigned readings for students who wish to explore further.</p>
+</section>
+</section>
+</section>
+<section id="what-are-unit-hydrographs-used-for">
+<h2>What are Unit Hydrographs used for?<a class="headerlink" href="#what-are-unit-hydrographs-used-for" title="Link to this heading">#</a></h2>
+<p>Unit hydrographs are valuable tools in hydrology for predicting runoff from future storms, especially when we can reasonably assume the watershed responds linearly and consistently over time.</p>
+<p>Their primary use is to estimate the direct runoff hydrograph at the watershed outlet, based on an expected excess rainfall hyetograph of known duration.</p>
+<p>If a new storm is expected to last the same duration as the unit hydrograph (e.g., 3 hours), we can use scaling and superposition to predict runoff:</p>
+<ul class="simple">
+<li><p>Multiply the unit hydrograph by the magnitude (depth) of excess rainfall.</p></li>
+<li><p>Shift and add the scaled versions to match the timing of the new rainfall pattern.</p></li>
+<li><p>This allows us to predict runoff without having to rerun a full physical model of the watershed.</p></li>
+</ul>
+<p>If the new storm has the same shape (uniform intensity), but a different depth, we scale the unit hydrograph proportionally.</p>
+<ul class="simple">
+<li><p>For example, 2 cm of excess rainfall produces twice the runoff of a 1 cm storm.</p></li>
+<li><p>The shape and timing of the hydrograph remain the same.</p></li>
+</ul>
+<p>If the new storm lasts the same amount of time but has uneven rainfall distribution across the duration, we break it into increments:</p>
+<ul class="simple">
+<li><p>Apply the unit hydrograph to each time step of the excess hyetograph.</p></li>
+<li><p>Use discrete convolution to sum the resulting shifted hydrographs.</p></li>
+<li><p>The result is a new hydrograph reflecting the storm’s unique rainfall pattern.</p></li>
+</ul>
+<p>Some illustrative examples using the UH just determined above</p>
+<p><img alt="" src="../../_images/UHuse1.png" /></p>
+<p><img alt="" src="../../_images/UHuse2.png" /></p>
+<p><img alt="" src="../../_images/UHuse3.png" /></p>
+<p><img alt="" src="../../_images/UHuse4.png" /></p>
+<p>Unit hydrographs are most useful when:</p>
+<ul class="simple">
+<li><p>The storm duration matches the UH duration,</p></li>
+<li><p>Watershed behavior is assumed linear and time-invariant,</p></li>
+<li><p>We want a quick, practical method to estimate direct runoff without complex modeling.</p></li>
+</ul>
+<p>They are widely employed in design storms, flood estimation, and runoff forecasting.</p>
+<section id="parametric-unit-hydrographs">
+<h3>Parametric Unit Hydrographs<a class="headerlink" href="#parametric-unit-hydrographs" title="Link to this heading">#</a></h3>
+<p>Instead of using a table of discrete unit hydrograph weights, we can represent the unit hydrograph as a mathematical function whose shape is controlled by one or more parameters. These are called parametric unit hydrographs.</p>
+<p><img alt="" src="../../_images/parametricUH1.png" /></p>
+<p><img alt="" src="../../_images/parametricUH2.png" /></p>
+<p><img alt="" src="../../_images/parametricUH3.png" /></p>
+<p>Parametric unit hydrographs retain the same purpose—mapping excess rainfall to direct runoff—but offer greater flexibility and compactness by reducing the number of variables to a few key shape-controlling parameters.</p>
+<section id="why-use-parametric-unit-hydrographs">
+<h4>Why Use Parametric Unit Hydrographs?<a class="headerlink" href="#why-use-parametric-unit-hydrographs" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Fewer values to store, interpret, or manipulate.</p></li>
+<li><p>Easy to scale or extend to longer or shorter storm durations.</p></li>
+<li><p>When parameters are tied to physical watershed characteristics (such as slope, channel length, soil type, or shape), the result is a synthetic unit hydrograph.</p></li>
+</ul>
+</section>
+<section id="what-is-a-synthetic-unit-hydrograph">
+<h4>What is a Synthetic Unit Hydrograph?<a class="headerlink" href="#what-is-a-synthetic-unit-hydrograph" title="Link to this heading">#</a></h4>
+<p>A synthetic unit hydrograph estimates runoff behavior without observed rainfall-runoff data. Instead, it is built by relating hydrograph shape parameters to measurable watershed properties:</p>
+<ul class="simple">
+<li><p>Average slope</p></li>
+<li><p>Length of main channel</p></li>
+<li><p>Drainage area</p></li>
+<li><p>Land use or soil group</p></li>
+</ul>
+<p>This makes synthetic methods particularly useful for ungauged watersheds or planning studies where measured runoff data are unavailable.</p>
+<p><img alt="" src="../../_images/parametricUH4.png" /></p>
+</section>
+<section id="extending-the-time-base">
+<h4>Extending the Time Base<a class="headerlink" href="#extending-the-time-base" title="Link to this heading">#</a></h4>
+<p>When the storm duration is much longer than the original UH duration, the unit hydrograph must be extended in time.</p>
+<p>For parametric unit hydrographs, this is relatively simple—just evaluate the function over a longer time interval and adjust accordingly.</p>
+<p><img alt="" src="../../_images/timebase1.png" /></p>
+<p><img alt="" src="../../_images/timebase2.png" /></p>
+<p>For classically derived unit hydrographs (based on discrete weights from observed events), the S-curve method is commonly used to extend the time base. This involves cumulative summation and shifting techniques to build longer-duration responses.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In practice, most hydrologic modeling software includes built-in parametric UH options—so modern workflows rarely require manual extension unless you’re working with historical or custom unit hydrographs.</p>
+</div>
+</section>
+</section>
+<section id="synthetic-unit-hydrographs">
+<h3>Synthetic Unit Hydrographs<a class="headerlink" href="#synthetic-unit-hydrographs" title="Link to this heading">#</a></h3>
+<p>When direct streamflow data is unavailable, unit hydrographs can be estimated—or synthesized—using relationships that depend on measurable watershed characteristics such as:</p>
+<ul class="simple">
+<li><p>Drainage area</p></li>
+<li><p>Average slope</p></li>
+<li><p>Main stream/channel length</p></li>
+<li><p>Time of concentration (or other characteristic time derived from a map)</p></li>
+</ul>
+<p>These methods are designed to provide reasonable approximations of watershed response, especially when field data is limited or nonexistent.</p>
+<p>Common methods include:</p>
+<ul class="simple">
+<li><p>Snyder’s Method</p></li>
+<li><p>SCS Dimensionless Unit Hydrograph (DUH)</p></li>
+<li><p>Clark Method</p></li>
+<li><p>USGS Regional Regression Models</p></li>
+</ul>
+<p><strong>Advantages</strong></p>
+<ul class="simple">
+<li><p>Necessary for ungauged watersheds (or a physics-based model)</p></li>
+<li><p>Easily applied across large regions using GIS-derived parameters</p></li>
+<li><p>Enables early-stage design and planning before detailed data collection</p></li>
+<li><p>Often built into hydrologic modeling tools and design manuals</p></li>
+</ul>
+<p><strong>Limitations</strong></p>
+<ul class="simple">
+<li><p>May oversimplify complex watershed behavior</p></li>
+<li><p>Accuracy depends on the quality of empirical relationships</p></li>
+<li><p>Less reliable than hydrographs developed from measured rainfall-runoff events</p></li>
+<li><p>Assumes uniform rainfall and simplified watershed geometry</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Synthetic unit hydrographs are indispensable in regions with limited hydrologic monitoring. They allow engineers to estimate flood response and runoff volumes during planning, screening, and feasibility analysis, especially for rural or developing areas where instrumentation is sparse.</p>
+</div>
 </section>
 </section>
 <section id="modified-rational-method">
@@ -930,6 +1346,13 @@ The units of <strong>accumulated</strong> depth are length (thus the time deriva
 <p>The rational method is used to estimate peak discharges for sizing drainage structures, such as storm drains and culverts. The modified rational method (MRM) is an extension of the rational method to produce simple runoff hydrographs. The MRM is often called the rational hydrograph method. Application of the MRM produces a runoff hydrograph and runoff volume in contrast to application of the rational method, which produces only a peak design discharge (Qp).</p>
 <p>The hydrograph developed from application of the MRM is a special case of the unit hydrograph method and is sometimes termed the modified rational unit hydrograph (MRUH); as a unit hydrograph, the MRUH can be applied to nonuniform rainfall distributions. Furthermore, the MRUH can be used on watersheds with drainage areas in excess of the typical limit for application of the rational method. Application of the MRUH method involves two steps: (1) determination of rainfall loss using rational method concept, that is, use of the runoff coefficient, and (2) determination of the MRUH using drainage area (A) and time of concentration (Tc) as input parameters, in addition to applying the procedure of unit hydrograph convolution.</p>
 <p>Tc and runoff coefficients, C, can be estimated by a variety of methods.</p>
+<div class="admonition-references-on-modified-rational-method admonition">
+<p class="admonition-title">References on Modified Rational Method</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/Akan_2002.pdf">A Osman Akan. 2002. Modified rational method for sizing infiltration structures. Canadian Journal of Civil Engineering. 29(4): 539-542.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/3-Readings/MRM_WAMA1300032h.pdf">Dhakal, N., Fang, X., Cleveland, T.G., Thompson, D.B. 2014 “Modified Rational Unit Hydrograph Method and Applications” Institute of Civil Engineers, Journal of Water Management, WATER-D-13-00032R2</a></p></li>
+</ol>
+</div>
 </section>
 <section id="modified-rational-method-hydrograph-generator">
 <h2>Modified Rational Method Hydrograph Generator<a class="headerlink" href="#modified-rational-method-hydrograph-generator" title="Link to this heading">#</a></h2>
@@ -983,7 +1406,7 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
 <span class="n">PT</span> <span class="o">=</span> <span class="mf">6.96</span>  <span class="c1"># Total storm depth in inches</span>
 <span class="n">area</span> <span class="o">=</span> <span class="mi">181</span>  <span class="c1"># Drainage area in acres</span>
 <span class="n">C</span> <span class="o">=</span> <span class="mf">0.65</span>  <span class="c1"># Runoff coefficient</span>
-<span class="n">Tc</span> <span class="o">=</span> <span class="mf">66.0</span>  <span class="c1"># Time of concentration in minutes</span>
+<span class="n">Tc</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># Time of concentration in minutes</span>
 <span class="n">hyetType</span> <span class="o">=</span> <span class="s1">&#39;type2&#39;</span>  <span class="c1"># Options: &#39;type1&#39;, &#39;type1A&#39;, &#39;type2&#39;, &#39;type3&#39;, &#39;user&#39;</span>
 </pre></div>
 </div>
@@ -1075,7 +1498,7 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
         <span class="sa">f</span><span class="s2">&quot;Direct Runoff Hydrograph – Modified Rational Method</span><span class="se">\n\n</span><span class="s2">&quot;</span>
         <span class="sa">f</span><span class="s2">&quot;Hyetograph Type: </span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="sa">f</span><span class="s2">&quot;Area: </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> acres | Storm Depth: </span><span class="si">{</span><span class="n">PT</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> in | C: </span><span class="si">{</span><span class="n">C</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> | Tc: </span><span class="si">{</span><span class="n">Tc</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> min</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Peak Q: </span><span class="si">{</span><span class="n">peakQ</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> cfs | Q total: </span><span class="si">{</span><span class="n">totalQ</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> af | R total: </span><span class="si">{</span><span class="n">totalR</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> af</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Peak Q: </span><span class="si">{</span><span class="n">peakQ</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> cfs | Q total: </span><span class="si">{</span><span class="n">totalQ</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> af | xsR total: </span><span class="si">{</span><span class="n">totalR</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> af</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="sa">f</span><span class="s2">&quot;Mass Balance Error: </span><span class="si">{</span><span class="n">massE</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
     <span class="p">)</span>
 
@@ -1106,74 +1529,9 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e52df13e3cdb221b4ea917dbc0875620560c1072e580d1d7a53346555518321.png" src="../../_images/3e52df13e3cdb221b4ea917dbc0875620560c1072e580d1d7a53346555518321.png" />
+<img alt="../../_images/2da89909b3199785bc34ce57e2b10ca4ae2aba8353ff8c0a0ab0e91e359965d7.png" src="../../_images/2da89909b3199785bc34ce57e2b10ca4ae2aba8353ff8c0a0ab0e91e359965d7.png" />
 </div>
 </div>
-</section>
-<section id="concept-of-hydrographs-and-peak-flow-estimation">
-<h2>Concept of Hydrographs and Peak Flow Estimation<a class="headerlink" href="#concept-of-hydrographs-and-peak-flow-estimation" title="Link to this heading">#</a></h2>
-<p>A hydrograph is a time series plot that shows how streamflow or discharge varies over time at a particular point in a watershed, typically following a rainfall event. It reflects the integrated response of a watershed to precipitation, modulated by surface and subsurface flow processes.</p>
-<p><img alt="" src="../../_images/HydrographImage.png" /></p>
-<p>The idealized hydrograph (above) is divided into:</p>
-<ul class="simple">
-<li><p>Rising limb: where discharge increases rapidly due to incoming runoff</p></li>
-<li><p>Peak flow: the highest point of the hydrograph, representing the maximum discharge</p></li>
-<li><p>Recession limb: the gradual decrease in flow as runoff and baseflow subside</p></li>
-</ul>
-<p>In engineering hydrology, peak flow estimation is crucial for:</p>
-<ol class="arabic simple">
-<li><p>Designing culverts, bridges, detention ponds</p></li>
-<li><p>Urban drainage systems</p></li>
-<li><p>Flood risk assessments</p></li>
-</ol>
-<p>A Unit Hydrograph (UH) is a special type of hydrograph function that represents the response (in discharge) of a watershed to 1 inch (or 1 mm) of effective rainfall uniformly distributed over the basin for a specified duration.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Once a unit hydrograph is known, it can be scaled and convolved with rainfall excess to predict runoff hydrographs for any storm, allowing flexible design under varied rainfall conditions.</p>
-</div>
-</section>
-<section id="synthetic-vs-observed-unit-hydrographs">
-<h2>Synthetic vs. Observed Unit Hydrographs<a class="headerlink" href="#synthetic-vs-observed-unit-hydrographs" title="Link to this heading">#</a></h2>
-<p>Unit hydrographs can be derived in two principal ways:</p>
-<section id="observed-unit-hydrographs">
-<h3>Observed Unit Hydrographs<a class="headerlink" href="#observed-unit-hydrographs" title="Link to this heading">#</a></h3>
-<p>These are generated from real rainfall-runoff events in gauged watersheds. They reflect the unique topography, land use, and hydrologic response of the basin.</p>
-<p>Advantages:</p>
-<ul class="simple">
-<li><p>Highly accurate for the basin where they’re developed</p></li>
-<li><p>Reflects actual watershed behavior</p></li>
-</ul>
-<p>Limitations:</p>
-<ul class="simple">
-<li><p>Requires extensive rainfall and flow records</p></li>
-<li><p>Difficult to generalize to other locations</p></li>
-</ul>
-</section>
-<section id="synthetic-unit-hydrographs">
-<h3>Synthetic Unit Hydrographs<a class="headerlink" href="#synthetic-unit-hydrographs" title="Link to this heading">#</a></h3>
-<p>Developed when direct streamflow data is unavailable. These hydrographs are estimated (synthesized) using relationships based on basin characteristics such as <strong>area</strong>, <strong>slope</strong>, and <strong>stream length</strong>. Well-known methods include:</p>
-<ul class="simple">
-<li><p>Snyder’s Method</p></li>
-<li><p>SCS Dimensionless Unit Hydrograph</p></li>
-<li><p>Clark Method</p></li>
-<li><p>USGS Regression Models</p></li>
-</ul>
-<p>Advantages:</p>
-<ul class="simple">
-<li><p>Useful for ungauged watersheds</p></li>
-<li><p>Quick and scalable across regions</p></li>
-</ul>
-<p><img alt="" src="../../_images/UnitHydrographImage.png" /></p>
-<p>Limitations:</p>
-<ul class="simple">
-<li><p>May oversimplify watershed behavior</p></li>
-<li><p>Less accurate than observed hydrographs</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Synthetic hydrographs are essential tools for design in data-scarce regions, especially during feasibility and early planning stages.</p>
-</div>
-</section>
 </section>
 <section id="exercise-s">
 <h2>Exercise(s)<a class="headerlink" href="#exercise-s" title="Link to this heading">#</a></h2>
@@ -1248,12 +1606,16 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">5. Rainfall-Runoff Relationships</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-and-scs-curve-number-cn-method">Rational Method and SCS Curve Number (CN) Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrograph-theory">Unit Hydrograph Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-runoff-estimation-using-rational-and-cn-methods">Lab/Exercise: Runoff estimation using Rational and CN methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rational-method-background">The Rational Method - Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-in-detail">Rational Method - In Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-scs-curve-number-cn-method-background">The SCS Curve Number (CN) Method - Background</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curve-number-selection">Curve Number Selection</a></li>
 </ul>
@@ -1264,21 +1626,53 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-runoff-generation-models">NRCS Runoff Generation Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model">Interpretation of NRCS CN as a linear reservoir model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-method-in-detail">Rational Method - In Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-of-concentration">Time of Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrographs-and-peak-flow-estimation">Concept of Hydrographs and Peak Flow Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrographs">5.1 Unit Hydrographs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-unit-hydrograph-assumptions">Principal Unit Hydrograph Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">Timing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-hydrograph-as-a-convolution-kernel">The Unit Hydrograph as a Convolution Kernel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-formulation">Continuous Formulation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-formulation">Discrete Formulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-vs-observed-unit-hydrographs">Synthetic vs. Observed Unit Hydrographs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-unit-hydrographs">Observed Unit Hydrographs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-unit-hydrograph-from-observations">Building a Unit Hydrograph from Observations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#back-substitution">Back-Substitution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">Least-Squares</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programming">Linear Programming</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-unit-hydrographs-used-for">What are Unit Hydrographs used for?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parametric-unit-hydrographs">Parametric Unit Hydrographs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-parametric-unit-hydrographs">Why Use Parametric Unit Hydrographs?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-synthetic-unit-hydrograph">What is a Synthetic Unit Hydrograph?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-time-base">Extending the Time Base</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-unit-hydrographs">Synthetic Unit Hydrographs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method">Modified Rational Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-rational-method-hydrograph-generator">Modified Rational Method Hydrograph Generator</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrographs-and-peak-flow-estimation">Concept of Hydrographs and Peak Flow Estimation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-vs-observed-unit-hydrographs">Synthetic vs. Observed Unit Hydrographs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-unit-hydrographs">Observed Unit Hydrographs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#synthetic-unit-hydrographs">Synthetic Unit Hydrographs</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
