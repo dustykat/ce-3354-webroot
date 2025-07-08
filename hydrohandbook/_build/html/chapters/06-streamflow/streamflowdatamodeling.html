@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7. Streamflow Data Sources and Estimation &#8212; Spreadsheet Hydrology</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/06-streamflow/streamflowdatamodeling';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/aurora.png" class="logo__image only-light" alt="Spreadsheet Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/aurora.png" class="logo__image only-dark" alt="Spreadsheet Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Spreadsheet Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-streamflow.html">6. Streamflow Measurement and Streamflow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters/06-streamflow/streamflowdatamodeling.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/06-streamflow/streamflowdatamodeling.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>7. Streamflow Data Sources and Estimation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics">Watershed Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">Flood Frequency Analysis (B17C)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-duration-curves">Flow Duration Curves</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="streamflow-data-sources-and-estimation">
+<h1>7. Streamflow Data Sources and Estimation<a class="headerlink" href="#streamflow-data-sources-and-estimation" title="Link to this heading">#</a></h1>
+<div class="admonition-course-website admonition">
+<p class="admonition-title">Course Website</p>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/">Link to Course Website</a></p>
+</div>
+<hr class="docutils" />
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. <strong>pp. 1-12</strong> </a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 1 )</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 2)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">See pp. 33-39 CMM for explaination of Manning’s equation</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method</a></p></li>
+<li><p><a class="reference external" href="https://library.ctr.utexas.edu/hostedpdfs/texastech/psr/0-6977-s.pdf">Develop a Generalized Skew Update and Regional Study of Other Measures of Distribution Shape for Texas Flood Frequency Analyses (Project Sumary Report)</a></p></li>
+<li><p><a class="reference external" href="https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ">Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.3133/tm4B5">England, J.F. Jr., Cohn, T.A., Faber, B.A., Stedinger, J.R., Thomas Jr., W.O., Veilleux, A.G., Kiang, J.E., and Mason, R.R.Jr., 2018, Guidelines for Determining Flood Flow Frequency—Bulletin 17C: U.S. Geological Survey Techniques andMethods, book 4, chap. B5, 146 p.,</a></p></li>
+<li><p><a class="reference external" href="http://www.learncodingfast.com/python">Jamie Chan (2014) Learn Python in One Day and Learn It Well. LCF Publishing. Kindle Edition. </a></p></li>
+<li><p><a class="reference external" href="http://safaribooksonline.com">Grus, Joel. Data Science from Scratch: First Principles with Python. O’Reilly Media. Kindle Edition. </a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1627790365">Christian, B, and Griffiths Tom (2016) Algorithms to live by: The computer science of human decisions. Henry Holt and Company, ISBN 9781627790369 (hardcover)|ISBN 9781627790376 (electronic book)</a></p></li>
+<li><p><a class="reference external" href="https://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417">https://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417</a></p></li>
+<li><p><a class="reference external" href="https://www.astroml.org/book_figures/chapter3/fig_gamma_distribution.html">https://www.astroml.org/book_figures/chapter3/fig_gamma_distribution.html</a></p></li>
+<li><p><a class="reference external" href="https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html">https://www.inferentialthinking.com/chapters/10/Sampling_and_Empirical_Distributions.html</a></p></li>
+<li><p><a class="reference external" href="https://www.inferentialthinking.com/chapters/15/Prediction.html">https://www.inferentialthinking.com/chapters/15/Prediction.html</a></p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=g_s_toqrYVM">Collecting water data for the U.S.</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=usCTuMnXGQE">Hydroacoustics for Collecting Streamflow Data</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=FeRzzQA0I7k">How to look at and download streamflow data from the USGS NWIS website</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NKsE06fvF10">Surface Water Data of any location of the World for free </a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=OAozlSQ_fIg">Precipitation Runoff Modeling System (PRMS) Streamflow Modules </a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=aXq-QnYYc74">Improved process based streamflow simulation through ensemble and stochastic data driven approaches</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=ERSBlzcbHjs&amp;amp;t=11s">Hydrology - Statistical Hydrology 2 (go to time stamp 47:00 to get to regionalization) </a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=wG-F5fZFOhw&amp;amp;t=297s">StreamStats: Determining Magnitude and Frequency of Floods in California (Specific to California, but nice discussion on regionalization)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=pzpfCvNBXI0&amp;amp;list=PLQv9IPdrtoKgxLQih9UXNbFqXLeJvKEaz&amp;amp;index=29">Watershed Delineation and TR-55 for runoff hydrograph</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=w-j2S3APUgk">PeakFQ (Version 7.1) Flood-Frequency Analysis Demo</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">CE 3354 Demonstrate PeakFQ using Beargrass Creek Data</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=yfs3oaF2F-w">Bulletins 17B and 17C 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=yfs3oaF2F-w">Bulletins 17B and 17C 2</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=cfaVjfms9ss">Bulletins 17B and 17C 3</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NI9Ui4x_HJk">Regional Skew 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Wc0qaDaBjFE">HEC-SSP Bulletin 17C Flood Frequency Analysis Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=7psZWEhm4Kw">Index Flood Regionalization Pt I</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=De4o8S2ohLA">Index Flood Regionalization Pt II</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=hjdnlbxrje8">Index Flood Regionalization Pt III</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=8HkztqnptIA">Index Flood Regionalization Pt IV</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=3Qtep3SdzDw">Uncertainty in Frequency Estimates 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=qyJSiWXd5fc">Uncertainty in Frequency Estimates 2</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=86QY-5bH6sA">Uncertainty in Frequency Estimates 3</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/R_nSTyMnlsE">0-6977 Training Video for Gage 08148500</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/y_vK3sWqnHw">0-6977-Prototype-Remote-Tools-Intro</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/YQ1YJFUrwYE">0-6977 Training Video for Gage 08167000 using Fig 4.6</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/ZUztiBLWFVs">0-6977 Training Video for Gage 08080750</a></p></li>
+</ol>
+</section>
+<section id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Streamflow Measurement</p></li>
+<li><p>Streamflow (gage) Data</p></li>
+<li><p>Estimation of Streamflow</p></li>
+<li><p>Watershed Characteristics</p></li>
+<li><p>Regional Regression Equations</p></li>
+<li><p>B17C</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="streamflow-measurement">
+<h2>Streamflow Measurement<a class="headerlink" href="#streamflow-measurement" title="Link to this heading">#</a></h2>
+<p>Streamflow is measured by a variety of gaging technologies.</p>
+<ul class="simple">
+<li><p>Continuous record (usually stage, then rated to produce discharge)</p>
+<ul>
+<li><p>Located at control section if possible</p></li>
+</ul>
+</li>
+<li><p>Crest-Stage (captures peak stage)</p>
+<ul>
+<li><p>Uses slope-area to estimate discharge</p></li>
+<li><p>Post-event site visit required to survey debris-line as independent check of estimate</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Continuous gages</strong> use some kind of stilling well, and transducers to measure stage and send to satellite. During visits, a nearby staff gage is read to independently validate the transducer readings</p>
+<p><img alt="" src="../../_images/continuousgage.png" /></p>
+<p><strong>Crest-Stage</strong> gagues usually consist of a vertical pipe with holes in bottom – becomes a stilling well.
+Inside a staff gage and small amount of cork “flour” records water surface elevation.</p>
+<ul class="simple">
+<li><p>A hydrographer visits site routinely (and after major events) and records cork elevation and re-sets gage.</p></li>
+<li><p>The elevations are marked on a staff inside the pipe with pencil (and dated)</p></li>
+<li><p>Slope area method between several nearby pipes is used to estimate discharge</p></li>
+</ul>
+<p><img alt="" src="../../_images/creststagegage.png" /></p>
+<section id="slope-area-method">
+<h3>Slope Area Method<a class="headerlink" href="#slope-area-method" title="Link to this heading">#</a></h3>
+<p>Application of Manning’s equation, using the slope of the water surface as the friction slope, and the stage geometry at measured cross sections.</p>
+<div class="math notranslate nohighlight">
+\[Q=\frac{1.49}{n}~A~R^{2/3}~S^{1/2}\]</div>
+<p>Recall the factor 1.49 is for US Customary units, 1.0 is used if terms are expressed in SI units.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">See pp. 33-39 CMM for explaination of Manning’s equation</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">See 7-31 TxDOT HDM for a description of slope-area (slope-conveyance) method</a></p></li>
+<li><p><a class="reference external" href="https://pubs.usgs.gov/twri/twri3-a2/pdf/twri_3-A2_a.pdf">MEASUREMENT OF PEAK DISCHARGE by the SLOPE AREA METHOD</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=5Rqy8_ZOHZw">Theory of the Slope-Area Method (Video)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/toolbox/swhydraulics/SlopeAreaSI/SlopeAreaSI.html">Slope Area Calculator</a></p></li>
+<li><p><a class="reference external" href="https://ponce.sdsu.edu/slope_area_method.php">slopearea.sdsu.edu </a></p></li>
+</ul>
+</section>
+</section>
+<section id="streamflow-data">
+<h2>Streamflow Data<a class="headerlink" href="#streamflow-data" title="Link to this heading">#</a></h2>
+<p>Data sources for streamflow include:</p>
+<ul class="simple">
+<li><p>USGS NWIS (Website)</p></li>
+<li><p>IBWC</p></li>
+<li><p>Older “paper-based” records</p></li>
+<li><p>Local gage networks</p></li>
+</ul>
+<p>Illustrative example using USGS NWIS</p>
+<ul class="simple">
+<li><p>Navigate to landing page for state of interest</p></li>
+</ul>
+<p><img alt="" src="../../_images/query-nwis.png" /></p>
+<ul class="simple">
+<li><p>Locate site of interest, or something stupid close</p></li>
+</ul>
+<p><img alt="" src="../../_images/nwis-buffalo.png" /></p>
+<ul class="simple">
+<li><p>Download desired record(s)</p></li>
+</ul>
+<p><img alt="" src="../../_images/nwis-buffalo2.png" /></p>
+<ul class="simple">
+<li><p>Typical file structure</p></li>
+</ul>
+<p><img alt="" src="../../_images/nwis-buffalo3.png" /></p>
+</section>
+<section id="watershed-characteristics">
+<h2>Watershed Characteristics<a class="headerlink" href="#watershed-characteristics" title="Link to this heading">#</a></h2>
+<p>One tool in applied hydrology is to relate measurable watershed properties to streamflow discharge.</p>
+<p>What characteristics influence runoff?</p>
+<ul class="simple">
+<li><p>Where you are</p></li>
+<li><p>How large an area</p></li>
+<li><p>Gradient</p></li>
+</ul>
+<p><img alt="" src="../../_images/devilsriver.png" /></p>
+<p>More detailed list might include:</p>
+<ul class="simple">
+<li><p>Width, shape</p></li>
+<li><p>Elevation: minimum, maximum + slope</p></li>
+<li><p>Roughness: Channels, overbanks</p></li>
+<li><p>Geology and soils</p></li>
+<li><p>Climate</p></li>
+<li><p>Vegetation</p></li>
+<li><p>Land use, including urbanization and imperviousness</p></li>
+<li><p>Controls: Dams, gates, diversions, channel rectification</p></li>
+</ul>
+<p>This is part of the motivation for learning how to delineate a watershed.</p>
+<p>Supporting data sources include:</p>
+<ul class="simple">
+<li><p>USGS quadrangle maps</p></li>
+<li><p>Aerial photos</p></li>
+<li><p>Satellite imagery</p></li>
+<li><p>NRCS soil surveys</p></li>
+<li><p>Field surveys</p></li>
+<li><p>Previous investigations</p></li>
+</ul>
+<p><img alt="" src="../../_images/nrcs-soilsmap.png" /></p>
+</section>
+<section id="regional-regression-equations">
+<h2>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Link to this heading">#</a></h2>
+<p>Where sufficient data exist, one technique for gross estimates of streamflow based largely on watershed area, rainfall input, and location are regional regression equations.  These exist in some fashion for each state in the USA, and most terrortories (Puerto Rico, Guam …).  They probably exist for many other countries, and are all obtained in a similar fashion.</p>
+<p>The equations are constructed by first fitting an appropriate probability distribution to observations at a gaged location (station flood frequency). Then the station flood frequency curves are used as surrogate observations (at a specified AEP) to relate discharge to select geomorphic variables:</p>
+<div class="math notranslate nohighlight">
+\[(\bar Q_{AEP} -\beta_0 - \beta_1 A - \beta_2 S - \beta_3 MAP \dots)^2= \bar \epsilon\]</div>
+<p>The “betas” are obtained by trying to make “epsilon” small, the AREA, SLOPE, and other watershed characteristics are the explainatory variables.</p>
+<p>The resulting equations are typically expressed in a power-law form (rather that the linear combination above) for actual application</p>
+<div class="math notranslate nohighlight">
+\[Q_{AEP,\text{Estimate}} = \beta_0 (\text{AREA})^{\beta_1} (\text{SLOPE})^{\beta_2} (\text{MAP})^{\beta_3}\]</div>
+<p>For example in Texas the following guidance is found in Chapter 4 of the Texas Hydraulics Manual:</p>
+<p><img alt="" src="chapters/06-streamflow/THMregression.png" /></p>
+<p>The actual equations in current use are</p>
+<p><img alt="" src="chapters/06-streamflow/RegressionEquations.png" /></p>
+<p>Two needed input values are the mean annual precipitation (MAP) and the Omega-EM factor both of which are mapped and available on the almighty internet</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://onlinemanuals.txdot.gov/txdotmanuals/hyd/images/Fig4-6.png">Texas Mean Annual Precipitation</a></p></li>
+<li><p><a class="reference external" href="http://onlinemanuals.txdot.gov/txdotmanuals/hyd/OmegaEM_black_cropped.pdf">Texas Omega-EM Map</a></p></li>
+</ul>
+<p>Using the table above and the known equation structure it is fairly straightforward to create a tool for routine use in either a spreadsheet form or in python</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson05/TexasRegionalRegressionTool.xlsx">Texas Regression Equation Spreadsheet</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/TXRegression/TXRegression.html">On-Line Texas Regression Equation Tool</a></p></li>
+</ul>
+<p>Illustrative example for the Hardin Branch location (near Eden Texas).</p>
+<p>Apply the Regression Equations for the Hardin Branch Watershed – provide a comparative estimate to help guide the project</p>
+<ul class="simple">
+<li><p>AREA = 17 sq. mi.</p></li>
+<li><p>MAP = 23 inches/year</p></li>
+<li><p>OmegaEM = 0.345</p></li>
+<li><p>Slope = 0.0048</p></li>
+</ul>
+<p>Below is result using the spreadsheet tool
+<img alt="" src="chapters/06-streamflow/texasregional.png" /></p>
+<p>And the on-line web interface
+<img alt="" src="chapters/06-streamflow/texasregionalonline1.png" /></p>
+<p>and the on-line results
+<img alt="" src="chapters/06-streamflow/texasregionalonline2.png" /></p>
+</section>
+<section id="gage-transposition-approach">
+<h2>Gage Transposition Approach<a class="headerlink" href="#gage-transposition-approach" title="Link to this heading">#</a></h2>
+<p>A related (to regression methods) method that is often quite useful is a <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/statistical_analysis_of_stream_gauge_data.htm#i1106111">Gage Transposition Approach</a>.</p>
+<p>If gauge data are not available at the design location, discharge values can be estimated by transposition if a peak flow-frequency curve is available at a nearby gauged location. This method is appropriate for hydrologically similar watersheds that differ in area by less than 50 percent, with outlet locations less than 100 miles apart.</p>
+<p>An estimate of the desired AEP peak flow at the ungauged site is provided by <br></p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.5}  \)</span><br></p>
+<p>Where:<br></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> = Estimated AEP discharge at ungauged watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_2\)</span> = Known AEP discharge at gauged watershed 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_1\)</span> = Area of watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_2\)</span> = Area of watershed 2</p></li>
+</ul>
+<p>Transposition of peak flow is demonstrated with the following example. A designer requires an estimate of the 1% AEP streamflow at an ungauged location with drainage area of 200 square miles. A nearby (within 100 miles) stream gauge has a hydrologically similar drainage area of 450 square miles. The 1% AEP peak streamflow at the gauged location is 420 cfs based on the peak flow-frequency curve developed for that location. Substituting into Equation 4-10 results in 280 cfs as an estimate of the 1% AEP peak discharge at the ungauged location:</p>
+<p>If flow-frequency curves are available at multiple gauged sites, Equation 4-10 can be used to estimate the desired peak AEP flow from each site. Then, with judgment and knowledge of the watersheds, those estimates could be weighted to provide an estimate of the desired AEP flow at the ungauged location. This process should be well documented.</p>
+<p>Design of a storage facility, such as a detention pond, may require estimates of AEP flows for longer durations. If a flow-frequency curve for longer flow duration is available at a nearby gauged location, then the following equation, based on an analysis of mean-daily flows , may be used for transposition:</p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.9}  \)</span><br></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is largely based upon <a class="reference external" href="https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf">Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006, Statewide analysis of the drainage-area ratio method for 34 streamflow percentile ranges in Texas: U.S. Geological Survey Scientific Investigations Report 2006–5286, 34 p.,1 appendix.</a>.  A key observation is that the transposition is a power-law model to relate known to unknown locations, and the power ranges from 1/2 to nearly 1.</p>
+</div>
+</section>
+<section id="flood-frequency-analysis-b17c">
+<h2>Flood Frequency Analysis (B17C)<a class="headerlink" href="#flood-frequency-analysis-b17c" title="Link to this heading">#</a></h2>
+<p>Flood hydrology is typically studied using the annual peak streamflow data collected by the U.S. Geological Survey (USGS) at streamgages. Hydraulic design engineers need standard of practice guidance for various tasks involving the analysis and application peak streamflow information. Analyses of this information materially influences bridge design, operational safety of drainage infrastructure, flood-plain management, and other decisions affecting society.</p>
+<p>Bulletin 17B was the standard of practice for decades, recently superceded by Bulletin <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">17C</a>.  These and similar tools relate certain statistical metrics (mean, variance, and skew) to a prescribed probability distribution function (Log-Pearson Type III) to extrapolate (predict) the magnitude of rare (low probability) events to inform engineering design.</p>
+<p>Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.<br />
+Recent updates to B17B in terms of software improvements and different handling of gage statistics (in particular EMA) are incorporated into the current tool <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">B17C</a></p>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
+<ul class="simple">
+<li><p>B17C is a report containing methods for estimating magnitudes of rare events</p></li>
+<li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
+</ul>
+<p>Software is employed because the Pearson Type III distribution is  applied to model streamflow, precipitation extremes, and flood frequency because it can accommodate the <strong>skewness</strong> (3rd moment) observed in these datasets. For example, the Log-Pearson Type III distribution, where data is logarithmically transformed, is used by the U.S. Geological Survey (USGS) for flood frequency analysis, helping hydrologists estimate the probability of extreme flood events (e.g., 100-year floods).</p>
+<p>By adjusting parameters such as mean, variance, and skewness, Pearson distributions can fit a wide range of data types - but the fitting itself is complex and requires a lot of tedious computations - just the thing for a computer program to do the heavy lifting.  The programs above replace older tabular methods that were prone to calculation errors when done by hand, and interpretation errors from by-hand plotting of the results.</p>
+</div>
+<section id="illustrative-example-using-beargrass-creek">
+<h3>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Link to this heading">#</a></h3>
+<p>Demonstrate using Bearcreek as an example.  Beargrass creek is not a real site, therefore is not in the NWIS database, so we have to modify the file to be readable in PeakFQ.</p>
+<p>A modified version is at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson05/BearGrass-B17B.txt">BearGrass-B17B.txt</a></p>
+<p>A fully provisioned Windows Implementation of B17C is located at:</p>
+<ul class="simple">
+<li><p>server_name: <strong><a class="reference external" href="http://kittyinthewindow.ddns.net">kittyinthewindow.ddns.net</a></strong></p></li>
+<li><p>user_name: <strong>texas-skew</strong></p></li>
+<li><p>passwd: <strong>peakfq73$hare</strong></p></li>
+</ul>
+<p>Users must access using Remote Desktop Protocol (Built into Windows, Apple Store has a free Mac application)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">Video to Demo PeakFQ on Beargrass Creek (YouTube)</a></p></li>
+</ul>
+<p>In class access <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;amp;site_no=08145000">Brady Creek</a> (close to Hardin Creek)</p>
+</section>
+</section>
+<section id="flow-duration-curves">
+<h2>Flow Duration Curves<a class="headerlink" href="#flow-duration-curves" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://pubs.er.usgs.gov/publication/wsp1542A">flow-duration curve</a> is a cumulative frequency curve that shows the percent of <strong>time</strong> specified discharges were equaled or exceeded during a given period.
+It combines in one curve the flow characteristics of a stream throughout the range of discharge, without regard to the sequence of occurrence. If the period upon which the curve is based represents the long-term flow of a stream, the curve may be used to predict the distribution of future flows for water- power, water-supply, and pollution studies.</p>
+<p><a class="reference external" href="https://streamflow.engr.oregonstate.edu/analysis/flow/index.htm">OSU Flow Duration Curve Mechanics</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/06-streamflow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#watershed-characteristics">Watershed Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-b17c">Flood Frequency Analysis (B17C)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-duration-curves">Flow Duration Curves</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

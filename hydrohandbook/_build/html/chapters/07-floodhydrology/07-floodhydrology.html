@@ -57,11 +57,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/07-floodhydrology/07-floodhydrology';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="8. Hydrologic Modeling" href="../08-hydrologicmodels/08-hydrologicmodels.html" />
-    <link rel="prev" title="6. Streamflow Measurement and Hydrographs" href="../06-streamflow/06-streamflow.html" />
+    <link rel="prev" title="6. Streamflow Measurement and Streamflow Data" href="../06-streamflow/06-streamflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,15 +182,31 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../01-introduction/01-introduction.html">1. Introduction</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration and Soil Moisture</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Hydrographs</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Streamflow Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Flood Hydrology and Urban Hydrology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -386,9 +404,33 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-estimation-and-design-floods">Flood Estimation and Design Floods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-estimation-and-design-floods">Flood Estimation and Design Floods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-statistics-and-probability-estimation-modeling">Hydrologic Statistics and Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation-modeling">Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceedence-probability">Exceedence Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beargrass-creek">Beargrass Creek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal">Log-Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gumbell-double-exponential-distribution">Gumbell (Double Exponential) Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution-as-pearson-type-3">Gamma Distribution (as Pearson Type 3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-frequency-distributions-and-plotting-positions-in-hydrologic-data">Empirical Frequency Distributions and Plotting Positions in Hydrologic Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-positions-in-empirical-distributions">Plotting Positions in Empirical Distributions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general-application-and-interpretation">General Application and Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-duration-series">Annual Duration Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-duration-series">Partial Duration Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-using-bulletin-17c">Flood Frequency Analysis using Bulletin 17C</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-hydrology-and-stormwater-management">Urban Hydrology and Stormwater Management</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-estimating-peak-flow-for-a-given-return-period">Lab/Exercise: Estimating peak flow for a given return period</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
             </nav>
@@ -403,22 +445,1157 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="flood-hydrology-and-urban-hydrology">
 <h1>7. Flood Hydrology and Urban Hydrology<a class="headerlink" href="#flood-hydrology-and-urban-hydrology" title="Link to this heading">#</a></h1>
+<p>This lesson explores key methods for estimating flood magnitude and frequency, along with how urbanization affects hydrologic responses. Emphasis is placed on the tools used for design, regulation, and sustainable urban stormwater management.</p>
+<hr class="docutils" />
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp 423-442</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/Applied%20Hydrology%20VT%20Chow%201988.pdf">Chow, V.T., Maidment, D.R., Mays, L.W., 1988, Applied Hydrology:  New York, McGraw-Hill. <strong>pp. 26-31; 416-423</strong> </a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture07.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 1 )</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Bulletin 17B 2)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="https://library.ctr.utexas.edu/hostedpdfs/texastech/psr/0-6977-s.pdf">Develop a Generalized Skew Update and Regional Study of Other Measures of Distribution Shape for Texas Flood Frequency Analyses (Project Sumary Report)</a></p></li>
+<li><p><a class="reference external" href="https://dataverse.tdl.org/dataset.xhtml?persistentId=doi:10.18738/T8/SVLCOQ">Generalized Skew Update and Regional Study of Distribution Shape for Texas Flood Frequency Analyses</a></p></li>
+<li><p><a class="reference external" href="https://doi.org/10.3133/tm4B5">England, J.F. Jr., Cohn, T.A., Faber, B.A., Stedinger, J.R., Thomas Jr., W.O., Veilleux, A.G., Kiang, J.E., and Mason, R.R.Jr., 2018, Guidelines for Determining Flood Flow Frequency—Bulletin 17C: U.S. Geological Survey Techniques andMethods, book 4, chap. B5, 146 p.,</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/FHWAHighwayHydrology/FHWA-NHI-02-001.pdf">McCuen, R.H., Johnson, P.A., and Ragan, R.M. (2002) Highway Hydrology. HDS-2 (2ed) FHWA-NHI-02-001 (Read pages 3-1 to 3-5; 4-86 to 4-89; 5-1 to 5-8; 5-16 to 5-17)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/TXDOT-HYDM-2014/txdot-hdm-2014.pdf">Texas Hydraulic Design Manual (2014-1) Texas Department of Transportation. (2014) Hydraulic Design Manual (Read pages 4-1 to 4-5; 4-31 to 4-35)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/LS1973/linear-systems-hydrology-dooge.pdf">Linear Theory of Hydrologic Systems Dooge, J.C. I. (1973) Linear Theory of Hydrologic Systems. USDA ARS Technical Bulletin No. 1468. (Read pages 127 to 147)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/cive6361_week_006_A.pdf">Cleveland, T. G. (2006) <em>Engineering Hydrology Notes to Accompany CIVE 6361 (Probability Estimation Modeling Part I)</em>, Department of Civil and Environmental Engineering, University of Houston.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/cive6361_week_006_B.pdf">Cleveland, T. G. (2006) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling Part II)</em>, Department of Civil and Environmental Engineering, University of Houston.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture05.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Discrete Data Analysis; Risk Based Design; Regression Equations)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/Lecture06-2015.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Point Precipitation; Design Storms)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/Lecture06-2020.pdf">Cleveland, T. G. (2020) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=wG-F5fZFOhw&amp;amp;t=297s">StreamStats: Determining Magnitude and Frequency of Floods in California (Specific to California, but nice discussion on regionalization)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=w-j2S3APUgk">PeakFQ (Version 7.1) Flood-Frequency Analysis Demo</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">CE 3354 Demonstrate PeakFQ using Beargrass Creek Data</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=yfs3oaF2F-w">Bulletins 17B and 17C 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=yfs3oaF2F-w">Bulletins 17B and 17C 2</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=cfaVjfms9ss">Bulletins 17B and 17C 3</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NI9Ui4x_HJk">Regional Skew 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Wc0qaDaBjFE">HEC-SSP Bulletin 17C Flood Frequency Analysis Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=7psZWEhm4Kw">Index Flood Regionalization Pt I</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=De4o8S2ohLA">Index Flood Regionalization Pt II</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=hjdnlbxrje8">Index Flood Regionalization Pt III</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=8HkztqnptIA">Index Flood Regionalization Pt IV</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=3Qtep3SdzDw">Uncertainty in Frequency Estimates 1</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=qyJSiWXd5fc">Uncertainty in Frequency Estimates 2</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=86QY-5bH6sA">Uncertainty in Frequency Estimates 3</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/R_nSTyMnlsE">0-6977 Training Video for Gage 08148500</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/y_vK3sWqnHw">0-6977-Prototype-Remote-Tools-Intro</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/YQ1YJFUrwYE">0-6977 Training Video for Gage 08167000 using Fig 4.6</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/ZUztiBLWFVs">0-6977 Training Video for Gage 08080750</a></p></li>
+</ol>
+</section>
 <section id="flood-estimation-and-design-floods">
 <h2>Flood Estimation and Design Floods<a class="headerlink" href="#flood-estimation-and-design-floods" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Flood frequency analysis (Log-Pearson Type III)</p></li>
-<li><p>Regional flood equations and statistical approaches</p></li>
+<ul>
+<li><p>Flood frequency analysis (Log-Pearson Type III): Flood frequency analysis is a statistical method used to estimate the probability of various flood magnitudes occurring. The Log-Pearson Type III distribution, widely adopted by agencies such as the USGS and FEMA, is used to model the annual peak streamflow data. By fitting this distribution to observed data, engineers can estimate discharges for specified return periods (e.g., 10-, 50-, or 100-year floods) to guide infrastructure design and risk communication.</p>
+<blockquote>
+<div><p>The 100-year flood does not mean a flood occurs once every 100 years—it means there’s a 1% chance of such a flood in any given year.</p>
+</div></blockquote>
+</li>
+<li><p>Regional flood equations and statistical approaches: In areas with limited streamflow data, regional regression equations derived from gaged watersheds provide a means to estimate flood discharges. These equations relate flood magnitudes to watershed characteristics such as area, slope, and rainfall. They enable engineers to perform flood assessments in ungauged or newly developed basins by leveraging data from similar hydrologic regions.</p></li>
 </ul>
+<section id="hydrologic-statistics-and-probability-estimation-modeling">
+<h3>Hydrologic Statistics and Probability Estimation Modeling<a class="headerlink" href="#hydrologic-statistics-and-probability-estimation-modeling" title="Link to this heading">#</a></h3>
+<p>Most textbooks, including Gupta spend some time reviewing statistics and probability concepts. The link that follows is a quick refresher of important measures of data: <a class="reference external" href="http://54.243.252.9/engr-1330-webroot/engr1330jb/_build/html/lessons/lesson17/lesson17.html">Descriptive Statistics</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Time-series (where serial correlation is important) share these measures but other tools are used to make prediction engines.  These tools are somewhat outside the scope of this course.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="probability-estimation-modeling">
+<h3>Probability Estimation Modeling<a class="headerlink" href="#probability-estimation-modeling" title="Link to this heading">#</a></h3>
+<p>Probability estimation modeling is the use of probability distributions (population data models) to model or explain behavior in observed (sample data) values.  Once a particular distribution is selected, then the concept of risk (probability) can be explored for events of varying magnitudes.</p>
+<p>Two important “extremes” in engineering:</p>
+<ul class="simple">
+<li><p>Uncommon (rare) events (floods, nuclear plant explosions, etc.)</p></li>
+<li><p>Common, almost predictable events (routine discharges, traffic accidents at a dangerous intersection, network failure on a due date, etc.)</p></li>
+</ul>
+<p>The probability distribution is just a model of the data, like a trend line for deterministic behavior; different distributions have different shapes, and domains and can explain certain types of observations better than others.</p>
+<p>Some Useful Distributions (data models) include:</p>
+<ul class="simple">
+<li><p>Normal</p></li>
+<li><p>LogNormal</p></li>
+<li><p>Gamma</p></li>
+<li><p>Weibull</p></li>
+<li><p>Extreme Value (Gumbell)</p></li>
+<li><p>Beta</p></li>
+</ul>
+<p>There are many more; they all have the common property that they integrate to unity on the domain <span class="math notranslate nohighlight">\(-\infty~to ~ \infty\)</span>.</p>
+<p>The probability distributions (models) are often expressed as a density function or a cumulative distribution function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A large part of what follows is adapted from <a class="reference external" href="http://54.243.252.9/engr-1330-webroot/engr1330jb/_build/html/lessons/lesson25/lesson25.html">Theodore G. Cleveland, Farhang Forghanparast (2021), Computational Thinking and Data Science: Instructor’s Notes for ENGR 1330 at TTU, with contributions by: Dinesh Sundaravadivelu Devarajan, Turgut Batuhan Baturalp (Batu), Tanja Karp, Long Nguyen, and Mona Rizvi. Whitacre College of Engineering</a> with some changes to be hydrologically relevant.  The example data file is supplied as part of a homework exercise and is linked at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/beargrass.txt">http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/beargrass.txt</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">normdensity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">normdensity</span> <span class="o">=</span> <span class="n">weight</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">argument</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">normdensity</span>
+
+<span class="k">def</span> <span class="nf">normdist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">):</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>    
+    <span class="n">normdist</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="k">return</span> <span class="n">normdist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Normal</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ypdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">xlow</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="n">xhigh</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdensity</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ypdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span>  
+
+<span class="c1">#x</span>
+<span class="c1">#ypdf</span>
+<span class="c1">#ycdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make the plot below, nothing too special just yet. Plots of the density (in blue) and cumulative density (probability) in red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># the python plotting library</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypdf</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ycdf</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density or Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Normal Distribution Data Model&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e740fb05f32b3807db2c03b5ab17b0ab54048016bcdb77d9ddbbd5f4798f4eec.png" src="../../_images/e740fb05f32b3807db2c03b5ab17b0ab54048016bcdb77d9ddbbd5f4798f4eec.png" />
+</div>
+</div>
+</section>
+<section id="exceedence-probability">
+<h3>Exceedence Probability<a class="headerlink" href="#exceedence-probability" title="Link to this heading">#</a></h3>
+<p>The purpose of distributions is to model data and allow us to estimate an answer to the question, what is the probability that we will observe a value of the random variable less than or equal to some sentinel value.  A common way to plot the quantile function is with accumulated probability on the horizontal axis, and random variable value on the vertical axis.
+Consider the figure below;</p>
+<p><img alt="" src="http://54.243.252.9/engr-1330-psuedo-course/CECE-1330-PsuedoCourse/1-Lessons/Lesson13/PsuedoLesson/exceedence.png" /></p>
+<p>The RV Value is about 50,000 indicated by the horizontal magenta line.<br />
+The blue curve is some data model, for instance one of our distributions below.
+The accumulated probability value at 50,000 is 0.1 or roughly 10% chance, but we also have to stipulate whether we are interested in less than or greater than.</p>
+<p>In the figure shown, <span class="math notranslate nohighlight">\(P(x &lt;= 50,000)~ =~1.00~-~0.1~= 0.9~or~90\%\)</span> and is a non-exceedence probability. In words we would state
+“The probability of observing a value less than or equal to 50,000 is 90%” the other side of the vertical line is the exceedence probability; in the figure <span class="math notranslate nohighlight">\(P(x &gt; 50,000)~=~0.1~or~10\%\)</span>.  In words we would state “The probability of observing a value equal to or greater than 50,000 is 10%.”  In risk analysis the sense of the probability is easily confusing, so when you can - make a plot.  Another way to look at the situation is to simply realize that the blue curve is the quantile function <span class="math notranslate nohighlight">\(F(X)\)</span> with <span class="math notranslate nohighlight">\(X\)</span> plotted on the vertical axis, and <span class="math notranslate nohighlight">\(F(X)\)</span> plotted on the horizontal axis.</p>
+<p>Now lets put these ideas to use.  We will sample from the population of integers from 0 to 100, with replacement.  Any single pull from the population is equally likely. Lets take 25 samples (about 1/4 of the total population - usually we dont know the size of the population).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+<span class="n">sample</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">population</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets get some statistics</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sample_variance</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sort the sample in place!</span>
+<span class="n">sample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="c1"># built a relative frequency approximation to probability, assume each pick is equally likely</span>
+<span class="n">weibull_pp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">weibull_pp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Density or Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Normal Distribution Data Model&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fe98b17403a3639a3afa4a7e7ea1018ec1cbb064abcf6969183b60080a9896ff.png" src="../../_images/fe98b17403a3639a3afa4a7e7ea1018ec1cbb064abcf6969183b60080a9896ff.png" />
+</div>
+</div>
+<p>What a horrible plot, but lets now use the sample statistics to “fit” the data model (red) to the observations (blue). Notice we have already rotated the axes so this plot and ones that follow are structured like the “Exceedence” plot above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fitted Model</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sample_mean</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">xhigh</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Normal Distribution Data Model sample mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot; sample variance =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1c9b0ca2dc787ffbb9d8900a0f7d6b6f003f8faa09c7e31d13c3ef64ff99b64d.png" src="../../_images/1c9b0ca2dc787ffbb9d8900a0f7d6b6f003f8faa09c7e31d13c3ef64ff99b64d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popmean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">popvar</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># Fitted Model</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="n">popmean</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">popvar</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">xhigh</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+
+    
+<span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+
+<span class="c1"># Built the plot</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Normal Distribution Data Model Population mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">popmean</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot; Population variance =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">popvar</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/528c64beffc294f5eab259a13cbbe7cff0f8c74362fb69f766db87212137e47f.png" src="../../_images/528c64beffc294f5eab259a13cbbe7cff0f8c74362fb69f766db87212137e47f.png" />
+</div>
+</div>
+<p>Some observations are in order:</p>
+<ul class="simple">
+<li><p>The population is a uniformly distributed collection.</p></li>
+<li><p>By random sampling, and keeping the sample size small, the sample distribution appears approximately normal.</p></li>
+</ul>
+<p>Real things of engineering interest are not always bounded as shown here, the choice of the Weibull plotting position is not arbitrary.  The blue dot scatterplot in practice is called the empirical distribution function, or empirical quantile function.</p>
+<p>Now we will apply these ideas to some realistic data.</p>
+</section>
+<section id="beargrass-creek">
+<h3>Beargrass Creek<a class="headerlink" href="#beargrass-creek" title="Link to this heading">#</a></h3>
+<p>The file <code class="docutils literal notranslate"><span class="pre">beargrass.txt</span></code> contains annual peak flows for Beargrass Creek.  The year is a water year, so the peaks occur on different days in each year; thus it is not a time series. Let’s examine the data and see how well a Normal distribution data model fits, then estimate from the distribution the peak magnitude with exceedence probability 0.01 (1%-chance that will observe a value equal to or greater).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<span class="n">beargrass</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;beargrass.txt&#39;</span><span class="p">)</span>  <span class="c1">#Reading a .csv file</span>
+<span class="n">beargrass</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Peak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1945</td>
+      <td>1810</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1946</td>
+      <td>791</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1947</td>
+      <td>839</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1948</td>
+      <td>1750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1949</td>
+      <td>898</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beargrass</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/a26b9a5684d1b30a4ceee4ea4e750043fce9c650f467d7f85e9f089f2340cd56.png" src="../../_images/a26b9a5684d1b30a4ceee4ea4e750043fce9c650f467d7f85e9f089f2340cd56.png" />
+</div>
+</div>
+<p>Now we will just copy code (the miracle of cut-n-paste!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># put the peaks into a list</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sample_variance</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># sort the sample in place!</span>
+<span class="n">weibull_pp</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># built a relative frequency approximation to probability, assume each pick is equally likely</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">weibull_pp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">################</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="c1"># Fitted Model</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">xhigh</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="p">;</span> <span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+<span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span> <span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Normal Distribution Data Model sample mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot; sample variance =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/682cd9141bc03331141084a4347f7606aaeb70ddde41bf315991f654be36963d.png" src="../../_images/682cd9141bc03331141084a4347f7606aaeb70ddde41bf315991f654be36963d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count      31.000000
+mean     1599.258065
+std      1006.239500
+min       707.000000
+25%       908.000000
+50%      1250.000000
+75%      1945.000000
+max      5200.000000
+Name: Peak, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>A 1% chance exceedence is on the right side of the chart, it is the compliment of 99% non-exceedence, in terms of our quantile function we want to find the value <span class="math notranslate nohighlight">\(X\)</span> that returns a quantile of 0.99.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myguess</span> <span class="o">=</span> <span class="mi">6000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normdist</span><span class="p">(</span><span class="n">myguess</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1599.258064516129 989.8767915427474
+0.9999956206542673
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="mf">1599.258064516129</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">989.8767915427474</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="mf">0.99999</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>    
+    <span class="n">normdist</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="k">return</span> <span class="n">normdist</span> <span class="o">-</span> <span class="n">quantile</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">myguess</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5820.974479887303
+</pre></div>
+</div>
+</div>
+</div>
+<p>So a peak discharge of 4000 or so is expected to be observed with 1% chance, notice we took the value from the fitted distribution, not the empirical set.  As an observation, the Normal model is not a very good data model for these observations.</p>
+</section>
+<section id="log-normal">
+<h3>Log-Normal<a class="headerlink" href="#log-normal" title="Link to this heading">#</a></h3>
+<p>Another data model we can try is log-normal, where we stipulate that the logarithms of the observations are normal.  The scripts are practically the same, but there is an inverse transformation required to recover original value scale.  Again we will use Beargrass creek.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loggit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># A prototype function to log transform x</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">logsample</span> <span class="o">=</span> <span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">loggit</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># put the peaks into a list</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">logsample</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sample_variance</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">logsample</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">logsample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># sort the sample in place!</span>
+<span class="n">weibull_pp</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># built a relative frequency approximation to probability, assume each pick is equally likely</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">weibull_pp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">################</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="c1"># Fitted Model in Log Space</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">xhigh</span> <span class="o">=</span> <span class="mf">1.05</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">logsample</span><span class="p">)</span> <span class="p">;</span> <span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+<span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">logsample</span> <span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Log Normal Data Model log sample mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot; log sample variance  =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/aa425282ff6726fc905c67dd00690b0cc03da39d09411a682b832a1b1ab33b13.png" src="../../_images/aa425282ff6726fc905c67dd00690b0cc03da39d09411a682b832a1b1ab33b13.png" />
+</div>
+</div>
+<p>The plot doesn’t look too bad, but we are in log-space, which is hard to interpret, so we will transform back to arithmetic space</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">antiloggit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># A prototype function to log transform x</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">sample</span> <span class="o">=</span> <span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># pull original list</span>
+<span class="n">sample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># sort in place</span>
+<span class="c1">################</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="c1"># Fitted Model in Log Space</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">xhigh</span> <span class="o">=</span> <span class="mf">1.05</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">logsample</span><span class="p">)</span> <span class="p">;</span> <span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">antiloggit</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">))</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">normdist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+<span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span> <span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Log Normal Data Model sample log mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">sample_mean</span><span class="p">))</span><span class="o">+</span> <span class="s2">&quot; sample log variance  =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">((</span><span class="n">sample_variance</span><span class="p">))</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cd711baf64b4b4e095de794df72d143a79cec47c5289bf0609af3faf74e012b8.png" src="../../_images/cd711baf64b4b4e095de794df72d143a79cec47c5289bf0609af3faf74e012b8.png" />
+</div>
+</div>
+<p>Visually a better data model, now lets determine the 1% chance value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myguess</span> <span class="o">=</span> <span class="mi">4440</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normdist</span><span class="p">(</span><span class="n">loggit</span><span class="p">(</span><span class="n">myguess</span><span class="p">),</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">))</span> <span class="c1"># mu, sigma already in log space - convert myguess</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.23730905616488 0.4984855728993489
+0.9900772507418303
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="mf">7.23730905616488</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.4984855728993489</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="mf">0.99</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">(</span><span class="n">loggit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>    
+    <span class="n">normdist</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span><span class="o">/</span><span class="mf">2.0</span>
+    <span class="k">return</span> <span class="n">normdist</span> <span class="o">-</span> <span class="n">quantile</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">myguess</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4433.567789173268
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a decent method, we should put stuff into functions to keep code concise, lets examine a couple more data models</p>
+</section>
+<section id="gumbell-double-exponential-distribution">
+<h3>Gumbell (Double Exponential) Distribution<a class="headerlink" href="#gumbell-double-exponential-distribution" title="Link to this heading">#</a></h3>
+<p>The Gumbell is also called the Extreme-Value Type I distribution, the density and quantile function are:</p>
+<div class="math notranslate nohighlight">
+\[ \text{pdf(x)} = \frac{1}{\beta} \cdot exp [-\frac{(x-\alpha)}{\beta} - exp (-\frac{(x-\alpha)}{\beta}) ]\]</div>
+<div class="math notranslate nohighlight">
+\[ F(X) =  \int_{-\infty}^X{\frac{1}{\beta} \cdot exp [-\frac{(x-\alpha)}{\beta} - exp (-\frac{(x-\alpha)}{\beta}) ] dx} = exp [- exp (-\frac{(X-\alpha)}{\beta})] \]</div>
+<p>The distribution has two parameters, <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, which in some sense play the same role as mean and variance. Lets modify our scripts further to see how this data model performs on the Bearcreek data.</p>
+<p>Of course we need a way to estimate the parameters, a good approximation can be obtained using:</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = \mu \cdot \frac{\sqrt{6}}{\pi} \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ \beta = 0.45 \cdot \sigma \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma^2\)</span> are the sample mean and variance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ev1dist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">):</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">constant</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">ev1dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">argument</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ev1dist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now literally substitute into our prior code!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># put the peaks into a list</span>
+<span class="n">sample_mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sample_variance</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">alpha_mom</span> <span class="o">=</span> <span class="n">sample_mean</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">beta_mom</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span><span class="o">*</span><span class="mf">0.45</span>
+<span class="n">sample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># sort the sample in place!</span>
+<span class="n">weibull_pp</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># built a relative frequency approximation to probability, assume each pick is equally likely</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">weibull_pp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1">################</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">sample_mean</span> <span class="c1"># Fitted Model</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xlow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">xhigh</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="p">;</span> <span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">ev1dist</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">alpha_mom</span><span class="p">,</span><span class="n">beta_mom</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+<span class="c1"># Now plot the sample values and plotting position</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weibull_pp</span><span class="p">,</span> <span class="n">sample</span> <span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Extreme Value Type 1 Distribution Data Model sample mean = : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot; sample variance =:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sample_variance</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2f7186e5e96362c547b197fe154537e9bb502ae2d8835021916a2095f2dc3232.png" src="../../_images/2f7186e5e96362c547b197fe154537e9bb502ae2d8835021916a2095f2dc3232.png" />
+</div>
+</div>
+<p>Again a so-so visual fit.
+To find the 1% chance value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myguess</span> <span class="o">=</span> <span class="mi">3300</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alpha_mom</span><span class="p">,</span><span class="n">beta_mom</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ev1dist</span><span class="p">(</span><span class="n">myguess</span><span class="p">,</span><span class="n">alpha_mom</span><span class="p">,</span><span class="n">beta_mom</span><span class="p">))</span> <span class="c1"># </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1246.9363972503857 445.4445561942363
+0.990087892543188
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1246.9363972503857</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">445.4445561942363</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="mf">0.99</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">constant</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">ev1dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">argument</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ev1dist</span> <span class="o">-</span> <span class="n">quantile</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">myguess</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3296.0478279991366
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="gamma-distribution-as-pearson-type-3">
+<h3>Gamma Distribution (as Pearson Type 3)<a class="headerlink" href="#gamma-distribution-as-pearson-type-3" title="Link to this heading">#</a></h3>
+<p>One last data model to consider is one that is specifically <strong>stipulated for use by federal agencies for probability estimation of extreme hydrologic events</strong>.  The data model ia called the Log-Pearson Type III distribution, its actually a specific case of a Gamma distrubution.</p>
+<p>This example we will dispense with tyring to build it in python primative, and just use a package - the density function is not all that hard, but the quantile function is elaborate.</p>
+<p>Learn more at <a class="reference external" href="http://54.243.252.9/engr-1330-webroot/3-Readings/NumericalRecipesinF77.pdf">http://54.243.252.9/engr-1330-webroot/3-Readings/NumericalRecipesinF77.pdf</a> (in particular around Page 276)</p>
+<p>As usual, lets let Google do some work for us, using the search term “gamma quantile function; scipy” we get to this nice blog entry <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.gamma.html</a> which is a good start.</p>
+<p>A Pearson Type III data model has the following density function:</p>
+<div class="math notranslate nohighlight">
+\[ f(x|\tau,\alpha,\beta) = \frac{(\frac{x-\tau}{\beta})^{\alpha -1}\cdot exp( - \frac{x-\tau}{\beta})}{|\beta| \Gamma(\alpha)}\]</div>
+<p>If we make some substitutions:
+<span class="math notranslate nohighlight">\( \lambda = \frac{1}{\beta} ; \hat{x} = x -\tau \)</span> then the density function is</p>
+<div class="math notranslate nohighlight">
+\[ f(\hat{x}) = \frac{ 1}{\Gamma(\alpha)} (\lambda \hat{x})^{\alpha -1}\cdot exp( - \lambda \hat{x} )\]</div>
+<p>which is now a one parameter Gamma density function just like the example in the link.</p>
+<p>Reading a little from <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/Bulletin17C/Bulletin17C-tm4b5-draft-ACWI-17Jan2018.pdf">http://54.243.252.9/ce-3354-webroot/3-Readings/Bulletin17C/Bulletin17C-tm4b5-draft-ACWI-17Jan2018.pdf</a> we can relate the transformations to descriptive statistics (shown below without explaination) as:</p>
+<p><span class="math notranslate nohighlight">\(\mu = \text{sample mean}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\sigma = \text{sample standard deviation}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\gamma = \text{sample skew coefficient} = (\frac{n}{\sigma^3(n-1)(n-2)})\sum_{i=1}^n(x_i - \mu)^3 \)</span></p>
+<p><span class="math notranslate nohighlight">\(\alpha = \frac{4}{\gamma^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\beta = sign(\gamma)\sqrt{\frac{\sigma^2}{\alpha}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\tau = \mu - \alpha \cdot \beta\)</span></p>
+<p>So we have a bit of work to do.  The name of the functions in <code class="docutils literal notranslate"><span class="pre">scipy</span></code> we are interested in are <code class="docutils literal notranslate"><span class="pre">gamma.pdf(x,a)</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma.cdf(x,a)</span></code>  So lets build a tool to generate a Log-Pearson Type III data model, then apply it to Beargrass Creek.  We will use a lot of glue here.</p>
+<p>First load in dependencies, and define support functions we will need</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="c1"># import scipy stats package</span>
+<span class="kn">import</span> <span class="nn">math</span>        <span class="c1"># import math package</span>
+<span class="kn">import</span> <span class="nn">numpy</span>       <span class="c1"># import numpy package</span>
+<span class="c1"># log and antilog</span>
+<span class="k">def</span> <span class="nf">loggit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># A prototype function to log transform x</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">antiloggit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  <span class="c1"># A prototype function to log transform x</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">weibull_pp</span><span class="p">(</span><span class="n">sample</span><span class="p">):</span> <span class="c1"># plotting position function</span>
+<span class="c1"># returns a list of plotting positions; sample must be a numeric list</span>
+    <span class="n">weibull_pp</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># null list to return after fill</span>
+    <span class="n">sample</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1"># sort the sample list in place</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">weibull_pp</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">weibull_pp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then the gamma distribution from scipy, modified for our type of inputs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gammacdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">tau</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">):</span> <span class="c1"># Gamma Cumulative Density function - with three parameter to one parameter convert</span>
+    <span class="n">xhat</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="n">tau</span>
+    <span class="n">lamda</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">beta</span>
+    <span class="n">gammacdf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">lamda</span><span class="o">*</span><span class="n">xhat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gammacdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then load in the data from the data frame, log transform and generate descriptive statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#sample = beargrass[&#39;Peak&#39;].tolist() # put the peaks into a list</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">beargrass</span><span class="p">[</span><span class="s1">&#39;Peak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">loggit</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># put the log peaks into a list</span>
+<span class="n">sample_mean</span>  <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">sample_stdev</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">sample_skew</span>  <span class="o">=</span> <span class="mf">3.0</span> <span class="c1"># scipy.stats.skew(sample)</span>
+<span class="n">sample_alpha</span> <span class="o">=</span> <span class="mf">4.0</span><span class="o">/</span><span class="p">(</span><span class="n">sample_skew</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sample_beta</span>  <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">sample_skew</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sample_stdev</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">sample_alpha</span><span class="p">)</span>
+<span class="n">sample_tau</span>   <span class="o">=</span> <span class="n">sample_mean</span> <span class="o">-</span> <span class="n">sample_alpha</span><span class="o">*</span><span class="n">sample_beta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now generate plotting positions for the sample observations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotting</span> <span class="o">=</span> <span class="n">weibull_pp</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now generate values for the data model (for plotting our red line “fit”), set limits to be a little beyond the sample range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">ycdf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">xlow</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.9</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="n">sample</span><span class="p">));</span> <span class="n">xhigh</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.1</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span> <span class="p">;</span> <span class="n">howMany</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">xstep</span> <span class="o">=</span> <span class="p">(</span><span class="n">xhigh</span> <span class="o">-</span> <span class="n">xlow</span><span class="p">)</span><span class="o">/</span><span class="n">howMany</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">howMany</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">)</span>
+    <span class="n">yvalue</span> <span class="o">=</span> <span class="n">gammacdf</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">xstep</span><span class="p">,</span><span class="n">sample_tau</span><span class="p">,</span><span class="n">sample_alpha</span><span class="p">,</span><span class="n">sample_beta</span><span class="p">)</span>
+    <span class="n">ycdf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yvalue</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now reverse transform back to native scale, and plot the sample values vs plotting position in blue, and the data model in red</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reverse transform the peaks, and the data model peaks</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)):</span>
+    <span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">antiloggit</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">antiloggit</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">myfigure</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> <span class="c1"># generate a object from the figure class, set aspect ratio</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">plotting</span><span class="p">,</span> <span class="n">sample</span> <span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ycdf</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Quantile Value&quot;</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Value of RV&quot;</span><span class="p">)</span> 
+<span class="n">mytitle</span> <span class="o">=</span> <span class="s2">&quot;Log Pearson Type III Distribution Data Model</span><span class="se">\n</span><span class="s2"> &quot;</span>
+<span class="n">mytitle</span> <span class="o">+=</span> <span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">antiloggit</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">mytitle</span> <span class="o">+=</span> <span class="s2">&quot;SD = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">antiloggit</span><span class="p">(</span><span class="n">sample_stdev</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">mytitle</span> <span class="o">+=</span> <span class="s2">&quot;Skew = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">antiloggit</span><span class="p">(</span><span class="n">sample_skew</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">mytitle</span><span class="p">)</span> 
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d7dff0bdecbfab0e7558f1f0eb031e6df19314f1096f6427a41e4e7c83f3ebdd.png" src="../../_images/d7dff0bdecbfab0e7558f1f0eb031e6df19314f1096f6427a41e4e7c83f3ebdd.png" />
+</div>
+</div>
+<p>And as before lets find the value that retruns the 99% quantile - we will just use the newton method above.
+First recover the required model parameters. Then we will paste these into the <span class="math notranslate nohighlight">\(f(x)\)</span> function for the Newton’s method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sample_tau</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.904985340898647
+0.4444444444444444
+0.7477283593490234
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">sample_tau</span> <span class="o">=</span> <span class="mf">5.976005311346212</span>
+    <span class="n">sample_alpha</span> <span class="o">=</span> <span class="mf">6.402272915026134</span>
+    <span class="n">sample_beta</span> <span class="o">=</span> <span class="mf">0.1970087438569494</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="mf">0.9900</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="n">loggit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">gammavalue</span> <span class="o">=</span> <span class="n">gammacdf</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span><span class="n">sample_tau</span><span class="p">,</span><span class="n">sample_alpha</span><span class="p">,</span><span class="n">sample_beta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gammavalue</span> <span class="o">-</span> <span class="n">quantile</span>
+
+<span class="n">myguess</span> <span class="o">=</span>  <span class="mi">5000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">myguess</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5856.10913158364
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trust, but verify!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">gammacdf</span><span class="p">(</span><span class="n">loggit</span><span class="p">(</span><span class="mf">5856.109</span><span class="p">),</span><span class="n">sample_tau</span><span class="p">,</span><span class="n">sample_alpha</span><span class="p">,</span><span class="n">sample_beta</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9753)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now lets summarize our efforts regarding Beargrass Creek annual peaks and probabilities anticipated.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Data Model</p></th>
+<th class="head text-left"><p>99% Peak Flow</p></th>
+<th class="head text-left"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Normal</p></td>
+<td class="text-left"><p>3902</p></td>
+<td class="text-left"><p>so-so visual fit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Log-Normal</p></td>
+<td class="text-left"><p>4433</p></td>
+<td class="text-left"><p>better visual fit</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Gumbell</p></td>
+<td class="text-left"><p>3296</p></td>
+<td class="text-left"><p>better visual fit</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Log-Pearson III</p></td>
+<td class="text-left"><p>5856</p></td>
+<td class="text-left"><p>best (of the set) visual fit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>At this point, now we have to choose our model and then can investigate different questions.  So using LP3 as our favorite, lets now determine anticipated flow values for different probabilities (from the data model) - easy enought to just change the quantile value and rerun the newtons optimizer, for example:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Exceedence Probability</p></th>
+<th class="head text-left"><p>Flow Value</p></th>
+<th class="head text-left"><p>Remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>25%</p></td>
+<td class="text-left"><p>968</p></td>
+<td class="text-left"><p>First Quartile Divider</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>50%</p></td>
+<td class="text-left"><p>1302</p></td>
+<td class="text-left"><p>Median, and Second Quartile Divider</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>75%</p></td>
+<td class="text-left"><p>1860</p></td>
+<td class="text-left"><p>3rd Quartile Divider</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>90%</p></td>
+<td class="text-left"><p>2706</p></td>
+<td class="text-left"><p>10% chance of greater value</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>99%</p></td>
+<td class="text-left"><p>5856</p></td>
+<td class="text-left"><p>1% chance of greater value (in flood statistics, this is the 1 in 100-yr chance event)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>99.8%</p></td>
+<td class="text-left"><p>9420</p></td>
+<td class="text-left"><p>0.002% chance of greater value (in flood statistics, this is the 1 in 500-yr chance event)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>99.9%</p></td>
+<td class="text-left"><p>11455</p></td>
+<td class="text-left"><p>0.001% chance of greater value (in flood statistics, this is the 1 in 1000-yr chance event)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If we want to get fancy we can use Newton&#39;s method to get really close to the root</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">newton</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">sample_tau</span> <span class="o">=</span> <span class="mf">5.976005311346212</span>
+    <span class="n">sample_alpha</span> <span class="o">=</span> <span class="mf">6.402272915026134</span>
+    <span class="n">sample_beta</span> <span class="o">=</span> <span class="mf">0.1970087438569494</span>
+    <span class="n">quantile</span> <span class="o">=</span> <span class="mf">0.50</span>
+    <span class="n">argument</span> <span class="o">=</span> <span class="n">loggit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">gammavalue</span> <span class="o">=</span> <span class="n">gammacdf</span><span class="p">(</span><span class="n">argument</span><span class="p">,</span><span class="n">sample_tau</span><span class="p">,</span><span class="n">sample_alpha</span><span class="p">,</span><span class="n">sample_beta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gammavalue</span> <span class="o">-</span> <span class="n">quantile</span>
+
+<span class="n">myguess</span> <span class="o">=</span>  <span class="mi">1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">myguess</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1302.814639184079
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="empirical-frequency-distributions-and-plotting-positions-in-hydrologic-data">
+<h3>Empirical Frequency Distributions and Plotting Positions in Hydrologic Data<a class="headerlink" href="#empirical-frequency-distributions-and-plotting-positions-in-hydrologic-data" title="Link to this heading">#</a></h3>
+<p>Empirical Frequency Distributions (EFDs) are essential tools in hydrology for analyzing the occurrence and intensity of various hydrologic events, such as rainfall and streamflow. These distributions are derived directly from observed data, providing a realistic and data-driven understanding of hydrological patterns.</p>
+<p>In rainfall data analysis, an EFD involves plotting the observed rainfall amounts against their corresponding frequencies or probabilities. By sorting and counting the occurrences of different rainfall intensities, hydrologists create a distribution that highlights patterns such as the most common rainfall amounts and the probability of extreme rainfall events. This is crucial for designing stormwater management systems, predicting flood risks, and understanding climatic trends.</p>
+<p>For streamflow data, an EFD is constructed by analyzing flow rates recorded over time. By organizing and plotting these observed flow values, hydrologists gain insights into river and stream behaviors, such as typical flow conditions and the likelihood of high or low flow events. This information is vital for water resource management, flood forecasting, and ecological conservation.</p>
+<section id="plotting-positions-in-empirical-distributions">
+<h4>Plotting Positions in Empirical Distributions<a class="headerlink" href="#plotting-positions-in-empirical-distributions" title="Link to this heading">#</a></h4>
+<p>Plotting positions (formulas) are used to estimate the probabilities of observed data points within an empirical frequency distribution. These positions help to place data points on a probability scale, facilitating the creation of empirical cumulative distribution functions (CDFs).</p>
+<p>Several methods exist for calculating plotting positions, with some of the most common ones being:</p>
+<p><strong>Weibull Plotting Position:</strong><br></p>
+<p><span class="math notranslate nohighlight">\(P_i=\frac{i}{n+1}\)</span> <br></p>
+<p>where <span class="math notranslate nohighlight">\(P_i\)</span> is the plotting position for the i-th ranked observation, i is the rank (with 1 being the smallest value), and n is the total number of observations. The Weibull plotting position is simple and widely used.</p>
+<p><strong>Gringorten Plotting Position:</strong><br></p>
+<p><span class="math notranslate nohighlight">\(P_i=\frac{i-0.44}{n+0.12}\)</span> <br></p>
+<p>This method provides a slight adjustment to the Weibull method, improving the estimation of probabilities, especially for small datasets.</p>
+<p><strong>Hazen Plotting Position:</strong><br></p>
+<p><span class="math notranslate nohighlight">\(P_i=\frac{i-0.5}{n}\)</span> <br></p>
+<p>The Hazen plotting position is another adjustment that centers the probabilities more evenly across the dataset.</p>
+<p><strong>Cunnane Plotting Position:</strong><br></p>
+<p><span class="math notranslate nohighlight">\(P_i=\frac{i-0.4}{n+0.2}\)</span> <br></p>
+<p>The Cunnane method is often recommended for hydrological studies, as it provides a balance between the Weibull and Gringorten methods.</p>
+</section>
+<section id="general-application-and-interpretation">
+<h4>General Application and Interpretation<a class="headerlink" href="#general-application-and-interpretation" title="Link to this heading">#</a></h4>
+<p>When creating an empirical frequency distribution, hydrologists first rank the observed data in ascending order. Then, they apply one of the plotting position formulas to each data point to determine its exceedance probability. By plotting these probabilities against the observed values, they generate an empirical CDF, which visually represents the distribution of the data.</p>
+<p>This approach helps in identifying the likelihood of various hydrological events, aiding in risk assessment and decision-making. For example, plotting positions can help estimate the return period of extreme rainfall or streamflow events, which is crucial for infrastructure design and floodplain management.</p>
+<p>By incorporating plotting positions, empirical frequency distributions become more robust and provide clearer insights into the probabilities of different hydrological events, enhancing the accuracy and reliability of hydrological analyses.</p>
+</section>
+</section>
+<section id="annual-duration-series">
+<h3>Annual Duration Series<a class="headerlink" href="#annual-duration-series" title="Link to this heading">#</a></h3>
+<p>The Annual Duration Series is a hydrological tool used to analyze the variability and extremities of rainfall and streamflow over time. This series involves selecting specific data points, typically the maximum (or minimum) values, from <strong>each year</strong> within a given period.</p>
+<p>For rainfall data, the Annual Duration Series might consist of the <strong>highest daily rainfall recorded each year</strong>. This allows hydrologists to study patterns, identify trends, and estimate the probability of extreme rainfall events, which are crucial for flood forecasting and water resource management.</p>
+<p>In the context of streamflow data, the Annual Duration Series often focuses on the peak flow rates (maximum streamflow) observed annually. Analyzing these peak flow rates helps in understanding river behavior, flood risks, and the potential impacts of climate change on water systems.</p>
+<p>By examining these annual extremes, researchers can assess the long-term trends and variations in hydrological phenomena, aiding in the development of robust water management strategies and infrastructure designs.</p>
+</section>
+<section id="partial-duration-series">
+<h3>Partial Duration Series<a class="headerlink" href="#partial-duration-series" title="Link to this heading">#</a></h3>
+<p>The Partial Duration Series is a hydrological analysis technique used to capture the frequency and intensity of <strong>substantial</strong> events over a specified period, beyond just the annual maxima. Unlike the Annual Duration Series, which only considers the highest value each year, the Partial Duration Series includes all events exceeding a certain threshold, regardless of their occurrence within the year.</p>
+<p>For rainfall data, the Partial Duration Series involves identifying all rainfall events that surpass a predefined intensity threshold. This method allows for a more comprehensive analysis of extreme rainfall events, providing insights into the frequency and distribution of heavy rainfalls. This is particularly useful for designing drainage systems and managing flood risks, as it accounts for multiple significant events within a single year.</p>
+<p>In streamflow data, the Partial Duration Series focuses on recording all peak flows that exceed a set flow rate threshold. This approach captures not only the annual peak flows but also other substantial flow events, offering a detailed understanding of river dynamics and flood potential. It is valuable for floodplain management, infrastructure planning, and assessing the impacts of land use changes and climate variability on river systems.</p>
+<p>By considering multiple substantial events over time, the Partial Duration Series provides a richer database for statistical analysis and enhances the accuracy of risk assessments and hydrological predictions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For precipitation data the two series are indistinguishable at 1% chance, however at lower recurrance intervals, the PDS is thought to be a more useful representation.  You can visualize the difference using the <a class="reference internal" href="#"><span class="xref myst">NOAA PFDS</span></a> website - just pick anywhere.  Have the server generate an IDF diagram using a PDS, screen capture; then repeat using an AMS and compare side-by-side, like the figure below:</p>
+<p><img alt="" src="../../_images/AMSvPDS.png" /></p>
+<p>The difference is quite subtle, but apparent on the left side of each plot at the high probability/low recurrence interval side.</p>
+</div>
+</section>
+<section id="flood-frequency-analysis-using-bulletin-17c">
+<h3>Flood Frequency Analysis using Bulletin 17C<a class="headerlink" href="#flood-frequency-analysis-using-bulletin-17c" title="Link to this heading">#</a></h3>
+<p>Flood hydrology is typically studied using the annual peak streamflow data collected by the U.S. Geological Survey (USGS) at streamgages. Hydraulic design engineers need standard of practice guidance for various tasks involving the analysis and application peak streamflow information. Analyses of this information materially influences bridge design, operational safety of drainage infrastructure, flood-plain management, and other decisions affecting society.</p>
+<p>Bulletin 17B was the standard of practice for decades, recently superceded by Bulletin <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">17C</a>.  These and similar tools relate certain statistical metrics (mean, variance, and skew) to a prescribed probability distribution function (Log-Pearson Type III) to extrapolate (predict) the magnitude of rare (low probability) events to inform engineering design.</p>
+<p>Tasker and Stedinger (1986) developed a weighted least squares (WLS) procedure for estimating regional skewness coefficients based on sample skewness coefficients for the logarithms of annual peak-streamflow data. Their method of regional analysis of skewness estimators accounts for the precision of the skewness estimator for each streamgage, which depends on the length of record for each streamgage and the accuracy of an ordinary least squares (OLS) regional mean skewness. These methods automated much of B17B process and were incorporated into software used for streamgage analysis.</p>
+<p>Recent updates to B17B in terms of software improvements and different handling of gage statistics (in particular EMA) are incorporated into the current tool <a class="reference external" href="https://pubs.usgs.gov/tm/04/b05/tm4b5.pdf">B17C</a></p>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
+<ul class="simple">
+<li><p>B17C is a report containing methods for estimating magnitudes of rare events</p></li>
+<li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
+</ul>
+<p>Software is employed because the Pearson Type III distribution is applied to model streamflow, precipitation extremes, and flood frequency because it can accommodate the <strong>skewness</strong> (3rd moment) observed in these datasets. For example, the Log-Pearson Type III distribution, where data is logarithmically transformed, is used by the U.S. Geological Survey (USGS) for flood frequency analysis, helping hydrologists estimate the magnitude of extreme flood events at prescribed probabilities (e.g., 100-year floods), or conversely the likely probability associated with a particular magnitude.</p>
+<p>By adjusting parameters such as mean, variance, and skewness, Pearson distributions can fit a wide range of data types - but the fitting itself is complex and requires a lot of tedious computations - just the thing for a computer program to do the heavy lifting.  The programs above replace older tabular methods that were prone to calculation errors when done by hand, and interpretation errors from by-hand plotting of the results.</p>
+</div>
+<section id="illustrative-example-using-beargrass-creek">
+<h4>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Link to this heading">#</a></h4>
+<p>Demonstrate using Bearcreek as an example.  Beargrass creek is not a real site, therefore is not in the NWIS database, so we have to modify the file to be readable in PeakFQ.</p>
+<p>A modified file (in correct WATSTORE format for use in PeakFQ 7.3 software) is at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/07-floodhydrology/beargrass.txt">BearGrass-B17B.txt</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">Video to Demo PeakFQ on Beargrass Creek (YouTube)</a></p></li>
+</ul>
+<p>In class access <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;amp;site_no=08145000">Brady Creek</a> (close to Hardin Creek)</p>
+<ul class="simple">
+<li><p>Regional flood equations and statistical approaches: In areas with limited streamflow data, regional regression equations derived from gaged watersheds provide a means to estimate flood discharges. These equations relate flood magnitudes to watershed characteristics such as area, slope, and rainfall. They enable engineers to perform flood assessments in ungauged or newly developed basins by leveraging data from similar hydrologic regions.</p></li>
+</ul>
+</section>
+</section>
+<section id="regional-regression-equations">
+<h3>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Link to this heading">#</a></h3>
+<p>Where sufficient data exist, one technique for gross estimates of streamflow based largely on watershed area, rainfall input, and location are regional regression equations.  These exist in some fashion for each state in the USA, and most terrortories (Puerto Rico, Guam …).  They probably exist for many other countries, and are all obtained in a similar fashion.</p>
+<p>The equations are constructed by first fitting an appropriate probability distribution to observations at a gaged location (station flood frequency). Then the station flood frequency curves are used as surrogate observations (at a specified AEP) to relate discharge to select geomorphic variables:</p>
+<div class="math notranslate nohighlight">
+\[(\bar Q_{AEP} -\beta_0 - \beta_1 A - \beta_2 S - \beta_3 MAP \dots)^2= \bar \epsilon\]</div>
+<p>The “betas” are obtained by trying to make “epsilon” small, the AREA, SLOPE, and other watershed characteristics are the explainatory variables.</p>
+<p>The resulting equations are typically expressed in a power-law form (rather that the linear combination above) for actual application</p>
+<div class="math notranslate nohighlight">
+\[Q_{AEP,\text{Estimate}} = \beta_0 (\text{AREA})^{\beta_1} (\text{SLOPE})^{\beta_2} (\text{MAP})^{\beta_3}\]</div>
+<p>For example in Texas the following guidance is found in Chapter 4 of the Texas Hydraulics Manual:</p>
+<p><img alt="" src="../../_images/THMregression.png" /></p>
+<p>The actual equations in current use are</p>
+<p><img alt="" src="../../_images/RegressionEquations.png" /></p>
+<p>Two needed input values are the mean annual precipitation (MAP) and the Omega-EM factor both of which are mapped and available on the almighty internet</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://onlinemanuals.txdot.gov/txdotmanuals/hyd/images/Fig4-6.png">Texas Mean Annual Precipitation</a></p></li>
+<li><p><a class="reference external" href="http://onlinemanuals.txdot.gov/txdotmanuals/hyd/OmegaEM_black_cropped.pdf">Texas Omega-EM Map</a></p></li>
+</ul>
+<p>Using the table above and the known equation structure it is fairly straightforward to create a tool for routine use in either a spreadsheet form or in python</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson05/TexasRegionalRegressionTool.xlsx">Texas Regression Equation Spreadsheet</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/toolbox/hydrology/TXRegression/TXRegression.html">On-Line Texas Regression Equation Tool</a></p></li>
+</ul>
+<p>Illustrative example for the Hardin Branch location (near Eden Texas).</p>
+<p>Apply the Regression Equations for the Hardin Branch Watershed – provide a comparative estimate to help guide the project</p>
+<ul class="simple">
+<li><p>AREA = 17 sq. mi.</p></li>
+<li><p>MAP = 23 inches/year</p></li>
+<li><p>OmegaEM = 0.345</p></li>
+<li><p>Slope = 0.0048</p></li>
+</ul>
+<p>Below is result using the spreadsheet tool
+<img alt="" src="../../_images/texasregional.png" /></p>
+<p>And the on-line web interface
+<img alt="" src="../../_images/texasregionalonline1.png" /></p>
+<p>and the on-line results
+<img alt="" src="../../_images/texasregionalonline2.png" /></p>
+</section>
+<section id="gage-transposition-approach">
+<h3>Gage Transposition Approach<a class="headerlink" href="#gage-transposition-approach" title="Link to this heading">#</a></h3>
+<p>A method that is often quite useful is a <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/statistical_analysis_of_stream_gauge_data.htm#i1106111">Gage Transposition Approach</a>.</p>
+<p>If gauge data are not available at the design location, discharge values can be estimated by transposition if a peak flood-frequency curve is available at a nearby gauged location. This method is appropriate for hydrologically similar watersheds that differ in area by less than 50 percent, with outlet locations less than 100 miles apart.</p>
+<p>An estimate of the desired AEP peak flow at the ungauged site is provided by <br></p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.5}  \)</span><br></p>
+<p>Where:<br></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> = Estimated AEP discharge at ungauged watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_2\)</span> = Known AEP discharge at gauged watershed 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_1\)</span> = Area of watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_2\)</span> = Area of watershed 2</p></li>
+</ul>
+<p>Transposition of peak flow is demonstrated with the following example. A designer requires an estimate of the 1% AEP streamflow at an ungauged location with drainage area of 200 square miles. A nearby (within 100 miles) stream gauge has a hydrologically similar drainage area of 450 square miles. The 1% AEP peak streamflow at the gauged location is 420 cfs based on the peak flow-frequency curve developed for that location. Substituting into Equation 4-10 results in 280 cfs as an estimate of the 1% AEP peak discharge at the ungauged location:</p>
+<p>If flow-frequency curves are available at multiple gauged sites, Equation 4-10 can be used to estimate the desired peak AEP flow from each site. Then, with judgment and knowledge of the watersheds, those estimates could be weighted to provide an estimate of the desired AEP flow at the ungauged location. This process should be well documented.</p>
+<p>Design of a storage facility, such as a detention pond, may require estimates of AEP flows for longer durations. If a flow-frequency curve for longer flow duration is available at a nearby gauged location, then the following equation, based on an analysis of mean-daily flows , may be used for transposition:</p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.9}  \)</span><br></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is largely based upon <a class="reference external" href="https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf">Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006, Statewide analysis of the drainage-area ratio method for 34 streamflow percentile ranges in Texas: U.S. Geological Survey Scientific Investigations Report 2006–5286, 34 p.,1 appendix.</a>.  A key observation is that the transposition is a power-law model to relate known to unknown locations, and the power ranges from 1/2 to nearly 1.</p>
+</div>
+</section>
 </section>
 <section id="urban-hydrology-and-stormwater-management">
 <h2>Urban Hydrology and Stormwater Management<a class="headerlink" href="#urban-hydrology-and-stormwater-management" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Effects of urbanization on runoff and flooding</p></li>
-<li><p>Green infrastructure and detention basins</p></li>
+<li><p>Effects of urbanization on runoff and flooding: Urbanization dramatically alters the hydrologic cycle. Impervious surfaces like roads, rooftops, and parking lots reduce infiltration and increase surface runoff. This hydrologic influence leads to:</p>
+<ul>
+<li><p>Higher peak discharges</p></li>
+<li><p>Shorter time to peak</p></li>
+<li><p>Increased risk of flash flooding</p></li>
 </ul>
+</li>
+</ul>
+<p>Urban drainage systems must account for these altered dynamics. Traditional flood estimation techniques are often inadequate without adjustments for land use change.</p>
+<blockquote>
+<div><p>Even small increases in impervious cover can significantly raise flood risk if stormwater systems are not upgraded.</p>
+</div></blockquote>
+<p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/conference_papers/2009_0517_BDF/asce_ewri_kc_bdf.pdf">Sunder, S., Cleveland, T.G., and Thompson, D.B. (2009). Use of the Basin Development Factor to Evaluate Urban Watershed Response</a></p>
+<ul class="simple">
+<li><p>Green infrastructure and detention basins: Modern stormwater management increasingly incorporates green infrastructure, such as rain gardens, bioswales, green roofs, and permeable pavements. These techniques mimic natural hydrology by promoting infiltration, evapotranspiration, and pollutant removal.  <strong>Detention basins</strong> are engineered basins designed to temporarily store stormwater and release it at controlled rates, reducing peak flow and downstream flood risks.</p></li>
+</ul>
+<blockquote>
+<div><p>A well-designed system may combine both detention (volume control) and green infrastructure (infiltration + water quality).</p>
+</div></blockquote>
 </section>
-<section id="lab-exercise-estimating-peak-flow-for-a-given-return-period">
-<h2>Lab/Exercise: Estimating peak flow for a given return period<a class="headerlink" href="#lab-exercise-estimating-peak-flow-for-a-given-return-period" title="Link to this heading">#</a></h2>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/exercises/07-floodhydrology/ce3354-es7-2025-2.pdf"><strong>ce3354-es7-2025-2.pdf</strong></a> Apply flood frequency methods for estimating magnitudes at prescribed probabilities.</p>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -461,7 +1638,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6. Streamflow Measurement and Hydrographs</p>
+        <p class="prev-next-title">6. Streamflow Measurement and Streamflow Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -489,9 +1666,33 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-estimation-and-design-floods">Flood Estimation and Design Floods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-estimation-and-design-floods">Flood Estimation and Design Floods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-statistics-and-probability-estimation-modeling">Hydrologic Statistics and Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-estimation-modeling">Probability Estimation Modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exceedence-probability">Exceedence Probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beargrass-creek">Beargrass Creek</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal">Log-Normal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gumbell-double-exponential-distribution">Gumbell (Double Exponential) Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-distribution-as-pearson-type-3">Gamma Distribution (as Pearson Type 3)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-frequency-distributions-and-plotting-positions-in-hydrologic-data">Empirical Frequency Distributions and Plotting Positions in Hydrologic Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-positions-in-empirical-distributions">Plotting Positions in Empirical Distributions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#general-application-and-interpretation">General Application and Interpretation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-duration-series">Annual Duration Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-duration-series">Partial Duration Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-using-bulletin-17c">Flood Frequency Analysis using Bulletin 17C</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-hydrology-and-stormwater-management">Urban Hydrology and Stormwater Management</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-estimating-peak-flow-for-a-given-return-period">Lab/Exercise: Estimating peak flow for a given return period</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
   </nav></div>
