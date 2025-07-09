@@ -406,13 +406,16 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement-s">Streamflow Measurement(s)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">Measurement Techniques</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acoustic-doppler-current-profiler-adcp">Acoustic Doppler Current Profiler (ADCP)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-workflow-using-usgs-nwis">Illustrative workflow using USGS NWIS</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
@@ -486,9 +489,13 @@ document.write(`
 <li><p><a class="reference external" href="https://youtu.be/ZUztiBLWFVs">0-6977 Training Video for Gage 08080750</a></p></li>
 </ol>
 </section>
-<section id="streamflow-measurement">
-<h2>Streamflow Measurement<a class="headerlink" href="#streamflow-measurement" title="Link to this heading">#</a></h2>
-<p>Streamflow is measured by a variety of gaging technologies.</p>
+<section id="streamflow-measurement-s">
+<h2>Streamflow Measurement(s)<a class="headerlink" href="#streamflow-measurement-s" title="Link to this heading">#</a></h2>
+<p>Streamflow tells us how much water is flowing past a certain point in a stream or river. Streamflow (or discharge) affects almost all aspects of stream health, including essential biological and chemical processes. Many institutions, agencies, organizations, and landowners rely on an accurate accounting of streamflow for the estimation of pollutant and nutrient loading, prediction of flood levels, and other environmental management activities.</p>
+<p>The United States Geological Survey (USGS) defines streamflow as “the volumetric rate of flow of water (volume per unit time) in an open channel, including any sediment or other solids that may be dissolved or mixed with it that adhere to the Newtonian physics of open-channel hydraulics of water.” Discharge is in open channel flow or the passage of water through flumes, culverts, and other non-pressurized conveyances. Generally, discharge Q (ft3/s or m3/s) is calculated as the product of a mean section velocity v (ft/s or m/s) of water moving through a unit area A (ft2 or m2):</p>
+<p>Q = v * A</p>
+<p>Magnitudes of discharge range widely depending on the size and location of the stream as well as groundwater levels and recent precipitation. For example, the average discharge in the Mississippi River at Baton Rouge, Louisiana, ranges between 308,000 and 843,000 ft3/s (or cfs). Average discharge in the Saluda River near Greenville, South Carolina, ranges between 347 and 1040 cfs, and discharge in small, shallow streams in South Carolina is often below a single (1.0) cfs.2</p>
+<p>Stream gaging is either:</p>
 <ul class="simple">
 <li><p>Continuous record (usually stage, then rated to produce discharge)</p>
 <ul>
@@ -502,8 +509,10 @@ document.write(`
 </ul>
 </li>
 </ul>
+<p>Stream stage is often referenced when discussing river conditions and the quantity of water within a river. Stream stage refers to how high the water surface is above a pre-defined elevation point in the stream which is often the streambed or even an absolute elevation. Rises and falls in the stream stage (also referred to as stage or gage height) indicate changes in streamflow. This relationship between stream stage and discharge is referred to as the <strong>stage-discharge</strong> relationship. Stream stage can be measured using sensors such as pressure transducers, water level radar, bubblers, and cameras, or stage can be measured using staff gauges, crest-stage gauges, or measure-downs from a defined point. Stream stage is then related to a series of stream discharge measurements across a wide range of streamflow conditions to create a stage-discharge relationship or <strong>rating curve</strong>. This rating curve can then be used to estimate flow during most flow conditions within a range of flow measurements, assuming consistent boundary conditions. Rating curves should be updated as vegetation, erosion, and sedimentation affect discharge in the stream section, which vary in some streams to a near-constant state of change to an almost completely steady state.1,4</p>
 <section id="measurement-techniques">
 <h3>Measurement Techniques<a class="headerlink" href="#measurement-techniques" title="Link to this heading">#</a></h3>
+<p>Streamflow is measured by a variety of gaging technologies.  <a class="reference external" href="https://www.usgs.gov/centers/wyoming-montana-water-science-center/measuring-streamflow">Measuring Streamflow</a></p>
 <ul class="simple">
 <li><p>Weirs</p></li>
 <li><p>Flumes</p></li>
@@ -548,34 +557,55 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <p>The ADCP works by transmitting “pings” of sound at a constant frequency into the water. (The pings are so highly pitched that humans and even dolphins can’t hear them.) As the sound waves travel, they ricochet off particles suspended in the moving water, and reflect back to the instrument. Due to the Doppler effect, sound waves bounced back from a particle moving away from the profiler have a slightly lowered frequency when they return. Particles moving toward the instrument send back higher frequency waves. The difference in frequency between the waves the profiler sends out and the waves it receives is called the Doppler shift. The instrument uses this shift to calculate how fast the particle and the water around it are moving.</p>
 <p>Sound waves that hit particles far from the profiler take longer to come back than waves that strike close by. By measuring the time it takes for the waves to bounce back and the Doppler shift, the profiler can measure current speed at many different depths with each series of pings.</p>
 </div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Acoustic Doppler Current Profilers (ADCPs) provide direct measurements of flow velocity across a cross-section, in contrast to traditional stage-based methods, where water surface elevation (stage) is recorded continuously and discharge is inferred using a pre-established stage–discharge rating curve. Both approaches are widely used in streamflow monitoring. While stage data remain essential—at minimum—to define cross-sectional geometry and support rating curve development, continuous velocity profiling is less commonly implemented due to cost and deployment complexity. However, advances in sensor technology and data telemetry are rapidly increasing the feasibility of high-frequency, velocity-based discharge monitoring at both permanent and temporary sites.</p>
+</div>
 </section>
 </section>
 <section id="streamflow-data">
 <h2>Streamflow Data<a class="headerlink" href="#streamflow-data" title="Link to this heading">#</a></h2>
-<p>Data sources for streamflow include:</p>
+<p>Data sources for streamflow include both national and international networks:</p>
 <ul class="simple">
-<li><p>USGS NWIS (Website)</p></li>
-<li><p>IBWC</p></li>
-<li><p>Older “paper-based” records</p></li>
-<li><p>Local gage networks</p></li>
+<li><p>USGS NWIS (USA) – National Water Information System (<a class="reference external" href="https://waterdata.usgs.gov/">https://waterdata.usgs.gov/</a>)</p></li>
+<li><p>IBWC – International Boundary and Water Commission (US–Mexico border data)</p></li>
+<li><p>Older “paper-based” records – Agency archives, academic institutions, engineering reports</p></li>
+<li><p>Local gage networks – Operated by water authorities, municipalities, or research entities</p></li>
+<li><p>WMO Global Runoff Data Centre (GRDC) – Hosted by BfG Germany, offering global river discharge data (<a class="reference external" href="https://www.bafg.de/GRDC">https://www.bafg.de/GRDC</a>)</p></li>
+<li><p>European Water Archive (EWA) – Historic river flow data from European countries (via GRDC collaboration)</p></li>
+<li><p>Australian Bureau of Meteorology Water Data – Streamflow and hydrology data portal (<a class="reference external" href="http://www.bom.gov.au/waterdata/">http://www.bom.gov.au/waterdata/</a>)</p></li>
+<li><p>HydroSHEDS and HydroRIVERS – Global hydrographic datasets suitable for modeling and estimation (<a class="reference external" href="https://www.hydrosheds.org/">https://www.hydrosheds.org/</a>)</p></li>
+<li><p>FAO AQUASTAT – Global water statistics including streamflow where available (<a class="reference external" href="http://www.fao.org/aquastat/">http://www.fao.org/aquastat/</a>)</p></li>
+<li><p>National Hydrological Services – Most countries operate a national hydrology or water resources agency that publishes data</p></li>
 </ul>
-<p>Illustrative example using USGS NWIS</p>
-<ul class="simple">
-<li><p>Navigate to landing page for state of interest</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using international data, it’s essential to check metadata for temporal resolution, measurement standards, and quality control protocols, as these may differ from U.S.-based sources.</p>
+</div>
+<section id="illustrative-workflow-using-usgs-nwis">
+<h3>Illustrative workflow using USGS NWIS<a class="headerlink" href="#illustrative-workflow-using-usgs-nwis" title="Link to this heading">#</a></h3>
+<p>The U.S. Geological Survey’s National Water Information System (NWIS) is the primary source for streamflow data in the United States. The following workflow demonstrates how to retrieve historical discharge data from NWIS using a web-based interface.</p>
+<ol class="arabic simple">
+<li><p>Begin by navigating to the NWIS landing page for the state or territory of interest. This can be accessed via the main USGS Water Data site or by searching for “NWIS [State Name]”. The state page provides an overview of all monitored sites and offers a search tool to help filter by county, basin, site type, or parameter.</p></li>
+</ol>
 <p><img alt="" src="../../_images/query-nwis.png" /></p>
-<ul class="simple">
-<li><p>Locate site of interest, or something stupid close</p></li>
-</ul>
+<ol class="arabic simple" start="2">
+<li><p>Once on the state-specific NWIS page, use the interactive map or filtering tools to locate a stream gage station at or near your study area. For most hydrologic analyses, proximity and physiographic similarity are important, so selecting a station “stupid close” (i.e., geographically and hydrologically relevant) is preferable. The example shown highlights a site near Houston, Texas, which is suitable for demonstration purposes.</p></li>
+</ol>
 <p><img alt="" src="../../_images/nwis-buffalo.png" /></p>
-<ul class="simple">
-<li><p>Download desired record(s)</p></li>
-</ul>
+<ol class="arabic simple" start="3">
+<li><p>Clicking on the station name brings up its dedicated site summary page, which includes metadata such as gage location, drainage area, period of record, and available parameters. Scroll to the “Available data for this site” section and choose the discharge (streamflow) dataset, usually expressed in cubic feet per second (cfs). You can specify a date range and choose the output format—commonly tab-delimited RDB format or comma-separated CSV—and then download the file to your local system.</p></li>
+</ol>
 <p><img alt="" src="../../_images/nwis-buffalo2.png" /></p>
-<ul class="simple">
-<li><p>Typical file structure</p></li>
-</ul>
+<ol class="arabic simple" start="4">
+<li><p>The resulting file includes a structured header with metadata followed by time series values. For example, a daily mean streamflow record will list the date, mean flow, and a flag column indicating data qualifiers (e.g., estimated values). This structure makes it relatively easy to import into Excel, Python, or statistical software for further analysis.</p></li>
+</ol>
 <p><img alt="" src="../../_images/nwis-buffalo3.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When working with NWIS data, always inspect the header rows carefully—they often contain important notes about data quality, revisions, and units.</p>
+</div>
+</section>
 </section>
 <section id="hydrograph-analysis-and-baseflow-separation">
 <h2>Hydrograph Analysis and Baseflow Separation<a class="headerlink" href="#hydrograph-analysis-and-baseflow-separation" title="Link to this heading">#</a></h2>
@@ -659,13 +689,16 @@ Inside a staff gage and small amount of cork “flour” records water surface e
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement">Streamflow Measurement</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-measurement-s">Streamflow Measurement(s)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measurement-techniques">Measurement Techniques</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-area-method">Slope Area Method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acoustic-doppler-current-profiler-adcp">Acoustic Doppler Current Profiler (ADCP)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streamflow-data">Streamflow Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-workflow-using-usgs-nwis">Illustrative workflow using USGS NWIS</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
