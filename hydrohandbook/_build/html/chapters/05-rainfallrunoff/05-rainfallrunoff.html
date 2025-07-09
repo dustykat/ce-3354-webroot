@@ -423,13 +423,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-runoff-generation-models">NRCS Runoff Generation Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model">Interpretation of NRCS CN as a linear reservoir model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrograph-peak-s-and-baseflow">Concept of Hydrograph, Peak(s), and Baseflow</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrograph-peak-s-and-baseflow">Concept of Hydrograph, Peak(s), and Baseflow</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrographs">5.1 Unit Hydrographs</a><ul class="visible nav section-nav flex-column">
@@ -996,45 +990,12 @@ The units of <strong>accumulated</strong> depth are length (thus the time deriva
 – During storm events, total streamflow consists of both baseflow and stormflow (direct runoff) components.
 – To estimate peak flow or the entire storm hydrograph, it is important to separate the baseflow from the observed hydrograph.
 – This separation is essential for understanding rainfall-runoff relationships and for use in modeling, design, and watershed assessments.</p>
-<p>To perform baseflow separation, several graphical methods have been developed. Common approaches include:</p>
-<section id="constant-discharge-method">
-<h3>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Link to this heading">#</a></h3>
-<p><img alt="" src="../../_images/constantdischarge.png" /></p>
-<ul class="simple">
-<li><p>Identify the point where the rising limb begins.</p></li>
-<li><p>Assign that flow value as a constant baseflow rate throughout the storm event.</p></li>
-<li><p>Connect this baseflow rate across the event duration until it re-joins the recession limb.</p></li>
-<li><p>The portion of flow above the constant line is considered stormflow.</p></li>
-</ul>
-</section>
-<section id="constant-slope-method">
-<h3>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Link to this heading">#</a></h3>
-<p><img alt="" src="../../_images/constantslope.png" /></p>
-<ol class="arabic simple">
-<li><p>Identify the point where the rising limb begins.</p></li>
-<li><p>Draw a straight line from this point to the inflection point on the recession limb.</p></li>
-<li><p>The area above this line is treated as stormflow.</p></li>
-<li><p>Limitations: Difficult to apply accurately in hydrographs with multiple peaks.</p></li>
-</ol>
-</section>
-<section id="concave-method">
-<h3>Concave method<a class="headerlink" href="#concave-method" title="Link to this heading">#</a></h3>
-<p><img alt="" src="../../_images/concave.png" /></p>
-<ol class="arabic simple">
-<li><p>Begin at the rising limb, and trace a concave curve downward along the recession limb, ending beneath the hydrograph peak.</p></li>
-<li><p>Then draw a second segment from this point to the inflection point on the falling limb.</p></li>
-<li><p>The region above these segments is defined as stormflow.</p></li>
-<li><p>Limitations: Can be subjective, especially when dealing with multi-peaked hydrographs.</p></li>
-</ol>
-</section>
-<section id="other-techniques">
-<h3>Other Techniques<a class="headerlink" href="#other-techniques" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>The Master Depletion Curve Method, described in course readings, is useful for long-term or event-specific hydrograph separation using established depletion patterns.</p></li>
-<li><p>For complex or continuous simulations, automated baseflow separation techniques or hydrologic modeling tools (e.g., SWAT, HEC-HMS) may be more appropriate.</p></li>
-<li><p>In practice, the constant discharge method is often favored for multi-peaked events due to its simplicity and reproducibility.</p></li>
-</ol>
-</section>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The hydrographs shown in this chapter assume that baseflow separation has already been completed. That means the flow values plotted and analyzed represent only the storm-related (direct) runoff, not the total streamflow at the gage. In technical terms, these are direct runoff hydrographs.</p>
+<p>In real-world applications, observed streamflow is a combination of baseflow (groundwater contribution) and direct runoff (from precipitation events). Removing baseflow is an essential step when estimating watershed response, runoff volume, or peak flow from rainfall events.</p>
+<p>The methods used to perform this baseflow separation—whether graphical or computational—are not covered here. You will learn these techniques in the next chapter, where we examine several standard approaches and their implications on hydrograph interpretation.</p>
+</div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="unit-hydrographs">
@@ -1620,13 +1581,7 @@ Finally the plotting section prepares graphical output, reports the inputs, summ
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nrcs-runoff-generation-models">NRCS Runoff Generation Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-nrcs-cn-as-a-linear-reservoir-model">Interpretation of NRCS CN as a linear reservoir model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrograph-peak-s-and-baseflow">Concept of Hydrograph, Peak(s), and Baseflow</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-hydrograph-peak-s-and-baseflow">Concept of Hydrograph, Peak(s), and Baseflow</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-hydrographs">5.1 Unit Hydrographs</a><ul class="visible nav section-nav flex-column">

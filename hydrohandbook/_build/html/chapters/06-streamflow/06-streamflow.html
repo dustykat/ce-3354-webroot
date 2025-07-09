@@ -416,7 +416,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-workflow-using-usgs-nwis">Illustrative workflow using USGS NWIS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
@@ -609,10 +615,70 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 </section>
 <section id="hydrograph-analysis-and-baseflow-separation">
 <h2>Hydrograph Analysis and Baseflow Separation<a class="headerlink" href="#hydrograph-analysis-and-baseflow-separation" title="Link to this heading">#</a></h2>
+<p>A hydrograph is a time series plot that shows how streamflow or discharge varies over time at a particular point in a watershed, typically following a rainfall event. It reflects the integrated response of a watershed to precipitation, modulated by surface and subsurface flow processes.</p>
+<p><img alt="" src="../../_images/hydrograph-11.png" /></p>
+<p>The idealized hydrograph is divided into:</p>
 <ul class="simple">
-<li><p>Stormflow vs. baseflow</p></li>
-<li><p>Recession curves and storage effects</p></li>
+<li><p>Rising limb: where discharge increases rapidly due to incoming runoff</p></li>
+<li><p>Peak flow: the highest point of the hydrograph, representing the maximum discharge</p></li>
+<li><p>Recession limb: the gradual decrease in flow as runoff and baseflow subside</p></li>
 </ul>
+<p>In engineering hydrology, <strong>peak flow</strong> estimation is essential for:</p>
+<ol class="arabic simple">
+<li><p>Designing culverts, bridges, detention ponds</p></li>
+<li><p>Urban drainage systems</p></li>
+<li><p>Flood risk assessments</p></li>
+</ol>
+<p>In engineering hydrology, entire <strong>hydrograph estimation</strong> is important for</p>
+<ol class="arabic simple">
+<li><p>Modeling the temporal distribution of runoff for detention and retention system design</p></li>
+<li><p>Assessing watershed response for hydrologic and hydraulic simulation models</p></li>
+<li><p>Supporting water quality analysis and long-term water resource planning</p></li>
+</ol>
+<p>The hydrograph pictured also has a baseflow component
+– Flow in the absence of a storm, often contributed by groundwater discharge or delayed interflow.
+– During storm events, total streamflow consists of both baseflow and stormflow (direct runoff) components.
+– To estimate peak flow or the entire storm hydrograph, it is important to separate the baseflow from the observed hydrograph.
+– This separation is essential for understanding rainfall-runoff relationships and for use in modeling, design, and watershed assessments.</p>
+<p>To perform baseflow separation, several graphical methods have been developed. Common approaches include:</p>
+<section id="constant-discharge-method">
+<h3>Constant discharge method<a class="headerlink" href="#constant-discharge-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/constantdischarge.png" /></p>
+<ul class="simple">
+<li><p>Identify the point where the rising limb begins.</p></li>
+<li><p>Assign that flow value as a constant baseflow rate throughout the storm event.</p></li>
+<li><p>Connect this baseflow rate across the event duration until it re-joins the recession limb.</p></li>
+<li><p>The portion of flow above the constant line is considered stormflow.</p></li>
+</ul>
+</section>
+<section id="constant-slope-method">
+<h3>Constant slope method<a class="headerlink" href="#constant-slope-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/constantslope.png" /></p>
+<ol class="arabic simple">
+<li><p>Identify the point where the rising limb begins.</p></li>
+<li><p>Draw a straight line from this point to the inflection point on the recession limb.</p></li>
+<li><p>The area above this line is treated as stormflow.</p></li>
+<li><p>Limitations: Difficult to apply accurately in hydrographs with multiple peaks.</p></li>
+</ol>
+</section>
+<section id="concave-method">
+<h3>Concave method<a class="headerlink" href="#concave-method" title="Link to this heading">#</a></h3>
+<p><img alt="" src="../../_images/concave.png" /></p>
+<ol class="arabic simple">
+<li><p>Begin at the rising limb, and trace a concave curve downward along the recession limb, ending beneath the hydrograph peak.</p></li>
+<li><p>Then draw a second segment from this point to the inflection point on the falling limb.</p></li>
+<li><p>The region above these segments is defined as stormflow.</p></li>
+<li><p>Limitations: Can be subjective, especially when dealing with multi-peaked hydrographs.</p></li>
+</ol>
+</section>
+<section id="other-techniques">
+<h3>Other Techniques<a class="headerlink" href="#other-techniques" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>The Master Depletion Curve Method, described in course readings, is useful for long-term or event-specific hydrograph separation using established depletion patterns.</p></li>
+<li><p>For complex or continuous simulations, automated baseflow separation techniques or hydrologic modeling tools (e.g., SWAT, HEC-HMS) may be more appropriate.</p></li>
+<li><p>In practice, the constant discharge method is often favored for multi-peaked events due to its simplicity and reproducibility.</p></li>
+</ol>
+</section>
 </section>
 <section id="exercise-s">
 <h2>Exercise(s)<a class="headerlink" href="#exercise-s" title="Link to this heading">#</a></h2>
@@ -699,7 +765,13 @@ Inside a staff gage and small amount of cork “flour” records water surface e
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-workflow-using-usgs-nwis">Illustrative workflow using USGS NWIS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-analysis-and-baseflow-separation">Hydrograph Analysis and Baseflow Separation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-discharge-method">Constant discharge method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-slope-method">Constant slope method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concave-method">Concave method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-techniques">Other Techniques</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
