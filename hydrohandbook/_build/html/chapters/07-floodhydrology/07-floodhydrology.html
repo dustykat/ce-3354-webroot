@@ -422,11 +422,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-duration-series">Annual Duration Series</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-duration-series">Partial Duration Series</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-using-bulletin-17c">Flood Frequency Analysis using Bulletin 17C</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-hec-ssp">Illustrative Example using HEC-SSP</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-peakfq-web-tool">Illustrative Example using PeakFQ Web Tool</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-hydrology-and-stormwater-management">Urban Hydrology and Stormwater Management</a></li>
@@ -466,6 +467,8 @@ document.write(`
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/Lecture06-2015.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture08.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes to Accompany CE 3354 (Point Precipitation; Design Storms)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/06-ProbabilityEstimation/Lecture06-2020.pdf">Cleveland, T. G. (2020) <em>Engineering Hydrology Notes to Accompany CE 3354 (Probability Estimation Modeling)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf">Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006, Statewide analysis of the drainage-area ratio method for 34 streamflow percentile ranges in Texas: U.S. Geological Survey Scientific Investigations Report 2006–5286, 34 p.,1 appendix.</a></p></li>
+<li><p><a class="reference internal" href="#ce-3354-webroot/hydrohandbook/chapters/07-floodhydrology/levy-mccuen-2000-evaluation-of-peak-discharge-transposition.pdf"><span class="xref myst">McCuen, R. H. and Levy, B. S. 2000. Evaluation of Peak Discharge Transposition. ASCE J. Hydrol. Eng., 2000, 5(3): 278-289</span></a></p></li>
 </ol>
 </section>
 <section id="videos">
@@ -1490,23 +1493,79 @@ First recover the required model parameters. Then we will paste these into the <
 <p class="admonition-title">Summary</p>
 <ul class="simple">
 <li><p>B17C is a report containing methods for estimating magnitudes of rare events</p></li>
-<li><p>The methods are incorporated into software products such as <a class="reference external" href="https://pubs.usgs.gov/tm/2006/tm4b4/tm4b4.pdf">PeakFQ 7.3</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
+<li><p>The methods are incorporated into software products such as <a class="reference external" href="https://www.usgs.gov/tools/peakfq">PeakFQ</a> and <a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a></p></li>
 </ul>
 <p>Software is employed because the Pearson Type III distribution is applied to model streamflow, precipitation extremes, and flood frequency because it can accommodate the <strong>skewness</strong> (3rd moment) observed in these datasets. For example, the Log-Pearson Type III distribution, where data is logarithmically transformed, is used by the U.S. Geological Survey (USGS) for flood frequency analysis, helping hydrologists estimate the magnitude of extreme flood events at prescribed probabilities (e.g., 100-year floods), or conversely the likely probability associated with a particular magnitude.</p>
 <p>By adjusting parameters such as mean, variance, and skewness, Pearson distributions can fit a wide range of data types - but the fitting itself is complex and requires a lot of tedious computations - just the thing for a computer program to do the heavy lifting.  The programs above replace older tabular methods that were prone to calculation errors when done by hand, and interpretation errors from by-hand plotting of the results.</p>
 </div>
-<section id="illustrative-example-using-beargrass-creek">
-<h4>Illustrative Example using Beargrass creek<a class="headerlink" href="#illustrative-example-using-beargrass-creek" title="Link to this heading">#</a></h4>
-<p>Demonstrate using Bearcreek as an example.  Beargrass creek is not a real site, therefore is not in the NWIS database, so we have to modify the file to be readable in PeakFQ.</p>
-<p>A modified file (in correct WATSTORE format for use in PeakFQ 7.3 software) is at <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/07-floodhydrology/beargrass.txt">BearGrass-B17B.txt</a></p>
+<section id="illustrative-example-using-hec-ssp">
+<h4>Illustrative Example using HEC-SSP<a class="headerlink" href="#illustrative-example-using-hec-ssp" title="Link to this heading">#</a></h4>
+<p><a class="reference external" href="https://www.hec.usace.army.mil/software/hec-ssp/">HEC-SSP</a> is a tool that can implement various Bulletin 17B and 17C analyses (among many more).  Here we will illustrate using the Beargrass Creek data (same as above). Beargrass Creek is not a real site, therefore is not in the NWIS database, so we have to import the data into HEC-SSP.</p>
+<ol class="arabic simple">
+<li><p><strong>Prepare a data file</strong>.  Here we will simply use a modified <code class="docutils literal notranslate"><span class="pre">beargrass.txt</span></code> file restructured and stored in a spreadsheet.  The software expects the Date_Time information to be formatted as: <em>DD MMM YYYY</em> for example our first entry is changed from 1945 to 01 JAN 1945.  The spaces are actually characters, so the field itself  is 11 characters.  The software will also infer a time (24:00) and include it, but this artifical time is unimportant in the subsequent analysis.  The file itself looks like: <br><br><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/07-floodhydrology/BeargrassSSP.xlsx"><img alt="" src="../../_images/BeargrassSSP.png" /></a> <br><br></p></li>
+<li><p><strong>Start HEC-SSP</strong>.  Next we start the program (you have to download and install the software first).  The interface looks like: <br><br> <img alt="" src="../../_images/HEC-SSP-Start.png" /> <br><br></p></li>
+<li><p><strong>Create a Project</strong> Use File/New Study to generate a study  metafile (The study is like a named directory that is managed within the software.)  <br><br><img alt="" src="../../_images/HEC-SSP-NewStudy.png" /><br><br>  Upon completion a map canvas will appear (which we will ignore; for our needs a map is unecessary).</p></li>
+<li><p><strong>Upload the Data</strong> To upload right-click Data and choose /New/Upload Wizzard (yes of Oz) <br><br><img alt="" src="../../_images/HEC-SSP-Import.png" /><br><br> Now follow the wizzard prompts.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://youtu.be/sm2-4AI6WU8">Video to Demo PeakFQ on Beargrass Creek (YouTube)</a></p></li>
+<li><p>For the first dialog box, provide a name for the data, then select Next.</p></li>
+<li><p>For the second dialog box, choose data source - in this case MS Excel file <br><br><img alt="" src="../../_images/HEC-SSP-Excel.png" /><br><br></p></li>
+<li><p>The next dialog we find the file (pull down search tool) <br><br><img alt="" src="../../_images/HEC-SSP-LookSee.png" /><br><br></p></li>
+<li><p>Once we have the proper file, we will tell the program to ignore the header row, and import columns A and B as Date-Time, and Value respectively <br><br> <img alt="" src="../../_images/HEC-SSP-ChooseData.png" /> <br><br></p></li>
+<li><p>Lastly we have to specify file paths, populate boxes with meaningful names and proceede.</p></li>
 </ul>
-<p>In class access <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;amp;site_no=08145000">Brady Creek</a> (close to Hardin Creek)</p>
+</li>
+<li><p><strong>Examine and Analyze</strong>  Now the data are loaded, one can run necessary analysis.</p>
+<ul class="simple">
+<li><p>First select Bulletin 17 tools <br><br><img alt="" src="../../_images/HEC-SSP-AnalysisP1.png" /><br><br></p></li>
+<li><p>Then give the analysis a name, and point it to the data just uploaded <br><br><img alt="" src="../../_images/HEC-SSP-AnalysisP2.png" /><br><br></p></li>
+<li><p>Then run an analysis (the above settings are just defaults, as you gain expertise – and read the documentation, you can explore other options), the results are reported in tables (tab sheet) and plots after selecting and running <strong>Compute</strong> <br><br> <img alt="" src="../../_images/HEC-SSP-Output.png" /> <br><br></p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="illustrative-example-using-peakfq-web-tool">
+<h4>Illustrative Example using PeakFQ Web Tool<a class="headerlink" href="#illustrative-example-using-peakfq-web-tool" title="Link to this heading">#</a></h4>
+<p>The example below uses NWIS data for <a class="reference external" href="https://waterdata.usgs.gov/nwis/inventory?agency_code=USGS&amp;amp;site_no=08145000">Brady Creek 08145000</a> and performs the analysis using the USGS on-line tool.</p>
+<ol class="arabic simple">
+<li><p><strong>Navigate to the gaging station</strong> page on NWIS <br><br> <img alt="" src="../../_images/USGS-Brady.png" /> <br><br></p></li>
+<li><p><strong>Download</strong> the peak file as <code class="docutils literal notranslate"><span class="pre">tab</span> <span class="pre">delimited</span></code>, give the download a memorable name.</p></li>
+<li><p><strong>Navigate to the peakFQ</strong> webster interface.</p></li>
+<li><p><strong>Upload the file</strong> to the webster. <br><br> <img alt="" src="../../_images/USGS-PFQ-Upload.png" /> <br><br></p></li>
+<li><p><strong>Examine, select options</strong>, then run analysis.  On main page after choose load data, then scroll to bottom to set the output file zip folder name.</p></li>
+<li><p><strong>Run analysis</strong> after choose skew method, etc. <br><br> <img alt="" src="../../_images/USGS-PFQ-RunBabyRun.png" /> <br><br></p></li>
+<li><p><strong>Extract the output</strong> from .ZIP download. <br><br> <img alt="" src="../../_images/USGS-Brady-Out.png" /> <br><br></p></li>
+</ol>
+</section>
+</section>
+<section id="gage-transposition-approach">
+<h3>Gage Transposition Approach<a class="headerlink" href="#gage-transposition-approach" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is based upon <a class="reference external" href="https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf">Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006</a> and <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/07-floodhydrology/levy-mccuen-2000-evaluation-of-peak-discharge-transposition.pdf">McCuen, R. H. and Levy, B. S. 2000.</a>  A key observation is that the transposition is a power-law model to relate known to unknown locations, and the power ranges from 1/2 to nearly 1.</p>
+</div>
+<p>A method that is often quite useful is a <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/statistical_analysis_of_stream_gauge_data.htm#i1106111">Gage Transposition Approach</a>.</p>
+<p>If gauge data are not available at the design location, discharge values can be estimated by transposition of a peak flood-frequency curve from a nearby gauged location. This method is appropriate for hydrologically similar watersheds that differ in area by less than 50 percent, with outlet locations less than 100 miles apart.</p>
+<p>An estimate of the desired AEP peak flow at the ungauged site is provided by <br></p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.5}  \)</span><br></p>
+<p>Where:<br></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> = Estimated AEP discharge at ungauged watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_2\)</span> = Known AEP discharge at gauged watershed 2</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_1\)</span> = Area of watershed 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_2\)</span> = Area of watershed 2</p></li>
+</ul>
+<p>Transposition of peak flow is demonstrated with the following example. A designer requires an estimate of the 1% AEP streamflow at an ungauged location with drainage area of 200 square miles. A nearby (within 100 miles) stream gauge has a hydrologically similar drainage area of 450 square miles. The 1% AEP peak streamflow at the gauged location is 420 cfs based on the peak flow-frequency curve developed for that location. Substituting into Equation 4-10 results in 280 cfs as an estimate of the 1% AEP peak discharge at the ungauged location:</p>
+<p>If flow-frequency curves are available at multiple gauged sites, Equation 4-10 can be used to estimate the desired peak AEP flow from each site. Then, with judgment and knowledge of the watersheds, those estimates could be weighted to provide an estimate of the desired AEP flow at the ungauged location. This process should be well documented.</p>
+<p>Design of a storage facility, such as a detention pond, may require estimates of AEP flows for longer durations. If a flow-frequency curve for longer flow duration is available at a nearby gauged location, then the following equation, based on an analysis of mean-daily flows , may be used for transposition:</p>
+<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.9}  \)</span><br></p>
+<div class="admonition-summary admonition">
+<p class="admonition-title">Summary</p>
+<p>Flood frequency analysis is a mature field supported by robust statistical methodologies and widely accepted computational tools. For sites with digital streamflow records available through NWIS or comparable databases, automated workflows are readily available. In contrast, analysis based on legacy or paper records requires manual data preparation and formatting. In such cases, HEC-SSP provides a flexible input framework for conducting frequency analyses with custom datasets.</p>
+<p>For standardized analysis of USGS streamgage records, PeakFQ is probably the preferred tool, conforming to Bulletin 17C guidelines and accessible via the USGS web interface. When direct data are unavailable at the location of interest, regionalization via gage transposition can be applied, assuming physiographic and hydrologic similarity criteria are met.</p>
+</div>
 <ul class="simple">
 <li><p>Regional flood equations and statistical approaches: In areas with limited streamflow data, regional regression equations derived from gaged watersheds provide a means to estimate flood discharges. These equations relate flood magnitudes to watershed characteristics such as area, slope, and rainfall. They enable engineers to perform flood assessments in ungauged or newly developed basins by leveraging data from similar hydrologic regions.</p></li>
 </ul>
-</section>
 </section>
 <section id="regional-regression-equations">
 <h3>Regional Regression Equations<a class="headerlink" href="#regional-regression-equations" title="Link to this heading">#</a></h3>
@@ -1546,28 +1605,6 @@ First recover the required model parameters. Then we will paste these into the <
 <img alt="" src="../../_images/texasregionalonline1.png" /></p>
 <p>and the on-line results
 <img alt="" src="../../_images/texasregionalonline2.png" /></p>
-</section>
-<section id="gage-transposition-approach">
-<h3>Gage Transposition Approach<a class="headerlink" href="#gage-transposition-approach" title="Link to this heading">#</a></h3>
-<p>A method that is often quite useful is a <a class="reference external" href="https://onlinemanuals.txdot.gov/TxDOTOnlineManuals/TxDOTManuals/hyd/statistical_analysis_of_stream_gauge_data.htm#i1106111">Gage Transposition Approach</a>.</p>
-<p>If gauge data are not available at the design location, discharge values can be estimated by transposition if a peak flood-frequency curve is available at a nearby gauged location. This method is appropriate for hydrologically similar watersheds that differ in area by less than 50 percent, with outlet locations less than 100 miles apart.</p>
-<p>An estimate of the desired AEP peak flow at the ungauged site is provided by <br></p>
-<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.5}  \)</span><br></p>
-<p>Where:<br></p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> = Estimated AEP discharge at ungauged watershed 1</p></li>
-<li><p><span class="math notranslate nohighlight">\(Q_2\)</span> = Known AEP discharge at gauged watershed 2</p></li>
-<li><p><span class="math notranslate nohighlight">\(A_1\)</span> = Area of watershed 1</p></li>
-<li><p><span class="math notranslate nohighlight">\(A_2\)</span> = Area of watershed 2</p></li>
-</ul>
-<p>Transposition of peak flow is demonstrated with the following example. A designer requires an estimate of the 1% AEP streamflow at an ungauged location with drainage area of 200 square miles. A nearby (within 100 miles) stream gauge has a hydrologically similar drainage area of 450 square miles. The 1% AEP peak streamflow at the gauged location is 420 cfs based on the peak flow-frequency curve developed for that location. Substituting into Equation 4-10 results in 280 cfs as an estimate of the 1% AEP peak discharge at the ungauged location:</p>
-<p>If flow-frequency curves are available at multiple gauged sites, Equation 4-10 can be used to estimate the desired peak AEP flow from each site. Then, with judgment and knowledge of the watersheds, those estimates could be weighted to provide an estimate of the desired AEP flow at the ungauged location. This process should be well documented.</p>
-<p>Design of a storage facility, such as a detention pond, may require estimates of AEP flows for longer durations. If a flow-frequency curve for longer flow duration is available at a nearby gauged location, then the following equation, based on an analysis of mean-daily flows , may be used for transposition:</p>
-<p><span class="math notranslate nohighlight">\(Q_1 = Q_2(\frac{A_1}{A_2})^{0.9}  \)</span><br></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This section is largely based upon <a class="reference external" href="https://pubs.usgs.gov/sir/2006/5286/pdf/sir2006-5286.pdf">Asquith, W.H., Roussel, M.C., and Vrabel, Joseph, 2006, Statewide analysis of the drainage-area ratio method for 34 streamflow percentile ranges in Texas: U.S. Geological Survey Scientific Investigations Report 2006–5286, 34 p.,1 appendix.</a>.  A key observation is that the transposition is a power-law model to relate known to unknown locations, and the power ranges from 1/2 to nearly 1.</p>
-</div>
 </section>
 </section>
 <section id="urban-hydrology-and-stormwater-management">
@@ -1684,11 +1721,12 @@ First recover the required model parameters. Then we will paste these into the <
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annual-duration-series">Annual Duration Series</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-duration-series">Partial Duration Series</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flood-frequency-analysis-using-bulletin-17c">Flood Frequency Analysis using Bulletin 17C</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-beargrass-creek">Illustrative Example using Beargrass creek</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-hec-ssp">Illustrative Example using HEC-SSP</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#illustrative-example-using-peakfq-web-tool">Illustrative Example using PeakFQ Web Tool</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gage-transposition-approach">Gage Transposition Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regional-regression-equations">Regional Regression Equations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urban-hydrology-and-stormwater-management">Urban Hydrology and Stormwater Management</a></li>
