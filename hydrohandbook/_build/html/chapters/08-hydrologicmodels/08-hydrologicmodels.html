@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/08-hydrologicmodels/08-hydrologicmodels';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -203,6 +205,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../06-streamflow/06-streamflow.html">6. Streamflow Measurement and Streamflow Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Hydrologic Modeling</a></li>
+
+
+
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
@@ -405,6 +410,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. Hydrologic Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-modeling-in-engineering-design">Hydrologic modeling in Engineering Design</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-review-and-final-project-presentations">Course Review and Final Project Presentations</a></li>
 </ul>
@@ -422,12 +428,30 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-the-models">Parameterizing the models</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-multiple-elements">HEC-HMS Multiple Elements</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.2 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-routing">8.2 Hydrograph Routing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routing-hydrologic-and-hydraulic">Routing-Hydrologic and Hydraulic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-routing">Hydrologic Routing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-pool-routing">Level Pool Routing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reservoir-concepts">Reservoir Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reservoir-storage">Reservoir Storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-constructs">HEC-HMS Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routing-channel-and-reservoir">Routing-channel and reservoir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-files">HEC-HMS Files</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-file">End of File</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">8.3 Storage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.4 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
 </ul>
@@ -486,7 +510,8 @@ document.write(`
 <section id="readings">
 <h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, (Read pages 26 to 31; 416 to 423)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CMM1988/">Chow, V.T., Maidment,D.M., and Mays, L.W. (1998) Applied Hydrology, McGraw Hill, pp. 444-493</a></p></li>
+<li><p><a class="reference external" href="https://www.waveland.com/browse.php?t=384">Gupta, R.S., 2017. Hydrology and Hydraulic Systems, pp. 46-59</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture09.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Introduction to HEC-HMS) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce-3354-webbook-2024/my3354notes/lessons/16-HEC_HMS/Lesson09ug.pdf">Cleveland, T. G. (2022) <em>Engineering Hydrology Notes to Accompany CE 3354 (Introduction to HEC-HMS; Ash Creek Dallas HEC-HMS Example)</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_Users_Manual_3.5.pdf">HEC-HMS User Manual 3.5</a></p></li>
@@ -496,6 +521,9 @@ document.write(`
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/HEC-HMS-Documentation/HEC-HMS_TechnicalReferenceManual_(CPD-74B).pdf">HEC-HMS Technical Reference Manual</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/NRCS-CN-TP149/methodforestimat149kent.pdf">NRCS TP-149 CN estimation</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip">AshCreek Data (zip)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture17.pdf">Cleveland, T. G. (2017) <em>Surface Water Hydrology Notes (Hydrograph Routing) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Routing_(hydrology)">Routing (Hydrology) Wikipedia </a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Routing_Information_Protocol">Routing (Information) Wikipedia</a></p></li>
 </ol>
 </section>
 <section id="videos">
@@ -509,6 +537,21 @@ document.write(`
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=U-TIoKYFCrw&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=4">HEC-HMS Running a Simulation (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=WwmzAqer6GU&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=5">HEC-HMS Results Interpretation (YouTube)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=rwXwY7heaLQ&amp;amp;list=PLH7yUh2l8q9WnSFbyKB4oIIGHMgfMaWCv&amp;amp;index=6">HEC-HMS Simulation Types (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=nzRG2uIMaTY">Hydrograph Routing (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=1mdtq7iJ_74&amp;amp;t=248s">Reservoir Routing (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=HLSTZuEi5gg">Hydrologic Channel Routing (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Eb0BoxlxcQw&amp;amp;list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d">Channel Routing (NCEES Training Video)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=lkUEFtjQH6s&amp;amp;list=PLGCZ9gpx8QdsoFj-3qWS_7iq61WE4Yy9d">Reservoir Routing (NCEES Training Video)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=u0-FLuwWhf4">Flash Flood Videos (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Ipo0kwQQcgQ">Flash Flood near Sedona Az. (YouTube)</a></p></li>
+</ol>
+</section>
+<section id="spreadsheets">
+<h2>Spreadsheets<a class="headerlink" href="#spreadsheets" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/CircularChannelMannings-US.xls">Manning’s Circular Cross Section Discharge Calculator (xls).</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/OrificeDichargeCalculatorUSCustomary.xlsx">Orifice Discharge Calculator (xls).</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/RoutingExample.xls">Level Pool (Puls Method) Routing Example.</a></p></li>
 </ol>
 </section>
 <section id="hydrologic-modeling-in-engineering-design">
@@ -718,8 +761,310 @@ Users must access using [Remote Desktop Protocol](https://learn.microsoft.com/en
 <p>There are tutorials and examples in the User Manual for the software.</p>
 </section>
 </section>
-<section id="hec-hms-multiple-elements">
-<h3>HEC-HMS Multiple Elements<a class="headerlink" href="#hec-hms-multiple-elements" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hydrograph-routing">
+<h1>8.2 Hydrograph Routing<a class="headerlink" href="#hydrograph-routing" title="Link to this heading">#</a></h1>
+<p>Hydrograph routing is a technique used in computational hydrology to predict the temporal distribution of water flow in rivers, channels, and reservoirs in response to inflow events. It involves calculating the downstream movement of water through a channel or watershed, accounting for the storage and movement of water within the system. The primary objective is to determine the changes in flow characteristics, such as discharge, over time and space as water travels from upstream to downstream points.</p>
+<p>In practical applications, hydrograph routing is used for flood forecasting, design of hydraulic structures, and water resource management. There are two main types of routing:</p>
+<ol class="arabic simple">
+<li><p>Hydrologic Routing: This approach uses simplified methods based on the conservation of mass and empirical relationships. Techniques such as the Muskingum method, kinematic wave model, and unit hydrograph are common. Hydrologic routing is often used for its simplicity and efficiency, particularly in cases where detailed data is not available.</p></li>
+<li><p>Hydraulic Routing: This method uses the principles of fluid mechanics, typically the continuity equation and the momentum equation (Saint-Venant equations), to model the movement of water through a channel. It provides detailed information about flow depth and velocity but requires comprehensive data and computational effort.  (These techniques are introduced and applied in CE 3372 and are the subject of the entire course CE 4353)</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the context of HEC-HMS, this background serves as a natural precursor to building models with multiple interconnected sub-basins. Routing represents the mechanism by which information—specifically, flow—is transmitted from one component to the next. As you work through the examples, remember that the actual computations are carried out within HEC-HMS, not in our homebrew scripts or spreadsheets, even though the underlying algorithms are the same.</p>
+</div>
+<p>Hydrograph routing informs how different factors, such as channel shape, roughness, and basin characteristics, influence the timing and magnitude of peak flows. The results are critical for designing effective flood control measures, optimizing reservoir operations, and designing suitable drainage systems.</p>
+<div class="admonition-routing-concept admonition">
+<p class="admonition-title">Routing Concept</p>
+<p>Routing simulates movement of a discharge signal (flood wave) through hydrologic/hydraulic elements called reaches.</p>
+<ul class="simple">
+<li><p>Accounts for storage in the reach and flow resistance.</p></li>
+<li><p>Allows modeling of a basin comprised of interconnected sub-basins</p></li>
+<li><p>Hydrologic routing – uses continuity equation (HEC-HMS)</p></li>
+<li><p>Hydraulic routing – uses continuity and momentum (St. Venant Equations; HEC-RAS, EPA-SWMM)</p></li>
+</ul>
+</div>
+<section id="routing-hydrologic-and-hydraulic">
+<h2>Routing-Hydrologic and Hydraulic<a class="headerlink" href="#routing-hydrologic-and-hydraulic" title="Link to this heading">#</a></h2>
+<p>Problem:</p>
+<ul class="simple">
+<li><p>you have a hydrograph at one location (I)</p></li>
+<li><p>you have reach characteristics (S = f(I,O))</p></li>
+</ul>
+<p>Need:</p>
+<ul class="simple">
+<li><p>a hydrograph at different location (O)</p></li>
+</ul>
+<p>This is a “routing” situation. The “reach” can be a stream, river, reservoir or some similar feature; the element must have the ability to convey (transmit water) and accumulate (store water).  Routing is not applied to overland flow per-se; although time-area methods are arguably a type of routing.</p>
+<p><img alt="" src="../../_images/routingsketch.png" /></p>
+<p>The bar heights (volumes in storage, entering, and leaving the hydrologic reach) as depicted below are usually quantified in a routing table - its conceptually like a bank account that relates revenue, expenses, and account balance.</p>
+<p><img alt="" src="../../_images/barheights.png" /></p>
+</section>
+<section id="hydrologic-routing">
+<h2>Hydrologic Routing<a class="headerlink" href="#hydrologic-routing" title="Link to this heading">#</a></h2>
+<p>Hydrologic routing techniques use the equation of continuity and some linear or curvilinear relation between storage and discharge within the river.  The effects of momentum are neglected.</p>
+<p>Methods include:</p>
+<ul class="simple">
+<li><p>Lag Routing (no attenuation). Useful to get connectivity correct in a model</p></li>
+<li><p>Modified Puls (level pool routing). Useful for reservoirs</p></li>
+<li><p>Muskingum-Cunge (a simplified type of hydraulic model). Useful to approximate stream/river behavior without resorting to true “hydraulics” considerations</p></li>
+</ul>
+<section id="level-pool-routing">
+<h3>Level Pool Routing<a class="headerlink" href="#level-pool-routing" title="Link to this heading">#</a></h3>
+<p>Technique to approximate the outflow hydrograph passing through a reservoir with the pool (water surface) always level.</p>
+<ul class="simple">
+<li><p>Uses a reach (reservoir) mass balance equation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ Q_{in} − Q_{out} = \frac{\Delta S}{\Delta t}\]</div>
+<ul class="simple">
+<li><p>and a storage-outflow relationship.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ Q_{out} = f(S)\]</div>
+<p>Variable names are typically changed:</p>
+<p><span class="math notranslate nohighlight">\(Q_{in} =&gt; I_t\)</span> and <span class="math notranslate nohighlight">\(Q_{out} =&gt; O_t\)</span></p>
+<p>So the reach mass balance is</p>
+<div class="math notranslate nohighlight">
+\[ \bar I − \bar O = \frac{\Delta S}{\Delta t}\]</div>
+<p>The time averaged values are taken at the beginning and end of a useful time interval, and the first-order difference quotient is used to approximate the rate of change in storage.</p>
+<p>The reach mass balance is then</p>
+<div class="math notranslate nohighlight">
+\[\frac{I_t - I_{t-\Delta t}}{2} - \frac{O_t - O_{t-\Delta t}}{2} = \frac{S_t - S_{t-\Delta t}}{\Delta t}  \]</div>
+<p><img alt="" src="../../_images/levelpool1.png" /></p>
+<p>Then some of that algebra stuff ….</p>
+<p><img alt="" src="../../_images/levelpool2.png" /></p>
+<p>More algebra stuff ….</p>
+<p><img alt="" src="../../_images/levelpool3.png" /></p>
+<p>Some more algebra still and recognize need to deal with two unknowns …</p>
+<p><img alt="" src="../../_images/levelpoolF.png" /></p>
+<p>The storage-outflow function leverages hydraulics where possible. For example flow through holes (orifice flow), over spillways and weirs, and simplified culvert flow situations.</p>
+<p><img alt="" src="../../_images/storageoutflow.png" /></p>
+<p><img alt="" src="../../_images/weirflow.png" /></p>
+<p><img alt="" src="../../_images/holyflow.png" /></p>
+<p>Use outlet-works hydraulics, and depth-area-storage to build a storage-outflow function</p>
+<div class="math notranslate nohighlight">
+\[O = f(S)\]</div>
+<p>Once we have that function, then build an auxiliary function (tabulation) called the storage-indication curve (function)</p>
+<div class="math notranslate nohighlight">
+\[ O = g(\frac{2S}{\Delta t} +O) \]</div>
+<p>here <span class="math notranslate nohighlight">\(g\)</span> is some function.</p>
+<p>Once have the storage-indication curve then can use the reach mass balance to estimate the numerical value of :</p>
+<div class="math notranslate nohighlight">
+\[\frac{2S_t}{\Delta t} +O_t\]</div>
+<p>Then use the storage-indication curve to find the value of outflow, subtract that from the result above, and now have both the end-of-interval outflow and storage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Probably should rewrite the example in Jupyter/iPython to be consistent with modern technology</p>
+</div>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>Similar to CMM 8.2.1 pg 247-252; but</p>
+<ul class="simple">
+<li><p>Shows how the storage-indication curve is determined using hydraulics</p></li>
+<li><p>Illustrate use of spreadsheet programming needed to make the actual computations</p></li>
+</ul>
+<p><img alt="" src="../../_images/detentionbasin.png" /></p>
+<p>Tasks:</p>
+<ul class="simple">
+<li><p>Build a depth-storage table</p></li>
+<li><p>Build a depth-outflow table</p>
+<ul>
+<li><p>From 0 to 5 feet deep use Manning’s equation in a circular conduit</p></li>
+<li><p>From 5+ to 12 feet deep use Orifice equation (neglecting frictional losses)</p></li>
+</ul>
+</li>
+<li><p>Save a depth-storage-outflow table for use in storage-indication curve</p></li>
+<li><p>Build the routing table (apply the reach mass balance)</p></li>
+</ul>
+<p>For depth-outflow here is a <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/CircularChannelMannings-US.xls">Manning’s Circular Cross Section Discharge Calculator (xls).</a></p>
+<p><img alt="" src="../../_images/mannings.png" /></p>
+<p>Here is an <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/OrificeDichargeCalculatorUSCustomary.xlsx">Orifice Discharge Calculator (xls).</a></p>
+<p><img alt="" src="../../_images/orifice.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iPython Circular Mannings Calculator (Beware: No Error Checking!)</span>
+<span class="c1">########### INPUT VALUES ################</span>
+<span class="n">manningsn</span> <span class="o">=</span> <span class="mf">0.013</span> <span class="c1"># supply n value look up in a table</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mf">5.0</span>       <span class="c1"># depth in feet</span>
+<span class="n">diameter</span> <span class="o">=</span> <span class="mf">5.0</span>    <span class="c1"># culvert/outlet diameter in feet</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="mf">0.003</span>     <span class="c1"># culvert/outlet slope (feet/feet)</span>
+<span class="c1">########### MATH PACKAGE ################</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1">########### CALCULATIONS ################</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">depth</span> <span class="o">/</span> <span class="n">diameter</span><span class="p">)</span> 
+<span class="n">area</span> <span class="o">=</span> <span class="p">(</span><span class="n">diameter</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">angle</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span><span class="o">/</span><span class="mf">4.0</span>
+<span class="n">perimeter</span> <span class="o">=</span> <span class="n">angle</span><span class="o">*</span><span class="n">diameter</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">area</span><span class="o">/</span><span class="n">perimeter</span>
+<span class="n">discharge</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.49</span><span class="o">/</span><span class="n">manningsn</span><span class="p">)</span><span class="o">*</span><span class="n">area</span><span class="o">*</span><span class="p">(</span><span class="n">radius</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">discharge</span><span class="o">/</span><span class="n">area</span>
+<span class="c1">########### RESULTS ###############</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mannings n : </span><span class="si">%10.3f</span><span class="s2"> --  &quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">manningsn</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Depth  : </span><span class="si">%10.3f</span><span class="s2"> ft. &quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">depth</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Diameter  : </span><span class="si">%10.3f</span><span class="s2"> ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">diameter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Slope  : </span><span class="si">%10.3f</span><span class="s2"> ft./ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">slope</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    Angle  : </span><span class="si">%10.3f</span><span class="s2"> radians&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;      Area : </span><span class="si">%10.3f</span><span class="s2"> sq.ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">area</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Perimeter : </span><span class="si">%10.3f</span><span class="s2"> ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">perimeter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Discharge : </span><span class="si">%10.3f</span><span class="s2"> cu.ft./sec&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">discharge</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Velocity : </span><span class="si">%10.3f</span><span class="s2"> ft/sec&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">velocity</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mannings n :      0.013 --  
+    Depth  :      5.000 ft. 
+ Diameter  :      5.000 ft.
+    Slope  :      0.003 ft./ft.
+    Angle  :      3.142 radians
+      Area :     19.635 sq.ft.
+ Perimeter :     15.708 ft.
+ Discharge :    143.034 cu.ft./sec
+  Velocity :      7.285 ft/sec
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iPython Orifice Calculator (Beware: No Error Checking!)</span>
+<span class="c1">########### INPUT VALUES ################</span>
+<span class="n">coefficient</span> <span class="o">=</span> <span class="mf">0.574</span> <span class="c1"># orifice coefficient (table lookup)</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="mf">7.0</span>       <span class="c1"># depth above top of orifice in feet</span>
+<span class="n">diameter</span> <span class="o">=</span> <span class="mf">5.0</span>    <span class="c1"># orifice diameter in feet</span>
+<span class="n">slope</span> <span class="o">=</span> <span class="mf">0.003</span>     <span class="c1"># culvert/outlet slope (feet/feet)</span>
+<span class="c1">########### MATH PACKAGE ################</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="c1">########### CALCULATIONS ################</span>
+<span class="k">if</span> <span class="n">depth</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">centerline</span> <span class="o">=</span> <span class="n">depth</span> <span class="o">+</span> <span class="n">diameter</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">diameter</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">diameter</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">discharge</span> <span class="o">=</span> <span class="n">coefficient</span><span class="o">*</span><span class="n">area</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="mf">32.2</span><span class="o">*</span><span class="n">centerline</span><span class="p">)</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">discharge</span><span class="o">/</span><span class="n">area</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;not orifice flow&quot;</span><span class="p">)</span>
+    
+
+<span class="c1">########### RESULTS ###############</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;           Orifice Coef : </span><span class="si">%10.3f</span><span class="s2"> --  &quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">coefficient</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                 Depth  : </span><span class="si">%10.3f</span><span class="s2"> ft. &quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">depth</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;              Diameter  : </span><span class="si">%10.3f</span><span class="s2"> ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">diameter</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Depth above centerline  : </span><span class="si">%10.3f</span><span class="s2"> ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">centerline</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;                   Area : </span><span class="si">%10.3f</span><span class="s2"> sq.ft.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">area</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;              Discharge : </span><span class="si">%10.3f</span><span class="s2"> cu.ft./sec&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">discharge</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;               Velocity : </span><span class="si">%10.3f</span><span class="s2"> ft/sec&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">velocity</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Orifice Coef :      0.574 --  
+                 Depth  :      7.000 ft. 
+              Diameter  :      5.000 ft.
+Depth above centerline  :      9.500 ft.
+                   Area :     19.635 sq.ft.
+              Discharge :    278.770 cu.ft./sec
+               Velocity :     14.198 ft/sec
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use these and basin geometry to build depth-storage outflow table.</p>
+<p><img alt="" src="../../_images/depth-storage-outflow.png" /></p>
+<p>Copy the depth-storage-outflow to the routing table (we are going to build) – we need it as a tabulation so we can use INDEX and MATCH to get values from the table for interpolation (Eq. at bottom CMM pg 249)</p>
+<p><img alt="" src="../../_images/interpolation.png" /></p>
+<p><img alt="" src="../../_images/routingtable1.png" /></p>
+<p><img alt="" src="../../_images/routingtable2.png" /></p>
+<p><img alt="" src="../../_images/routingtable3.png" /></p>
+<p><img alt="" src="../../_images/routingtable4.png" /></p>
+<p><img alt="" src="../../_images/routingtable5.png" /></p>
+<p>The full spreadsheet, with the interpolation function as an Excel 94 macro sheet (you could code in place, will have a few more columns) is on server as <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/RoutingExample.xls">Routing Example.</a></p>
+<ul class="simple">
+<li><p>Such computations are a lot easier to perform in HEC-HMS because it handles (1) building the routing table and (2) selecting a decent time step</p></li>
+<li><p>Can also use level pool routing for a stream reach (next meeting).</p></li>
+</ul>
+</section>
+</section>
+<section id="reservoir-concepts">
+<h2>Reservoir Concepts<a class="headerlink" href="#reservoir-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Reservoir</p>
+<ul>
+<li><p>A pond, lake, or basin, either natural or artificial, for the storage, regulation, and control of water.</p></li>
+</ul>
+</li>
+<li><p>Regulated reservoir</p>
+<ul>
+<li><p>Outflow controlled by moveable gates and valves.</p></li>
+<li><p>Head, and valve settings determine outflow.</p></li>
+</ul>
+</li>
+<li><p>Unregulated reservoir.</p>
+<ul>
+<li><p>Outflow controlled by fixed weirs and orifices.</p></li>
+<li><p>Head and constructed weir height determine outflow.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="reservoir-storage">
+<h2>Reservoir Storage<a class="headerlink" href="#reservoir-storage" title="Link to this heading">#</a></h2>
+<p>Storage Representations≈</p>
+<ul class="simple">
+<li><p>Storage vs. Discharge</p></li>
+<li><p>Storage vs. Elevation</p></li>
+<li><p>Surface Area vs. Elevation</p></li>
+</ul>
+<p><img alt="" src="../../_images/ReservoirConcepts.png" /></p>
+<p>Discharge Representations</p>
+<ul class="simple">
+<li><p>Spillways, Weirs</p></li>
+<li><p>Orifices, Sluice gates</p></li>
+<li><p>Pumps</p></li>
+<li><p>Dam Breach</p></li>
+</ul>
+</section>
+<section id="hec-hms-constructs">
+<h2>HEC-HMS Constructs<a class="headerlink" href="#hec-hms-constructs" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/hms-reservoir-element.png" /></p>
+<p><img alt="" src="../../_images/hec-res1.png" />
+<img alt="" src="../../_images/hec-res2.png" />
+<img alt="" src="../../_images/hec-res3.png" />
+<img alt="" src="../../_images/hec-res4.png" />
+<img alt="" src="../../_images/hec-res5.png" />
+<img alt="" src="../../_images/hec-res6.png" />
+<img alt="" src="../../_images/hec-res7.png" />
+<img alt="" src="../../_images/hec-res8.png" />
+<img alt="" src="../../_images/hec-res9.png" /></p>
+</section>
+<section id="routing-channel-and-reservoir">
+<h2>Routing-channel and reservoir<a class="headerlink" href="#routing-channel-and-reservoir" title="Link to this heading">#</a></h2>
+<p>Reservoir routing</p>
+<ul class="simple">
+<li><p>Account for storage in a reservoir</p></li>
+<li><p>Unique storage-discharge relationship</p></li>
+</ul>
+<p>Channel routing</p>
+<ul class="simple">
+<li><p>Account for storage in channel as well as travel time</p></li>
+<li><p>Storage-discharge relation in channel is non-unique</p></li>
+<li><p>Can treat channel as a series of reservoirs to mitigate looped effect.</p></li>
+</ul>
+</section>
+<section id="hec-hms-files">
+<h2>HEC-HMS Files<a class="headerlink" href="#hec-hms-files" title="Link to this heading">#</a></h2>
+<p>The reservoir model above is stored below as an entire HMS project.  Download, etxtract, move into a suitable work directory and you should be able to replicate in HEC-HMS</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/08-hydrologicmodels/MyReservoirModel.zip">MyReservoirModel.zip (zip file of an entire HMS project)</a></p></li>
+</ol>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hec-hms-example-multiple-subbasins-with-routing">
+<h1>8.3 HEC-HMS Example (multiple Subbasins with Routing)<a class="headerlink" href="#hec-hms-example-multiple-subbasins-with-routing" title="Link to this heading">#</a></h1>
 <p>This example uses data from <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/ce3354book/lessons/lesson06.1/AshCreekData.zip">AshCreek Data (zip)</a>.  The .ZIP file is an old homework problem, learners had to convert the provided data files into a format that HEC-HMS could process then analyze the watershed and interpret results and answer some questions.  The original problem statement is shown below</p>
 <div class="admonition-problem-statement admonition">
 <p class="admonition-title">Problem Statement</p>
@@ -814,11 +1159,15 @@ White Rock Lake is water body to the North-West</p>
 <li><p>Keep a notebook handy to write down intermediate values as needed.</p></li>
 </ul>
 </div>
+<section id="end-of-file">
+<h2>End of File<a class="headerlink" href="#end-of-file" title="Link to this heading">#</a></h2>
 </section>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="storage">
+<h1>8.3 Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="epa-swmm">
-<h1>8.2 EPA-SWMM<a class="headerlink" href="#epa-swmm" title="Link to this heading">#</a></h1>
+<h1>8.4 EPA-SWMM<a class="headerlink" href="#epa-swmm" title="Link to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://www.epa.gov/water-research/storm-water-management-model-swmm#software%20and%20compatibility">EPA Storm Water Management Model (SWMM)</a> is a comprehensive software tool developed by the U.S. Environmental Protection Agency for simulating the quantity and quality of stormwater runoff in urban areas. First developed in 1971, SWMM has become one of the most widely used models for planning, analyzing, and designing urban drainage systems, including storm sewers, combined sewers, and other conveyance systems. Its ability to simulate dynamic rainfall-runoff relationships, along with pollutant transport, makes it a key tool for engineers working on stormwater management, flood control, and water quality improvement projects.</p>
 <p>SWMM allows users to model the physical processes involved in stormwater runoff, including rainfall, infiltration, evaporation, and surface flow, as well as the behavior of drainage networks under varying conditions. The model supports continuous or event-based simulation, which enables long-term studies of stormwater systems under different climate conditions. Additionally, SWMM includes a variety of features for modeling green infrastructure practices such as permeable pavement, rain gardens, and green roofs, which are essential for sustainable stormwater management. Its versatility and ability to incorporate both conventional and innovative infrastructure make it an invaluable tool for engineers tasked with addressing complex urban water challenges.</p>
 <section id="interface-tour">
@@ -976,6 +1325,7 @@ White Rock Lake is water body to the North-West</p>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. Hydrologic Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets">Spreadsheets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-modeling-in-engineering-design">Hydrologic modeling in Engineering Design</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-review-and-final-project-presentations">Course Review and Final Project Presentations</a></li>
 </ul>
@@ -993,12 +1343,30 @@ White Rock Lake is water body to the North-West</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameterizing-the-models">Parameterizing the models</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-multiple-elements">HEC-HMS Multiple Elements</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.2 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrograph-routing">8.2 Hydrograph Routing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routing-hydrologic-and-hydraulic">Routing-Hydrologic and Hydraulic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrologic-routing">Hydrologic Routing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#level-pool-routing">Level Pool Routing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reservoir-concepts">Reservoir Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reservoir-storage">Reservoir Storage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-constructs">HEC-HMS Constructs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routing-channel-and-reservoir">Routing-channel and reservoir</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-files">HEC-HMS Files</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-file">End of File</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">8.3 Storage</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.4 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
 </ul>

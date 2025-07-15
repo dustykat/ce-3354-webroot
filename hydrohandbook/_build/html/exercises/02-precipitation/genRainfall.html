@@ -205,6 +205,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
 
 
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapters/10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -461,10 +464,10 @@ document.write(`
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
-<span class="n">hyetType</span> <span class="o">=</span> <span class="s1">&#39;type3&#39;</span>
+<span class="n">hyetType</span> <span class="o">=</span> <span class="s1">&#39;type2&#39;</span>
 <span class="n">PT</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># total depth</span>
 <span class="c1">#######################################</span>
-<span class="n">hour</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">9.75</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">11.5</span><span class="p">,</span><span class="mf">11.75</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">12.5</span><span class="p">,</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">13.6</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">48</span><span class="p">]</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mf">9.5</span><span class="p">,</span><span class="mf">9.75</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">10.5</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mf">11.5</span><span class="p">,</span><span class="mf">11.75</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">12.5</span><span class="p">,</span><span class="mf">13.0</span><span class="p">,</span><span class="mf">13.6</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mf">24.25</span><span class="p">]</span>
 <span class="n">minutes</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">60</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">hour</span><span class="p">]</span>
 <span class="n">hyets</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;type1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.035</span><span class="p">,</span><span class="mf">0.076</span><span class="p">,</span><span class="mf">0.125</span><span class="p">,</span><span class="mf">0.156</span><span class="p">,</span><span class="mf">0.194</span><span class="p">,</span><span class="mf">0.219</span><span class="p">,</span><span class="mf">0.254</span><span class="p">,</span><span class="mf">0.303</span><span class="p">,</span><span class="mf">0.362</span><span class="p">,</span><span class="mf">0.515</span><span class="p">,</span><span class="mf">0.583</span><span class="p">,</span><span class="mf">0.624</span><span class="p">,</span><span class="mf">0.654</span><span class="p">,</span><span class="mf">0.669</span><span class="p">,</span><span class="mf">0.682</span><span class="p">,</span><span class="mf">0.706</span><span class="p">,</span><span class="mf">0.727</span><span class="p">,</span><span class="mf">0.748</span><span class="p">,</span><span class="mf">0.767</span><span class="p">,</span><span class="mf">0.83</span><span class="p">,</span><span class="mf">0.926</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
@@ -490,7 +493,7 @@ document.write(`
     <span class="s2">&quot;Intensity (in/hr)&quot;</span><span class="p">:</span> <span class="n">intensity</span>
 <span class="p">})</span>
 <span class="c1"># Optionally, write every nth row (e.g., every 15 minutes)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">df_thinned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="n">n</span><span class="p">]</span>
 <span class="c1"># Save to CSV ##########################################################</span>
 <span class="n">df_thinned</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;interpolated_output_</span><span class="si">{</span><span class="n">hyetType</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -512,7 +515,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/98e29b6718c8f5b6503e959977379ec1de6c4867eba85ce5a29d18f65a18517e.png" src="../../_images/98e29b6718c8f5b6503e959977379ec1de6c4867eba85ce5a29d18f65a18517e.png" />
+<img alt="../../_images/12d70880bdee88fbd1ad75734bae9af47fb0b42c5be2ff012adcb5958b464ae2.png" src="../../_images/12d70880bdee88fbd1ad75734bae9af47fb0b42c5be2ff012adcb5958b464ae2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -535,7 +538,7 @@ document.write(`
 
     <span class="c1"># Round time to nearest whole minute</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">etime</span><span class="p">)):</span> 
-        <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">((</span><span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mf">0.1</span><span class="p">)</span><span class="o">*</span><span class="mf">60.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># round to nearest whole number as float</span>
+        <span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">round</span><span class="p">((</span><span class="n">etime</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="mf">60.0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># round to nearest whole number as float</span>
 
     <span class="c1"># Interpolate values</span>
     <span class="n">interpolated</span> <span class="o">=</span> <span class="p">[]</span>
@@ -558,29 +561,29 @@ document.write(`
     <span class="c1"># Example input: could be replaced with reading from a file</span>
     <span class="n">sample_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;# Time Depth</span>
 <span class="s2">0.0 0.0</span>
-<span class="s2">2.0 0.02</span>
-<span class="s2">4.0 0.043</span>
-<span class="s2">6.0 0.072</span>
-<span class="s2">7.0 0.089</span>
-<span class="s2">8.0 0.115</span>
-<span class="s2">8.5 0.13</span>
-<span class="s2">9.0 0.148</span>
-<span class="s2">9.5 0.167</span>
-<span class="s2">9.75 0.178</span>
-<span class="s2">10.0 0.189</span>
-<span class="s2">10.5 0.216</span>
-<span class="s2">11.0 0.25</span>
-<span class="s2">11.5 0.298</span>
-<span class="s2">11.75 0.339</span>
-<span class="s2">12.0 0.5</span>
-<span class="s2">12.5 0.702</span>
-<span class="s2">13.6 0.751</span>
-<span class="s2">13.5 0.785</span>
-<span class="s2">14.0 0.811</span>
-<span class="s2">16.0 0.886</span>
-<span class="s2">20.0 0.957</span>
+<span class="s2">2.0 0.022</span>
+<span class="s2">4.0 0.048</span>
+<span class="s2">6.0 0.08</span>
+<span class="s2">7.0 0.098</span>
+<span class="s2">8.0 0.12</span>
+<span class="s2">8.5 0.133</span>
+<span class="s2">9.0 0.147</span>
+<span class="s2">9.5 0.163</span>
+<span class="s2">9.75 0.172</span>
+<span class="s2">10.0 0.181</span>
+<span class="s2">10.5 0.204</span>
+<span class="s2">11.0 0.235</span>
+<span class="s2">11.5 0.283</span>
+<span class="s2">11.75 0.357</span>
+<span class="s2">12.0 0.663</span>
+<span class="s2">12.5 0.735</span>
+<span class="s2">13.6 0.772</span>
+<span class="s2">13.5 0.799</span>
+<span class="s2">14.0 0.82</span>
+<span class="s2">16.0 0.88</span>
+<span class="s2">20.0 0.952</span>
 <span class="s2">24.0 1.0</span>
-<span class="s2">24.1 1.0</span>
+<span class="s2">24.5 1.0</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="c1"># Remember to pad the data so last line is one minute more that actual last line of data</span>
 
@@ -594,29 +597,29 @@ document.write(`
     <span class="n">n</span> <span class="o">=</span> <span class="mi">15</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Time (min)&quot;</span><span class="p">,</span> <span class="s2">&quot;Interpolated Value&quot;</span><span class="p">])</span>
     <span class="n">df_thinned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># selects every n-th row starting from 0</span>
-    <span class="n">df_thinned</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;interpolated_output_TypeIII_thinned.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">df_thinned</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;interpolated_output_TypeII_thinned.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saved interpolated data to interpolated_output.csv&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">df_thinned</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;# Time Depth&#39;, &#39;0.0 0.0&#39;, &#39;2.0 0.02&#39;, &#39;4.0 0.043&#39;, &#39;6.0 0.072&#39;, &#39;7.0 0.089&#39;, &#39;8.0 0.115&#39;, &#39;8.5 0.13&#39;, &#39;9.0 0.148&#39;, &#39;9.5 0.167&#39;, &#39;9.75 0.178&#39;, &#39;10.0 0.189&#39;, &#39;10.5 0.216&#39;, &#39;11.0 0.25&#39;, &#39;11.5 0.298&#39;, &#39;11.75 0.339&#39;, &#39;12.0 0.5&#39;, &#39;12.5 0.702&#39;, &#39;13.6 0.751&#39;, &#39;13.5 0.785&#39;, &#39;14.0 0.811&#39;, &#39;16.0 0.886&#39;, &#39;20.0 0.957&#39;, &#39;24.0 1.0&#39;, &#39;24.1 1.0&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;# Time Depth&#39;, &#39;0.0 0.0&#39;, &#39;2.0 0.022&#39;, &#39;4.0 0.048&#39;, &#39;6.0 0.08&#39;, &#39;7.0 0.098&#39;, &#39;8.0 0.12&#39;, &#39;8.5 0.133&#39;, &#39;9.0 0.147&#39;, &#39;9.5 0.163&#39;, &#39;9.75 0.172&#39;, &#39;10.0 0.181&#39;, &#39;10.5 0.204&#39;, &#39;11.0 0.235&#39;, &#39;11.5 0.283&#39;, &#39;11.75 0.357&#39;, &#39;12.0 0.663&#39;, &#39;12.5 0.735&#39;, &#39;13.6 0.772&#39;, &#39;13.5 0.799&#39;, &#39;14.0 0.82&#39;, &#39;16.0 0.88&#39;, &#39;20.0 0.952&#39;, &#39;24.0 1.0&#39;, &#39;24.5 1.0&#39;]
 Saved interpolated data to interpolated_output.csv
       Time (min)  Interpolated Value
-0            0.0            0.000000
-15          15.0            0.002381
-30          30.0            0.004762
-45          45.0            0.007143
-60          60.0            0.009524
+0            0.0             0.00000
+15          15.0             0.00275
+30          30.0             0.00550
+45          45.0             0.00825
+60          60.0             0.01100
 ...          ...                 ...
-1395      1389.0            0.989788
-1410      1404.0            0.992475
-1425      1419.0            0.995162
-1440      1434.0            0.997850
-1455      1449.0            1.000000
+1410      1404.0             0.99280
+1425      1419.0             0.99580
+1440      1434.0             0.99880
+1455      1449.0             1.00000
+1470      1464.0             1.00000
 
-[98 rows x 2 columns]
+[99 rows x 2 columns]
 </pre></div>
 </div>
 </div>
