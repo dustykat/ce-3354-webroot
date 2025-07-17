@@ -1,0 +1,30 @@
+HEC-HMS Exercises
+
+In this folder are rainfall-runofff data for three storms on Ash Creek watershed in Dallas, Texas.  
+Included are some base maps to help locate the watershed.  
+The maps are simply PDF files and are not georeferenced, so other than pretty pictures the maps are useless.
+
+Using HEC HMS model the Ash Creek Watershed using a loss model of your choice and a transformation model of your choice.  Model the watershed as a lumped system (one sub-basin, no routing).
+
+(1) Estimate parameter values in the model without using the time-series data (synthetic hydrology).  Document how you make the estimates.
+
+(2) Test your estimated with the 1973_0603 storm, how well did your synthetic approach perform.
+
+(3) Use the 1973_0603 storm to ``calibrate'' your model.  Trial-and-error is appropriate, or you chould choose the internal calibration tools in HMS, also your choice.  Demonstrate the calibrated model by capturing the model output for the storm (i.e. a time series of computed and observed discharge).   Use the weighted accumulated precipitation is the input (since we don't have the raingage locations).
+
+(4) Test the calibrated model with the other two storms (DO NOT CHANGE PARAMETERS IN THE MODEL).   Assess model performance with thses other two real storms.  What do you conclude?
+
+(5) Now try to adjust the parameters to obtain a best ``average'' performance.  What do you conclude.
+
+(6-8) Repeat steps 3-5 with the watershed subdivided into multiple sub-basins, with routing.    Use any subdivision scheme you this is appropriate, but use at least 3 sub-basins.
+
+Did subdivision confer any performance advantage?   At what cost?
+
+(9)  Presumably you represented the current conditions with some variable that reflects the land coverage.  Estimate the watershed response to the historical storms if the entire watershed is impermeable, and very smooth (low friction).
+
+Prepare a brief report on the modeling effort, be sure to address each question above.  Due in 2 weeks.  
+
+You will need to download the HEC-HMS user manual and do some reading in the manual as well as in the hydrology literature and textbook to complete this exercise.
+
+
+
