@@ -210,6 +210,7 @@
 
 
 
+
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
 </ul>
@@ -446,12 +447,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-files">HEC-HMS Files</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-file">End of File</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">8.3 Storage</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.4 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#x-placeholder">8.X Placeholder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.X Placeholder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.5 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
 </ul>
@@ -469,12 +468,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-generation">Runoff Generation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Raingages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Raingages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conceptualization-s">SWMM Conceptualization(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catchment-to-catchment-routing">Catchment-to-Catchment Routing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-example">SWMM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conduits">SWMM Conduits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-storage">SWMM Storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-section">End of Section</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
@@ -1177,8 +1178,8 @@ White Rock Lake is water body to the North-West</p>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
 
 <span class="c1"># Load file while skipping rows that start with &#39;#&#39;</span>
-<span class="n">fileinput</span> <span class="o">=</span> <span class="s2">&quot;./AshCreekData/ashcreek_1973_0603/unit_sta08057320_1973_0603.txt&quot;</span>
-<span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1975_0527/unit_sta08057320_1975_0527.txt&quot;</span>
+<span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1973_0603/unit_sta08057320_1973_0603.txt&quot;</span>
+<span class="n">fileinput</span> <span class="o">=</span> <span class="s2">&quot;./AshCreekData/ashcreek_1975_0527/unit_sta08057320_1975_0527.txt&quot;</span>
 <span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1978_0520/unit_sta08057320_1978_0520.txt&quot;</span>
 
 <span class="c1"># Custom function to skip comment lines</span>
@@ -1227,7 +1228,7 @@ White Rock Lake is water body to the North-West</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/af0a03316a35a0722a8f6152e3d4c65d767d5cd1875923d81e86c5e270c9d958.png" src="../../_images/af0a03316a35a0722a8f6152e3d4c65d767d5cd1875923d81e86c5e270c9d958.png" />
+<img alt="../../_images/78d83ac44e18887cbee9402d7d5af5b7c64e7f75fd40540e747a3acf40d26d8c.png" src="../../_images/78d83ac44e18887cbee9402d7d5af5b7c64e7f75fd40540e747a3acf40d26d8c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1244,8 +1245,8 @@ White Rock Lake is water body to the North-West</p>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
 
 <span class="c1"># Load file while skipping rows that start with &#39;#&#39;</span>
-<span class="n">fileinput</span> <span class="o">=</span> <span class="s2">&quot;./AshCreekData/ashcreek_1973_0603/rain_sta08057320_1973_0603.txt&quot;</span>
-<span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1975_0527/rain_sta08057320_1975_0527.txt&quot;</span>
+<span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1973_0603/rain_sta08057320_1973_0603.txt&quot;</span>
+<span class="n">fileinput</span> <span class="o">=</span> <span class="s2">&quot;./AshCreekData/ashcreek_1975_0527/rain_sta08057320_1975_0527.txt&quot;</span>
 <span class="c1">#fileinput = &quot;./AshCreekData/ashcreek_1978_0520/rain_sta08057320_1978_0520.txt&quot;</span>
 
 <span class="c1"># Custom function to skip comment lines</span>
@@ -1294,18 +1295,22 @@ White Rock Lake is water body to the North-West</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7201c3011c1220624650cb87ccc02d4544222fd650354fee4a50a03f4680e48d.png" src="../../_images/7201c3011c1220624650cb87ccc02d4544222fd650354fee4a50a03f4680e48d.png" />
+<img alt="../../_images/3bc41e0d97e1bb679de7dabf22e8b18e43d29f928842576c867296425afb8043.png" src="../../_images/3bc41e0d97e1bb679de7dabf22e8b18e43d29f928842576c867296425afb8043.png" />
 </div>
 </div>
-<section id="end-of-file">
-<h2>End of File<a class="headerlink" href="#end-of-file" title="Link to this heading">#</a></h2>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="x-placeholder">
+<h1>8.X Placeholder<a class="headerlink" href="#x-placeholder" title="Link to this heading">#</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="storage">
-<h1>8.3 Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>8.X Placeholder<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="epa-swmm">
-<h1>8.4 EPA-SWMM<a class="headerlink" href="#epa-swmm" title="Link to this heading">#</a></h1>
+<h1>8.5 EPA-SWMM<a class="headerlink" href="#epa-swmm" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is under development. First deployment is anticipated in October 2025. Use the navigation links on the right to jump to subsequent sections.</p>
+</div>
 <p>The <a class="reference external" href="https://www.epa.gov/water-research/storm-water-management-model-swmm#software%20and%20compatibility">EPA Storm Water Management Model (SWMM)</a> is a comprehensive software tool developed by the U.S. Environmental Protection Agency for simulating the quantity and quality of stormwater runoff in urban areas. First developed in 1971, SWMM has become one of the most widely used models for planning, analyzing, and designing urban drainage systems, including storm sewers, combined sewers, and other conveyance systems. Its ability to simulate dynamic rainfall-runoff relationships, along with pollutant transport, makes it a key tool for engineers working on stormwater management, flood control, and water quality improvement projects.</p>
 <p>SWMM allows users to model the physical processes involved in stormwater runoff, including rainfall, infiltration, evaporation, and surface flow, as well as the behavior of drainage networks under varying conditions. The model supports continuous or event-based simulation, which enables long-term studies of stormwater systems under different climate conditions. Additionally, SWMM includes a variety of features for modeling green infrastructure practices such as permeable pavement, rain gardens, and green roofs, which are essential for sustainable stormwater management. Its versatility and ability to incorporate both conventional and innovative infrastructure make it an invaluable tool for engineers tasked with addressing complex urban water challenges.</p>
 <section id="interface-tour">
@@ -1368,8 +1373,8 @@ White Rock Lake is water body to the North-West</p>
 </ul>
 </section>
 </section>
-<section id="id1">
-<h2>Raingages<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2>Raingages<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Using HEC-HMS to generate input</p></li>
 <li><p>Manual entry</p></li>
@@ -1382,14 +1387,22 @@ White Rock Lake is water body to the North-West</p>
 <section id="catchment-to-catchment-routing">
 <h2>Catchment-to-Catchment Routing<a class="headerlink" href="#catchment-to-catchment-routing" title="Link to this heading">#</a></h2>
 </section>
-<section id="swmm-example">
-<h2>SWMM Example<a class="headerlink" href="#swmm-example" title="Link to this heading">#</a></h2>
+<section id="swmm-conduits">
+<h2>SWMM Conduits<a class="headerlink" href="#swmm-conduits" title="Link to this heading">#</a></h2>
+</section>
+<section id="swmm-storage">
+<h2>SWMM Storage<a class="headerlink" href="#swmm-storage" title="Link to this heading">#</a></h2>
 </section>
 <section id="end-of-section">
 <h2>End of Section<a class="headerlink" href="#end-of-section" title="Link to this heading">#</a></h2>
 </section>
-<section id="id2">
-<h2>End of Section<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2>End of Section<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+</section>
+<section id="exercise-s">
+<h2>Exercise(s)<a class="headerlink" href="#exercise-s" title="Link to this heading">#</a></h2>
+<p>LINK HERE</p>
+<p>AUTOCOMPILE CODE HERE</p>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -1499,12 +1512,10 @@ White Rock Lake is water body to the North-West</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-files">HEC-HMS Files</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-file">End of File</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">8.3 Storage</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.4 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hec-hms-example-multiple-subbasins-with-routing">8.3 HEC-HMS Example (multiple Subbasins with Routing)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#x-placeholder">8.X Placeholder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.X Placeholder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#epa-swmm">8.5 EPA-SWMM</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-tour">Interface Tour</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-minimal-model">Example of a Minimal Model</a></li>
 </ul>
@@ -1522,12 +1533,14 @@ White Rock Lake is water body to the North-West</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runoff-generation">Runoff Generation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Raingages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Raingages</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conceptualization-s">SWMM Conceptualization(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#catchment-to-catchment-routing">Catchment-to-Catchment Routing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-example">SWMM Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-conduits">SWMM Conduits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swmm-storage">SWMM Storage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#end-of-section">End of Section</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">End of Section</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
