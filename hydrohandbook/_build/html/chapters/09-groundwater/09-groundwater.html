@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/09-groundwater/09-groundwater';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -175,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Spreadsheet Hydrology
+                    Engineering Hydrology
                 </a>
             </li>
         </ul>
@@ -205,8 +207,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
 
 
+
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11-groundwatermodels/11-groundwatermodels.html">11. Groundwater Modeling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-placeholder/12-placeholder.html">12. Placeholder</a></li>
+
+
+
+
 </ul>
 
     </div>
@@ -402,9 +421,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-occurrence-aquifers">Groundwater Occurrence &amp; Aquifers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-flow-principles">Groundwater Flow Principles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-simple-darcys-law-experiment-using-permeameters">Lab/Exercise: Simple Darcy’s Law experiment using permeameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-spreadsheets">Scripts/Spreadsheets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-and-aquifers">Groundwater and Aquifers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aquifers">Aquifers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-properties">Material Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porosity">Porosity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-yield">Specific Yield</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storativity">Storativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-linear-velocity-in-a-porous-media">Average Linear Velocity (in a porous media)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydraulic-gradient">Hydraulic Gradient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-s-of-motion">Equation(s) of Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darcy-s-law">Darcy’s Law</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
@@ -420,28 +455,203 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="groundwater-fundamentals-flow-equations">
 <h1>9. Groundwater Fundamentals &amp; Flow Equations<a class="headerlink" href="#groundwater-fundamentals-flow-equations" title="Link to this heading">#</a></h1>
-<section id="groundwater-occurrence-aquifers">
-<h2>Groundwater Occurrence &amp; Aquifers<a class="headerlink" href="#groundwater-occurrence-aquifers" title="Link to this heading">#</a></h2>
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Gupta pp. 127-132</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-WSP2020-GroundwaterHydrology/usgs-wsp-2020.pdf">Basic Groundwater Hydrology - USGS WSP 2020</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture21.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Groundwater - I) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/Groundwater-Viessman/GroundwaterHydrology.pdf">Groundwater - Excerpt from Viessman</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/Groundwater-Wisler&amp;amp;Brater/Groundwater-Wisler.pdf">Groundwater - Excerpt from Ferris</a></p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=gRY7TYBx-is">What is an Aquifer? (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=VtIY4FYWJV8">What is Groundwater? (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=8Q7C3xrJrpw">Aquifer Demonstration (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=bG19b06NG_w">How Groundwater and Wells Work (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=O7K00PQaQIw">Intoduction to Groundwater Flow (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=G7CnE5NBxZs">Hydrogeology (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=JjEmxgr0TR8">Porosity and Permeability (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=8mfBomrw0rs">Porosity and Permeability Demo (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NL2lQFCW4M4">Porosity, Permeability, and Capillarity (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=--8SC0Q-cKs">Darcy’s Law I (YouTube)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=fL6fvdbz3vY">Darcy’s Law II (YouTube)</a></p></li>
+</ol>
+</section>
+<section id="scripts-spreadsheets">
+<h2>Scripts/Spreadsheets<a class="headerlink" href="#scripts-spreadsheets" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Find gradient from 3 wells <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/09-groundwater/Model1_Gradient.xls">Model1_Gradient.xls </a></p></li>
+<li><p>Find gradient from 3 wells <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/09-groundwater/Model1_Gradient.xlsx">Model1_Gradient.xlsx (xml extensions)</a></p></li>
+<li><p>Constant Head Permeameter <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/09-groundwater/Model2_CHPerm.xlsx">Model2_CHPerm.xlsx (xml extensions)</a></p></li>
+<li><p>Falling Head Permeameter <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/09-groundwater/Model3_FHPerm.xls">Model3_FHPerm.xls</a></p></li>
+<li><p>Falling Head Permeameter <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/09-groundwater/Model3_FHPerm.xlsx">Model3_FHPerm.xlsx (xml extensions)</a></p></li>
+</ol>
+</section>
+<section id="groundwater-and-aquifers">
+<h2>Groundwater and Aquifers<a class="headerlink" href="#groundwater-and-aquifers" title="Link to this heading">#</a></h2>
+<p>Groundwater hydrology is the study of water beneath the surface of the Earth</p>
+<p><img alt="" src="../../_images/GroundwaterSketch.png" /></p>
+<p>Groundwater usually is found in porous media (not underground rivers). A porous medium is
+comprised of solid space and void or pore space. Liquids and gasses are found in the pore space, the solid matrix forms the physical
+structure of aquifers and other geologic formations of interest.</p>
+<p><img alt="" src="../../_images/PorousMedia.png" /></p>
+<p>The ratio of total pore volume to bulk medium volume is the porosity.</p>
+<p><img alt="" src="../../_images/PorosityCalculation.png" /></p>
+<section id="aquifers">
+<h3>Aquifers<a class="headerlink" href="#aquifers" title="Link to this heading">#</a></h3>
+<p>An <strong>aquifer</strong> is an underground layer of water-bearing rock or sediment that stores and transmits groundwater. It is a critical resource for supplying fresh water to wells, springs, and natural ecosystems.</p>
 <ul class="simple">
-<li><p>Types of aquifers: confined, unconfined, perched</p></li>
-<li><p>Porosity, permeability, and storativity</p></li>
-<li><p>Interaction between surface water and groundwater</p></li>
+<li><p>Store water (water bearing formations)</p></li>
+<li><p>Transmit water (in economically useful quantities)</p></li>
+</ul>
+<p>Aquifers are classified as confined, unconfined, and/or leaky (a single unit can exhibit all three classifications).</p>
+<p>A confined aquifer draws its water from a geologic formation upper bounded by a layer that does not readily transmit water.  Visualize a pipe filled with sand; the interior of the pipe will behave like a confined aquifer.</p>
+<p><img alt="" src="../../_images/ConfinedAquifer.png" /></p>
+<p>An unconfined aquifer draws its water from a geologic formation that is not upper bounded - the aquifer has the equivalent of a free surface.  A bathtub filled with sand and water will behave like an unconfined aquifer.</p>
+<p><img alt="" src="../../_images/UnconfinedAquifer.png" /></p>
+<p>A leaky aquifer is a hybrid of the two extremes, and there can be leakage between layers.  Most real aquifers are somewhat leaky.</p>
+<p><img alt="" src="../../_images/LeakyAquifer.png" /></p>
+</section>
+</section>
+<section id="material-properties">
+<h2>Material Properties<a class="headerlink" href="#material-properties" title="Link to this heading">#</a></h2>
+<section id="porosity">
+<h3>Porosity<a class="headerlink" href="#porosity" title="Link to this heading">#</a></h3>
+<p>Porosity is the ratio of total pore volume to bulk medium volume;</p>
+<p><span class="math notranslate nohighlight">\(n = \frac{V_{pore}}{V_{total}}\)</span></p>
+<p>Range in values is large for geologic materials</p>
+<p><img alt="" src="../../_images/PorosityTable.png" /></p>
+</section>
+<section id="specific-yield">
+<h3>Specific Yield<a class="headerlink" href="#specific-yield" title="Link to this heading">#</a></h3>
+<p>A concept related to porosity is the <strong>specific yield</strong> <span class="math notranslate nohighlight">\(S_y\)</span> of a material.</p>
+<p><span class="math notranslate nohighlight">\(S_y\)</span> is the amount of water that will drain from a porous medium under the influence of gravity.</p>
+<p><span class="math notranslate nohighlight">\(S_r\)</span> is the amount of water left behind in the material and is called the specific retention.</p>
+<p><img alt="" src="../../_images/SpecificYield.png" /></p>
+<p>The specific yield is important in water supply as it represents the amount of water that can drain to wells.  Thus when making groundwater reservoir estimates the water in storage should be based on the specific yield and not porosity.</p>
+<p>Two additional related terms are: water content and saturation.</p>
+</section>
+<section id="storativity">
+<h3>Storativity<a class="headerlink" href="#storativity" title="Link to this heading">#</a></h3>
+<p>Storativity refers to the ability of a porous medium to store water within its bulk.</p>
+<p>The mechanisms of storage are:</p>
+<ul class="simple">
+<li><p>draining and filling of the pore space</p></li>
+<li><p>compression/decompression of the water, and</p></li>
+<li><p>compression/decompression of the solids.</p></li>
+</ul>
+<p>In an unconfined aquifer the draining and filling of the pore space is the most significant mechanism.</p>
+<p><img alt="" src="../../_images/StorageUnconfined.png" /></p>
+<p><span class="math notranslate nohighlight">\(S=\frac{V_{water}}{\Delta h A}\)</span></p>
+<p>In a confined aquifer, the compression and decompression of the solids structure is the primary mechanism of storage.</p>
+<p><img alt="" src="../../_images/StorageConfined.png" /></p>
+<p><span class="math notranslate nohighlight">\(S=\frac{V_{water}}{\Delta h A}\)</span></p>
+<p>The formula is the same for either case, but the magnitude os <span class="math notranslate nohighlight">\(S\)</span> is different (by a lot!)</p>
+<p>Storage per unit thickness of aquifer is called the specific storage.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The mechanisms of storage are:</p>
+<ul class="simple">
+<li><p>draining and filling of the pore space (All aquifers)</p></li>
+<li><p>compression/decompression of the water, and the solids matrix (Confined aquifers)</p></li>
+</ul>
+<p>You should be able to use the storage formulas to be able to estimating gain/loss in storage from mapped water levels</p>
+</div>
+</section>
+<section id="average-linear-velocity-in-a-porous-media">
+<h3>Average Linear Velocity (in a porous media)<a class="headerlink" href="#average-linear-velocity-in-a-porous-media" title="Link to this heading">#</a></h3>
+<p>The discharge <span class="math notranslate nohighlight">\(Q\)</span> divided by cross sectional flow area <span class="math notranslate nohighlight">\(A\)</span> in a pipe or open channel is the velocity <span class="math notranslate nohighlight">\(V\)</span></p>
+<p>In groundwater, some of the area is solid, so the porosity enters the equation as:</p>
+<p><span class="math notranslate nohighlight">\(V=\frac{Q}{nA}\)</span></p>
+<p>The figure below illustrates the concept.</p>
+<p><img alt="" src="../../_images/AverageLinearVelocity.png" /></p>
+<p>If the garbage cans are identical, the velocity of the free surface in the marble filled can is bigger.</p>
+<ul class="simple">
+<li><p>Transmissivity, permeability, hydraulic conductivity</p></li>
 </ul>
 </section>
-<section id="groundwater-flow-principles">
-<h2>Groundwater Flow Principles<a class="headerlink" href="#groundwater-flow-principles" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Darcy’s Law and hydraulic conductivity</p></li>
-<li><p>Flow in saturated vs. unsaturated zones</p></li>
-<li><p>Introduction to governing equations (Laplace, Dupuit-Forchheimer)</p></li>
-</ul>
+<section id="hydraulic-gradient">
+<h3>Hydraulic Gradient<a class="headerlink" href="#hydraulic-gradient" title="Link to this heading">#</a></h3>
+<p>Hydraulic gradient is change in head per unit distance and provides the driving force for groundwater to flow.  It is the same concept as the slope of the EGL in pipe hydraulics.</p>
+<p><img alt="" src="../../_images/HydraulicGradient.png" /></p>
 </section>
-<section id="lab-exercise-simple-darcys-law-experiment-using-permeameters">
-<h2>Lab/Exercise: Simple Darcy’s Law experiment using permeameters<a class="headerlink" href="#lab-exercise-simple-darcys-law-experiment-using-permeameters" title="Link to this heading">#</a></h2>
+</section>
+<section id="equation-s-of-motion">
+<h2>Equation(s) of Motion<a class="headerlink" href="#equation-s-of-motion" title="Link to this heading">#</a></h2>
+<section id="darcy-s-law">
+<h3>Darcy’s Law<a class="headerlink" href="#darcy-s-law" title="Link to this heading">#</a></h3>
+<p>Permeability refers to the ease which water can flow through a porous material under a specified gradient.</p>
+<p>Consider the head loss equation for a pipe.</p>
+<p><span class="math notranslate nohighlight">\(\Delta h = f\frac{L}{D}\frac{V^2}{2g}\)</span></p>
+<p>Solve for <span class="math notranslate nohighlight">\(V\)</span></p>
+<p><span class="math notranslate nohighlight">\(V=\frac{2g D \Delta h}{V f L} \)</span></p>
+<p>or</p>
+<p><span class="math notranslate nohighlight">\(V = \frac{2g \cdot D}{f \cdot V} \frac{\Delta h}{L}\)</span></p>
+<p>The right most term is the hydraulic gradient.  Now multiply by the pipe cross sectional area:</p>
+<p><span class="math notranslate nohighlight">\(Q = [\frac{2g \cdot D}{f \cdot V}] A \frac{\Delta h}{L}\)</span></p>
+<p>The term in the square brackets is the inverse of the pipe permeability (dependent on <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(Re\)</span>, and <span class="math notranslate nohighlight">\(k_s\)</span>)</p>
+<p>Permeable materials offer little resistance, while impermeable materials offer a lot of resistance.  In the pipe analog, large <span class="math notranslate nohighlight">\(k_s\)</span> would cause a large <span class="math notranslate nohighlight">\(f\)</span> for any <span class="math notranslate nohighlight">\(Re\)</span> maening that pipe has small permeability.</p>
+<p>Darcy’s law was established experimentally 1856.</p>
+<p><img alt="" src="../../_images/FilterColumn.png" /></p>
+<p>Total discharge through a filter, <span class="math notranslate nohighlight">\(Q\)</span>, was proportional to:</p>
+<ol class="arabic simple">
+<li><p>Cross sectional area of flow, <span class="math notranslate nohighlight">\(A\)</span>,</p></li>
+<li><p>head loss <span class="math notranslate nohighlight">\(h_1 − h_2\)</span>.</p></li>
+</ol>
+<p>And <span class="math notranslate nohighlight">\(Q\)</span>, was inversely proportional to:</p>
+<ol class="arabic simple">
+<li><p>the length of the filter column, <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+</ol>
+<p>The relationship is expressed as</p>
+<p><span class="math notranslate nohighlight">\(Q \propto A\frac{h_1-h_2}{L}\)</span></p>
+<p>The head loss can be expressed as <span class="math notranslate nohighlight">\(\Delta h\)</span> so the expression is</p>
+<p><span class="math notranslate nohighlight">\(Q \propto A\frac{\Delta h}{L}\)</span></p>
+<p>The constant of proportionality is called the hydraulic conductivity, <span class="math notranslate nohighlight">\(K\)</span> so Darcy’ law is</p>
+<p><span class="math notranslate nohighlight">\(Q = KA\frac{\Delta h}{L}\)</span></p>
+<p>If we examine the two flow models we observe the two models have the same structure:</p>
+<ul class="simple">
+<li><p>Pipe:<span class="math notranslate nohighlight">\(Q =[\frac{2g \cdot D}{f \cdot V}]A\frac{\Delta h}{L}\)</span></p></li>
+<li><p>Filter:<span class="math notranslate nohighlight">\(Q =KA\frac{\Delta h}{L}\)</span></p></li>
+</ul>
+<p>So the Hydraulic conductivity plays the same role in the relationship between flow and head loss in filter flow as does the square bracket term in the pipe flow model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pipe flow is non-linear, notice the square bracket contains <span class="math notranslate nohighlight">\(V\)</span> both explicitly, and in the friction factor by its dependence on Reynolds number.</p>
+</div>
+<p>The constant of proportionality is called the hydraulic conductivity.  Permeability is sometimes used interchangeably. In reservoir engineering the permeability is related to K, but not numerically identical.</p>
+<p><span class="math notranslate nohighlight">\(K = \frac{k \rho g}{\mu}\)</span></p>
+</section>
 </section>
 <section id="exercise-s">
 <h2>Exercise(s)<a class="headerlink" href="#exercise-s" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/exercises/09-groundwater/ce3354-es9-2025-2.pdf"><strong>ce3354-es9-2025-2.pdf</strong></a>  Hydraulic gradients, flow rates, piezometric maps</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Autobuild the exercise set for this section.</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">build_dir</span> <span class="o">=</span> <span class="s2">&quot;/home/sensei/ce-3354-webroot/hydrohandbook/exercises/09-groundwater&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;pdflatex&quot;</span><span class="p">,</span> <span class="s2">&quot;ce3354-es9-2025-2.tex&quot;</span><span class="p">],</span>
+        <span class="n">cwd</span><span class="o">=</span><span class="n">build_dir</span><span class="p">,</span>
+        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span>
+        <span class="n">check</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Build failed. Check your LaTeX source file.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory not found:&quot;</span><span class="p">,</span> <span class="n">build_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -512,9 +722,25 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-occurrence-aquifers">Groundwater Occurrence &amp; Aquifers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-flow-principles">Groundwater Flow Principles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-simple-darcys-law-experiment-using-permeameters">Lab/Exercise: Simple Darcy’s Law experiment using permeameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-spreadsheets">Scripts/Spreadsheets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-and-aquifers">Groundwater and Aquifers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aquifers">Aquifers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-properties">Material Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#porosity">Porosity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-yield">Specific Yield</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storativity">Storativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-linear-velocity-in-a-porous-media">Average Linear Velocity (in a porous media)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hydraulic-gradient">Hydraulic Gradient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-s-of-motion">Equation(s) of Motion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darcy-s-law">Darcy’s Law</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>

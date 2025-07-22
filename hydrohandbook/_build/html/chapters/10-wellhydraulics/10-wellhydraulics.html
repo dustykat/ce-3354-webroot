@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10-wellhydraulics/10-wellhydraulics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11. Groundwater Modeling" href="../11-groundwatermodels/11-groundwatermodels.html" />
     <link rel="prev" title="9. Groundwater Fundamentals &amp; Flow Equations" href="../09-groundwater/09-groundwater.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Spreadsheet Hydrology
+                    Engineering Hydrology
                 </a>
             </li>
         </ul>
@@ -210,6 +211,19 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Well Hydraulics &amp; Groundwater Management</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../11-groundwatermodels/11-groundwatermodels.html">11. Groundwater Modeling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-placeholder/12-placeholder.html">12. Placeholder</a></li>
+
+
+
+
 </ul>
 
     </div>
@@ -405,13 +419,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10. Well Hydraulics &amp; Groundwater Management</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets-scripts">Spreadsheets/Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-hydraulics-pumping-tests">Well Hydraulics &amp; Pumping Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-well-hydraulics">Transient Well Hydraulics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-management-sustainability">Groundwater Management &amp; Sustainability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods">Lab/Exercise: Analyzing pumping test data using Theis and Cooper-Jacob methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-flow-to-wells">23.2 Steady Flow to Wells</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-flow-to-wells">23.3 Transient Flow to Wells</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">23.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Topics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -424,6 +457,36 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="well-hydraulics-groundwater-management">
 <h1>10. Well Hydraulics &amp; Groundwater Management<a class="headerlink" href="#well-hydraulics-groundwater-management" title="Link to this heading">#</a></h1>
+<section id="readings">
+<h2>Readings<a class="headerlink" href="#readings" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Gupta pp. 133-151</p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/USGS-WSP2020-GroundwaterHydrology/usgs-wsp-2020.pdf">Basic Groundwater Hydrology - USGS WSP 2020</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture22.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Groundwater Hydrology) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="https://3.137.111.182/documents/about-me/MyWebPapers/journal_papers/type_curve_jgw_1996/type_curve_jgw_1996.pdf">Cleveland, T.G., 1996. ”Type-Curve Analysis using a Computer Spreadsheet,” Ground Water, Vol. 34, No. 3.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CaptureZones/Capture.PDF">Capture Zone Type Curves - Javandel and Tsang (1986)</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture24.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Contaminant Transport and Numerical Modeling) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+</ol>
+</section>
+<section id="videos">
+<h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
+</section>
+<section id="spreadsheets-scripts">
+<h2>Spreadsheets/Scripts<a class="headerlink" href="#spreadsheets-scripts" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Spreadsheets with (MACROS) may not run in modern Excel - you may have to rewrite the MACROS using VBA.  As time permits, we will simply write them in JupyterLab.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Theim Model (to show interference effects and map a regional gradient onto a drawdown distribution) <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/WELL_STY.XLS">WELL_STY.XLS </a></p></li>
+<li><p>Theis Model (MACROS) <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/TheisModel.xlsm">TheisModel.xlsm (vba macros) </a></p></li>
+<li><p>Hantush Leaky Model (MACROS) <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/HantushLeakyModel.xlsm">HantushLeakyModel.xlsm (vba macros)</a></p></li>
+<li><p>Theis TC Model (<a class="reference external" href="https://3.137.111.182/documents/about-me/MyWebPapers/journal_papers/type_curve_jgw_1996/type_curve_jgw_1996.pdf">Described Here</a>) <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/TC_Theis.xls">TC_Theis.xls</a></p></li>
+<li><p>Theis TC Model (<a class="reference external" href="https://3.137.111.182/documents/about-me/MyWebPapers/journal_papers/type_curve_jgw_1996/type_curve_jgw_1996.pdf">Described Here</a>)<a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/TC_Theis.ods">TC_Theis.ods</a></p></li>
+<li><p>Jacobs Solution <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/Jacob.xls">Jacob.xls</a></p></li>
+<li><p>Jacobs Solution <a class="reference external" href="http://54.243.252.9/ce-3354-webroot/hydrohandbook/chapters/10-wellhydraulics/Jacob.ods">Jacob.ods</a></p></li>
+</ol>
+</section>
 <section id="well-hydraulics-pumping-tests">
 <h2>Well Hydraulics &amp; Pumping Tests<a class="headerlink" href="#well-hydraulics-pumping-tests" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -453,6 +516,66 @@ document.write(`
 </section>
 <section id="lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">
 <h2>Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction<a class="headerlink" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="steady-flow-to-wells">
+<h1>23.2 Steady Flow to Wells<a class="headerlink" href="#steady-flow-to-wells" title="Link to this heading">#</a></h1>
+<section id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Steady flow to well</p>
+<ul>
+<li><p>Confined</p></li>
+<li><p>Unconfined</p></li>
+</ul>
+</li>
+<li><p>Superposition to represent</p>
+<ul>
+<li><p>Multiple wells</p></li>
+<li><p>Aquifer Boundaries</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="transient-flow-to-wells">
+<h1>23.3 Transient Flow to Wells<a class="headerlink" href="#transient-flow-to-wells" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>Topics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Unsteady flow to a well</p>
+<ul>
+<li><p>Confined (Theis Solution)</p></li>
+</ul>
+</li>
+<li><p>Superposition</p>
+<ul>
+<li><p>Multiple wells</p></li>
+<li><p>Aquifer Boundaries</p></li>
+</ul>
+</li>
+<li><p>Convolution</p>
+<ul>
+<li><p>Time-varying pumping rates</p></li>
+</ul>
+</li>
+<li><p>Leaky (Hantush Solution)</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="constituient-transport">
+<h1>23.4 Constituient Transport<a class="headerlink" href="#constituient-transport" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>Topics<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Subsurface Contaminant Hydrology</p>
+<ul>
+<li><p>Advection-Dispersion Equation</p></li>
+<li><p>Selected Analytical Solutions</p></li>
+<li><p>Capture Zones</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -498,6 +621,15 @@ document.write(`
         <p class="prev-next-title">9. Groundwater Fundamentals &amp; Flow Equations</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../11-groundwatermodels/11-groundwatermodels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">11. Groundwater Modeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -514,13 +646,32 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10. Well Hydraulics &amp; Groundwater Management</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spreadsheets-scripts">Spreadsheets/Scripts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-hydraulics-pumping-tests">Well Hydraulics &amp; Pumping Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-well-hydraulics">Transient Well Hydraulics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-management-sustainability">Groundwater Management &amp; Sustainability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods">Lab/Exercise: Analyzing pumping test data using Theis and Cooper-Jacob methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-flow-to-wells">23.2 Steady Flow to Wells</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-flow-to-wells">23.3 Transient Flow to Wells</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Topics</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">23.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Topics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
