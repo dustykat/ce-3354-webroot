@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Quiz: How a Hydrograph Tells the Story of a Storm &#8212; Spreadsheet Hydrology</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/00-ELI5Prompts/compiled_quizzes_part2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/aurora.png" class="logo__image only-light" alt="Spreadsheet Hydrology - Home"/>
+    <script>document.write(`<img src="../../_static/aurora.png" class="logo__image only-dark" alt="Spreadsheet Hydrology - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Engineering Hydrology
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/00-CLRequirements/00-CLRequirements.html">0. Communication Literacy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/01-introduction/01-introduction.html">1. Introduction</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/02-precipitation/02-precipitation.html">2. Precipitation, Hyetographs, Design Storms</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/03-infiltration/03-infiltration.html">3. Infiltration, Evaporation, and Soil Moisture</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/04-runoffgeneration/04-runoffgeneration.html">4. Runoff Generation and Watershed Hydrology</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/05-rainfallrunoff/05-rainfallrunoff.html">5. Rainfall-Runoff Relationships</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/06-streamflow/06-streamflow.html">6. Streamflow Measurement and Streamflow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/07-floodhydrology/07-floodhydrology.html">7. Flood Hydrology and Urban Hydrology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/08-hydrologicmodels/08-hydrologicmodels.html">8. Hydrologic Modeling</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/11-groundwatermodels/11-groundwatermodels.html">11. Groundwater Modeling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/12-placeholder/12-placeholder.html">12. Placeholder</a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexercises/00-ELI5Prompts/compiled_quizzes_part2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/exercises/00-ELI5Prompts/compiled_quizzes_part2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quiz: How a Hydrograph Tells the Story of a Storm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quiz: How a Hydrograph Tells the Story of a Storm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-infiltration">Quiz: Understanding Infiltration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-why-we-use-the-rational-method">Quiz: Why We Use the Rational Method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-the-green-ampt-model">Quiz: Understanding the Green-Ampt Model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-evapotranspiration-and-the-water-cycle">Quiz: Evapotranspiration and the Water Cycle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-baseflow-in-rivers">Quiz: Understanding Baseflow in Rivers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-idf-curves">Quiz: Understanding IDF Curves</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-streamgages-and-river-monitoring">Quiz: Understanding Streamgages and River Monitoring</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-groundwater-basics">Quiz: Groundwater Basics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-pervious-vs-impervious-surfaces">Quiz: Pervious vs. Impervious Surfaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-curve-numbers">Quiz: Understanding Curve Numbers</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="quiz-how-a-hydrograph-tells-the-story-of-a-storm">
+<h1>Quiz: How a Hydrograph Tells the Story of a Storm<a class="headerlink" href="#quiz-how-a-hydrograph-tells-the-story-of-a-storm" title="Link to this heading">#</a></h1>
+<p><strong>1. What does the rising limb of a hydrograph represent?</strong></p>
+<ul class="simple">
+<li><p>A. The time after the storm ends</p></li>
+<li><p>B. The decrease in evaporation from a watershed</p></li>
+<li><p>C. The increasing flow in a stream or river as runoff enters from rainfall</p></li>
+<li><p>D. The average baseflow before rainfall begins</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>2. What information can be inferred from the peak of a hydrograph?</strong></p>
+<ul class="simple">
+<li><p>A. The exact location of the storm’s origin</p></li>
+<li><p>B. The maximum infiltration rate of the soil</p></li>
+<li><p>C. The maximum discharge caused by the storm</p></li>
+<li><p>D. The volume of water stored in the soil</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>3. What does the falling limb (recession limb) of a hydrograph indicate?</strong></p>
+<ul class="simple">
+<li><p>A. Groundwater discharge only</p></li>
+<li><p>B. The point at which rainfall begins</p></li>
+<li><p>C. The return to normal streamflow as runoff subsides</p></li>
+<li><p>D. Soil saturation capacity</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>4. Which of the following factors most strongly affects the shape of a hydrograph?</strong></p>
+<ul class="simple">
+<li><p>A. The color of the riverbed</p></li>
+<li><p>B. The speed of the wind during the storm</p></li>
+<li><p>C. The size, slope, and land cover of the watershed</p></li>
+<li><p>D. The moon phase at the time of the storm</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>5. Which method is commonly used to estimate runoff hydrographs from rainfall in ungauged watersheds?</strong></p>
+<ul class="simple">
+<li><p>A. Rational Method</p></li>
+<li><p>B. Unit Hydrograph Method</p></li>
+<li><p>C. Darcy’s Law</p></li>
+<li><p>D. Bernoulli’s Equation</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-understanding-infiltration">
+<h1>Quiz: Understanding Infiltration<a class="headerlink" href="#quiz-understanding-infiltration" title="Link to this heading">#</a></h1>
+<p><strong>1. What is infiltration, according to the document?</strong></p>
+<ul class="simple">
+<li><p>A. The process of water flowing across roads and into rivers</p></li>
+<li><p>B. The process of water soaking into the ground</p></li>
+<li><p>C. The evaporation of surface water into the atmosphere</p></li>
+<li><p>D. The movement of water through storm drains</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+<p><strong>2. What role does infiltration play for plants?</strong></p>
+<ul class="simple">
+<li><p>A. It helps plants grow by delivering nutrients through runoff</p></li>
+<li><p>B. It prevents water from reaching plant roots</p></li>
+<li><p>C. It provides water directly to roots underground</p></li>
+<li><p>D. It helps remove excess salt from the soil</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>3. Which of the following surfaces best supports infiltration?</strong></p>
+<ul class="simple">
+<li><p>A. Concrete sidewalk</p></li>
+<li><p>B. Asphalt road</p></li>
+<li><p>C. Packed gravel lot</p></li>
+<li><p>D. Sandy soil</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> D</p>
+<p><strong>4. Why can flash floods still occur even if infiltration happens?</strong></p>
+<ul class="simple">
+<li><p>A. Because infiltration increases surface runoff</p></li>
+<li><p>B. Because all surfaces have the same infiltration capacity</p></li>
+<li><p>C. Because the rainfall can exceed the soil’s ability to absorb water</p></li>
+<li><p>D. Because infiltration is blocked by plant roots</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>5. Which of the following most directly affects the infiltration rate of a soil?</strong></p>
+<ul class="simple">
+<li><p>A. Barometric pressure</p></li>
+<li><p>B. Soil texture and structure</p></li>
+<li><p>C. Cloud cover during rainfall</p></li>
+<li><p>D. Air temperature at night</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-why-we-use-the-rational-method">
+<h1>Quiz: Why We Use the Rational Method<a class="headerlink" href="#quiz-why-we-use-the-rational-method" title="Link to this heading">#</a></h1>
+<p><strong>1. In the ELI5 story, what does the melting ice cream cone represent?</strong></p>
+<ul class="simple">
+<li><p>A. The effects of pollution</p></li>
+<li><p>B. A storm sewer system</p></li>
+<li><p>C. How rain behaves on different surfaces</p></li>
+<li><p>D. How temperature affects rainfall</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>2. What does the Rational Method help engineers calculate?</strong></p>
+<ul class="simple">
+<li><p>A. The temperature change during a storm</p></li>
+<li><p>B. The amount of runoff based on rainfall, area, and surface type</p></li>
+<li><p>C. The size of ice cream cones needed during hot weather</p></li>
+<li><p>D. How much rain evaporates from soil</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+<p><strong>3. Why is the Rational Method compared to a “magic rain calculator”?</strong></p>
+<ul class="simple">
+<li><p>A. Because it always predicts when it will rain</p></li>
+<li><p>B. Because it turns rainfall into drinking water</p></li>
+<li><p>C. Because it combines rain intensity, area size, and surface type into one simple formula</p></li>
+<li><p>D. Because it calculates how long a storm will last</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>4. According to the story, why do grown-ups like to use the Rational Method?</strong></p>
+<ul class="simple">
+<li><p>A. It works without any data</p></li>
+<li><p>B. It is fast and simple to use for planning drainage</p></li>
+<li><p>C. It only works for grassy areas</p></li>
+<li><p>D. It is required by weather forecasters</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+<p><strong>5. What is a key assumption of the Rational Method in hydrology?</strong></p>
+<ul class="simple">
+<li><p>A. Rainfall intensity decreases over time</p></li>
+<li><p>B. Runoff begins only after 30 minutes of rainfall</p></li>
+<li><p>C. The peak runoff rate occurs when the entire area contributes flow</p></li>
+<li><p>D. The infiltration rate is always zero</p></li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<hr class="docutils" />
+<section id="quiz-understanding-the-green-ampt-model">
+<h2>Quiz: Understanding the Green-Ampt Model<a class="headerlink" href="#quiz-understanding-the-green-ampt-model" title="Link to this heading">#</a></h2>
+<p><strong>1. What everyday object is used in the essay to help explain how soil absorbs water?</strong>
+A. A towel
+B. A bucket
+C. A sponge
+D. A straw
+Correct Answer: C</p>
+<p><strong>2. According to the essay, what happens to the soil’s ability to absorb water over time during rainfall?</strong>
+A. It increases steadily
+B. It stays the same
+C. It absorbs more as it becomes wetter
+D. It starts fast but slows down as the soil fills up
+Correct Answer: D</p>
+<p><strong>3. What are some of the key factors the Green-Ampt model considers?</strong>
+A. Wind speed, soil color, and cloud type
+B. Temperature, sunlight, and evaporation rate
+C. Soil dryness, water movement speed, and how tightly soil holds water
+D. Slope angle, vegetation height, and rainfall duration
+Correct Answer: C</p>
+<p><strong>4. Who uses the Green-Ampt model, according to the essay?</strong>
+A. Astronauts and deep sea divers
+B. Teachers and students
+C. Engineers and farmers
+D. Lawyers and real estate agents
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which of the following best describes the infiltration capacity curve predicted by the Green-Ampt model?</strong>
+A. Constant over time regardless of soil moisture
+B. Exponentially increasing as time progresses
+C. Initially high and decreases over time as the soil becomes saturated
+D. A flat line indicating no infiltration
+Correct Answer: C</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-evapotranspiration-and-the-water-cycle">
+<h1>Quiz: Evapotranspiration and the Water Cycle<a class="headerlink" href="#quiz-evapotranspiration-and-the-water-cycle" title="Link to this heading">#</a></h1>
+<p><strong>1. What causes evaporation to occur in a puddle on a sunny day?</strong>
+A. The puddle is absorbed by the soil
+B. The water molecules collect energy from the sun and change into vapor
+C. Wind blows the puddle away
+D. Nearby plants drink all the water
+Correct Answer: B</p>
+<p><strong>2. How does transpiration differ from evaporation?</strong>
+A. It happens only at night
+B. It occurs when plants release water vapor through tiny openings
+C. It involves freezing water into crystals
+D. It turns vapor back into liquid
+Correct Answer: B</p>
+<p><strong>3. What is evapotranspiration?</strong>
+A. The process of boiling water into vapor
+B. The combination of evaporation and transpiration returning water to the atmosphere
+C. The cycle of water melting and freezing
+D. The filtering of water through rocks and soil
+Correct Answer: B</p>
+<p><strong>4. When is evapotranspiration most active?</strong>
+A. On cold, cloudy days
+B. During heavy snowfall
+C. On warm, sunny, or breezy days
+D. In underground aquifers
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which instrument is commonly used to estimate evapotranspiration in agricultural or research settings?</strong>
+A. Barometer
+B. Lysimeter
+C. Rain gauge
+D. Anemometer
+Correct Answer: B</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-understanding-baseflow-in-rivers">
+<h1>Quiz: Understanding Baseflow in Rivers<a class="headerlink" href="#quiz-understanding-baseflow-in-rivers" title="Link to this heading">#</a></h1>
+<p><strong>1. What analogy is used to explain baseflow in the essay?</strong>
+A. A leaky roof during a storm
+B. A bathtub with the faucet turned off but still dripping water down the drain
+C. A sponge soaking up rainwater
+D. A car slowly leaking oil
+Correct Answer: B</p>
+<p><strong>2. What is baseflow primarily made of?</strong>
+A. Rainwater from recent storms
+B. Water evaporated from the surface
+C. Groundwater seeping from soil and rocks
+D. Water that spills over from nearby lakes
+Correct Answer: C</p>
+<p><strong>3. Why is baseflow important when engineers design bridges or dams?</strong>
+A. It keeps fish away from structures
+B. It helps predict air pollution
+C. It ensures water flow is not underestimated during dry periods
+D. It increases the evaporation rate
+Correct Answer: C</p>
+<p><strong>4. What environmental signal might a drop in baseflow indicate?</strong>
+A. A rise in water temperature
+B. Healthy reforestation
+C. Decreased infiltration due to land use change or deforestation
+D. More frequent rainfall events
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which type of streamflow measurement method is best suited for observing baseflow conditions?</strong>
+A. Velocity-area method during peak flood
+B. Staff gauge only
+C. Manual low-flow discharge measurement during dry periods
+D. Radar-based rainfall estimation
+Correct Answer: C</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-understanding-idf-curves">
+<h1>Quiz: Understanding IDF Curves<a class="headerlink" href="#quiz-understanding-idf-curves" title="Link to this heading">#</a></h1>
+<p><strong>1. In the essay, what analogy is used to help explain IDF curves?</strong>
+A. Running a marathon in changing weather
+B. Making a weather forecast using clouds
+C. Operating an ice cream shop with varying crowd sizes
+D. Building a sponge to soak up water
+Correct Answer: C</p>
+<p><strong>2. What does the “I” in IDF stand for?</strong>
+A. Ice
+B. Infiltration
+C. Intensity
+D. Interval
+Correct Answer: C</p>
+<p><strong>3. Why do engineers use IDF curves when designing storm drains or streets?</strong>
+A. To estimate average annual rainfall
+B. To predict how sunny the day will be
+C. To prepare for strong storms that happen infrequently
+D. To reduce evaporation rates
+Correct Answer: C</p>
+<p><strong>4. What could happen if infrastructure is designed without considering the IDF curve?</strong>
+A. More trees will grow
+B. There may be unnecessary repairs due to dryness
+C. Flooding or structural damage may occur
+D. Drainage systems will always work perfectly
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which of the following best describes the relationship between duration and intensity in typical IDF curves?</strong>
+A. Longer durations generally have higher intensities
+B. Shorter durations generally have lower intensities
+C. Intensity remains constant regardless of duration
+D. Shorter durations typically have higher intensities
+Correct Answer: D</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-understanding-streamgages-and-river-monitoring">
+<h1>Quiz: Understanding Streamgages and River Monitoring<a class="headerlink" href="#quiz-understanding-streamgages-and-river-monitoring" title="Link to this heading">#</a></h1>
+<p><strong>1. What is the primary purpose of streamgages, according to the essay?</strong>
+A. To clean rivers and prevent pollution
+B. To entertain tourists with water measurements
+C. To help protect communities from flooding and monitor river behavior
+D. To track fish migration patterns only
+Correct Answer: C</p>
+<p><strong>2. Which organization operates most of the streamgages in the United States?</strong>
+A. NOAA
+B. The EPA
+C. The USGS (U.S. Geological Survey)
+D. FEMA
+Correct Answer: C</p>
+<p><strong>3. How do streamgages convert river height (stage) into flow rate (discharge)?</strong>
+A. By applying a fixed national formula
+B. By measuring temperature and pressure
+C. By establishing a site-specific relationship using velocity and cross-section data
+D. By using satellite images of riverbanks
+Correct Answer: C</p>
+<p><strong>4. Why is streamgage data sometimes marked “provisional”?</strong>
+A. Because it’s collected by volunteers
+B. Because the data is unverified until reviewed for accuracy
+C. Because the equipment is manually operated
+D. Because the data is not stored digitally
+Correct Answer: B</p>
+<p><strong>5. (Domain knowledge) What instrument is commonly used to measure stream velocity in large rivers where wading isn’t feasible?</strong>
+A. Pitot tube
+B. Lysimeter
+C. Acoustic Doppler current profiler (ADCP)
+D. Rain gauge
+Correct Answer: C</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-groundwater-basics">
+<h1>Quiz: Groundwater Basics<a class="headerlink" href="#quiz-groundwater-basics" title="Link to this heading">#</a></h1>
+<p><strong>1. Where is most of the Earth’s freshwater stored, according to the essay?</strong>
+A. Rivers and lakes
+B. Clouds and atmosphere
+C. Glaciers and underground as groundwater
+D. Oceans and estuaries
+Correct Answer: C</p>
+<p><strong>2. What is the best analogy used in the essay to describe how underground aquifers store water?</strong>
+A. A sealed container
+B. A flowing pipe
+C. A sponge with water in its pores and cracks
+D. A bathtub that overflows
+Correct Answer: C</p>
+<p><strong>3. How does water enter the underground groundwater system?</strong>
+A. Only through man-made wells
+B. By flowing up from magma chambers
+C. Through precipitation infiltrating sponge-like soil and from rivers and lakes with permeable beds
+D. Through condensation beneath the surface
+Correct Answer: C</p>
+<p><strong>4. What happens when the surface level of an underground lake intersects with the ground surface?</strong>
+A. A well must be drilled
+B. Groundwater disappears into space
+C. A spring forms, either flowing or pooling depending on terrain
+D. A sinkhole opens up
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which subsurface layer prevents groundwater from moving further downward due to its low permeability?</strong>
+A. Aquifer
+B. Vadose zone
+C. Capillary fringe
+D. Aquitard
+Correct Answer: D</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-pervious-vs-impervious-surfaces">
+<h1>Quiz: Pervious vs. Impervious Surfaces<a class="headerlink" href="#quiz-pervious-vs-impervious-surfaces" title="Link to this heading">#</a></h1>
+<p><strong>1. What is the main characteristic of a pervious surface?</strong>
+A. It traps water on the surface
+B. It prevents erosion entirely
+C. It allows water to seep into the soil below
+D. It reflects sunlight to reduce heat
+Correct Answer: C</p>
+<p><strong>2. Which of the following is an example of an impervious surface?</strong>
+A. Grass lawn
+B. Pervious concrete
+C. Gravel path
+D. Asphalt road
+Correct Answer: D</p>
+<p><strong>3. Why are pervious surfaces important in stormwater management?</strong>
+A. They eliminate the need for drainage systems
+B. They increase the speed of runoff
+C. They reduce flooding risk by allowing water to infiltrate
+D. They harden under rain and form a waterproof seal
+Correct Answer: C</p>
+<p><strong>4. What problem was mentioned as occurring on the essay writer’s campus due to impervious surfaces?</strong>
+A. Dust storms
+B. Excess vegetation growth
+C. Flooding during storms
+D. Poor water quality in drinking fountains
+Correct Answer: C</p>
+<p><strong>5. (Domain knowledge) Which of the following best describes a design strategy that uses pervious surfaces and vegetation to manage urban runoff?</strong>
+A. Watershed compaction
+B. Gray infrastructure retrofitting
+C. Green infrastructure
+D. Subsurface grouting
+Correct Answer: C</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="quiz-understanding-curve-numbers">
+<h1>Quiz: Understanding Curve Numbers<a class="headerlink" href="#quiz-understanding-curve-numbers" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>What real-life analogy is used in the essay to explain how different surfaces handle water?
+A. A sponge and a brick wall
+B. A thick towel and a kitchen counter
+C. A garden hose and a storm drain
+D. A bucket and a sponge
+Correct Answer: B</p></li>
+<li><p>What does a low curve number (e.g., 40) indicate?
+A. The surface reflects most of the rain
+B. The surface generates high runoff
+C. The surface is very good at absorbing water
+D. The surface is likely made of concrete
+Correct Answer: C</p></li>
+<li><p>Why do engineers use curve numbers in stormwater planning?
+A. To determine how much sunlight the area receives
+B. To calculate rainfall evaporation
+C. To estimate how much rain will become runoff and assess flood risk
+D. To find the chemical composition of soil
+Correct Answer: C</p></li>
+<li><p>What would a high curve number (e.g., 90) suggest about an area?
+A. It has many trees and plants
+B. It is flat and dry
+C. It has impervious surfaces like streets or parking lots
+D. It absorbs water slowly over days
+Correct Answer: C</p></li>
+<li><p>(Domain knowledge)
+Which land cover type typically has the lowest curve number (most infiltration potential) when dry and in good condition?
+A. Open water
+B. Urban sidewalk
+C. Forest with good ground cover
+D. Paved parking lot
+Correct Answer: C</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./exercises/00-ELI5Prompts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quiz: How a Hydrograph Tells the Story of a Storm</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-infiltration">Quiz: Understanding Infiltration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-why-we-use-the-rational-method">Quiz: Why We Use the Rational Method</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-the-green-ampt-model">Quiz: Understanding the Green-Ampt Model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-evapotranspiration-and-the-water-cycle">Quiz: Evapotranspiration and the Water Cycle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-baseflow-in-rivers">Quiz: Understanding Baseflow in Rivers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-idf-curves">Quiz: Understanding IDF Curves</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-streamgages-and-river-monitoring">Quiz: Understanding Streamgages and River Monitoring</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-groundwater-basics">Quiz: Groundwater Basics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-pervious-vs-impervious-surfaces">Quiz: Pervious vs. Impervious Surfaces</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-understanding-curve-numbers">Quiz: Understanding Curve Numbers</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
