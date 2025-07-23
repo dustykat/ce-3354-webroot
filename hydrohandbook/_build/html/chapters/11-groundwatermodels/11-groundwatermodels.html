@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/11-groundwatermodels/11-groundwatermodels';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12. Placeholder" href="../12-placeholder/12-placeholder.html" />
     <link rel="prev" title="10. Well Hydraulics &amp; Groundwater Management" href="../10-wellhydraulics/10-wellhydraulics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Spreadsheet Hydrology
+                    Engineering Hydrology
                 </a>
             </li>
         </ul>
@@ -211,8 +212,19 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../10-wellhydraulics/10-wellhydraulics.html">10. Well Hydraulics &amp; Groundwater Management</a></li>
+
+
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Groundwater Modeling</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../12-placeholder/12-placeholder.html">12. Placeholder</a></li>
 
 
 
@@ -415,11 +427,8 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11. Groundwater Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling">Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling">Importance of Leveraging Python for Automation and Customization in Groundwater Modeling</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling">Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling">Importance of Leveraging Python for Automation and Customization in Groundwater Modeling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration-of-modflow-6">Installation and Configuration of MODFLOW 6</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modflow-6-and-modelmuse-a-usgs-supplied-gui">MODFLOW 6 and ModelMUSE (a USGS supplied GUI)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modflow-6-and-groundwater-vistas-a-commercial-gui">MODFLOW 6 and Groundwater Vistas (a Commercial GUI)</a><ul class="nav section-nav flex-column">
@@ -484,27 +493,23 @@ document.write(`
 <li><p><a class="reference external" href="https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models">FloPy: Python Package for Creating, Running, and Post-Processing MODFLOW-Based Models </a></p></li>
 <li><p><a class="reference external" href="https://modflow6-examples.readthedocs.io/en/master/_notebooks/ex-gwt-mt3dms-p09.html">MT3DMS Problem 9 (On-line documentation for MT3D)</a></p></li>
 <li><p><a class="reference external" href="https://pubs.usgs.gov/tm/06/a61/tm6a61.pdf">MODFLOW6 Transport Model Documentation</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/AWRA_WRB_1996/AWRA_WRB_1996.pdf">Bravo,R., Rogers, J.R., and T.G. Cleveland, 1996. ``Modeling Groundwater Flow using Flux Boundary Conditions.’’ Water Resources Bulletin, Vol 32., No. 1, pp 39-46</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/optimal_tracer_asce_1991/optimal_tracer_asce_1991.pdf">Cleveland, T.G. and W. W-G. Yeh, 1991. Optimal Configuration and Scheduling of a Groundwater Tracer Test, Journal of Water Resources Planning and Management, American Society of Civil Engineers, Vol. 117, No. 1, pp 37-51.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/ASCE_JWRPM_1990A/ASCE_JWRPM_1990A.pdf">Cleveland, T.G. and W. W-G. Yeh, 1990. Sampling Network Design for Transport Parameter Identification, Journal of Water Resources Planning and Management, American Society of Civil Engineers, Vol. 116, No. 6, pp 764-782.</a></p></li>
 </ol>
 </section>
 <section id="videos">
 <h2>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h2>
 </section>
-<section id="outline">
-<h2>Outline<a class="headerlink" href="#outline" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Introduction</p></li>
-<li><p>Installation and Configuration of MODFLOW 6</p></li>
-</ul>
 <section id="overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling">
-<h3>Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.<a class="headerlink" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling" title="Link to this heading">#</a></h3>
+<h2>Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.<a class="headerlink" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling" title="Link to this heading">#</a></h2>
 <p>MODFLOW 6 is a powerful and flexible software for simulating groundwater flow, supporting modular approaches to incorporate various physical processes, including contaminant transport. When combined with Python, particularly using libraries like flopy, the process of setting up, running, and analyzing MODFLOW models becomes more efficient and customizable. Python’s role extends beyond automation, enabling seamless integration of transport modeling, advanced data handling, and real-time visualization of contaminant movement within groundwater systems.</p>
 </section>
 <section id="importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling">
-<h3>Importance of Leveraging Python for Automation and Customization in Groundwater Modeling<a class="headerlink" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling" title="Link to this heading">#</a></h3>
+<h2>Importance of Leveraging Python for Automation and Customization in Groundwater Modeling<a class="headerlink" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling" title="Link to this heading">#</a></h2>
 <p>Python has become an essential tool in groundwater modeling due to its flexibility, ease of use, and ability to streamline complex workflows. When working with models like MODFLOW 6, creating and managing input files manually can be a tedious and error-prone process, particularly for large or multi-scenario simulations. Python allows us to automate these repetitive tasks efficiently. For instance, using libraries like <code class="docutils literal notranslate"><span class="pre">flopy</span></code>, we can automate the generation, manipulation, and validation of input files, significantly reducing the time required to set up models.</p>
 <p>Beyond automation, Python also enables a high degree of customization. Groundwater models often require unique configurations tailored to specific environmental conditions or project objectives. With Python, we can write custom scripts to modify model parameters, handle boundary conditions dynamically, or integrate external datasets, such as real-time hydrological data or geospatial information. This customization not only saves time but also enhances the accuracy and flexibility of the model, making it easier to adapt to changing project needs.</p>
 <p>Moreover, Python’s vast ecosystem of libraries (like <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>) supports advanced data analysis and visualization, allowing engineers and scientists to interpret simulation results more effectively. Instead of manually reviewing raw output files, Python can be used to automate the extraction of key metrics, generate plots, and even create animated visualizations of flow and contaminant transport. This capacity for automation and customization makes Python an invaluable tool for modern groundwater modeling, enabling professionals to focus more on the science and decision-making, rather than the intricacies of file management and data processing.</p>
-</section>
 </section>
 <section id="installation-and-configuration-of-modflow-6">
 <h2>Installation and Configuration of MODFLOW 6<a class="headerlink" href="#installation-and-configuration-of-modflow-6" title="Link to this heading">#</a></h2>
@@ -986,15 +991,17 @@ and distribution information.
  
  MODFLOW runs in SEQUENTIAL mode
  
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2025/07/18 16:52:19
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2025/07/23 20:05:23
  
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
  
     Solving:  Stress period:     1    Time step:     1
- 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2025/07/18 16:52:19
- Elapsed run time:  0.036 Seconds
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2025/07/23 20:05:23
+ Elapsed run time:  0.128 Seconds
  
  Normal termination of simulation.
 </pre></div>
@@ -2185,6 +2192,15 @@ Minimum Head is: -552.3  meters
         <p class="prev-next-title">10. Well Hydraulics &amp; Groundwater Management</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../12-placeholder/12-placeholder.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">12. Placeholder</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -2204,11 +2220,8 @@ Minimum Head is: -552.3  meters
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11. Groundwater Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#readings">Readings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outline">Outline</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling">Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling">Importance of Leveraging Python for Automation and Customization in Groundwater Modeling</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-modflow-6-and-python-s-role-in-contaminant-transport-modeling">Overview of MODFLOW 6 and Python’s role in contaminant transport modeling.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-of-leveraging-python-for-automation-and-customization-in-groundwater-modeling">Importance of Leveraging Python for Automation and Customization in Groundwater Modeling</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-configuration-of-modflow-6">Installation and Configuration of MODFLOW 6</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modflow-6-and-modelmuse-a-usgs-supplied-gui">MODFLOW 6 and ModelMUSE (a USGS supplied GUI)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modflow-6-and-groundwater-vistas-a-commercial-gui">MODFLOW 6 and Groundwater Vistas (a Commercial GUI)</a><ul class="nav section-nav flex-column">

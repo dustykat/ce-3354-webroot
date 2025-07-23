@@ -57,6 +57,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/10-wellhydraulics/10-wellhydraulics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -210,7 +212,10 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../09-groundwater/09-groundwater.html">9. Groundwater Fundamentals &amp; Flow Equations</a></li>
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Well Hydraulics &amp; Groundwater Management</a></li>
+
 
 
 
@@ -426,20 +431,31 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-hydraulics-pumping-tests">Well Hydraulics &amp; Pumping Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-well-hydraulics">Transient Well Hydraulics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-management-sustainability">Groundwater Management &amp; Sustainability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods">Lab/Exercise: Analyzing pumping test data using Theis and Cooper-Jacob methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-flow-to-wells">23.2 Steady Flow to Wells</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unsteady-flow-in-confined-aquifer-theis-solution">10.1 Unsteady Flow in Confined Aquifer (Theis Solution)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferring-equation-structure">Inferring Equation Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-groundwater-flow-equations">Apply Groundwater Flow Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-for-multiple-well-impacts-at-an-arbitrary-field-point">Superposition for multiple well impacts at an arbitrary field point**</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-superposition-in-time-for-time-varying-pump-rates">Convolution (superposition in time) for time varying pump rates**</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-flow-to-wells">23.3 Transient Flow to Wells</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leaky-confining-layer-hantush-1956-solution">10.2 Leaky Confining Layer (Hantush (1956) Solution)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#situation-set-up-and-mathematical-considerations">Situation Set-Up and Mathematical Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leakance-considerations">Leakance Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">Mathematical Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">23.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leaky-confined-with-storage-in-the-confining-layer">10.3 Leaky Confined (with storage in the confining layer)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Situation Set-Up and Mathematical Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Leakance Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Mathematical Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">10.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
@@ -466,6 +482,13 @@ document.write(`
 <li><p><a class="reference external" href="https://3.137.111.182/documents/about-me/MyWebPapers/journal_papers/type_curve_jgw_1996/type_curve_jgw_1996.pdf">Cleveland, T.G., 1996. ”Type-Curve Analysis using a Computer Spreadsheet,” Ground Water, Vol. 34, No. 3.</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/3-Readings/CaptureZones/Capture.PDF">Capture Zone Type Curves - Javandel and Tsang (1986)</a></p></li>
 <li><p><a class="reference external" href="http://54.243.252.9/ce-3354-webroot/1-Lectures-2017/Lecture24.pdf">Cleveland, T. G. (2017) <em>Engineering Hydrology Notes (Contaminant Transport and Numerical Modeling) to accompany CE-3354</em>, Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/08gwflow2wells/Lecture009.PDF">Cleveland, T.G., (2001) <em>Groundwater Hydrology - Lecture 009</em> Lecture Notes to accompany CE 6361 at the University of Houston</a></p></li>
+<li><p><a class="reference external" href="https://pubs.usgs.gov/twri/twri3-b3/pdf/TWRI_3-B3.pdf">TWRI BOOK 3 Chapter B3 TYPE CURVES FOR SELECTED PROBLEMS OF FLOW TO WELLS IN CONFINED AQUIFERS</a></p></li>
+<li><p><a class="reference external" href="https://water.usgs.gov/ogw/pubs/Theis-1935.pdf">Theis, C.V. (1935). “The relation between the lowering of the piezometric surface and the rate and duration of discharge of a well using ground-water storage.” Transactions, American Geophysical Union, 16(2), 519–524.</a></p></li>
+<li><p><a class="reference external" href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/TR027i004p00526">Cooper, H.H., and Jacob, C.E. (1946). “A generalized graphical method for evaluating formation constants and summarizing well-field history.” <em>Transactions, American Geophysical Union</em>, 27(4), 526–534.</a></p></li>
+<li><p><a class="reference external" href="https://pubs.usgs.gov/circ/1999/1182/report.pdf">Galloway, D., et al. (1999). “Land subsidence in the United States.” U.S. Geological Survey Circular 1182.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/specific_storage_jawa_1992/specific_storage_jawa_1992.pdf">Cleveland, T.G., R. Bravo, and J.R. Rogers, 1992. Specific Storage and Hydraulic Conductivities Using Extensometer and Hydrograph Data, Ground Water, Vol. 30, No. 5, pp 701-708.</a></p></li>
+<li><p><a class="reference external" href="https://www.pnas.org/doi/epdf/10.1073/pnas.1200311109">Scanlon, B.R., et al. (2012). “Groundwater depletion and sustainability of irrigation in the U.S. High Plains and Central Valley.” <em>PNAS</em>, 109(24), 9320–9325.</a></p></li>
 </ol>
 </section>
 <section id="videos">
@@ -489,84 +512,261 @@ document.write(`
 </section>
 <section id="well-hydraulics-pumping-tests">
 <h2>Well Hydraulics &amp; Pumping Tests<a class="headerlink" href="#well-hydraulics-pumping-tests" title="Link to this heading">#</a></h2>
+<p>Understanding how groundwater responds to pumping is a foundational skill in hydrogeology and water resource engineering. This section focuses on idealized analytical models that provide valuable insights into how aquifers behave when stressed by wells.</p>
 <ul class="simple">
-<li><p>Cone of depression and drawdown</p></li>
-<li><p>Theis and Thiem equations for well analysis</p></li>
-<li><p>Groundwater recharge and depletion issues</p></li>
+<li><p>Cone of Depression and Drawdown
+When a well begins to pump water from an aquifer, the water level near the well drops, forming a cone-shaped surface in the water table or potentiometric surface. This ‘cone of depression’ reflects the declining hydraulic head, and the vertical distance between the pre-pumping level and the current water level is termed drawdown. Understanding drawdown is essential to assess well interference, sustainability, and required pump energy.</p></li>
+<li><p>Theis and Thiem Equations for Well Analysis
+The Thiem equation is used for steady-state radial flow to a well in a confined aquifer and assumes pumping has been occurring long enough for conditions to stabilize (<em>the solution was derived in prior lesson</em>). In contrast, the Theis solution (<em>derived below</em>) handles transient conditions, where drawdown changes over time. These models help interpret pumping test data, a standard practice in aquifer characterization, and help predict aquifer water levels over large time and spatial scales.</p></li>
+<li><p>Groundwater Recharge and Depletion Issues
+Pumping alters the natural balance between recharge (inflow) and discharge (outflow). If withdrawal exceeds long-term recharge, depletion occurs, resulting in declining water levels and potential impacts on streams, ecosystems, and surface infrastructure. Sustainable well design requires not just solving equations, but understanding how those equations relate to aquifer capacity and regional water budgets.</p></li>
 </ul>
 </section>
 <section id="transient-well-hydraulics">
 <h2>Transient Well Hydraulics<a class="headerlink" href="#transient-well-hydraulics" title="Link to this heading">#</a></h2>
+<p>Transient models allow us to predict how aquifers behave during the early stages of pumping or recovery after stress has been removed. These models help engineers and scientists interpret the <strong>time dimension</strong> of aquifer response, which is critical for both design and regulation.</p>
 <ul class="simple">
-<li><p>Theis solution for transient flow to a well</p></li>
-<li><p>Concept of storativity and time-dependent drawdown</p></li>
-<li><p>Cooper-Jacob approximation for late-time drawdown</p></li>
+<li><p><strong>Theis Solution for Transient Flow to a Well</strong><br />
+The Theis solution assumes a homogeneous, isotropic confined aquifer and applies a line-source analogy to describe drawdown as a function of time and radial distance from the well.   The solution includes the exponential integral function, which is handled numerically in most practical settings. While the assumptions are idealized, the Theis model remains a workhorse for <strong>short-term test interpretation</strong>.</p></li>
+<li><p><strong>Concept of Storativity and Time-Dependent Drawdown</strong><br />
+<em>Storativity</em> (or <em>storage coefficient</em>) is a dimensionless measure of how much water an aquifer releases (or stores) per unit decline in head.   It’s essential in transient analysis because it controls <strong>how quickly drawdown spreads</strong>. Confined aquifers have very small storativity values, often &lt; 0.005,   while unconfined aquifers have values closer to specific yield (0.1–0.3).</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When analyzing pumping test data, early-time behavior reveals transmissivity, while late-time trends inform storativity.</p>
+</div>
+<ul class="simple">
+<li><p><strong>Cooper-Jacob Approximation for Late-Time Drawdown</strong><br />
+The <strong>Cooper-Jacob</strong> method is a simplified version of the Theis solution, valid for late-time data where the exponential integral can be linearized.   This approximation turns the drawdown-time relationship into a straight line on a semi-log plot, simplifying parameter estimation.   It is widely used in the field due to its practical ease and good agreement with late-time observations.</p></li>
 </ul>
 </section>
 <section id="groundwater-management-sustainability">
 <h2>Groundwater Management &amp; Sustainability<a class="headerlink" href="#groundwater-management-sustainability" title="Link to this heading">#</a></h2>
+<p>Beyond the equations lies the real-world challenge of using groundwater resources responsibly. Modern groundwater management blends hydrogeologic modeling with legal, ecological, and socioeconomic factors.</p>
 <ul class="simple">
-<li><p>Overdraft, subsidence, and long-term water balance</p></li>
-<li><p>Groundwater protection and contamination risks</p></li>
-<li><p>Case studies of aquifer depletion and management strategies</p></li>
+<li><p><strong>Overdraft, Subsidence, and Long-Term Water Balance</strong><br />
+<em>Overdraft</em> occurs when pumping exceeds natural recharge over long timeframes. This can lead to <strong>aquifer compaction and land subsidence</strong>,   especially in compressible formations like clays. Once compacted, the aquifer loses storage capacity permanently. Long-term planning involves creating <strong>water budgets</strong>   that match human demands with safe yields to avoid irreversible damage.</p></li>
+<li><p><strong>Groundwater Protection and Contamination Risks</strong><br />
+Groundwater is vulnerable to contamination from surface spills, leaky tanks, septic systems, and agricultural runoff.   Unlike surface water, contaminated aquifers may take decades or centuries to recover due to slow natural attenuation.   Engineering design must consider <strong>setbacks</strong>, <strong>wellhead protection zones</strong>, and <strong>monitoring programs</strong> to safeguard these resources.</p></li>
+<li><p><strong>Case Studies of Aquifer Depletion and Management Strategies</strong><br />
+Examples from the <strong>Ogallala Aquifer</strong> (Great Plains) and the <strong>Central Valley of California</strong> show both the consequences of unsustainable use   and the potential of management tools like <strong>managed aquifer recharge (MAR)</strong>, <strong>regulated pumping</strong>, and <strong>market-based allocations</strong>.   Engineers must balance short-term needs with long-term aquifer health.</p></li>
 </ul>
 </section>
-<section id="lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods">
-<h2>Lab/Exercise: Analyzing pumping test data using Theis and Cooper-Jacob methods<a class="headerlink" href="#lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods" title="Link to this heading">#</a></h2>
 </section>
-<section id="lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">
-<h2>Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction<a class="headerlink" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="unsteady-flow-in-confined-aquifer-theis-solution">
+<h1>10.1 Unsteady Flow in Confined Aquifer (Theis Solution)<a class="headerlink" href="#unsteady-flow-in-confined-aquifer-theis-solution" title="Link to this heading">#</a></h1>
+<p>There are two ways to proceede - just apply the groundwater flow equatrions or use a plasuibility argument to infer what solutions might look like.</p>
+<section id="inferring-equation-structure">
+<h2>Inferring Equation Structure<a class="headerlink" href="#inferring-equation-structure" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/f2w-001.png" /></p>
+<p><img alt="" src="../../_images/f2w-002.png" /></p>
+<p><img alt="" src="../../_images/f2w-003.png" /></p>
+<p><img alt="" src="../../_images/f2w-004.png" /></p>
+<p><img alt="" src="../../_images/f2w-005.png" /></p>
+<p><img alt="" src="../../_images/f2w-006.png" /></p>
+<p><img alt="" src="../../_images/f2w-007.png" /></p>
+<p><img alt="" src="../../_images/f2w-008.png" /></p>
+<p><img alt="" src="../../_images/f2w-009.png" /></p>
+<p><img alt="" src="../../_images/f2w-010.png" /></p>
 </section>
+<section id="apply-groundwater-flow-equations">
+<h2>Apply Groundwater Flow Equations<a class="headerlink" href="#apply-groundwater-flow-equations" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/cf2well001.png" /></p>
+<p><img alt="" src="../../_images/cf2well002.png" /></p>
+<p><img alt="" src="../../_images/cf2well003.png" /></p>
+<p><img alt="" src="../../_images/cf2well004.png" /></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="steady-flow-to-wells">
-<h1>23.2 Steady Flow to Wells<a class="headerlink" href="#steady-flow-to-wells" title="Link to this heading">#</a></h1>
-<section id="topics">
-<h2>Topics<a class="headerlink" href="#topics" title="Link to this heading">#</a></h2>
+<section id="superposition-for-multiple-well-impacts-at-an-arbitrary-field-point">
+<h2>Superposition for multiple well impacts at an arbitrary field point**<a class="headerlink" href="#superposition-for-multiple-well-impacts-at-an-arbitrary-field-point" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/cf2well005.png" /></p>
+<p><img alt="" src="../../_images/cf2well006.png" /></p>
+</section>
+<section id="convolution-superposition-in-time-for-time-varying-pump-rates">
+<h2>Convolution (superposition in time) for time varying pump rates**<a class="headerlink" href="#convolution-superposition-in-time-for-time-varying-pump-rates" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/cf2well007.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sc</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">expn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">):</span> <span class="c1"># Drawdown function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">((</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">((</span><span class="n">discharge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">transmissivity</span><span class="p">))</span><span class="o">*</span><span class="n">W</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example to illustrate the homebrew script.  The relevant problem parameters are:</p>
 <ul class="simple">
-<li><p>Steady flow to well</p>
-<ul>
-<li><p>Confined</p></li>
-<li><p>Unconfined</p></li>
+<li><p><span class="math notranslate nohighlight">\(K = 14.9 m/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = 20.1 m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T = Kb = 299 m^2/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S = 0.0051\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_w = 2725 m^3/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 7.0 m \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t = 1 d\)</span></p></li>
 </ul>
-</li>
-<li><p>Superposition to represent</p>
-<ul>
-<li><p>Multiple wells</p></li>
-<li><p>Aquifer Boundaries</p></li>
-</ul>
-</li>
-</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span><span class="o">=</span><span class="mf">7.0</span>
+<span class="n">time</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">storage</span><span class="o">=</span><span class="mf">0.0051</span>
+<span class="n">transmissivity</span><span class="o">=</span><span class="mi">299</span>
+<span class="n">discharge</span><span class="o">=</span><span class="mi">2725</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawdown is &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span><span class="s2">&quot; meters&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drawdown is  5.73  meters
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="transient-flow-to-wells">
-<h1>23.3 Transient Flow to Wells<a class="headerlink" href="#transient-flow-to-wells" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="leaky-confining-layer-hantush-1956-solution">
+<h1>10.2 Leaky Confining Layer (Hantush (1956) Solution)<a class="headerlink" href="#leaky-confining-layer-hantush-1956-solution" title="Link to this heading">#</a></h1>
+<section id="situation-set-up-and-mathematical-considerations">
+<h2>Situation Set-Up and Mathematical Considerations<a class="headerlink" href="#situation-set-up-and-mathematical-considerations" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/leaky-nostore1.png" /></p>
+</section>
+<section id="leakance-considerations">
+<h2>Leakance Considerations<a class="headerlink" href="#leakance-considerations" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/leakance.png" /></p>
+</section>
+<section id="mathematical-model">
+<h2>Mathematical Model<a class="headerlink" href="#mathematical-model" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/mathmodel.png" /></p>
+</section>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/hantush.png" /></p>
+<p><a class="reference external" href="https://pubs.usgs.gov/twri/twri3-b3/pdf/TWRI_3-B3.pdf">TWRI BOOK 3 Chapter B3 TYPE CURVES FOR SELECTED PROBLEMS OF FLOW TO WELLS IN CONFINED AQUIFERS (go to pg. 21)</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wh</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span> <span class="c1"># Hantush Leaky aquifer well function</span>
+    <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns Hantush&#39;s well function values</span>
+
+<span class="sd">    Note: works only for scalar values of u and rho</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    u : scalar  (u= r^2 * S / (4 * kD * t))</span>
+<span class="sd">    rho : sclaar (rho =r / lambda, lambda = sqrt(kD * c))</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    Wh(u, rho) : Hantush well function value for (u, rho)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">rho</span> <span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;u and rho must be scalars.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">()</span>
+
+    <span class="n">LOGINF</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">LOGINF</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="n">ym</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span>  <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">wh</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ym</span> <span class="o">-</span> <span class="p">(</span><span class="n">rho</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ym</span> <span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="n">ym</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wh</span>
+
+<span class="n">wh</span><span class="p">(</span><span class="mf">0.625</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example to illustrate homebrew script</p>
+<p>The relevant problem parameters are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K = 0.73 m/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = 5.2 m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T = Kb = 3.8 m^2/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S = 0.0035\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_w = 28 m^3/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b' = 1.1 m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K'_v = 5.5 \times 10^{-5} m/d\)</span></p></li>
+</ul>
+<p>Notice in the example the author tests some requesite assumptions before proceeding to look up values in a table (also a good idea here, but we will just be lazy and apply the script)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">leaky</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">,</span><span class="n">leakance</span><span class="p">):</span> <span class="c1"># Leaky drawdown function using Hantush solution</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">((</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">roB</span> <span class="o">=</span> <span class="n">radius</span><span class="o">/</span><span class="n">leakance</span>
+    <span class="n">leaky</span> <span class="o">=</span> <span class="p">((</span><span class="n">discharge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">transmissivity</span><span class="p">))</span><span class="o">*</span><span class="n">wh</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">roB</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">leaky</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">radius</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">150</span><span class="p">]</span>
+<span class="n">ddn</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">radius</span><span class="p">))]</span> <span class="c1"># list of zeros to hold results</span>
+<span class="c1"># simulation constants</span>
+<span class="n">time</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 1 day</span>
+<span class="n">transmissivity</span> <span class="o">=</span> <span class="mf">3.8</span>
+<span class="n">storage</span> <span class="o">=</span> <span class="mf">0.0035</span>
+<span class="n">discharge</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">bprime</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">Kvert</span> <span class="o">=</span> <span class="mf">5.5e-05</span>
+<span class="c1"># computed constants</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">bprime</span><span class="p">)</span><span class="o">/</span><span class="n">Kvert</span><span class="p">)</span>
+<span class="c1"># compute the drawdowns</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">radius</span><span class="p">)):</span>
+    <span class="n">ddn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">leaky</span><span class="p">(</span><span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="c1"># print results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;radius    drawdown   &quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">radius</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">1</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">ddn</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>radius    drawdown   
+1.5 4.089
+5.5 2.57
+10 1.879
+25 0.874
+75 0.079
+150 0.001
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="leaky-confined-with-storage-in-the-confining-layer">
+<h1>10.3 Leaky Confined (with storage in the confining layer)<a class="headerlink" href="#leaky-confined-with-storage-in-the-confining-layer" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h2>Topics<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Unsteady flow to a well</p>
-<ul>
-<li><p>Confined (Theis Solution)</p></li>
-</ul>
-</li>
-<li><p>Superposition</p>
-<ul>
-<li><p>Multiple wells</p></li>
-<li><p>Aquifer Boundaries</p></li>
-</ul>
-</li>
-<li><p>Convolution</p>
-<ul>
-<li><p>Time-varying pumping rates</p></li>
-</ul>
-</li>
-<li><p>Leaky (Hantush Solution)</p></li>
-</ul>
+<h2>Situation Set-Up and Mathematical Considerations<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/leakywithstor.png" /></p>
+</section>
+<section id="id2">
+<h2>Leakance Considerations<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/leakancestor.png" /></p>
+</section>
+<section id="id3">
+<h2>Mathematical Model<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p><img alt="" src="../../_images/leakstormathmodel.png" /></p>
+</section>
+<section id="id4">
+<h2>Solutions<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pubs.usgs.gov/twri/twri3-b3/pdf/TWRI_3-B3.pdf">TWRI BOOK 3 Chapter B3 TYPE CURVES FOR SELECTED PROBLEMS OF FLOW TO WELLS IN CONFINED AQUIFERS (go to pg. 28)</a></p>
+<p>Usually solutions are approximated for early-time, mid-time, and late-time behavior and use combinations of Theis solutions and finite-term series.  The actual integral can certainly be evaluated if needed, but modern (circa-2023) approaches would probably be to finite-difference the crap out of things and take the numerical solution as good enough!</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="constituient-transport">
-<h1>23.4 Constituient Transport<a class="headerlink" href="#constituient-transport" title="Link to this heading">#</a></h1>
-<section id="id2">
-<h2>Topics<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h1>10.4 Constituient Transport<a class="headerlink" href="#constituient-transport" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Subsurface Contaminant Hydrology</p>
 <ul>
@@ -576,6 +776,15 @@ document.write(`
 </ul>
 </li>
 </ul>
+<section id="exercise-s">
+<h2>Exercise(s)<a class="headerlink" href="#exercise-s" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Autobuild exercise set</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="section-end">
 <h2>Section End<a class="headerlink" href="#section-end" title="Link to this heading">#</a></h2>
@@ -653,20 +862,31 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#well-hydraulics-pumping-tests">Well Hydraulics &amp; Pumping Tests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-well-hydraulics">Transient Well Hydraulics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groundwater-management-sustainability">Groundwater Management &amp; Sustainability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-analyzing-pumping-test-data-using-theis-and-cooper-jacob-methods">Lab/Exercise: Analyzing pumping test data using Theis and Cooper-Jacob methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-exercise-pumping-test-data-analysis-groundwater-modeling-introduction">Lab/Exercise: Pumping test data analysis &amp; groundwater modeling introduction</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-flow-to-wells">23.2 Steady Flow to Wells</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#unsteady-flow-in-confined-aquifer-theis-solution">10.1 Unsteady Flow in Confined Aquifer (Theis Solution)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferring-equation-structure">Inferring Equation Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-groundwater-flow-equations">Apply Groundwater Flow Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#superposition-for-multiple-well-impacts-at-an-arbitrary-field-point">Superposition for multiple well impacts at an arbitrary field point**</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-superposition-in-time-for-time-varying-pump-rates">Convolution (superposition in time) for time varying pump rates**</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-flow-to-wells">23.3 Transient Flow to Wells</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leaky-confining-layer-hantush-1956-solution">10.2 Leaky Confining Layer (Hantush (1956) Solution)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#situation-set-up-and-mathematical-considerations">Situation Set-Up and Mathematical Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leakance-considerations">Leakance Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-model">Mathematical Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">23.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Topics</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#leaky-confined-with-storage-in-the-confining-layer">10.3 Leaky Confined (with storage in the confining layer)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Situation Set-Up and Mathematical Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Leakance Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Mathematical Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#constituient-transport">10.4 Constituient Transport</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-s">Exercise(s)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-end">Section End</a></li>
 </ul>
 </li>
