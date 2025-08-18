@@ -1,0 +1,4 @@
+00033001 ARS Site, Arkansas
+Latitude  36()17'00" 
+Longitude 94()13'00" 
+Drainage area(mi^2) = 0.01567
